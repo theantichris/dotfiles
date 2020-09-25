@@ -7,6 +7,7 @@ fi
 
 export ZSH="/Users/christopherlamm/.oh-my-zsh"
 export PATH="/usr/local/sbin:$PATH"
+export GPG_TTY=$(tty)
 
 ZSH_THEME="risto"
 

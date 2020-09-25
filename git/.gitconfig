@@ -1,0 +1,13 @@
+# This is Git's per-user configuration file.
+[user]
+	signingkey = 287C164F812FE5B8
+	name = Christopher Lamm
+	email = chris@theantichris.com
+[commit]
+	gpgsign = true
+[rerere]
+	enabled = true
+[pull]
+	rebase = true
+[core]
+	excludesfile = /Users/christopherlamm/.gitignore

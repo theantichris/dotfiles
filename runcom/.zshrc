@@ -27,6 +27,7 @@ source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # Aliases
 alias vsc="code ."
+alias rm=trash
 
 # NVM
 export NVM_DIR="$HOME/.nvm"

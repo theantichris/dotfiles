@@ -12,9 +12,6 @@ export PATH="$PATH:/usr/local/sbin:/Users/christopherlamm/go/bin"
 
 export GPG_TTY=$(tty)
 
-sudo chown -R $(whoami) /usr/local/bin /usr/local/lib
-chmod u+w /usr/local/bin /usr/local/lib
-
 COMPLETION_WAITING_DOTS="true"
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
@@ -22,6 +19,7 @@ ZSH_ALIAS_FINDER_AUTOMATIC=true
 
 plugins=(alias-finder copydir copyfile docker docker-compose git golang zsh-autosuggestions zsh-syntax-highlighting)
 
+source $ZSH/oh-my-zsh.sh
 source ~/.iterm2_shell_integration.zsh
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -41,6 +39,3 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-
-# Source oh-my-zsh config
-source $ZSH/oh-my-zsh.sh

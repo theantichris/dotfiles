@@ -12,7 +12,8 @@ export PATH="$PATH:/usr/local/sbin:/Users/christopherlamm/go/bin"
 
 export GPG_TTY=$(tty)
 
-# ZSH_THEME="risto"
+sudo chown -R $(whoami) /usr/local/bin /usr/local/lib
+chmod u+w /usr/local/bin /usr/local/lib
 
 COMPLETION_WAITING_DOTS="true"
 HYPHEN_INSENSITIVE="true"

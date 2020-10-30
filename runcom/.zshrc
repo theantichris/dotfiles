@@ -7,8 +7,8 @@ fi
 
 export ZSH="/Users/christopherlamm/.oh-my-zsh"
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:~/.local/bin"
-export PATH="$PATH:/usr/local/sbin:/Users/christopherlamm/go/bin"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
+export PATH="$PATH:/usr/local/sbin:/Users/christopherlamm/go/bin:$HOME/.local/bin:$HOME/.asdf/bin:$PATH"
 
 export GPG_TTY=$(tty)
 
@@ -33,7 +33,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # asdf
-echo -e "\n. $(brew --prefix asdf)/asdf.sh" >> ~/.zshrc
+. /usr/local/opt/asdf/asdf.sh
+fpath=(${ASDF_DIR}/completions $fpath)
+autoload -Uz compinit
+compinit
 
 # Heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/christopherlamm/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
@@ -42,9 +45,3 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-
-. /usr/local/opt/asdf/asdf.sh
-
-. /usr/local/opt/asdf/asdf.sh
-
-. /usr/local/opt/asdf/asdf.sh

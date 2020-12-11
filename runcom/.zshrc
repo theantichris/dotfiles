@@ -9,7 +9,7 @@ export ZSH="/Users/christopherlamm/.oh-my-zsh"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(alias finder git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(alias-finder git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
@@ -17,6 +17,7 @@ source ~/.iterm2_shell_integration.zsh
 
 # Aliases
 alias rm=trash
+alias vsc="code ."
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

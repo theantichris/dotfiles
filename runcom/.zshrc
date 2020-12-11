@@ -10,7 +10,7 @@ ENABLE_CORRECTION=true
 COMPLETION_WAITING_DOTS=true
 ZSH_ALIAS_FINDER_AUTOMATIC=true
 
-plugins=(alias-finder git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(alias-finder git golang zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme

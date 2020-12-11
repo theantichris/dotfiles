@@ -6,8 +6,9 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/christopherlamm/.oh-my-zsh"
 
-ENABLE_CORRECTION="true"
-COMPLETION_WAITING_DOTS="true"
+ENABLE_CORRECTION=true
+COMPLETION_WAITING_DOTS=true
+ZSH_ALIAS_FINDER_AUTOMATIC=true
 
 plugins=(alias-finder git zsh-autosuggestions zsh-syntax-highlighting)
 

@@ -33,6 +33,8 @@ source ~/.iterm2_shell_integration.zsh
 # Aliases
 alias bi="brew install"
 alias bic="brew install --cask"
+alias dps="docker ps"
+alias dpsa="docker ps -a"
 alias rm=trash
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

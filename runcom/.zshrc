@@ -17,6 +17,8 @@ source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.iterm2_shell_integration.zsh
 
 # Aliases
+alias bi="brew install"
+alias bic="brew install --cask"
 alias rm=trash
 alias vsc="code ."
 

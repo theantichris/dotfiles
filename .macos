@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+# ~/.macos — https://mths.be/macos
+# Modified by Christopher Lamm
+# Run without downloading:
+# curl https://raw.githubusercontent.com/theantichirs/dotfiles/master/.macos | bash
+
+# Close System Preferences panes
+osascript -e 'tell application "System Preferences" to quit'
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Create Code directory
+echo "mkdir -p ${HOME}/Code"
+mkdir -p "${HOME}/Code"
+
+# Install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+# Turn off Homebrew analytics
+export HOMEBREW_NO_ANALYTICS=1
+brew analytics off
+
+# Install Homebrew packages
+brew tap heroku/brew
+brew install act bat gh golang heroku
+
+# Install Node via nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+nvm install node
+
+# Install global NPM packages
+npm install --global fast-cli trash-cli
+
+# Install Homebrew Cask packages
+brew tap homebrew/cask-fonts
+homebrew install --cask 1password alfred clickup discord docker font-fira-code \
+google-chrome google-drive-file-stream gpg-suite iterm2 miro rectangle slack \
+tweetbot visual-studio-code zoom
+
+# Generate RSA token for GitHub
+mkdir -p ~/.ssh
+touch ~/.ssh/config
+ssh-keygen -t ed25519 -C "chris@theantichris.com"
+echo "Host *\n AddKeysToAgent yes\n IdentityFile ~/.ssh/id_ed25519" | tee ~/.ssh/config
+eval "$(ssh-agent -s)"
+ssh-add -K ~/.ssh/id_ed25519
+echo "run 'pbcopy < ~/.ssh/id_ed25519.pub' and paste that into GitHub"

@@ -6,6 +6,6 @@ My dotfile!
 
 1. Clone this repo
 1. Setup the following symlinks:
-    * `ln -sv ~/Code/Personal/dotfiles/runcom/.zshrc ~`
-    * `ln -sv ~/Code/Personal/dotfiles/git/.gitconfig ~`
-    * `ln -sv ~/Code/Personal/dotfiles/git/.gitignore ~`
+    * `ln -sv ~/Code/Personal/dotfiles/.zshrc ~`
+    * `ln -sv ~/Code/Personal/dotfiles/.gitconfig ~`
+    * `ln -sv ~/Code/Personal/dotfiles/.gitignore ~`

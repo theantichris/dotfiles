@@ -46,8 +46,8 @@ brew install act bat gh golang heroku tree yarn
 echo "Installing Casks..."
 brew tap homebrew/cask-fonts
 homebrew install --cask 1password alfred clickup discord docker font-fira-code \
-google-chrome google-drive-file-stream gpg-suite iterm2 miro notion numi \
-rectangle slack timche-gmail-desktop tweetbot visual-studio-code zoom
+google-chrome google-drive-file-stream gpg-suite insomnia iterm2 miro notion \
+numi rectangle slack timche-gmail-desktop tweetbot visual-studio-code zoom
 
 ################################################################################
 # Node                                                                         #

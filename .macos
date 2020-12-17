@@ -40,7 +40,7 @@ brew analytics off
 # Install Homebrew packages
 echo "Installing packages..."
 brew tap heroku/brew
-brew install act bat gh golang heroku tree
+brew install act bat gh golang heroku tree yarn
 
 # Install Homebrew Cask packages
 echo "Installing Casks..."

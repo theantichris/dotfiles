@@ -33,6 +33,7 @@ source ~/.iterm2_shell_integration.zsh
 # Aliases
 alias bi="brew install"
 alias bic="brew install --cask"
+alias bu="brew update && brew upgrade --greedy && brew cleanup && brew doctor"
 alias dps="docker ps"
 alias dpsa="docker ps -a"
 alias rm=trash

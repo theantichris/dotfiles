@@ -49,6 +49,10 @@ homebrew install --cask 1password alfred clickup discord docker font-fira-code \
 google-chrome google-drive-file-stream gpg-suite insomnia iterm2 miro ngrok \
 notion numi rectangle slack timche-gmail-desktop tweetbot visual-studio-code zoom
 
+# Upgrade packages since Homebrew doesn't always install the latest
+echo "Upgrading packages..."
+homebrew update && homebrew upgrade --greedy
+
 ################################################################################
 # Node                                                                         #
 ################################################################################

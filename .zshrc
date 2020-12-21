@@ -36,6 +36,7 @@ alias bic="brew install --cask"
 alias bu="brew update && brew upgrade --greedy && brew cleanup && brew doctor"
 alias dps="docker ps"
 alias dpsa="docker ps -a"
+alias lla="ll -a"
 alias rm=trash
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

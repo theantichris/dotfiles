@@ -40,7 +40,12 @@ brew analytics off
 # Install Homebrew packages
 echo "Installing packages..."
 brew tap heroku/brew
-brew install act bat gh golang heroku tree yarn
+brew install act bat betterzip gh golang heroku qlcolorcode qlimagesize \
+qlmarkdown qlstephen qlvideo quicklook-json tree yarn
+
+# Removeing QuickLook from quarentine
+echo "Removeing QuickLook from quarentine..."
+xattr -d -r com.apple.quarantine ~/Library/QuickLook
 
 # Install Homebrew Cask packages
 echo "Installing Casks..."

@@ -35,6 +35,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
+alias au="sudo apt update && sudo apt upgrade -y"
 alias bat="batcat"
 alias dps="docker ps"
 alias dpsa="docker ps -a"

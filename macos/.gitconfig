@@ -1,6 +1,6 @@
 # This is Git's per-user configuration file.
 [user]
-	signingkey = F51B769C92F0D00C720877634FA6721EC82F83E5
+	signingkey = F031BEB4EBCA00CB4BE7D2E5D3ED9D7466CE72E2
 	name = Christopher Lamm
 	email = chris@theantichris.com
 [commit]
@@ -17,3 +17,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[init]
+	defaultBranch = main

@@ -10,7 +10,7 @@
 [pull]
 	rebase = true
 [core]
-	excludesfile = /Users/christopherlamm/.gitignore
+	excludesfile = ~/.gitignore
 	editor = nano
 [filter "lfs"]
 	clean = git-lfs clean -- %f

@@ -1,6 +1,6 @@
 # This is Git's per-user configuration file.
 [user]
-	signingkey = 0455B64DA5EFBB93B913FAC010C06D489B7D1135
+	signingkey = F93CBB9800BB24B6CA0AE487517FA87B2BDA4F4C
 	name = Christopher Lamm
 	email = chris@theantichris.com
 [commit]

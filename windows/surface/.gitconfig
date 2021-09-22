@@ -1,0 +1,19 @@
+# This is Git's per-user configuration file.
+[user]
+	signingkey = 0455B64DA5EFBB93B913FAC010C06D489B7D1135
+	name = Christopher Lamm
+	email = chris@theantichris.com
+[commit]
+	gpgsign = true
+[rerere]
+	enabled = true
+[pull]
+	rebase = true
+[core]
+	excludesfile = ~/.gitignore
+	editor = nano
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

@@ -12,6 +12,7 @@ ZSH_ALIAS_FINDER_AUTOMATIC=true
 
 plugins=(
   alias-finder
+  asdf
   copydir
   copyfile
   docker

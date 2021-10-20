@@ -48,4 +48,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/christopherlamm/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
-export PATH="/usr/local/sbin:$PATH"
+
+export PATH="$HOME/.local/bin:/usr/local/sbin:$PATH"

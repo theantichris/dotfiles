@@ -7,7 +7,7 @@ My dotfiles!
 ### Windows
 
 1. Clone this repo
-   1. `git clone git@github.com:theantichris/dotfiles.git "~/dotfiles"`
+   1. `git clone git@github.com:theantichris/dotfiles.git "~/dotfiles"` or `gh repo clone theantichris/dotfiles`
 1. Setup symlinks:
    1. `ln -s "~/dotfiles/windows/.zshrc" "~/.zshrc"`
    1. `ln -s "~/dotfiles/windows/.gitconfig" "~/.gitconfig"`

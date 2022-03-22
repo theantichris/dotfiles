@@ -13,8 +13,8 @@ ZSH_ALIAS_FINDER_AUTOMATIC=true
 plugins=(
   alias-finder
   asdf
-  copydir
   copyfile
+  copypath
   docker
   docker-compose
   git
@@ -23,7 +23,6 @@ plugins=(
   vscode
   yarn
   zsh-autosuggestions
-  zsh_reload
   zsh-syntax-highlighting
 )
 

@@ -2,7 +2,7 @@
 [user]
 	signingkey = 2CE91E1CAABF463E2276DD6DDD034D4167580AC2
 	name = Christopher Lamm
-	email = christopherlamm81@gmail.com
+	email = christopherlamm@theartofeducation.edu
 [commit]
 	gpgsign = true
 [rerere]

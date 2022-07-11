@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Setting up Christopehr's Codespace"
+echo "Setting up Christopher's Codespace"
 
 sudo apt update
 

@@ -6,11 +6,11 @@ sudo apt update
 
 # Install fonts
 echo "Installing fonts..."
-sudo apt install fonts-firacode fonts-powerline
+sudo apt install -y fonts-firacode fonts-powerline
 
 # Install packages
 echo "Installing packages..."
-sudo apt install bat
+sudo apt install -y bat
 
 # Clone zsh plugins
 echo "Cloning zsh plugins..."

@@ -1,0 +1,21 @@
+[user]
+	name = Christopher Lamm
+	email = christopherlamm@theartofeducation.edu
+[commit]
+	gpgsign = true
+[rerere]
+	enabled = true
+[pull]
+	rebase = true
+[core]
+	excludesfile = /Users/christopherlamm/.gitignore
+	editor = nano
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main
+[pager]
+	branch = false

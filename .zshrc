@@ -1,4 +1,4 @@
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -20,3 +20,5 @@ plugins=(
 # Aliases
 alias bat="batcat"
 alias lla="ll -a"
+
+source $ZSH/oh-my-zsh.sh

@@ -1,6 +1,8 @@
 [user]
 	name = Christopher Lamm
 	email = christopherlamm@theartofeducation.edu
+[github]
+	user = theantichris
 [commit]
 	gpgsign = true
 [rerere]

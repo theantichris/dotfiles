@@ -23,5 +23,6 @@ echo "Copying dotfiles..."
 cp /workspaces/.codespaces/.persistedshare/dotfiles/.gitconfig ~
 cp /workspaces/.codespaces/.persistedshare/dotfiles/.gitignore ~
 cp /workspaces/.codespaces/.persistedshare/dotfiles/.zshrc ~
+cp /workspaces/.codespaces/.persistedshare/dotfiles/.p10k.zsh ~
 
 sudo apt autoremove -y

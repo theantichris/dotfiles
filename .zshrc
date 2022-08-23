@@ -25,7 +25,7 @@ plugins=(
 )
 
 # Aliases
-alias bat="batcat"
+# alias bat="batcat"
 alias lla="ll -a"
 
 source $ZSH/oh-my-zsh.sh

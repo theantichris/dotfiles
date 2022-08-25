@@ -12,3 +12,7 @@ My dotfiles!
    1. `ln -s ~/dotfiles/.gitignore ~/.gitignore`
    1. `ln -s ~/dotfiles/.p10k.zsh ~/.p10k.zsh`
    1. `ln -s ~/dotfiles/.zprofile ~/.zprofile`
+
+## oh-my-zsh Plugins
+
+* https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos

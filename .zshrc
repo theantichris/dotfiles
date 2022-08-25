@@ -14,11 +14,17 @@ COMPLETION_WAITING_DOTS=true
 ZSH_ALIAS_FINDER_AUTOMATIC=true
 
 plugins=(
+  copybuffer
   copyfile
   copypath
+  dirhistory
   git
   golang
+  history
+  jsontools
+  macos
   vscode
+  web-search
   yarn
   zsh-alias-finder
   zsh-autosuggestions

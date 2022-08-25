@@ -20,6 +20,7 @@ plugins=(
   golang
   vscode
   yarn
+  zsh-alias-finder
   zsh-autosuggestions
   zsh-syntax-highlighting
 )

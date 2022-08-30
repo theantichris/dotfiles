@@ -34,6 +34,7 @@ plugins=(
 # Aliases
 # alias bat="batcat"
 alias lla="ll -a"
+alias bu="brew update && brew upgrade"
 
 source $ZSH/oh-my-zsh.sh
 

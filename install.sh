@@ -12,6 +12,10 @@ sudo apt install -y fonts-firacode fonts-powerline
 echo "Installing packages..."
 sudo apt install -y bat
 
+# Install RSpec
+echo "Installing RSpec..."
+gem install rspect --version 2.8.0
+
 # Clone zsh plugins
 echo "Cloning zsh plugins..."
 git clone https://github.com/akash329d/zsh-alias-finder ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-alias-finder

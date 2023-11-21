@@ -32,9 +32,9 @@ plugins=(
 )
 
 # Aliases
-# alias bat="batcat"
-alias lla="ll -a"
 alias bu="brew update && brew upgrade"
+alias lla="ll -a"
+alias sb="swift build"
 
 source $ZSH/oh-my-zsh.sh
 

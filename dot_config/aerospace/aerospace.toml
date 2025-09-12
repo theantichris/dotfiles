@@ -1,0 +1,103 @@
+# AeroSpace config for Hyper
+
+# Gaps
+[gaps]
+inner.horizontal = 10
+inner.vertical = 10
+outer.bottom = 10
+outer.left = 10
+outer.right = 10
+outer.top = 10
+
+# Always float certain apps or dialogs
+
+# System Preferences
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+# Finder
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+# Main mode (always present)
+[mode.main.binding]
+
+# Layouts with Hyper+H/V
+cmd-alt-ctrl-shift-h = 'layout horizontal'
+cmd-alt-ctrl-shift-v = 'layout vertical'
+
+# Toggle floating/tiling with Hyper+;
+cmd-alt-ctrl-shift-semicolon = 'layout floating tiling'
+
+# Reset current workspace: flatten tree, equalize sizes, set tiles+horizontal
+cmd-alt-ctrl-shift-0 = [
+  'flatten-workspace-tree',
+  'balance-sizes',
+  'layout tiles',
+  'layout horizontal',
+]
+
+# Launch Warp with Hyper+Enter
+cmd-alt-ctrl-shift-enter = 'exec-and-forget open -a Warp'
+
+# Focus with Hyper+W/A/S/D
+cmd-alt-ctrl-shift-a = 'focus left'
+cmd-alt-ctrl-shift-d = 'focus right'
+cmd-alt-ctrl-shift-s = 'focus down'
+cmd-alt-ctrl-shift-w = 'focus up'
+
+# Focus with Hyper+Arrow keys
+cmd-alt-ctrl-shift-down = 'focus down'
+cmd-alt-ctrl-shift-left = 'focus left'
+cmd-alt-ctrl-shift-right = 'focus right'
+cmd-alt-ctrl-shift-up = 'focus up'
+
+# Workspaces with Hyper+1/2/3
+cmd-alt-ctrl-shift-1 = 'workspace 1'
+cmd-alt-ctrl-shift-2 = 'workspace 2'
+cmd-alt-ctrl-shift-3 = 'workspace 3'
+
+# Layout & fullscreen
+cmd-alt-ctrl-shift-f = 'fullscreen'
+
+# Enter Move mode
+cmd-alt-ctrl-shift-m = 'mode move'
+
+# Enter Resize mode
+cmd-alt-ctrl-shift-r = 'mode resize'
+
+# Move mode: move windows with bare W/A/S/D/Arrow keys; Esc to exit
+[mode.move.binding]
+
+# Move with W/A/S/D
+a = ['move left']
+d = ['move right']
+s = ['move down']
+w = ['move up']
+
+# Move with Arrow keys
+down = 'move down'
+left = 'move left'
+right = 'move right'
+up = 'move up'
+
+# Exit Move mode
+esc = 'mode main'
+
+# Resize mode: resize windows with bare W/A/S/D/Arrow keys; Esc to exit
+[mode.resize.binding]
+# Grow/shrink (bigger steps) with W/A/S/D
+a = 'resize smart -50' # shrink toward left/width
+d = 'resize smart +50' # grow toward right/width
+s = 'resize smart -50' # shrink toward bottom/height
+w = 'resize smart +50' # grow toward top/height as appropriate
+
+# Grow/shrink (bigger steps) with Arrow keys
+down = 'resize smart -50'
+left = 'resize smart -50'
+right = 'resize smart +50'
+up = 'resize smart +50'
+
+# Exit resize mode
+esc = 'mode main'

@@ -86,3 +86,21 @@ function gotofx { go tool fix @args }
 function gov { go vet @args }
 function gove { go version @args }
 function gow { go work @args }
+
+# Touch
+function touch {
+  param(
+    [Parameter(Mandatory = $true, Position = 0)]
+    [string]$Path
+  )
+
+  if (Test-Path $Path) {
+    # update modified timestamp
+    (Get-Item $Path).LastWriteTime = Get-Date
+  }
+  else {
+    # create empty file
+    New-Item -Type File -Path $Path | Out-Null
+  }
+}
+

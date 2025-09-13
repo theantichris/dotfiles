@@ -1,0 +1,25 @@
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs/editors
+.idea/
+.vscode/
+*.swp
+
+# Logs & temporary
+*.log
+*.tmp
+*.bak
+
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Go
+bin/
+*.test

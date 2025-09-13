@@ -1,0 +1,32 @@
+[user]
+email = christopherlamm81@icloud.com
+name = Christopher Lamm
+signingkey = ~/.ssh/id_ed25519.pub
+
+[gpg]
+format = ssh
+
+[commit]
+gpgsign = true
+
+[init]
+defaultBranch = main
+
+[pull]
+rebase = true
+
+[push]
+default = simple
+
+[merge]
+conflictstyle = diff3
+
+[diff]
+tool = code
+
+[color]
+ui = auto
+
+[core]
+excludesFile = .gitignore
+autocrlf = true

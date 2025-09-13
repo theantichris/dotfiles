@@ -1,48 +1,39 @@
-# dotfiles
+# dotfiles // netrunner loadout
 
-My dotfiles repository managed by [chezmoi](https://www.chezmoi.io/).
+_chezmoi-powered personal environment. keyboard-first. cross-platform._
 
-## Structure
+---
 
-- `dot_gitconfig` — Git configuration settings
-- `dot_gitignore` — Global Git ignore rules
-- `dot_profile.ps1` — PowerShell profile script
-- `dot_zshrc` — Zsh shell configuration
-- `dot_config/` — Additional configuration files
-  - `template.toml` — chezmoi configuration
-  - `aerospace/aerospace.toml` — Aerospace-specific settings
-  - `private_karabiner/private_karabiner.json` — Karabiner custom key mappings (macOS)
+## ⚡ Boot sequence (chezmoi)
 
-## Usage
+| Task                           | Command                                  |
+| ------------------------------ | ---------------------------------------- |
+| **Initialize & apply (HTTPS)** | `chezmoi init <GITHUB_USERNAME> --apply` |
+| Initialize & apply (SSH)       | `chezmoi init <GITHUB_REPO> --apply`     |
+| Pull updates & re-apply        | `chezmoi update`                         |
+| Inspect changes                | `chezmoi diff`                           |
+| Apply local changes            | `chezmoi apply -v`                       |
+| Edit a tracked file            | `chezmoi edit <FILE>`                    |
+| Start tracking a file          | `chezmoi add <FILE>`                     |
+| Jump to source repo            | `chezmoi cd`                             |
 
-To use these dotfiles:
+> Requires [chezmoi](https://www.chezmoi.io/). Use your package manager to install.
 
-1. Clone the repository to your home directory:
+---
 
-   ```pwsh
-   git clone https://github.com/theantichris/dotfiles.git ~/dotfiles
-   ```
+## 🧰 Loadout
 
-2. Symlink or copy the desired files to their appropriate locations. For example:
+| OS          | Window Manager / Keys | **Hyper**          | Key Files (chezmoi paths)                                                             | Docs                            |
+| ----------- | --------------------- | ------------------ | ------------------------------------------------------------------------------------- | ------------------------------- |
+| **macOS**   | AeroSpace + Karabiner | Caps Lock → ⌃⌥⌘⇧   | `dot_config/aerospace/aerospace.toml` · `dot_config/private_karabiner/karabiner.json` | `AEROSPACE.md` · `KARABINER.md` |
+| **Windows** | GlazeWM (+ Zebar)     | Ctrl+Alt+Shift+`~` | `glazewm/config.yaml`                                                                 | `GLAZEWM.md`                    |
+| **Shells**  | zsh / PowerShell      | —                  | `dot_zshrc` · `dot_profile.ps1`                                                       | —                               |
 
-   ```pwsh
-   New-Item -ItemType SymbolicLink -Path $HOME\.gitconfig -Target $HOME\dotfiles\dot_gitconfig
-   ```
+## 🛡 Notes
 
-   Or for Zsh on macOS/Linux:
+- Platform-specific files are marked in the tables above.
+- Review secrets before publishing or sharing.
 
-   ```sh
-   ln -s ~/dotfiles/dot_zshrc ~/.zshrc
-   ```
+## 🪪 License
 
-3. Customize the configuration files as needed for your environment.
-
-## Notes
-
-- Some files are platform-specific (e.g., PowerShell for Windows, Zsh for macOS/Linux).
-- The `dot_config` directory contains additional configurations for specific tools and setups.
-- Always review and update sensitive or private information before sharing your dotfiles publicly.
-
-## License
-
-MIT License. See [LICENSE](LICENSE) for details.
+MIT

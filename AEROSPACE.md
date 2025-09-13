@@ -1,6 +1,6 @@
 # AeroSpace Config – Hyper Deck Setup
 
-This repository contains my personal [AeroSpace](https://nikitabobko.github.io/AeroSpace/) configuration for macOS, tuned for a **cyberpunk, keyboard-first workflow** using a Hyper key (Caps Lock mapped to `⌃⌥⌘⇧`).
+This is my personal [AeroSpace](https://nikitabobko.github.io/AeroSpace/) configuration for macOS, tuned for a **cyberpunk, keyboard-first workflow** using a Hyper key (Caps Lock mapped to `⌃⌥⌘⇧`).
 
 ---
 
@@ -10,7 +10,6 @@ This repository contains my personal [AeroSpace](https://nikitabobko.github.io/A
 - **Move Mode** (Hyper+M) – move windows with bare WASD/Arrows until Esc
 - **Resize Mode** (Hyper+R) – resize windows with bare WASD/Arrows, with fine-grained Shift steps
 - **Workspaces** on Hyper+1/2/3 for quick context switching
-- **Layout toggle** (Hyper+Space) to flip between horizontal and vertical splits
 - **Fullscreen toggle** (Hyper+F)
 - **Reset workspace** (Hyper+0) – flatten, balance, and reset layout to tiles+horizontal
 - **Float toggle** (Hyper+;) for the focused window
@@ -22,26 +21,25 @@ This repository contains my personal [AeroSpace](https://nikitabobko.github.io/A
 
 ## 🎹 Chord Map (Quick Reference)
 
-| Mode / Action   | Key(s)            | Result                                |
-| --------------- | ----------------- | ------------------------------------- |
-| **Main Mode**   | Hyper + W / ↑     | Focus up                              |
-|                 | Hyper + A / ←     | Focus left                            |
-|                 | Hyper + S / ↓     | Focus down                            |
-|                 | Hyper + D / →     | Focus right                           |
-|                 | Hyper + 1/2/3     | Switch workspaces                     |
-|                 | Hyper + Space     | Toggle layout (vertical ↔ horizontal) |
-|                 | Hyper + H         | Set container layout → horizontal     |
-|                 | Hyper + V         | Set container layout → vertical       |
-|                 | Hyper + F         | Toggle fullscreen                     |
-|                 | Hyper + 0         | Reset workspace (flatten + balance)   |
-|                 | Hyper + ;         | Toggle float ↔ tile                   |
-|                 | Hyper + M         | Enter **Move Mode**                   |
-|                 | Hyper + R         | Enter **Resize Mode**                 |
-| **Move Mode**   | W/A/S/D or Arrows | Move focused window                   |
-|                 | Esc               | Exit Move Mode                        |
-| **Resize Mode** | W/A/S/D or Arrows | Grow/shrink window (50px steps)       |
-|                 | Shift + W/A/S/D   | Fine resize (10px steps)              |
-|                 | Esc               | Exit Resize Mode                      |
+| Mode / Action   | Key(s)            | Result                              |
+| --------------- | ----------------- | ----------------------------------- |
+| **Main Mode**   | Hyper + W / ↑     | Focus up                            |
+|                 | Hyper + A / ←     | Focus left                          |
+|                 | Hyper + S / ↓     | Focus down                          |
+|                 | Hyper + D / →     | Focus right                         |
+|                 | Hyper + 1/2/3     | Switch workspaces                   |
+|                 | Hyper + H         | Set container layout → horizontal   |
+|                 | Hyper + V         | Set container layout → vertical     |
+|                 | Hyper + F         | Toggle fullscreen                   |
+|                 | Hyper + 0         | Reset workspace (flatten + balance) |
+|                 | Hyper + ;         | Toggle float ↔ tile                 |
+|                 | Hyper + M         | Enter **Move Mode**                 |
+|                 | Hyper + R         | Enter **Resize Mode**               |
+| **Move Mode**   | W/A/S/D or Arrows | Move focused window                 |
+|                 | Esc               | Exit Move Mode                      |
+| **Resize Mode** | W/A/S/D or Arrows | Grow/shrink window (50px steps)     |
+|                 | Shift + W/A/S/D   | Fine resize (10px steps)            |
+|                 | Esc               | Exit Resize Mode                    |
 
 ---
 
@@ -58,7 +56,6 @@ This repository contains my personal [AeroSpace](https://nikitabobko.github.io/A
 - `Hyper + W/A/S/D` → focus up/left/down/right
 - `Hyper + ↑/←/↓/→` → focus with arrows
 - `Hyper + 1/2/3` → switch workspaces
-- `Hyper + Space` → toggle split orientation
 - `Hyper + F` → toggle fullscreen
 - `Hyper + 0` → reset current workspace
 - `Hyper + ;` → toggle focused window float/tiling
@@ -77,22 +74,6 @@ This repository contains my personal [AeroSpace](https://nikitabobko.github.io/A
 - `W/A/S/D` or `↑/←/↓/→` → grow/shrink window by 50px
 - `Shift + W/A/S/D` → fine resize by 10px
 - `Esc` → return to Main mode
-
----
-
-## ⚙️ Floating Rules
-
-Certain apps are always floated for convenience:
-
-- **Finder**
-- **System Preferences**
-- **Calendar**
-- **Mail**
-- **Slack**
-- **Messages**
-- **Zoom**
-
-This avoids forcing utility apps and dialogs into the tiling grid.
 
 ---
 

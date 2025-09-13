@@ -1,9 +1,16 @@
-# Ignore if not Linux or MacOS
-{{ if (and(ne .chezmoi.os "linux") (ne .chezmoi.darwin)) }}
+# Ignore if not Linux
+{{ if ne .chezmoi.os "linux" }}
 .zshrc
 aerospace.toml
 karabiner.json
-{{end}}
+{{ end }}
+
+# Ignore if not MacOS
+{{ if ne .chezmoi.os "darwin" }}
+.zshrc
+aerospace.toml
+karabiner.json
+{{ end }}
 
 # Ignore if not Windows
 {{ if ne .chezmoi.os "windows" }}

@@ -1,5 +1,5 @@
 # Ignore if not Linux or MacOS
-{{ if (and(ne .chezmoi.os "linux) (ne .chezmoi.darwin))}}
+{{ if (and(ne .chezmoi.os "linux") (ne .chezmoi.darwin)) }}
 .zshrc
 aerospace.toml
 karabiner.json

@@ -104,3 +104,10 @@ function touch {
   }
 }
 
+# Add to your PowerShell profile ($PROFILE)
+function Winget-UpdateAll {
+  winget source update        # (apt update equivalent)
+  winget upgrade --all        # upgrade everything
+}
+Set-Alias wgu Winget-UpdateAll
+

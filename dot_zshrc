@@ -1,0 +1,56 @@
+# Path
+export PATH="$HOME/.local/bin:$HOME/go/bin:$PATH"
+
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Theme
+ZSH_THEME="robbyrussell"
+
+# History
+HISTFILE=~/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+setopt INC_APPEND_HISTORY SHARE_HISTORY HIST_IGNORE_DUPS HIST_REDUCE_BLANKS
+
+# Completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+COMPLETION_WAITING_DOTS="true"
+
+# fzf
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+
+
+# Plugins
+plugins=(
+  git
+  golang
+  vscode
+  alias-finder
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+
+# Disable corrections
+setopt correct
+unsetopt correct_all
+
+# Alias finder
+ZSH_ALIAS_FINDER_AUTOMATIC=true
+
+# Editor
+export VISUAL="code -w"
+export EDITOR="$VISUAL"
+
+# Source OMZ
+source $ZSH/oh-my-zsh.sh
+
+# Aliases
+if command -v batcat >/dev/null; then alias cat="batcat"; fi
+if command -v fdfind >/dev/null; then alias fd="fdfind"; fi
+
+# Windows interop
+if command -v explorer.exe >/dev/null; then
+  alias open='explorer.exe .'
+  alias winhome='cd /mnt/c/Users/chris'
+fi

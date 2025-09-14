@@ -29,4 +29,5 @@ ui = auto
 
 [core]
 excludesFile = .gitignore
-autocrlf = true
+autocrlf = input
+eol = lf

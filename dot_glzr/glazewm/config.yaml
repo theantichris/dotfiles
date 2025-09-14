@@ -170,11 +170,11 @@ binding_modes:
 
 keybindings:
   # Minimize window
-  - command: ["minimizeWindow"]
-    binding: ["ctrl+alt+shift+oem_tilde+m"]
+  - command: ["toggle-minimized"]
+    binding: ["ctrl+alt+shift+oem_tilde+h"]
 
   # Quit application (close the entire process)
-  - command: ["closeProcess"]
+  - command: ["close"]
     binding: ["ctrl+alt+shift+oem_tilde+q"]
 
   # Launch Warp
@@ -203,10 +203,8 @@ keybindings:
   - commands: ["focus --workspace 3"]
     bindings: ["control+alt+shift+oem_tilde+3"]
 
-    # Layout toggle (vertical <-> horizontal) and explicit set (H/V)
-  - commands: ["set-tiling-direction horizontal"]
-    bindings: ["control+alt+shift+oem_tilde+h"]
-  - commands: ["set-tiling-direction vertical"]
+    # Layout toggle (vertical <-> horizontal)
+  - commands: ["toggle-tiling-direction"]
     bindings: ["control+alt+shift+oem_tilde+v"]
 
   # Reset workspace (Hyper + 0): return to tiling, horizontal, redraw

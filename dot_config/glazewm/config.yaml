@@ -184,7 +184,7 @@ keybindings:
     bindings: ["ctrl+alt+shift+oem_tilde+enter"]
 
   # Launch Windows Settings
-  - commands: ["shell start ms-settings"]
+  - commands: ["shell-exec ms-settings"]
     bindings: ["ctrl+alt+shift+oem_tilde+x"]
 
   # Focus (Hyper + WASD / Arrows)

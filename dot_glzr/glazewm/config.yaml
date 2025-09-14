@@ -169,6 +169,14 @@ binding_modes:
         bindings: ["escape", "enter"]
 
 keybindings:
+  # Minimize window
+  - command: ["minimizeWindow"]
+    binding: ["ctrl+alt+shift+oem_tilde+m"]
+
+  # Quit application (close the entire process)
+  - command: ["closeProcess"]
+    binding: ["ctrl+alt+shift+oem_tilde+q"]
+
   # Launch Warp
   - commands: ["shell-exec C:/Users/chris/AppData/Local/Programs/Warp/Warp.exe"]
     bindings: ["ctrl+alt+shift+oem_tilde+enter"]

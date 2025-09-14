@@ -125,6 +125,18 @@ window_rules:
       - window_process: { equals: "POWERPNT" }
         window_class: { not_regex: "PPTFrameClass" }
 
+        # PowerToys Command Palette (title match)
+      - window_process: { equals: "PowerToys" }
+        window_title: { regex: ".*Command Palette.*" }
+
+      # PowerToys Run (title match)
+      - window_process: { equals: "PowerToys" }
+        window_title: { equals: "PowerToys Run" }
+
+      # PowerToys Run (class match — useful if titles vary)
+      - window_process: { equals: "PowerToys" }
+        window_class: { regex: 'HwndWrapper\[.*?PowerLauncher.*?\]' }
+
 # Hyper = Ctrl+Alt+Shift+oem_tilde
 binding_modes:
   # Move Mode: bare WASD / Arrows move the focused window; Esc/Enter exits
@@ -170,6 +182,10 @@ keybindings:
   # Launch Warp
   - commands: ["shell-exec C:/Users/chris/AppData/Local/Programs/Warp/Warp.exe"]
     bindings: ["ctrl+alt+shift+oem_tilde+enter"]
+
+  # Launch Windows Settings
+  - commands: ["shell start ms-settings"]
+    bindings: ["ctrl+alt+shift+oem_tilde+x"]
 
   # Focus (Hyper + WASD / Arrows)
   - commands: ["focus --direction left"]

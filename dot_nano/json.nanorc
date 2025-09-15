@@ -1,0 +1,21 @@
+## --- JSON ------------------------------------------------------------
+syntax "json" "\.json$" "\.jsonc$"
+
+# Comments (jsonc only)
+color grey        "^[[:space:]]*//.*$"
+color grey  start="/\*" end="\*/"
+
+# Strings (keys & values)
+color #3be  start="\"" end="\""
+
+# Keys (string before :)
+color teal  "\"([^\"\\]|\\.)*\"(?=\s*:)" 
+
+# Numbers
+color #3be  "\b-?[0-9]+(\.[0-9]+)?([eE][+-]?[0-9]+)?\b"
+
+# Booleans / null
+color yellow "\b(true|false|null)\b"
+
+# Punctuation / delimiters
+color #f0f  "[:]|[,]|[\{\}\[\]]"

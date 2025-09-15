@@ -1,0 +1,32 @@
+## --- YAML ------------------------------------------------------------
+syntax "yaml" "\.ya?ml$"
+
+# Comments
+color grey        "^[[:space:]]*#.*$"
+
+# Keys (before colon, not starting with '-')
+color teal        "^\s*(?!- )[A-Za-z0-9_.-]+(?=\s*:)"
+# Dotted keys in maps
+color teal        "^\s*([A-Za-z0-9_.-]+\.)+[A-Za-z0-9_.-]+(?=\s*:)"
+
+# Strings
+color #3be  start="\"" end="\""
+color #3be  start="'"  end="'"
+
+# Anchors & aliases & tags
+color pink        "(&[A-Za-z0-9_-]+)|(\*[A-Za-z0-9_-]+)|(![A-Za-z0-9_:-]+)"
+
+# Booleans / null
+color yellow      "\b(true|false|True|False|YES|NO|Yes|No|on|off|On|Off|null|Null|NULL)\b"
+
+# Numbers
+color #3be        "\b-?[0-9]+(\.[0-9]+)?\b"
+
+# Lists / dashes
+color white       "^\s*-\s"
+
+# Block scalars (| or >)
+color lime        "^\s*[|>][-+0-9]*\s*$"
+
+# Punctuation
+color #f0f        "[:]|[,]|[\{\}\[\]]"

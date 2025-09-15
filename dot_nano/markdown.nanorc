@@ -1,0 +1,42 @@
+## --- Markdown --------------------------------------------------------
+syntax "markdown" "\.(md|mkdn?|markdown)$"
+
+# ATX headings
+color lime        "^\s{0,3}#{1,6}\s.*$"
+
+# Setext headings (==== / ----)
+color lime        "^[[:alnum:]].*\n[=-]{3,}\s*$"
+
+# Bold ** ** or __ __
+color white       "(\*\*|__)(?=.*\1)[^ \n].*?\1"
+
+# Italic * * or _ _
+color white       "(\*|_)(?=.*\1)[^ \n].*?\1"
+
+# Inline code `code`
+color mauve       "`[^`]+`"
+
+# Fenced code blocks ``` or ~~~
+color mauve  start="^```.*$" end="^```$"
+color mauve  start="^~~~.*$" end="^~~~$"
+
+# Links: [text](url) and bare URLs
+color teal        "\[[^]]+\]\([^)\s]+(\s+\"[^\"]*\")?\)"
+color teal        "<(https?://[^ >]+)>"
+color teal        "(https?|file)://[^ )>\t]+"
+
+# Images: ![alt](src)
+color pink        "!\[[^]]*\]\([^)\s]+(\s+\"[^\"]*\")?\)"
+
+# Blockquotes
+color grey        "^\s{0,3}>\s.*$"
+
+# Lists (ordered/unordered)
+color white       "^\s{0,3}(\*|\+|-|\d+\.)\s+"
+
+# Horizontal rules
+color #f0f        "^\s{0,3}(\*\s*){3,}$|^\s{0,3}(-\s*){3,}$|^\s{0,3}(_\s*){3,}$"
+
+# Tables (pipes)
+color #f0f        "^\s*\|.*\|\s*$"
+color #f0f        "^\s*:[-]+:?\s*(\|\s*:[-]+:?\s*)+$"

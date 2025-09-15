@@ -29,10 +29,16 @@ _chezmoi-powered personal environment. keyboard-first. cross-platform._
 | **Windows** | GlazeWM (+ Zebar)     | Ctrl+Alt+Shift+`~` | `glazewm/config.yaml`                                                                 | `GLAZEWM.md`                    |
 | **Shells**  | zsh / PowerShell      | —                  | `dot_zshrc` · `dot_profile.ps1`                                                       | —                               |
 
-## 🛡 Notes
+## Notes
 
 - Platform-specific files are marked in the tables above.
 - Review secrets before publishing or sharing.
+
+## ✅ TODOs
+
+- [ ] Exclude README.md from sync
+- [ ] Exclude install script folders from sync
+- [ ] Enable OS specific syncs
 
 ## 🪪 License
 

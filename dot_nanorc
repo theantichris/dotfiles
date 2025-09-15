@@ -1,0 +1,77 @@
+## Cyberwave (nano)
+## Source palette: https://gist.github.com/theantichris/.../cyberwave.json
+
+## --- UI / chrome ---------------------------------------------------
+# Title bar (top) — surface-1 fg on titlebar.bg
+set titlecolor      white,#123
+# Status bar (bottom) — statusbar.fg on statusbar.bg
+set statuscolor     white,#123
+# Prompts (save/search/etc)
+set promptcolor     white,#123
+# Mini bar (when using `set minibar`)
+set minicolor       white,#123
+# Keys & function labels
+set keycolor        teal
+set functioncolor   teal
+# Line numbers
+set numbercolor     teal
+# Scroll “indicator”
+set scrollercolor   teal
+# Selected text — selection
+set selectedcolor   white,#247
+# Search highlight
+set spotlightcolor  black,#ff8
+# Errors / warnings
+set errorcolor      white,crimson
+# Optional: a subtle guide stripe at column 100
+set guidestripe     100
+set stripecolor     ,#113
+
+## --- Sensible editor defaults (optional; remove if you prefer stock)-
+set linenumbers
+set softwrap
+set tabstospaces
+set tabsize 2
+set matchbrackets "(<[{)>]}"
+
+## --- “Default” syntax highlighting usable anywhere ------------------
+# Applies to any file not matched by a specific language syntax.
+syntax "default"
+
+# Comments: //…  #…  ;…   and /* … */
+color grey         "([[:space:]]|^)//.*$"
+color grey         "^[[:space:]]*#.*$"
+color grey         "^[[:space:]]*;.*$"
+color grey   start="/\*" end="\*/"
+
+# Strings
+color #3be   start="\"" end="\""
+color #3be   start="'"   end="'"
+
+# Numbers (hex, binary-ish, decimals)
+color #3be   "\b(0x[0-9A-Fa-f]+|0b[01]+|[0-9]+(\.[0-9]+)?)\b"
+
+# Keywords (generic set across common langs)
+color white  "\b(break|case|catch|class|const|continue|def|defer|do|elif|else|enum|export|extends|false|fn|for|func|if|impl|import|in|interface|let|match|new|null|package|private|protected|public|return|struct|switch|this|throw|true|try|type|use|var|while|with|yield)\b"
+
+# Types / classes / interfaces (Capitalized identifiers)
+color lime   "\b[A-Z][A-Za-z0-9_]+\b"
+
+# Functions: word followed by "("
+color mauve  "[A-Za-z_][A-Za-z0-9_]*[[:space:]]*\("
+
+# Constants / decorators / annotations
+color pink   "[@][A-Za-z_][A-Za-z0-9_]*"
+color pink   "\b[A-Z_][A-Z0-9_]{2,}\b"
+
+# Operators & punctuation
+color #f0f   "[-+/*=%!?<>|&^~.:]{1,}"
+
+# TODO / FIXME style notes
+color yellow "\b(TODO|FIXME|HACK|BUG|NOTE)\b"
+
+include ~/.nano/go.nanorc
+include ~/.nano/json.nanorc
+include ~/.nano/markdown.nanorc
+include ~/.nano/toml.nanorc
+include ~/.nano/yaml.nanorc

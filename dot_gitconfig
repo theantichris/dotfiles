@@ -31,3 +31,4 @@ ui = auto
 excludesFile = .gitignore
 autocrlf = input
 eol = lf
+safecrlf = false

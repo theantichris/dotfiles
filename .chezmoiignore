@@ -9,4 +9,11 @@ windows/
 
 {{ if and (ne .chezmoi.os "linux") (ne .chezmoi.os "darwin") }}
 .zshrc
+.config/aerospace
+.config/karabiner
+{{ end }}
+
+{{ if ne .chezmoi.os "windows" }}
+.profile.ps1
+.glzr/
 {{ end }}

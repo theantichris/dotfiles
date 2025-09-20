@@ -7,6 +7,6 @@ AEROSPACE.md
 ubuntu/
 windows/
 
-{{ if not (eq .chezmoi.os "windows") }}
+{{ if and (ne .chezmoi.os "linux") (ne .chezmoi.os "darwin") }}
 .zshrc
 {{ end }}

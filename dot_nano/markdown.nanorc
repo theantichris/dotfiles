@@ -8,10 +8,12 @@ color lime        "^\s{0,3}#{1,6}\s.*$"
 color lime        "^[[:alnum:]].*\n[=-]{3,}\s*$"
 
 # Bold ** ** or __ __
-color white       "(\*\*|__)(?=.*\1)[^ \n].*?\1"
+color white       "\*\*[^*]+\*\*"
+color white       "__[^_]+__"
 
 # Italic * * or _ _
-color white       "(\*|_)(?=.*\1)[^ \n].*?\1"
+color white       "\*[^*]+\*"
+color white       "_[^_]+_"
 
 # Inline code `code`
 color mauve       "`[^`]+`"

@@ -4,10 +4,10 @@ syntax "yaml" "\.ya?ml$"
 # Comments
 color grey        "^[[:space:]]*#.*$"
 
-# Keys (before colon, not starting with '-')
-color teal        "^\s*(?!- )[A-Za-z0-9_.-]+(?=\s*:)"
+# Keys (simple approach - matches word characters followed by colon)
+color teal        "^[[:space:]]*[A-Za-z0-9_.-]+[[:space:]]*:"
 # Dotted keys in maps
-color teal        "^\s*([A-Za-z0-9_.-]+\.)+[A-Za-z0-9_.-]+(?=\s*:)"
+color teal        "^[[:space:]]*([A-Za-z0-9_.-]+\.)+[A-Za-z0-9_.-]+[[:space:]]*:"
 
 # Strings
 color #3be  start="\"" end="\""
@@ -23,10 +23,10 @@ color yellow      "\b(true|false|True|False|YES|NO|Yes|No|on|off|On|Off|null|Nul
 color #3be        "\b-?[0-9]+(\.[0-9]+)?\b"
 
 # Lists / dashes
-color white       "^\s*-\s"
+color white       "^[[:space:]]*-[[:space:]]"
 
 # Block scalars (| or >)
-color lime        "^\s*[|>][-+0-9]*\s*$"
+color lime        "^[[:space:]]*[|>][-+0-9]*[[:space:]]*$"
 
 # Punctuation
 color #f0f        "[:]|[,]|[\{\}\[\]]"

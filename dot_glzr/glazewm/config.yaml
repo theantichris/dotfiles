@@ -171,7 +171,7 @@ binding_modes:
 keybindings:
   # Minimize window
   - command: ["toggle-minimized"]
-    binding: ["ctrl+alt+shift+oem_tilde+h"]
+    binding: ["ctrl+alt+shift+oem_tilde+m"]
 
   # Quit application (close the entire process)
   - command: ["close"]

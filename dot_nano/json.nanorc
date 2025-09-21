@@ -8,8 +8,8 @@ color grey  start="/\*" end="\*/"
 # Strings (keys & values)
 color #3be  start="\"" end="\""
 
-# Keys (string before :)
-color teal  "\"([^\"\\]|\\.)*\"(?=\s*:)" 
+# Keys (string before :) - simplified without lookahead
+color teal  "\"[^\"]*\"[[:space:]]*:"
 
 # Numbers
 color #3be  "\b-?[0-9]+(\.[0-9]+)?([eE][+-]?[0-9]+)?\b"

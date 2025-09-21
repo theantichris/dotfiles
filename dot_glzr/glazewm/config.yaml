@@ -127,7 +127,7 @@ window_rules:
       - window_title: { equals: "Command Palette" }
         window_class: { equals: "WinUIDesktopWin32WindowClass" }
 
-# Hyper = Ctrl+Alt+Shift+F24
+# Hyper = Ctrl+Alt+Shift+scroll_lock
 binding_modes:
   # Move Mode: bare hjkl / Arrows move the focused window; Esc/Enter exits
   - name: "move"
@@ -171,58 +171,61 @@ binding_modes:
 keybindings:
   # Minimize window
   - command: ["toggle-minimized"]
-    binding: ["ctrl+alt+shift+F24+n"]
+    binding: ["ctrl+alt+shift+scroll_lock+n"]
 
   # Quit application (close the entire process)
   - command: ["close"]
-    binding: ["ctrl+alt+shift+F24+q"]
+    binding: ["ctrl+alt+shift+scroll_lock+q"]
 
   # Launch Warp
   - commands: ["shell-exec C:/Users/chris/AppData/Local/Programs/Warp/Warp.exe"]
-    bindings: ["ctrl+alt+shift+F24+enter"]
+    bindings: ["ctrl+alt+shift+scroll_lock+enter"]
 
     # Hyper+X → Windows Settings
   - commands: ["shell-exec explorer.exe ms-settings:"]
-    bindings: ["ctrl+alt+shift+F24+x"]
+    bindings: ["ctrl+alt+shift+scroll_lock+x"]
 
   # Focus (Hyper + WASD / Arrows)
   - commands: ["focus --direction left"]
-    bindings: ["ctrl+alt+shift+F24+h", "ctrl+alt+shift+F24+left"]
+    bindings:
+      ["ctrl+alt+shift+scroll_lock+h", "ctrl+alt+shift+scroll_lock+left"]
   - commands: ["focus --direction right"]
-    bindings: ["ctrl+alt+shift+F24+l", "ctrl+alt+shift+F24+right"]
+    bindings:
+      ["ctrl+alt+shift+scroll_lock+l", "ctrl+alt+shift+scroll_lock+right"]
   - commands: ["focus --direction up"]
-    bindings: ["ctrl+alt+shift+F24+k", "ctrl+alt+shift+F24+up"]
+    bindings: ["ctrl+alt+shift+scroll_lock+k", "ctrl+alt+shift+scroll_lock+up"]
   - commands: ["focus --direction down"]
-    bindings: ["ctrl+alt+shift+F24+j", "ctrl+alt+shift+F24+down"]
+    bindings:
+      ["ctrl+alt+shift+scroll_lock+j", "ctrl+alt+shift+scroll_lock+down"]
 
     # Workspaces (Hyper + 1/2/3)
   - commands: ["focus --workspace 1"]
-    bindings: ["control+alt+shift+F24+1"]
+    bindings: ["control+alt+shift+scroll_lock+1"]
   - commands: ["focus --workspace 2"]
-    bindings: ["control+alt+shift+F24+2"]
+    bindings: ["control+alt+shift+scroll_lock+2"]
   - commands: ["focus --workspace 3"]
-    bindings: ["control+alt+shift+F24+3"]
+    bindings: ["control+alt+shift+scroll_lock+3"]
 
     # Layout toggle (vertical <-> horizontal)
   - commands: ["toggle-tiling-direction"]
-    bindings: ["control+alt+shift+F24+v"]
+    bindings: ["control+alt+shift+scroll_lock+v"]
 
   # Reset workspace (Hyper + 0): return to tiling, horizontal, redraw
   - commands: ["set-tiling", "wm-redraw"]
-    bindings: ["control+alt+shift+F24+0"]
+    bindings: ["control+alt+shift+scroll_lock+0"]
 
   # Fullscreen toggle (Hyper + F)
   - commands: ["toggle-fullscreen"]
-    bindings: ["control+alt+shift+F24+f"]
+    bindings: ["control+alt+shift+scroll_lock+f"]
 
   # Toggle float/tile for focused window (Hyper + ;)
   - commands: ["toggle-floating"]
-    bindings: ["control+alt+shift+F24+oem_semicolon"]
+    bindings: ["control+alt+shift+scroll_lock+oem_semicolon"]
 
   # Modes: Move Mode (sticky until Esc)
   - commands: ["wm-enable-binding-mode --name move"]
-    bindings: ["control+alt+shift+F24+m"]
+    bindings: ["control+alt+shift+scroll_lock+m"]
 
   # Modes: Resize Mode (sticky until Esc)
   - commands: ["wm-enable-binding-mode --name resize"]
-    bindings: ["control+alt+shift+F24+r"]
+    bindings: ["control+alt+shift+scroll_lock+r"]

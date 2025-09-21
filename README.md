@@ -23,22 +23,21 @@ _chezmoi-powered personal environment. keyboard-first. cross-platform._
 
 ## 🧰 Loadout
 
-| OS          | Window Manager / Keys | **Hyper**          | Key Files (chezmoi paths)                                                             | Docs                            |
-| ----------- | --------------------- | ------------------ | ------------------------------------------------------------------------------------- | ------------------------------- |
-| **macOS**   | AeroSpace + Karabiner | Caps Lock → ⌃⌥⌘⇧   | `dot_config/aerospace/aerospace.toml` · `dot_config/private_karabiner/karabiner.json` | `AEROSPACE.md` · `KARABINER.md` |
-| **Windows** | GlazeWM (+ Zebar)     | Ctrl+Alt+Shift+`~` | `glazewm/config.yaml`                                                                 | `GLAZEWM.md`                    |
-| **Shells**  | zsh / PowerShell      | —                  | `dot_zshrc` · `dot_profile.ps1`                                                       | —                               |
+| Category       | Tool                    | Key Files (chezmoi paths)                                                                     | Docs                            |
+| -------------- | ----------------------- | ----------------------------------------------------------------------------------------------| ------------------------------- |
+| **macOS WM**   | AeroSpace + Karabiner   | `dot_config/aerospace/aerospace.toml` · `dot_config/private_karabiner/private_karabiner.json` | `AEROSPACE.md` · `KARABINER.md` |
+| **Windows WM** | GlazeWM (+ Zebar)       | `dot_glzr/glazewm/config.yaml` · `dot_glzr/zebar/settings.json`                               | `GLAZEWM.md`                    |
+| **Shells**     | zsh / PowerShell        | `dot_zshrc` · `dot_profile.ps1`                                                               | —                               |
+| **Editor**     | Helix / nano            | `AppData/Roaming/helix/config.toml` · `AppData/Roaming/helix/languages.toml`                  | —                               |
+| **Terminal**   | Superfile               | `AppData/Local/superfile/config.toml` · `AppData/Local/superfile/hotkeys.toml`                | —                               |
+| **Viewers**    | Glow                    | `AppData/Local/glow/Config/glow.yml`                                                          | —                               |
+| **Dev Tools**  | gh-dash                 | `dot_config/gh-dash/config.yml` · `dot_nanorc`                                                | —                               |
+| **Git**        | —                       | `dot_gitconfig` · `dot_gitignore`                                                             | —                               |
 
 ## Notes
 
 - Platform-specific files are marked in the tables above.
 - Review secrets before publishing or sharing.
-
-## ✅ TODOs
-
-- [ ] Exclude README.md from sync
-- [ ] Exclude install script folders from sync
-- [ ] Enable OS specific syncs
 
 ## 🪪 License
 

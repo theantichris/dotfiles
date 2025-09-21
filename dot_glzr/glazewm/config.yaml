@@ -169,12 +169,6 @@ binding_modes:
         bindings: ["escape", "enter"]
 
 keybindings:
-  # Ignore F24 and Hyper alone
-  - commands: ["ignore"]
-    bindings: ["F24"]
-  - commands: ["ignore"]
-    bindings: ["ctrl+alt+shift+F24"]
-
   # Minimize window
   - command: ["toggle-minimized"]
     binding: ["ctrl+alt+shift+F24+n"]

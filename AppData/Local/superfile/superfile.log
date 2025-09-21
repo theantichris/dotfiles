@@ -1,0 +1,175 @@
+time=2025-09-21T07:49:35.535-04:00 level=INFO msg="Using Windows default terminal cell size"
+time=2025-09-21T07:49:35.536-04:00 level=INFO msg="Successfully detected terminal cell size on Windows" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T07:49:35.536-04:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T07:50:34.608-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Application Data: Access is denied."
+time=2025-09-21T07:50:34.612-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Application Data: Access is denied."
+time=2025-09-21T07:50:34.638-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Cookies: Access is denied."
+time=2025-09-21T07:50:34.641-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Cookies: Access is denied."
+time=2025-09-21T07:50:34.670-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Local Settings: Access is denied."
+time=2025-09-21T07:50:34.673-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Local Settings: Access is denied."
+time=2025-09-21T07:50:34.700-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\My Documents: Access is denied."
+time=2025-09-21T07:50:34.703-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\My Documents: Access is denied."
+time=2025-09-21T07:50:34.731-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\NetHood: Access is denied."
+time=2025-09-21T07:50:34.734-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\NetHood: Access is denied."
+time=2025-09-21T07:50:34.782-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\NTUSER.DAT: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:50:34.786-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\NTUSER.DAT: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:50:34.808-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\ntuser.dat.LOG1: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:50:34.814-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\ntuser.dat.LOG1: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:50:34.843-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\ntuser.dat.LOG2: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:50:34.848-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\ntuser.dat.LOG2: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:50:35.009-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\PrintHood: Access is denied."
+time=2025-09-21T07:50:35.012-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\PrintHood: Access is denied."
+time=2025-09-21T07:50:36.897-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\ntuser.dat.LOG2: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:50:36.902-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\ntuser.dat.LOG2: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:50:36.931-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\ntuser.dat.LOG1: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:50:36.936-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\ntuser.dat.LOG1: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:50:36.961-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\NTUSER.DAT: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:50:36.965-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\NTUSER.DAT: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:50:36.990-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\NetHood: Access is denied."
+time=2025-09-21T07:50:36.994-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\NetHood: Access is denied."
+time=2025-09-21T07:50:37.035-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\My Documents: Access is denied."
+time=2025-09-21T07:50:37.039-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\My Documents: Access is denied."
+time=2025-09-21T07:50:37.067-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Local Settings: Access is denied."
+time=2025-09-21T07:50:37.072-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Local Settings: Access is denied."
+time=2025-09-21T07:50:37.099-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Cookies: Access is denied."
+time=2025-09-21T07:50:37.102-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Cookies: Access is denied."
+time=2025-09-21T07:50:37.129-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Application Data: Access is denied."
+time=2025-09-21T07:50:37.132-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Application Data: Access is denied."
+time=2025-09-21T07:51:45.576-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T07:51:45.583-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T07:53:32.589-04:00 level=INFO msg="Using Windows default terminal cell size"
+time=2025-09-21T07:53:32.589-04:00 level=INFO msg="Successfully detected terminal cell size on Windows" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T07:53:32.589-04:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T07:54:00.332-04:00 level=INFO msg="Using Windows default terminal cell size"
+time=2025-09-21T07:54:00.332-04:00 level=INFO msg="Successfully detected terminal cell size on Windows" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T07:54:00.332-04:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T07:54:03.923-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Application Data: Access is denied."
+time=2025-09-21T07:54:03.926-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Application Data: Access is denied."
+time=2025-09-21T07:54:03.954-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Cookies: Access is denied."
+time=2025-09-21T07:54:03.958-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Cookies: Access is denied."
+time=2025-09-21T07:54:03.982-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Local Settings: Access is denied."
+time=2025-09-21T07:54:03.986-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Local Settings: Access is denied."
+time=2025-09-21T07:54:04.013-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\My Documents: Access is denied."
+time=2025-09-21T07:54:04.017-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\My Documents: Access is denied."
+time=2025-09-21T07:54:04.045-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\NetHood: Access is denied."
+time=2025-09-21T07:54:04.048-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\NetHood: Access is denied."
+time=2025-09-21T07:54:04.077-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\NTUSER.DAT: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:54:04.081-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\NTUSER.DAT: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:54:04.124-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\ntuser.dat.LOG1: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:54:04.129-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\ntuser.dat.LOG1: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:54:04.156-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\ntuser.dat.LOG2: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:54:04.161-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\ntuser.dat.LOG2: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:54:04.308-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\PrintHood: Access is denied."
+time=2025-09-21T07:54:04.311-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\PrintHood: Access is denied."
+time=2025-09-21T07:54:04.354-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Recent: Access is denied."
+time=2025-09-21T07:54:04.358-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Recent: Access is denied."
+time=2025-09-21T07:54:04.386-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\SendTo: Access is denied."
+time=2025-09-21T07:54:04.390-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\SendTo: Access is denied."
+time=2025-09-21T07:54:04.417-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Start Menu: Access is denied."
+time=2025-09-21T07:54:04.420-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Start Menu: Access is denied."
+time=2025-09-21T07:54:04.448-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Templates: Access is denied."
+time=2025-09-21T07:54:04.451-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Templates: Access is denied."
+time=2025-09-21T07:54:04.680-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Start Menu: Access is denied."
+time=2025-09-21T07:54:04.683-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Start Menu: Access is denied."
+time=2025-09-21T07:54:05.190-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\SendTo: Access is denied."
+time=2025-09-21T07:54:05.193-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\SendTo: Access is denied."
+time=2025-09-21T07:54:05.220-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Recent: Access is denied."
+time=2025-09-21T07:54:05.224-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Recent: Access is denied."
+time=2025-09-21T07:54:05.252-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\PrintHood: Access is denied."
+time=2025-09-21T07:54:05.256-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\PrintHood: Access is denied."
+time=2025-09-21T07:54:05.424-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\ntuser.dat.LOG2: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:54:05.429-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\ntuser.dat.LOG2: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:54:05.458-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\ntuser.dat.LOG1: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:54:05.464-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\ntuser.dat.LOG1: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:54:05.485-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\NTUSER.DAT: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:54:05.490-04:00 level=ERROR msg="Error while checking text file" error="open C:\\Users\\chris\\NTUSER.DAT: The process cannot access the file because it is being used by another process."
+time=2025-09-21T07:54:05.514-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\NetHood: Access is denied."
+time=2025-09-21T07:54:05.518-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\NetHood: Access is denied."
+time=2025-09-21T07:54:05.545-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\My Documents: Access is denied."
+time=2025-09-21T07:54:05.549-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\My Documents: Access is denied."
+time=2025-09-21T07:54:05.576-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Local Settings: Access is denied."
+time=2025-09-21T07:54:05.579-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Local Settings: Access is denied."
+time=2025-09-21T07:54:05.622-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Cookies: Access is denied."
+time=2025-09-21T07:54:05.626-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Cookies: Access is denied."
+time=2025-09-21T07:54:05.653-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Application Data: Access is denied."
+time=2025-09-21T07:54:05.657-04:00 level=ERROR msg="Error render directory preview" error="open C:\\Users\\chris\\Application Data: Access is denied."
+time=2025-09-21T07:55:44.070-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T07:55:44.080-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T07:55:44.099-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T07:55:44.106-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:01:40.982-04:00 level=INFO msg="Using Windows default terminal cell size"
+time=2025-09-21T08:01:40.983-04:00 level=INFO msg="Successfully detected terminal cell size on Windows" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T08:01:40.983-04:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T08:01:40.989-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:01:40.995-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:01:41.001-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:01:41.007-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:01:41.013-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:01:41.018-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:01:41.024-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:01:41.030-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:01:44.449-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:01:44.455-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:02:06.688-04:00 level=INFO msg="Using Windows default terminal cell size"
+time=2025-09-21T08:02:06.688-04:00 level=INFO msg="Successfully detected terminal cell size on Windows" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T08:02:06.688-04:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T08:02:06.694-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:02:06.701-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:02:06.707-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:02:06.712-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:02:06.718-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:02:06.724-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:02:06.730-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:02:06.736-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:02:09.402-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:02:09.408-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:06:58.708-04:00 level=INFO msg="Using Windows default terminal cell size"
+time=2025-09-21T08:06:58.708-04:00 level=INFO msg="Successfully detected terminal cell size on Windows" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T08:06:58.708-04:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T08:06:58.713-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:06:58.720-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:06:58.725-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:06:58.731-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:06:58.736-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:06:58.741-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:06:58.748-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:06:58.753-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:06:59.979-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:06:59.984-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:02.802-04:00 level=ERROR msg="Could not read user's theme file. Falling back to default theme" path=C:\Users\chris\AppData\Local\superfile\theme\cyberwave.toml error="open C:\\Users\\chris\\AppData\\Local\\superfile\\theme\\cyberwave.toml: The system cannot find the file specified."
+time=2025-09-21T08:07:02.807-04:00 level=INFO msg="Using Windows default terminal cell size"
+time=2025-09-21T08:07:02.807-04:00 level=INFO msg="Successfully detected terminal cell size on Windows" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T08:07:02.807-04:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T08:07:02.814-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:02.820-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:02.826-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:02.831-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:02.837-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:02.843-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:02.848-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:02.854-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:13.361-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:13.367-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:14.936-04:00 level=INFO msg="Using Windows default terminal cell size"
+time=2025-09-21T08:07:14.937-04:00 level=INFO msg="Successfully detected terminal cell size on Windows" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T08:07:14.937-04:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T08:07:14.942-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:14.949-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:14.955-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:14.961-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:14.966-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:14.972-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:14.977-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:14.983-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:17.218-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:17.224-04:00 level=ERROR msg="Max lines reached" maxLines=64
+time=2025-09-21T08:07:47.699-04:00 level=INFO msg="Using Windows default terminal cell size"
+time=2025-09-21T08:07:47.699-04:00 level=INFO msg="Successfully detected terminal cell size on Windows" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T08:07:47.699-04:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T08:07:50.545-04:00 level=ERROR msg="Could not read user's theme file. Falling back to default theme" path=C:\Users\chris\AppData\Local\superfile\theme\cyberwave.toml error="open C:\\Users\\chris\\AppData\\Local\\superfile\\theme\\cyberwave.toml: The system cannot find the file specified."
+time=2025-09-21T08:07:50.551-04:00 level=INFO msg="Using Windows default terminal cell size"
+time=2025-09-21T08:07:50.551-04:00 level=INFO msg="Successfully detected terminal cell size on Windows" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T08:07:50.551-04:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T08:10:28.689-04:00 level=INFO msg="Using Windows default terminal cell size"
+time=2025-09-21T08:10:28.690-04:00 level=INFO msg="Successfully detected terminal cell size on Windows" pixels_per_column=8 pixels_per_row=16
+time=2025-09-21T08:10:28.690-04:00 level=INFO msg="Terminal cell size detection" pixels_per_column=8 pixels_per_row=16

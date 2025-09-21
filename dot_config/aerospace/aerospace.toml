@@ -41,11 +41,11 @@ cmd-alt-ctrl-shift-0 = [
 # Launch Warp with Hyper+Enter
 cmd-alt-ctrl-shift-enter = 'exec-and-forget open -a Warp'
 
-# Focus with Hyper+W/A/S/D
-cmd-alt-ctrl-shift-a = 'focus left'
-cmd-alt-ctrl-shift-d = 'focus right'
-cmd-alt-ctrl-shift-s = 'focus down'
-cmd-alt-ctrl-shift-w = 'focus up'
+# Focus with Hyper+H/J/K/L
+cmd-alt-ctrl-shift-h = 'focus left'
+cmd-alt-ctrl-shift-j = 'focus down'
+cmd-alt-ctrl-shift-k = 'focus up'
+cmd-alt-ctrl-shift-l = 'focus right'
 
 # Focus with Hyper+Arrow keys
 cmd-alt-ctrl-shift-down = 'focus down'
@@ -67,14 +67,14 @@ cmd-alt-ctrl-shift-m = 'mode move'
 # Enter Resize mode
 cmd-alt-ctrl-shift-r = 'mode resize'
 
-# Move mode: move windows with bare W/A/S/D/Arrow keys; Esc to exit
+# Move mode: move windows with bare H/J/K/L/Arrow keys; Esc to exit
 [mode.move.binding]
 
-# Move with W/A/S/D
-a = ['move left']
-d = ['move right']
-s = ['move down']
-w = ['move up']
+# Move with H/J/K/L
+h = ['move left']
+j = ['move down']
+k = ['move up']
+l = ['move right']
 
 # Move with Arrow keys
 down = 'move down'
@@ -85,13 +85,13 @@ up = 'move up'
 # Exit Move mode
 esc = 'mode main'
 
-# Resize mode: resize windows with bare W/A/S/D/Arrow keys; Esc to exit
+# Resize mode: resize windows with bare H/J/K/L/Arrow keys; Esc to exit
 [mode.resize.binding]
-# Grow/shrink (bigger steps) with W/A/S/D
-a = 'resize smart -50' # shrink toward left/width
-d = 'resize smart +50' # grow toward right/width
-s = 'resize smart -50' # shrink toward bottom/height
-w = 'resize smart +50' # grow toward top/height as appropriate
+# Grow/shrink (bigger steps) with H/J/K/L
+h = 'resize smart -50' # shrink toward left/width
+j = 'resize smart -50' # shrink toward bottom/height
+k = 'resize smart +50' # grow toward top/height as appropriate
+l = 'resize smart +50' # grow toward right/width
 
 # Grow/shrink (bigger steps) with Arrow keys
 down = 'resize smart -50'

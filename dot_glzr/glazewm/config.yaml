@@ -129,42 +129,42 @@ window_rules:
 
 # Hyper = Ctrl+Alt+Shift+oem_tilde
 binding_modes:
-  # Move Mode: bare WASD / Arrows move the focused window; Esc/Enter exits
+  # Move Mode: bare hjkl / Arrows move the focused window; Esc/Enter exits
   - name: "move"
     keybindings:
       - commands: ["move --direction up"]
-        bindings: ["w", "up"]
+        bindings: ["k", "up"]
       - commands: ["move --direction left"]
-        bindings: ["a", "left"]
+        bindings: ["h", "left"]
       - commands: ["move --direction down"]
-        bindings: ["s", "down"]
+        bindings: ["j", "down"]
       - commands: ["move --direction right"]
-        bindings: ["d", "right"]
+        bindings: ["l", "right"]
       - commands: ["wm-disable-binding-mode --name move"]
         bindings: ["escape", "enter"]
 
-  # Resize Mode: bare WASD / Arrows resize in 50px steps; Shift = 10px; Esc/Enter exits
+  # Resize Mode: bare hjkl / Arrows resize in 50px steps; Shift = 10px; Esc/Enter exits
   - name: "resize"
     keybindings:
       # 50px coarse steps
       - commands: ["resize --height -50px"]
-        bindings: ["w", "up"]
+        bindings: ["k", "up"]
       - commands: ["resize --width -50px"]
-        bindings: ["a", "left"]
+        bindings: ["h", "left"]
       - commands: ["resize --height +50px"]
-        bindings: ["s", "down"]
+        bindings: ["j", "down"]
       - commands: ["resize --width +50px"]
-        bindings: ["d", "right"]
+        bindings: ["l", "right"]
 
       # 10px fine steps with Shift
       - commands: ["resize --height -10px"]
-        bindings: ["shift+w", "shift+up"]
+        bindings: ["shift+k", "shift+up"]
       - commands: ["resize --width -10px"]
-        bindings: ["shift+a", "shift+left"]
+        bindings: ["shift+h", "shift+left"]
       - commands: ["resize --height +10px"]
-        bindings: ["shift+s", "shift+down"]
+        bindings: ["shift+j", "shift+down"]
       - commands: ["resize --width +10px"]
-        bindings: ["shift+d", "shift+right"]
+        bindings: ["shift+l", "shift+right"]
       - commands: ["wm-disable-binding-mode --name resize"]
         bindings: ["escape", "enter"]
 
@@ -187,13 +187,13 @@ keybindings:
 
   # Focus (Hyper + WASD / Arrows)
   - commands: ["focus --direction left"]
-    bindings: ["ctrl+alt+shift+oem_tilde+a", "ctrl+alt+shift+oem_tilde+left"]
+    bindings: ["ctrl+alt+shift+oem_tilde+h", "ctrl+alt+shift+oem_tilde+left"]
   - commands: ["focus --direction right"]
-    bindings: ["ctrl+alt+shift+oem_tilde+d", "ctrl+alt+shift+oem_tilde+right"]
+    bindings: ["ctrl+alt+shift+oem_tilde+l", "ctrl+alt+shift+oem_tilde+right"]
   - commands: ["focus --direction up"]
-    bindings: ["ctrl+alt+shift+oem_tilde+w", "ctrl+alt+shift+oem_tilde+up"]
+    bindings: ["ctrl+alt+shift+oem_tilde+k", "ctrl+alt+shift+oem_tilde+up"]
   - commands: ["focus --direction down"]
-    bindings: ["ctrl+alt+shift+oem_tilde+s", "ctrl+alt+shift+oem_tilde+down"]
+    bindings: ["ctrl+alt+shift+oem_tilde+j", "ctrl+alt+shift+oem_tilde+down"]
 
     # Workspaces (Hyper + 1/2/3)
   - commands: ["focus --workspace 1"]

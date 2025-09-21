@@ -1,20 +1,20 @@
 prSections:
-- title: My Pull Requests
-  filters: is:open author:@me
-  type: null
-- title: Needs My Review
-  filters: is:open review-requested:@me
-  type: null
-- title: Involved
-  filters: is:open involves:@me -author:@me
-  type: null
+  - title: My Pull Requests
+    filters: is:open author:@me
+    type: null
+  - title: Needs My Review
+    filters: is:open review-requested:@me
+    type: null
+  - title: Involved
+    filters: is:open involves:@me -author:@me
+    type: null
 issuesSections:
-- title: My Issues
-  filters: is:open author:@me
-- title: Assigned
-  filters: is:open assignee:@me
-- title: Involved
-  filters: is:open involves:@me -author:@me
+  - title: My Issues
+    filters: is:open author:@me
+  - title: Assigned
+    filters: is:open assignee:@me
+  - title: Involved
+    filters: is:open involves:@me -author:@me
 repo:
   branchesRefetchIntervalSeconds: 30
   prsRefetchIntervalSeconds: 60
@@ -73,6 +73,37 @@ theme:
     table:
       showSeparator: true
       compact: false
+  colors:
+    text:
+      primary: "#cdcefb" # Main text color
+      secondary: "#bdc2c3" # Secondary text (muted)
+      inverted: "#091a1f" # Text on colored backgrounds
+      faint: "#8e9395" # Comment/faint text
+      warning: "#cca700" # Warning text
+      success: "#23d18b" # Success text
+    background:
+      selected: "#142a32" # Selected item background
+    border:
+      primary: "#029fec91" # Main border color
+      secondary: "#26363c" # Secondary borders
+      faint: "#404040" # Faint borders
+    prs:
+      merged: "#c73df5e3" # Merged PRs (accent)
+      closed: "#e25e44" # Closed PRs (error)
+      open: "#16e6c9" # Open PRs (primary)
+      draft: "#8e9395" # Draft PRs (comment)
+    issues:
+      closed: "#e25e44" # Closed issues (error)
+      open: "#16e6c9" # Open issues (primary)
+    state:
+      failure: "#e25e44" # Failed state (error)
+      pending: "#cca700" # Pending state (warning)
+      success: "#23d18b" # Success state
+      neutral: "#75beff" # Neutral state (info)
+    repo:
+      private: "#ff349a" # Private repos (accent-2)
+      fork: "#26add0" # Forked repos (secondary)
+      source: "#119c82" # Source repos (link)
 pager:
   diff: ""
 confirmQuit: false

@@ -1,11 +1,10 @@
 theme = "cyberwave"
 
-shell = ["pwsh", "-Command", ". $PROFILE;"]
-
 [editor]
 line-number = "relative"
 cursorline = true # Highlights current line.
 auto-save = true # Saves files on focus loss.
+shell = ["pwsh", "-Command", ". $PROFILE;"]
 
 [editor.cursor-shape]
 insert = "bar" # Cursor shape in insert mode.

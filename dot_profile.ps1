@@ -79,6 +79,7 @@ function gomt { go mod tidy @args }
 function gor { go run @args }
 function got { go test @args }
 function gota { go test ./... @args }
+function gotc { go test ./... -cover --coverprofile coverage.out && gocovsh }
 function goto { go tool @args }
 function gotoc { go tool compile @args }
 function gotod { go tool dist @args }

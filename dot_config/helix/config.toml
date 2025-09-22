@@ -9,5 +9,9 @@ auto-save = true # Saves files on focus loss.
 insert = "bar" # Cursor shape in insert mode.
 normal = "block" # Cursor shape in normal mode.
 
+[editor.shell]
+program = "pwsh"
+args = ["-NoExit", "-ExecutionPolicy", "Bypass", "-Command", ". $PROFILE;"]
+
 [keys.normal]
 C-s = ":write" # Quick save.

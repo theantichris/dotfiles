@@ -42,6 +42,9 @@ unsetopt correct_all
 # Alias finder
 ZSH_ALIAS_FINDER_AUTOMATIC=true
 
+# Editor
+export EDITOR="hx"
+
 # Source OMZ
 source $ZSH/oh-my-zsh.sh
 

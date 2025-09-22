@@ -13,6 +13,10 @@ windows/
 .config/karabiner
 {{ end }}
 
+{{ if ne .chezmoi.os "darwin" }}
+run_onchange_before_install-packages-darwin.sh.tmpl
+{{ end }}
+
 {{ if ne .chezmoi.os "windows" }}
 .profile.ps1
 .glzr/

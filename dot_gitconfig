@@ -28,6 +28,7 @@ tool = code
 ui = auto
 
 [core]
+editor = hx
 excludesFile = .gitignore
 autocrlf = input
 eol = lf

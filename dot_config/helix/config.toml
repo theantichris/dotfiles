@@ -4,10 +4,7 @@ theme = "cyberwave"
 line-number = "relative"
 cursorline = true # Highlights current line.
 auto-save = true # Saves files on focus loss.
-
-{{- if eq .chezmoi.os "windows" }}
 shell = ["pwsh", "-Command", ". $PROFILE;"]
-{{- end }}
 
 [editor.cursor-shape]
 insert = "bar" # Cursor shape in insert mode.

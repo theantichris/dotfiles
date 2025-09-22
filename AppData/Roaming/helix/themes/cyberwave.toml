@@ -5,7 +5,7 @@
 "ui.background.separator" = "border"
 "ui.cursor" = { fg = "background", bg = "primary" }
 "ui.cursor.normal" = { fg = "background", bg = "primary" }
-"ui.cursor.insert" = { fg = "background", bg = "#ffffff" }
+"ui.cursor.insert" = { fg = "#000000", bg = "#ffffff" }
 "ui.cursor.select" = { fg = "background", bg = "secondary" }
 "ui.cursor.match" = { fg = "background", bg = "accent-2" }
 "ui.cursor.primary" = { fg = "background", bg = "primary" }

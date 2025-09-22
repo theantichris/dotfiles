@@ -11,7 +11,7 @@ normal = "block" # Cursor shape in normal mode.
 
 [editor.shell]
 program = "pwsh"
-args = ["-NoExit", "-ExecutionPolicy", "Bypass", "-Command", ". $PROFILE;"]
+shell = ["pwsh", "-Command", ". $PROFILE:"]
 
 [keys.normal]
 C-s = ":write" # Quick save.

@@ -24,7 +24,7 @@ run = 'layout floating'
 [mode.main.binding]
 
 # Layouts with Hyper+H/V
-cmd-alt-ctrl-shift-h = 'layout horizontal'
+# cmd-alt-ctrl-shift-h = 'layout horizontal'
 cmd-alt-ctrl-shift-v = 'layout vertical'
 
 # Toggle floating/tiling with Hyper+;

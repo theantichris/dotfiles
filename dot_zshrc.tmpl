@@ -51,11 +51,22 @@ export EDITOR="hx"
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
+{{- if eq .chezmoi.os "linux" }}
 if command -v batcat >/dev/null; then alias cat="batcat"; fi
 if command -v fdfind >/dev/null; then alias fd="fdfind"; fi
+{{- end }}
 
+{{- if eq .chezmoi.os "darwin" }}
+alias cat="bat"
+alias ll="eza -lh --git"
+alias la="eza -lha --git"
+alias ls="eza"
+{{- end }}
+
+{{- if eq .chezmoi.os "linux" }}
 # Windows interop
 if command -v explorer.exe >/dev/null; then
   alias open='explorer.exe .'
   alias winhome='cd /mnt/c/Users/chris'
 fi
+{{- end }}

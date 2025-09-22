@@ -2,9 +2,28 @@
 #!/bin/bash
 
 brew bundle --file=/dev/stdin <<EOF
-brew "git"
-brew "gh"
+
+brew "bat"
 brew "chezmoi"
+brew "eza"
+brew "gh"
+brew "git"
+brew "go"
+brew "helix"
+brew "httpie"
+brew "jq"
+brew "orlangure/tap/gocovsh"
+brew "superfile"
+
+cask "karabiner-elements"
+cask "claude-code"
+cask "httpie-desktop"
+cask "nikitabobko/tap/aerospace"
+cask "notion"
+cask "ollama-app"
+cask "tailscale-app"
+cask "visual-studio-code"
 cask "warp"
+
 EOF
 {{ end -}}

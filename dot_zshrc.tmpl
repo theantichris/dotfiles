@@ -1,9 +1,11 @@
 # Path
 export PATH="$HOME/.local/bin:$HOME/go/bin:$PATH"
 
+{{- if eq .chezmoi.os "linux" }}
 # Resolve Windows host IP each shell start
 export WIN_HOST="$(ip route | awk '/^default/ {print $3}')"
 export OLLAMA_HOST="http://$WIN_HOST:11434"
+{{- end }}
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"

@@ -1,0 +1,143 @@
+# Cyberwave theme for Helix
+# Based on cyberwave.json palette
+
+"ui.background" = { bg = "background" }
+"ui.background.separator" = "border"
+"ui.cursor" = { fg = "background", bg = "primary" }
+"ui.cursor.normal" = { fg = "background", bg = "primary" }
+"ui.cursor.insert" = { fg = "#000000", bg = "#ffffff" }
+"ui.cursor.select" = { fg = "background", bg = "secondary" }
+"ui.cursor.match" = { fg = "background", bg = "accent-2" }
+"ui.cursor.primary" = { fg = "background", bg = "primary" }
+"ui.cursor.secondary" = { fg = "background", bg = "secondary" }
+"ui.cursorline.primary" = { bg = "line-highlight" }
+"ui.cursorline.secondary" = { bg = "surface-1" }
+"ui.cursorcolumn.primary" = { bg = "line-highlight" }
+"ui.cursorcolumn.secondary" = { bg = "surface-1" }
+"ui.selection" = { bg = "selection" }
+"ui.selection.primary" = { bg = "selection" }
+"ui.linenr" = "comment"
+"ui.linenr.selected" = "text"
+"ui.statusline" = { fg = "text", bg = "surface-1" }
+"ui.statusline.inactive" = { fg = "text-muted", bg = "surface-2" }
+"ui.statusline.normal" = { fg = "background", bg = "primary" }
+"ui.statusline.insert" = { fg = "background", bg = "accent" }
+"ui.statusline.select" = { fg = "background", bg = "secondary" }
+"ui.statusline.separator" = "border"
+"ui.popup" = { fg = "text", bg = "surface-2" }
+"ui.popup.info" = { fg = "text", bg = "surface-2" }
+"ui.window" = { bg = "surface-1" }
+"ui.help" = { fg = "text", bg = "surface-2" }
+"ui.text" = "text"
+"ui.text.focus" = "text"
+"ui.text.inactive" = "text-muted"
+"ui.text.info" = "info"
+"ui.virtual" = "comment"
+"ui.virtual.ruler" = { bg = "surface-1" }
+"ui.virtual.whitespace" = "comment"
+"ui.virtual.indent-guide" = "comment"
+"ui.virtual.inlay-hint" = { fg = "comment", modifiers = ["italic"] }
+"ui.virtual.inlay-hint.parameter" = { fg = "comment", modifiers = ["italic"] }
+"ui.virtual.inlay-hint.type" = { fg = "comment", modifiers = ["italic"] }
+"ui.virtual.wrap" = "comment"
+"ui.virtual.jump-label" = { fg = "accent-2", modifiers = ["bold"] }
+"ui.menu" = { fg = "text", bg = "surface-2" }
+"ui.menu.selected" = { fg = "text", bg = "selection" }
+"ui.menu.scroll" = { fg = "text", bg = "surface-1" }
+"ui.highlight" = { bg = "selection" }
+"ui.highlight.frameline" = { bg = "error" }
+"ui.debug" = { fg = "error" }
+"ui.debug.breakpoint" = { fg = "error" }
+"ui.debug.active" = { fg = "warning" }
+
+"warning" = "warning"
+"error" = "error"
+"info" = "info"
+"hint" = "accent"
+"diagnostic" = { modifiers = ["underlined"] }
+"diagnostic.hint" = { fg = "accent", modifiers = ["underlined"] }
+"diagnostic.info" = { fg = "info", modifiers = ["underlined"] }
+"diagnostic.warning" = { fg = "warning", modifiers = ["underlined"] }
+"diagnostic.error" = { fg = "error", modifiers = ["underlined"] }
+
+"comment" = "comment"
+"constant" = "secondary"
+"constant.builtin" = "secondary"
+"constant.character" = "secondary"
+"constant.character.escape" = "accent"
+"constant.macro" = "accent"
+"constant.numeric" = "secondary"
+"constructor" = "accent"
+"diff.delta" = "warning"
+"diff.minus" = "error"
+"diff.plus" = "success"
+"function" = "accent"
+"function.builtin" = "accent"
+"function.macro" = "accent-2"
+"function.method" = "accent"
+"function.special" = "accent-2"
+"keyword" = "text"
+"keyword.control" = "accent-2"
+"keyword.control.conditional" = "accent-2"
+"keyword.control.exception" = "accent-2"
+"keyword.control.import" = "accent-2"
+"keyword.control.repeat" = "accent-2"
+"keyword.control.return" = "accent-2"
+"keyword.directive" = "accent-2"
+"keyword.function" = "accent-2"
+"keyword.operator" = "accent-2"
+"keyword.storage" = "text"
+"keyword.storage.modifier" = "text"
+"keyword.storage.type" = "primary"
+"label" = "primary"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.heading" = { fg = "primary", modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.link.text" = "link"
+"markup.link.url" = { fg = "link", modifiers = ["underlined"] }
+"markup.list" = "text"
+"markup.quote" = "comment"
+"markup.raw" = "secondary"
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"namespace" = "primary"
+"operator" = "accent-2"
+"property" = "primary"
+"punctuation" = "text"
+"punctuation.bracket" = "text"
+"punctuation.delimiter" = "text"
+"punctuation.special" = "accent-2"
+"string" = "secondary"
+"string.escape" = "accent"
+"string.regex" = "accent-2"
+"string.special" = "accent"
+"tag" = "primary"
+"tag.builtin" = "primary"
+"type" = "success"
+"type.builtin" = "success"
+"type.enum.variant" = "success"
+"variable" = "primary"
+"variable.builtin" = "primary"
+"variable.other.member" = "primary"
+"variable.parameter" = "text"
+
+[palette]
+background = "#091a1f"
+surface-1 = "#192a30"
+surface-2 = "#001a24"
+surface-3 = "#08252f"
+text = "#cdcefb"
+text-muted = "#bdc2c3"
+comment = "#8e9395"
+primary = "#16e6c9"
+secondary = "#26add0"
+accent = "#c73df5e3"
+accent-2 = "#ff349a"
+link = "#119c82"
+warning = "#cca700"
+error = "#e25e44"
+info = "#75beff"
+success = "#23d18b"
+border = "#029fec91"
+shadow = "#5b3199bf"
+selection = "#264f78"
+line-highlight = "#002330"

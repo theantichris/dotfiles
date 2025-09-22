@@ -1,0 +1,13 @@
+theme = "cyberwave"
+
+[editor]
+line-number = "relative"
+cursorline = true # Highlights current line.
+auto-save = true # Saves files on focus loss.
+
+[editor.cursor-shape]
+insert = "bar" # Cursor shape in insert mode.
+normal = "block" # Cursor shape in normal mode.
+
+[keys.normal]
+C-s = ":write" # Quick save.

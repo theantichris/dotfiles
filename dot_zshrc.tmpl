@@ -58,6 +58,7 @@ if command -v fdfind >/dev/null; then alias fd="fdfind"; fi
 
 {{- if eq .chezmoi.os "darwin" }}
 alias cat="bat"
+alias gotc="go test ./... -cover --coverprofile coverage.out && gocovsh"
 alias ll="eza -lh --git"
 alias la="eza -lha --git"
 alias ls="eza"

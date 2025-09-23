@@ -33,3 +33,4 @@ excludesFile = .gitignore
 autocrlf = input
 eol = lf
 safecrlf = false
+pager = "cat"

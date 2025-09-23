@@ -1,6 +1,5 @@
 [edit]
-    command = "code"
-    args = ["--wait"]
+    command = "hx"
 
 [git]
     autoCommit = true

@@ -2,3 +2,8 @@
 name = "go"
 auto-format = true
 formatter = { command = "goimports" }
+
+[[language]]
+name = "toml"
+roots = ["."]
+language-servers = ["taplo"]

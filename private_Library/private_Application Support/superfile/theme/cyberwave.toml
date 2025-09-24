@@ -1,0 +1,72 @@
+# Cyberwave Theme for SuperFile
+
+# Code syntax highlight theme (compatible with chroma)
+code_syntax_highlight = "monokai"
+
+# ========= Border Colors =========
+file_panel_border = "#029fec91"           # border (translucent blue)
+sidebar_border = "#08252f"                # surface-3 (darker teal)
+footer_border = "#029fec91"               # border (matching file panel)
+
+# ========= Active Border Colors =========
+file_panel_border_active = "#16e6c9"      # primary (bright teal)
+sidebar_border_active = "#c73df5e3"       # accent (translucent purple)
+footer_border_active = "#23d18b"          # success (green)
+modal_border_active = "#ff349a"           # accent-2 (bright pink)
+
+# ========= Background Colors =========
+full_screen_bg = "#091a1f"                # background (main dark)
+file_panel_bg = "#001a24"                 # surface-2 (darker blue-teal)
+sidebar_bg = "#08252f"                    # surface-3 (dark teal)
+footer_bg = "#192a30"                     # surface-1 (lighter dark)
+modal_bg = "#192a30"                      # surface-1 (matching footer)
+
+# ========= Foreground Colors =========
+full_screen_fg = "#cdcefb"                # text (light purple-blue)
+file_panel_fg = "#bdc2c3"                 # text-muted (light gray)
+sidebar_fg = "#7996a1"                    # muted teal (from glow config)
+footer_fg = "#bdc2c3"                     # text-muted (matching file panel)
+modal_fg = "#cdcefb"                      # text (bright for readability)
+
+# ========= Special State Colors =========
+cursor = "#16e6c9"                        # primary (bright teal cursor)
+correct = "#23d18b"                       # success (green for valid states)
+error = "#e25e44"                         # error (red for problems)
+hint = "#75beff"                          # info (blue for hints)
+cancel = "#ff349a"                        # accent-2 (pink for cancel actions)
+
+# ========= Gradient Colors =========
+# Gradient requires exactly two colors - primary to accent
+gradient_color = ["#16e6c9", "#c73df5e3"]
+
+# ========= File Panel Special Items =========
+file_panel_top_directory_icon = "#23d18b" # success (green for directory icon)
+file_panel_top_path = "#16e6c9"           # primary (bright teal for path)
+file_panel_item_selected_fg = "#cdcefb"   # text (bright for selection)
+file_panel_item_selected_bg = "#142a32"   # selection bg (from themes)
+
+# ========= Sidebar Special Items =========
+sidebar_title = "#c73df5e3"               # accent (purple for titles)
+sidebar_item_selected_fg = "#cdcefb"      # text (bright for selection)
+sidebar_item_selected_bg = "#194341"      # list-focus bg (from themes)
+sidebar_divider = "#5b3199bf"             # shadow (translucent purple)
+
+# ========= Modal Special Items =========
+modal_cancel_fg = "#e3e1ec"               # light text on colored bg
+modal_cancel_bg = "#e25e44"               # error (red for cancel)
+modal_confirm_fg = "#e3e1ec"              # light text on colored bg
+modal_confirm_bg = "#119c82"              # link (teal for confirm)
+
+# ========= Help Menu Colors =========
+help_menu_hotkey = "#26add0"              # secondary (blue for hotkeys)
+help_menu_title = "#16e6c9"               # primary (teal for titles)
+
+# ========= File Type Colors (Optional Extensions) =========
+# These aren't in the standard spec but some themes include them
+directory_color = "#16e6c9"               # primary (teal for directories)
+executable_color = "#23d18b"              # success (green for executables)
+archive_color = "#cca700"                 # warning (yellow for archives)
+image_color = "#ff349a"                   # accent-2 (pink for images)
+video_color = "#75beff"                   # info (blue for videos)
+audio_color = "#c73df5e3"                 # accent (purple for audio)
+document_color = "#26add0"                # secondary (blue for docs)

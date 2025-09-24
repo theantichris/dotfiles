@@ -26,6 +26,11 @@ run = 'layout floating'
  if.app-id = 'com.apple.MobileSMS'
  run = 'layout floating'
 
+ # Messages
+ [[on-window-detected]]
+ if.app-id = 'org.whispersystems.signal-desktop'
+ run = 'layout floating'
+
 # Main mode (always present)
 [mode.main.binding]
 

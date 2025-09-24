@@ -1,8 +1,6 @@
 {{- if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
-# brew bundle --file=/dev/stdin <<EOF
-
 brew install "bat"
 brew install "chezmoi"
 brew install "eza"
@@ -38,5 +36,4 @@ brew install --cask "tailscale-app"
 brew install --cask "visual-studio-code"
 brew install --cask "warp"
 
-EOF
 {{ end -}}

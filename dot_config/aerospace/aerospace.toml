@@ -1,4 +1,4 @@
-# AeroSpace config for Hyper
+# AeroSpace config
 
 # Gaps
 [gaps]
@@ -20,6 +20,12 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
 run = 'layout floating'
+
+ # Messages
+ [[on-window-detected]]
+ if.app-id = 'com.apple.MobileSMS'
+ run = 'layout floating'
+
 # Main mode (always present)
 [mode.main.binding]
 

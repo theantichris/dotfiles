@@ -31,6 +31,11 @@ run = 'layout floating'
  if.app-id = 'org.whispersystems.signal-desktop'
  run = 'layout floating'
 
+# Mail
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
+run = 'layout floating'
+
 # Main mode (always present)
 [mode.main.binding]
 

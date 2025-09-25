@@ -9,6 +9,9 @@ cyberwave_palette.html
 ubuntu/
 windows/
 
+# GitHub Actions
+.github/workflows
+
 # Agents
 CLAUDE.md
 

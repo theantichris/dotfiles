@@ -48,11 +48,6 @@ _chezmoi-powered personal environment. keyboard-first. cross-platform._
 | **Search**          | fd          | -                                                                        | -                                             |
 | **Git**             | -           | `dot_gitconfig`, `dot_gitignore`                                         | -                                             |
 
-## Notes
-
-- Platform-specific files are marked in the tables above.
-- Review secrets before publishing or sharing.
-
 ## 🪪 License
 
 MIT

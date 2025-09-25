@@ -1,5 +1,4 @@
 # Cyberwave ZSH Theme
-# Based on the cyberwave universal palette for cross-platform consistency
 
 # Color definitions using your cyberwave palette
 typeset -A cyberwave_colors

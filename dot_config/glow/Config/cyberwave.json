@@ -2,13 +2,13 @@
   "document": {
     "block_prefix": "\n",
     "block_suffix": "\n",
-    "color": "189",
+    "color": "#cdcefb",
     "margin": 2
   },
   "block_quote": {
     "indent": 1,
     "indent_token": "│ ",
-    "color": "102"
+    "color": "#8e9395"
   },
   "paragraph": {},
   "list": {
@@ -16,51 +16,53 @@
   },
   "heading": {
     "block_suffix": "\n",
-    "color": "80",
+    "color": "#16e6c9",
     "bold": true
   },
   "h1": {
     "prefix": " ",
     "suffix": " ",
-    "color": "80",
-    "background_color": "23",
+    "color": "#16e6c9",
+    "background_color": "#091a1f",
     "bold": true
   },
   "h2": {
     "prefix": "## ",
-    "color": "80"
+    "color": "#16e6c9"
   },
   "h3": {
     "prefix": "### ",
-    "color": "80"
+    "color": "#16e6c9"
   },
   "h4": {
     "prefix": "#### ",
-    "color": "80"
+    "color": "#16e6c9"
   },
   "h5": {
     "prefix": "##### ",
-    "color": "80"
+    "color": "#16e6c9"
   },
   "h6": {
     "prefix": "###### ",
-    "color": "80",
+    "color": "#16e6c9",
     "bold": false
   },
-  "text": {},
+  "text": {
+    "color": "#cdcefb"
+  },
   "strikethrough": {
     "crossed_out": true
   },
   "emph": {
     "italic": true,
-    "color": "177"
+    "color": "#c73df5e3"
   },
   "strong": {
     "bold": true,
-    "color": "189"
+    "color": "#cdcefb"
   },
   "hr": {
-    "color": "75",
+    "color": "#029fec91",
     "format": "\n--------\n"
   },
   "item": {
@@ -74,29 +76,29 @@
     "unticked": "[ ] "
   },
   "link": {
-    "color": "30",
+    "color": "#119c82",
     "underline": true
   },
   "link_text": {
-    "color": "74",
+    "color": "#16e6c9",
     "bold": true
   },
   "image": {
-    "color": "177",
+    "color": "#c73df5e3",
     "underline": true
   },
   "image_text": {
-    "color": "102",
+    "color": "#8e9395",
     "format": "Image: {{.text}} →"
   },
   "code": {
     "prefix": " ",
     "suffix": " ",
-    "color": "74",
-    "background_color": "236"
+    "color": "#26add0",
+    "background_color": "#001a24"
   },
   "code_block": {
-    "color": "74",
+    "color": "#26add0",
     "margin": 2,
     "chroma": {
       "text": {
@@ -318,12 +320,12 @@
   },
   "definition_list": {},
   "definition_term": {
-    "color": "177",
+    "color": "#c73df5e3",
     "bold": true
   },
   "definition_description": {
     "block_prefix": "\n🠶 ",
-    "color": "102"
+    "color": "#8e9395"
   },
   "html_block": {},
   "html_span": {}

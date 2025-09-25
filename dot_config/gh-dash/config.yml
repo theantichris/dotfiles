@@ -75,35 +75,35 @@ theme:
       compact: false
   colors:
     text:
-      primary: "#cdcefb" # Main text color
-      secondary: "#bdc2c3" # Secondary text (muted)
-      inverted: "#091a1f" # Text on colored backgrounds
-      faint: "#8e9395" # Comment/faint text
-      warning: "#cca700" # Warning text
-      success: "#23d18b" # Success text
+      primary: "#cdcefb"     # base.text
+      secondary: "#bdc2c3"   # base.text-muted  
+      inverted: "#091a1f"    # base.background
+      faint: "#8e9395"       # base.comment
+      warning: "#cca700"     # semantics.warning
+      success: "#23d18b"     # semantics.success
     background:
-      selected: "#142a32" # Selected item background
+      selected: "#264f78"    # ui.selection
     border:
-      primary: "#029fec91" # Main border color
-      secondary: "#26363c" # Secondary borders
-      faint: "#404040" # Faint borders
+      primary: "#029fec91"   # ui.border
+      secondary: "#192a30"   # base.surface-1
+      faint: "#08252f"       # base.surface-3
     prs:
-      merged: "#c73df5e3" # Merged PRs (accent)
-      closed: "#e25e44" # Closed PRs (error)
-      open: "#16e6c9" # Open PRs (primary)
-      draft: "#8e9395" # Draft PRs (comment)
+      merged: "#c73df5e3"    # accents.tertiary
+      closed: "#e25e44"      # semantics.error
+      open: "#16e6c9"        # accents.primary
+      draft: "#8e9395"       # base.comment
     issues:
-      closed: "#e25e44" # Closed issues (error)
-      open: "#16e6c9" # Open issues (primary)
+      closed: "#e25e44"      # semantics.error
+      open: "#16e6c9"        # accents.primary
     state:
-      failure: "#e25e44" # Failed state (error)
-      pending: "#cca700" # Pending state (warning)
-      success: "#23d18b" # Success state
-      neutral: "#75beff" # Neutral state (info)
+      failure: "#e25e44"     # semantics.error
+      pending: "#cca700"     # semantics.warning
+      success: "#23d18b"     # semantics.success
+      neutral: "#75beff"     # semantics.info
     repo:
-      private: "#ff349a" # Private repos (accent-2)
-      fork: "#26add0" # Forked repos (secondary)
-      source: "#119c82" # Source repos (link)
+      private: "#ff8ffd"     # accents.quaternary
+      fork: "#26add0"        # accents.secondary
+      source: "#119c82"      # semantics.link
 pager:
   diff: ""
 confirmQuit: false

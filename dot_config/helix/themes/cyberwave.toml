@@ -1,19 +1,18 @@
 # Cyberwave theme for Helix
-# Based on cyberwave.json palette
 
 "ui.background" = { bg = "background" }
 "ui.background.separator" = "border"
 "ui.cursor" = { fg = "background", bg = "primary" }
 "ui.cursor.normal" = { fg = "background", bg = "primary" }
-"ui.cursor.insert" = { fg = "#ffffff", bg = "#primay" }
-"ui.cursor.select" = { fg = "background", bg = "secondary" }
-"ui.cursor.match" = { fg = "background", bg = "accent-2" }
+"ui.cursor.insert" = { fg = "background", bg = "secondary" }
+"ui.cursor.select" = { fg = "background", bg = "tertiary" }
+"ui.cursor.match" = { fg = "background", bg = "quaternary" }
 "ui.cursor.primary" = { fg = "background", bg = "primary" }
 "ui.cursor.secondary" = { fg = "background", bg = "secondary" }
-"ui.cursorline.primary" = { bg = "line-highlight" }
-"ui.cursorline.secondary" = { bg = "surface-1" }
-"ui.cursorcolumn.primary" = { bg = "line-highlight" }
-"ui.cursorcolumn.secondary" = { bg = "surface-1" }
+"ui.cursorline.primary" = { bg = "surface-1" }
+"ui.cursorline.secondary" = { bg = "surface-2" }
+"ui.cursorcolumn.primary" = { bg = "surface-1" }
+"ui.cursorcolumn.secondary" = { bg = "surface-2" }
 "ui.selection" = { bg = "selection" }
 "ui.selection.primary" = { bg = "selection" }
 "ui.linenr" = "comment"
@@ -21,8 +20,8 @@
 "ui.statusline" = { fg = "text", bg = "surface-1" }
 "ui.statusline.inactive" = { fg = "text-muted", bg = "surface-2" }
 "ui.statusline.normal" = { fg = "background", bg = "primary" }
-"ui.statusline.insert" = { fg = "background", bg = "accent" }
-"ui.statusline.select" = { fg = "background", bg = "secondary" }
+"ui.statusline.insert" = { fg = "background", bg = "secondary" }
+"ui.statusline.select" = { fg = "background", bg = "tertiary" }
 "ui.statusline.separator" = "border"
 "ui.popup" = { fg = "text", bg = "surface-2" }
 "ui.popup.info" = { fg = "text", bg = "surface-2" }
@@ -40,7 +39,7 @@
 "ui.virtual.inlay-hint.parameter" = { fg = "comment", modifiers = ["italic"] }
 "ui.virtual.inlay-hint.type" = { fg = "comment", modifiers = ["italic"] }
 "ui.virtual.wrap" = "comment"
-"ui.virtual.jump-label" = { fg = "accent-2", modifiers = ["bold"] }
+"ui.virtual.jump-label" = { fg = "highlight", modifiers = ["bold"] }
 "ui.menu" = { fg = "text", bg = "surface-2" }
 "ui.menu.selected" = { fg = "text", bg = "selection" }
 "ui.menu.scroll" = { fg = "text", bg = "surface-1" }
@@ -53,9 +52,9 @@
 "warning" = "warning"
 "error" = "error"
 "info" = "info"
-"hint" = "accent"
+"hint" = "tertiary"
 "diagnostic" = { modifiers = ["underlined"] }
-"diagnostic.hint" = { fg = "accent", modifiers = ["underlined"] }
+"diagnostic.hint" = { fg = "tertiary", modifiers = ["underlined"] }
 "diagnostic.info" = { fg = "info", modifiers = ["underlined"] }
 "diagnostic.warning" = { fg = "warning", modifiers = ["underlined"] }
 "diagnostic.error" = { fg = "error", modifiers = ["underlined"] }
@@ -64,28 +63,28 @@
 "constant" = "secondary"
 "constant.builtin" = "secondary"
 "constant.character" = "secondary"
-"constant.character.escape" = "accent"
-"constant.macro" = "accent"
+"constant.character.escape" = "tertiary"
+"constant.macro" = "tertiary"
 "constant.numeric" = "secondary"
-"constructor" = "accent"
+"constructor" = "tertiary"
 "diff.delta" = "warning"
 "diff.minus" = "error"
 "diff.plus" = "success"
-"function" = "accent"
-"function.builtin" = "accent"
-"function.macro" = "accent-2"
-"function.method" = "accent"
-"function.special" = "accent-2"
+"function" = "tertiary"
+"function.builtin" = "tertiary"
+"function.macro" = "quaternary"
+"function.method" = "tertiary"
+"function.special" = "quaternary"
 "keyword" = "text"
-"keyword.control" = "accent-2"
-"keyword.control.conditional" = "accent-2"
-"keyword.control.exception" = "accent-2"
-"keyword.control.import" = "accent-2"
-"keyword.control.repeat" = "accent-2"
-"keyword.control.return" = "accent-2"
-"keyword.directive" = "accent-2"
-"keyword.function" = "accent-2"
-"keyword.operator" = "accent-2"
+"keyword.control" = "quaternary"
+"keyword.control.conditional" = "quaternary"
+"keyword.control.exception" = "quaternary"
+"keyword.control.import" = "quaternary"
+"keyword.control.repeat" = "quaternary"
+"keyword.control.return" = "quaternary"
+"keyword.directive" = "quaternary"
+"keyword.function" = "quaternary"
+"keyword.operator" = "quaternary"
 "keyword.storage" = "text"
 "keyword.storage.modifier" = "text"
 "keyword.storage.type" = "primary"
@@ -100,27 +99,28 @@
 "markup.raw" = "secondary"
 "markup.strikethrough" = { modifiers = ["crossed_out"] }
 "namespace" = "primary"
-"operator" = "accent-2"
+"operator" = "quaternary"
 "property" = "primary"
 "punctuation" = "text"
 "punctuation.bracket" = "text"
 "punctuation.delimiter" = "text"
-"punctuation.special" = "accent-2"
+"punctuation.special" = "quaternary"
 "string" = "secondary"
-"string.escape" = "accent"
-"string.regex" = "accent-2"
-"string.special" = "accent"
+"string.escape" = "tertiary"
+"string.regex" = "quaternary"
+"string.special" = "tertiary"
 "tag" = "primary"
 "tag.builtin" = "primary"
-"type" = "success"
-"type.builtin" = "success"
-"type.enum.variant" = "success"
+"type" = "type-color"
+"type.builtin" = "type-color"
+"type.enum.variant" = "type-color"
 "variable" = "primary"
 "variable.builtin" = "primary"
 "variable.other.member" = "primary"
 "variable.parameter" = "text"
 
 [palette]
+# Base colors from cyberwave_palette.json
 background = "#091a1f"
 surface-1 = "#192a30"
 surface-2 = "#001a24"
@@ -128,16 +128,25 @@ surface-3 = "#08252f"
 text = "#cdcefb"
 text-muted = "#bdc2c3"
 comment = "#8e9395"
+
+# Accent colors
 primary = "#16e6c9"
 secondary = "#26add0"
-accent = "#c73df5e3"
-accent-2 = "#ff349a"
-link = "#119c82"
+tertiary = "#c73df5e3"
+quaternary = "#ff8ffd"
+
+# Semantic colors
+success = "#23d18b"
 warning = "#cca700"
 error = "#e25e44"
 info = "#75beff"
-success = "#23d18b"
+link = "#119c82"
+
+# UI colors
 border = "#029fec91"
 shadow = "#5b3199bf"
 selection = "#264f78"
-line-highlight = "#002330"
+highlight = "#ff349a"
+
+# Syntax colors
+type-color = "#b3f971"

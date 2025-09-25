@@ -252,11 +252,17 @@ PROMPT3='${CW[quaternary]}?# ${CW[reset]}'
 # Debug prompt
 PROMPT4='${CW[warning]}+%N:%i${CW[reset]}> '
 
+# Load splash screen if available
+if [[ -f "$ZSH/custom/cyberwave-splash.zsh" ]]; then
+    source "$ZSH/custom/cyberwave-splash.zsh"
+    cyberwave_splash  # Display splash screen on startup
+fi
+
 # Clean up on theme switch
 if [[ -n $cyberwave_cleanup ]]; then
     unset cyberwave_cleanup
     unset -f cyberwave_color cyberwave_git_status cyberwave_pwd cyberwave_exec_time
-    unset -f cyberwave_preexec cyberwave_venv cyberwave_node cyberwave_go 
+    unset -f cyberwave_preexec cyberwave_venv cyberwave_node cyberwave_go
     unset -f cyberwave_exit_status cyberwave_user_host cyberwave_main_prompt cyberwave_rprompt
     unset cyberwave_colors CW cyberwave_cmd_timestamp
 fi

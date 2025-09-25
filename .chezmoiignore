@@ -9,6 +9,9 @@ cyberwave_palette.html
 ubuntu/
 windows/
 
+# Agents
+CLAUDE.md
+
 {{ if and (ne .chezmoi.os "linux") (ne .chezmoi.os "darwin") }}
 .zshrc
 .config/aerospace

@@ -60,17 +60,17 @@ A cyberpunk-inspired ZSH theme with vibrant neon colors and comprehensive develo
 
 The theme uses a carefully crafted cyberwave color palette:
 
-| Color | Hex | Usage |
-|-------|-----|-------|
-| Primary | `#16e6c9` | Main accent (cyan) - directories, prompt |
-| Secondary | `#26add0` | Blue - git branches, Go version |
-| Tertiary | `#c73df5e3` | Purple - functions, virtualenv |
-| Quaternary | `#ff8ffd` | Pink - operators, hostname |
-| Success | `#23d18b` | Green - staged changes, Node version |
-| Warning | `#cca700` | Yellow - unstaged changes, execution time |
-| Error | `#e25e44` | Red - untracked files, exit codes |
-| Text | `#cdcefb` | Main text color |
-| Comment | `#8e9395` | Muted text - brackets, separators |
+| Color      | Hex         | Usage                                     |
+|------------|-------------|-------------------------------------------|
+| Primary    | `#16e6c9`   | Main accent (cyan) - directories, prompt  |
+| Secondary  | `#26add0`   | Blue - git branches, Go version           |
+| Tertiary   | `#c73df5e3` | Purple - functions, virtualenv            |
+| Quaternary | `#ff8ffd`   | Pink - operators, hostname                |
+| Success    | `#23d18b`   | Green - staged changes, Node version      |
+| Warning    | `#cca700`   | Yellow - unstaged changes, execution time |
+| Error      | `#e25e44`   | Red - untracked files, exit codes         |
+| Text       | `#cdcefb`   | Main text color                           |
+| Comment    | `#8e9395`   | Muted text - brackets, separators         |
 
 ## Prompt Structure
 

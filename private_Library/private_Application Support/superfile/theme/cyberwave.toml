@@ -1,74 +1,81 @@
-# Cyberwave Theme for SuperFile
-# Based on cyberwave.json universal palette
-# Matches cross-platform theming system
+# Cyberwave Theme for SuperFile  
 
-# Code syntax highlight theme (compatible with chroma)
+# Code syntax highlight theme
 code_syntax_highlight = "monokai"
 
 # ========= Border Colors =========
-file_panel_border = "#2a4a55"             # subtle teal, not translucent
-sidebar_border = "#264148"                # slightly different teal
-footer_border = "#2e4c57"                 # harmony with file panel
+file_panel_border = "#2a1f3d"             # deep purple border
+sidebar_border = "#1e1b2e"                # darker purple  
+footer_border = "#2a1f3d"                 # consistent purple
 
 # ========= Active Border Colors =========
-file_panel_border_active = "#3dd6bf"      # softer active teal
-sidebar_border_active = "#8b5fbf"         # muted purple (no transparency)
-footer_border_active = "#4ecf94"          # gentle green
-modal_border_active = "#e85d7a"           # softer pink
+file_panel_border_active = "#00f5ff"      # electric cyan glow
+sidebar_border_active = "#ff0080"         # hot pink/magenta  
+footer_border_active = "#00f5ff"          # electric cyan
+modal_border_active = "#ff0080"           # hot pink for modals
 
 # ========= Background Colors =========
-full_screen_bg = "#0a1b20"                # darker, more atmospheric
-file_panel_bg = "#0f1f25"                 # slightly lighter than full screen
-sidebar_bg = "#0d1d22"                    # between full screen and file panel
-footer_bg = "#121f25"                     # subtle contrast from file panel
-modal_bg = "#152429"                      # clearly distinct for modals
+full_screen_bg = "#0d0221"                # very dark purple-black
+file_panel_bg = "#16213e"                 # dark blue-purple
+sidebar_bg = "#1a1b26"                    # dark with slight blue
+footer_bg = "#16213e"                     # matches file panel
+modal_bg = "#2a1f3d"                      # darker purple for modals
 
 # ========= Foreground Colors =========
-full_screen_fg = "#a8b3c0"                # softer, less harsh text
-file_panel_fg = "#9ca6b0"                 # muted for main content
-sidebar_fg = "#6b8390"                    # dimmer for sidebar hierarchy
-footer_fg = "#8a9aa5"                     # moderate contrast for footer
-modal_fg = "#cdcefb"                      # bright only for important modals
+full_screen_fg = "#e0e6ff"                # bright blue-white text
+file_panel_fg = "#c9d1d9"                 # slightly dimmer white
+sidebar_fg = "#a9b1d6"                    # muted blue-white
+footer_fg = "#c9d1d9"                     # consistent with file panel  
+modal_fg = "#ffffff"                      # pure white for modals
 
 # ========= Special State Colors =========
-cursor = "#3dd6bf"                        # softer teal, less electric
-correct = "#4ecf94"                       # gentler green
-error = "#e74856"                         # clear but not harsh red
-hint = "#5aa3f0"                          # warmer blue
-cancel = "#e85d7a"                        # softer pink
+cursor = "#00f5ff"                        # electric cyan cursor
+correct = "#39ff14"                       # electric lime green
+error = "#ff073a"                         # hot red  
+hint = "#bd93f9"                          # bright purple
+cancel = "#ff0080"                        # hot pink
 
 # ========= Gradient Colors =========
-# Gradient requires exactly two colors - primary to accent
-gradient_color = ["#16e6c9", "#c73df5e3"]
+# Electric cyan to hot pink - true cyber wave
+gradient_color = ["#00f5ff", "#ff0080"]
 
 # ========= File Panel Special Items =========
-file_panel_top_directory_icon = "#4ecf94" # gentler green
-file_panel_top_path = "#3dd6bf"           # softer teal for path
-file_panel_item_selected_fg = "#e8eef5"   # high contrast but not harsh
-file_panel_item_selected_bg = "#1a3540"   # deeper, more atmospheric selection
+file_panel_top_directory_icon = "#00f5ff" # cyan for directory
+file_panel_top_path = "#ff0080"           # hot pink for path 
+file_panel_item_selected_fg = "#ffffff"   # pure white selection text
+file_panel_item_selected_bg = "#2d1b69"   # deep purple selection
 
 # ========= Sidebar Special Items =========
-sidebar_title = "#8b5fbf"                 # muted purple for titles
-sidebar_item_selected_fg = "#e8eef5"      # consistent with file panel
-sidebar_item_selected_bg = "#1c3540"      # slightly different from file panel
-sidebar_divider = "#3a5560"               # visible but subtle divider
+sidebar_title = "#ff0080"                 # hot pink titles
+sidebar_item_selected_fg = "#ffffff"      # pure white selection
+sidebar_item_selected_bg = "#2d1b69"      # consistent purple selection
+sidebar_divider = "#44475a"               # subtle gray divider
 
 # ========= Modal Special Items =========
-modal_cancel_fg = "#f0f2f5"               # clean white text
-modal_cancel_bg = "#d4495a"               # muted red for cancel
-modal_confirm_fg = "#f0f2f5"              # clean white text
-modal_confirm_bg = "#2d8a6b"              # muted teal for confirm
+modal_cancel_fg = "#ffffff"               # white text
+modal_cancel_bg = "#ff073a"               # hot red background
+modal_confirm_fg = "#000000"              # black text for contrast  
+modal_confirm_bg = "#00f5ff"              # electric cyan background
 
 # ========= Help Menu Colors =========
-help_menu_hotkey = "#26add0"              # secondary (blue for hotkeys)
-help_menu_title = "#16e6c9"               # primary (teal for titles)
+help_menu_hotkey = "#bd93f9"              # bright purple for hotkeys
+help_menu_title = "#00f5ff"               # electric cyan titles
 
-# ========= File Type Colors (Optional Extensions) =========
-# These aren't in the standard spec but some themes include them
-directory_color = "#16e6c9"               # primary (teal for directories)
-executable_color = "#23d18b"              # success (green for executables)
-archive_color = "#cca700"                 # warning (yellow for archives)
-image_color = "#ff349a"                   # accent-2 (pink for images)
-video_color = "#75beff"                   # info (blue for videos)
-audio_color = "#c73df5e3"                 # accent (purple for audio)
-document_color = "#26add0"                # secondary (blue for docs)
+# ========= File Type Colors (Cyber Wave Style) =========
+directory_color = "#00f5ff"               # electric cyan directories
+executable_color = "#39ff14"              # electric green executables  
+archive_color = "#ffb86c"                 # warm orange archives
+image_color = "#ff0080"                   # hot pink images
+video_color = "#bd93f9"                   # bright purple videos
+audio_color = "#ff5555"                   # bright red audio
+document_color = "#8be9fd"                # light cyan documents
+
+# ========= Additional Cyber Elements =========
+# These may not all be supported but follow the aesthetic
+highlight_color = "#44475a"               # dark gray highlights
+selection_color = "#44475a"               # consistent selection
+comment_color = "#6272a4"                 # muted blue comments
+string_color = "#f1fa8c"                  # electric yellow strings
+number_color = "#bd93f9"                  # bright purple numbers
+keyword_color = "#ff79c6"                 # bright pink keywords
+function_color = "#50fa7b"                # bright green functions

@@ -1,61 +1,63 @@
 # Cyberwave Theme for SuperFile
+# Based on cyberwave.json universal palette
+# Matches cross-platform theming system
 
 # Code syntax highlight theme (compatible with chroma)
 code_syntax_highlight = "monokai"
 
 # ========= Border Colors =========
-file_panel_border = "#029fec91"           # border (translucent blue)
-sidebar_border = "#08252f"                # surface-3 (darker teal)
-footer_border = "#029fec91"               # border (matching file panel)
+file_panel_border = "#2a4a55"             # subtle teal, not translucent
+sidebar_border = "#264148"                # slightly different teal
+footer_border = "#2e4c57"                 # harmony with file panel
 
 # ========= Active Border Colors =========
-file_panel_border_active = "#16e6c9"      # primary (bright teal)
-sidebar_border_active = "#c73df5e3"       # accent (translucent purple)
-footer_border_active = "#23d18b"          # success (green)
-modal_border_active = "#ff349a"           # accent-2 (bright pink)
+file_panel_border_active = "#3dd6bf"      # softer active teal
+sidebar_border_active = "#8b5fbf"         # muted purple (no transparency)
+footer_border_active = "#4ecf94"          # gentle green
+modal_border_active = "#e85d7a"           # softer pink
 
 # ========= Background Colors =========
-full_screen_bg = "#091a1f"                # background (main dark)
-file_panel_bg = "#001a24"                 # surface-2 (darker blue-teal)
-sidebar_bg = "#08252f"                    # surface-3 (dark teal)
-footer_bg = "#192a30"                     # surface-1 (lighter dark)
-modal_bg = "#192a30"                      # surface-1 (matching footer)
+full_screen_bg = "#0a1b20"                # darker, more atmospheric
+file_panel_bg = "#0f1f25"                 # slightly lighter than full screen
+sidebar_bg = "#0d1d22"                    # between full screen and file panel
+footer_bg = "#121f25"                     # subtle contrast from file panel
+modal_bg = "#152429"                      # clearly distinct for modals
 
 # ========= Foreground Colors =========
-full_screen_fg = "#cdcefb"                # text (light purple-blue)
-file_panel_fg = "#bdc2c3"                 # text-muted (light gray)
-sidebar_fg = "#7996a1"                    # muted teal (from glow config)
-footer_fg = "#bdc2c3"                     # text-muted (matching file panel)
-modal_fg = "#cdcefb"                      # text (bright for readability)
+full_screen_fg = "#a8b3c0"                # softer, less harsh text
+file_panel_fg = "#9ca6b0"                 # muted for main content
+sidebar_fg = "#6b8390"                    # dimmer for sidebar hierarchy
+footer_fg = "#8a9aa5"                     # moderate contrast for footer
+modal_fg = "#cdcefb"                      # bright only for important modals
 
 # ========= Special State Colors =========
-cursor = "#16e6c9"                        # primary (bright teal cursor)
-correct = "#23d18b"                       # success (green for valid states)
-error = "#e25e44"                         # error (red for problems)
-hint = "#75beff"                          # info (blue for hints)
-cancel = "#ff349a"                        # accent-2 (pink for cancel actions)
+cursor = "#3dd6bf"                        # softer teal, less electric
+correct = "#4ecf94"                       # gentler green
+error = "#e74856"                         # clear but not harsh red
+hint = "#5aa3f0"                          # warmer blue
+cancel = "#e85d7a"                        # softer pink
 
 # ========= Gradient Colors =========
 # Gradient requires exactly two colors - primary to accent
 gradient_color = ["#16e6c9", "#c73df5e3"]
 
 # ========= File Panel Special Items =========
-file_panel_top_directory_icon = "#23d18b" # success (green for directory icon)
-file_panel_top_path = "#16e6c9"           # primary (bright teal for path)
-file_panel_item_selected_fg = "#cdcefb"   # text (bright for selection)
-file_panel_item_selected_bg = "#142a32"   # selection bg (from themes)
+file_panel_top_directory_icon = "#4ecf94" # gentler green
+file_panel_top_path = "#3dd6bf"           # softer teal for path
+file_panel_item_selected_fg = "#e8eef5"   # high contrast but not harsh
+file_panel_item_selected_bg = "#1a3540"   # deeper, more atmospheric selection
 
 # ========= Sidebar Special Items =========
-sidebar_title = "#c73df5e3"               # accent (purple for titles)
-sidebar_item_selected_fg = "#cdcefb"      # text (bright for selection)
-sidebar_item_selected_bg = "#194341"      # list-focus bg (from themes)
-sidebar_divider = "#5b3199bf"             # shadow (translucent purple)
+sidebar_title = "#8b5fbf"                 # muted purple for titles
+sidebar_item_selected_fg = "#e8eef5"      # consistent with file panel
+sidebar_item_selected_bg = "#1c3540"      # slightly different from file panel
+sidebar_divider = "#3a5560"               # visible but subtle divider
 
 # ========= Modal Special Items =========
-modal_cancel_fg = "#e3e1ec"               # light text on colored bg
-modal_cancel_bg = "#e25e44"               # error (red for cancel)
-modal_confirm_fg = "#e3e1ec"              # light text on colored bg
-modal_confirm_bg = "#119c82"              # link (teal for confirm)
+modal_cancel_fg = "#f0f2f5"               # clean white text
+modal_cancel_bg = "#d4495a"               # muted red for cancel
+modal_confirm_fg = "#f0f2f5"              # clean white text
+modal_confirm_bg = "#2d8a6b"              # muted teal for confirm
 
 # ========= Help Menu Colors =========
 help_menu_hotkey = "#26add0"              # secondary (blue for hotkeys)

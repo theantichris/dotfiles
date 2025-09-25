@@ -17,11 +17,4 @@ export NB_COLOR_THEME="${NB_COLOR_THEME:-console}"
 export NB_FOLDERS_FIRST=1
 export NB_FOOTER="${NB_HEADER:-0}"
 export NB_HEADER="${NB_FOOTER:-0}"
-
-{{- if eq .chezmoi.os "linux"}}
-export NB_MARKDOWN_TOOL=batcat
-{{- end }}
-
-{{- if eq .chezmoi.os "darwin" }}
-export NB_MARKDOWN_TOOL=bat
-{{- end }}
+export NB_MARKDOWN_TOOL=glow

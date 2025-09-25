@@ -79,17 +79,17 @@ cyberwave_git_status() {
         
         # Check for changes
         if ! git diff --quiet 2>/dev/null; then
-            status_symbols+="${CW[warning]}●${CW[reset]}"
+            status_symbols+="${CW[warning]} ●${CW[reset]}"
         fi
         
         # Check for staged changes
         if ! git diff --cached --quiet 2>/dev/null; then
-            status_symbols+="${CW[success]}●${CW[reset]}"
+            status_symbols+="${CW[success]} ●${CW[reset]}"
         fi
         
         # Check for untracked files
         if [[ -n $(git ls-files --others --exclude-standard 2>/dev/null) ]]; then
-            status_symbols+="${CW[error]}●${CW[reset]}"
+            status_symbols+="${CW[error]} ●${CW[reset]}"
         fi
         
         # Check if ahead/behind remote
@@ -99,10 +99,10 @@ cyberwave_git_status() {
             local ahead=$(echo $ahead_behind | cut -f2)
             
             if [[ $behind -gt 0 ]]; then
-                status_symbols+="${CW[quaternary]}⇣${behind}${CW[reset]}"
+                status_symbols+="${CW[quaternary]} ⇣${behind}${CW[reset]}"
             fi
             if [[ $ahead -gt 0 ]]; then
-                status_symbols+="${CW[tertiary]}⇡${ahead}${CW[reset]}"
+                status_symbols+="${CW[tertiary]} ⇡${ahead}${CW[reset]}"
             fi
         fi
         

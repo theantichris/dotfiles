@@ -253,10 +253,10 @@ PROMPT3='${CW[quaternary]}?# ${CW[reset]}'
 PROMPT4='${CW[warning]}+%N:%i${CW[reset]}> '
 
 # Load splash screen if available
-if [[ -f "$ZSH/custom/cyberwave-splash.zsh" ]]; then
-    source "$ZSH/custom/cyberwave-splash.zsh"
-    cyberwave_splash  # Display splash screen on startup
-fi
+# if [[ -f "$ZSH/custom/cyberwave-splash.zsh" ]]; then
+    # source "$ZSH/custom/cyberwave-splash.zsh"
+    # cyberwave_splash  # Display splash screen on startup
+# fi
 
 # Clean up on theme switch
 if [[ -n $cyberwave_cleanup ]]; then

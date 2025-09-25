@@ -1,12 +1,10 @@
 # Documentation
+documentation/*
 README.md
-GLAZEWM.md
-KARABINER.md
 LICENSE
-AEROSPACE.md
-ZSH.md
-cyberwave_palette.json
-cyberwave_palette.html
+
+# Palette
+cyberwave/*
 
 ubuntu/
 windows/

@@ -1,13 +1,18 @@
+# Documentation
 README.md
 GLAZEWM.md
 KARABINER.md
 LICENSE
 AEROSPACE.md
+ZSH.md
 cyberwave_palette.json
 cyberwave_palette.html
 
 ubuntu/
 windows/
+
+# Lint files
+.markdownlint.yml
 
 # GitHub Actions
 .github/workflows

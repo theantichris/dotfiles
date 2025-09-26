@@ -4,11 +4,17 @@ theme = "cyberwave"
 line-number = "relative"
 cursorline = true # Highlights current line.
 auto-save = true # Saves files on focus loss.
+rulers = [80]
 shell = ["pwsh", "-Command", ". $PROFILE;"]
 
 [editor.cursor-shape]
 insert = "bar" # Cursor shape in insert mode.
 normal = "block" # Cursor shape in normal mode.
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 80
+max-indent-retain = 40
 
 [keys.normal]
 C-s = ":write" # Quick save.

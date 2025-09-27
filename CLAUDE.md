@@ -9,6 +9,7 @@ This is a **chezmoi-powered dotfiles repository** for managing personal environm
 ## Common Commands
 
 ### Chezmoi Operations
+
 - `chezmoi init <GITHUB_USERNAME> --ssh --apply` - Initialize and apply dotfiles from GitHub
 - `chezmoi update` - Pull latest changes and apply
 - `chezmoi diff` - Preview changes before applying
@@ -18,12 +19,14 @@ This is a **chezmoi-powered dotfiles repository** for managing personal environm
 - `chezmoi cd` - Change to chezmoi source directory
 
 ### Testing Changes
+
 - Always use `chezmoi diff` before `chezmoi apply` to preview impacts
 - Test configuration files locally before committing (e.g., validate TOML/YAML syntax)
 
 ## Architecture & Patterns
 
 ### File Naming Conventions
+
 - **`dot_` prefix**: Files that become dotfiles on target (e.g., `dot_zshrc` → `~/.zshrc`)
 - **`private_` prefix**: Files containing sensitive data, encrypted in the repository
 - **Platform-specific**: Some configs are OS-specific (e.g., `dot_glzr/` for Windows, `dot_config/aerospace/` for macOS)
@@ -48,11 +51,13 @@ This is a **chezmoi-powered dotfiles repository** for managing personal environm
    - Bat, Eza, Glow: configs in `dot_config/`
 
 ### Template System
+
 - Chezmoi templates use Go templating
 - Data values stored in `.chezmoidata.toml`
 - Templates allow platform-specific configurations
 
 ### Security Notes
+
 - Files with `private_` prefix contain encrypted sensitive data
 - API keys and tokens should be stored in `.chezmoidata.toml` (encrypted)
 - Never commit unencrypted secrets

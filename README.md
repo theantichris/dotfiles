@@ -47,6 +47,7 @@ _chezmoi-powered personal environment. keyboard-first. cross-platform._
 | **HTTP**            | HTTPie      | -                                                                        | -                                             |
 | **Search**          | fd          | -                                                                        | -                                             |
 | **Git**             | -           | `dot_gitconfig`, `dot_gitignore`                                         | -                                             |
+| **Email**           | neomutt     | `dot_config/neomutt/neomuttrc`, `dot_config/neomutt/cyberwaverc`         | -                                             |
 
 ## 🪪 License
 

@@ -54,3 +54,4 @@ macro pager J "<save-message>+Junk<enter><enter><sync-mailbox>" "Move to Junk"
 
 # Rendering
 auto_view text/html
+auto_view image/*

@@ -47,5 +47,5 @@ set quit = ask-yes
 set mark_old = yes
 
 # Key bindings
-macro index A "<save-message>=Archive<enter><enter>" "Archive message"
-macro pager A "<save-message>=Archive<enter><enter>" "Archive message"
+macro index A "<save-message>+Archive<enter>" "Archive message"
+macro pager A "<save-message>+Archive<enter>" "Archive message"

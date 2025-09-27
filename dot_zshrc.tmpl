@@ -77,7 +77,7 @@ alias cme="chezmoi edit"
 alias cmu="chezmoi update"
 
 ghp() {
-  gh project "$1" 4 --owner theantichris "${@:2}"
+  gh project "$@" 4 --owner theantichris
 }
 
 alias mdlint="markdownlint-cli2 --fix **/*.md"

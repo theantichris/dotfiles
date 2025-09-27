@@ -29,5 +29,5 @@ set from = "christopherlamm81@icloud.com"
 set use_from = yes
 
 # Options
-set sort = reverse-date
-set sort aux = last-date-received
+set sort = reverse-date-received
+set sort_aux = last-date-received

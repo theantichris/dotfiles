@@ -29,10 +29,10 @@ set from = "christopherlamm81@icloud.com"
 set use_from = yes
 
 # Options
-set ts_enabled=yesset
+set ts_enabled=yes
 set ts_status_format="NeoMutt - %f [%n NEW]"
 set sort = reverse-date-received
-set use_threads=threadset
+set use_threads=thread
 set sort_aux = reverse-last-date
 set collapse_unread = no
 set status_on_top = yes

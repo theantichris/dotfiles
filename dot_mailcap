@@ -1,2 +1,2 @@
 text/html; w3m -I %{charset} -T text/html; copiousoutput
-image/*; kitty +kitten icat %s; copiousoutput; needsterminal
+image/*; /usr/bin/env kitty +kitten icat --stdin=no %s; needsterminal;

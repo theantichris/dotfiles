@@ -7,6 +7,7 @@ set record = +"Sent Messages"
 set postponed = +"Drafts"
 set trash = +"Deleted Messages"
 set mbox = +"Archive"
+set mbox = +"Junk"
 set header_cache = "~/.neomutt/cache/headers"
 set message_cachedir = "~/.neomutt/cache/bodies"
 set certificate_file = "~/.neomutt/certificates"
@@ -32,14 +33,11 @@ set use_from = yes
 set ts_enabled=yes
 set ts_status_format="NeoMutt - %f [%n NEW]"
 set sort = reverse-date-received
-set use_threads=threads
 set sort_aux = reverse-last-date
-set collapse_unread = no
 set status_on_top = yes
 set include = yes
 set charset = "utf-8"
 set copy = yes
-set thread_received = yes
 set index_format="%4C %Z %{%b %d} %-15.15F (%4l) %s"
 set delete = yes
 set confirmappend = yes
@@ -49,3 +47,8 @@ set mark_old = yes
 # Archive
 macro index A "<save-message>+Archive<enter><enter><sync-mailbox>" "Archive message"
 macro pager A "<save-message>+Archive<enter><enter><sync-mailbox>" "Archive message"
+
+# Junk
+macro index J "<save-message>+Junk<enter><enter><sync-mailbox>" "Move to Junk"
+macro pager J "<save-message>+Junk<enter><enter><sync-mailbox>" "Move to Junk"
+

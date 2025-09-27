@@ -44,3 +44,8 @@ set index_format="%4C %Z %{%b %d} %-15.15F (%4l) %s"
 set delete = yes
 set confirmappend = yes
 set quit = ask-yes
+set mark_old = yes
+
+# Key bindings
+macro index A "<save-message>=Archive<enter><enter>" "Archive message"
+macro pager A "<save-message>=Archive<enter><enter>" "Archive message"

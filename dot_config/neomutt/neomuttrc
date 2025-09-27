@@ -47,5 +47,5 @@ set quit = ask-yes
 set mark_old = yes
 
 # Archive
-macro index A "<save-message>+Archive<enter><enter><clear-flag>D<flag-message>A" "Archive message"
-macro pager A "<save-message>+Archive<enter><enter><clear-flag>D<flag-message>A" "Archive message"
+macro index A "<save-message>+Archive<enter><enter><sync-mailbox>" "Archive message"
+macro pager A "<save-message>+Archive<enter><enter><sync-mailbox>" "Archive message"

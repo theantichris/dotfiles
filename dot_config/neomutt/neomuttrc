@@ -1,0 +1,33 @@
+# IMAP
+set imap_user = "christopherlamm81"
+set imap_pass = `security find-generic-password -a christopherlamm81 -s neomutt -w`
+set folder = "imaps://imap.mail.me.com"
+set spoolfile = +INBOX
+set record = +"Sent Messages"
+set postponed = +"Drafts"
+set trash = +"Deleted Messages"
+set mbox = +"Archive"
+set header_cache = "~/.neomutt/cache/headers"
+set message_cachedir = "~/.neomutt/cache/bodies"
+set certificate_file = "~/.neomutt/certificates"
+
+# SMTP
+set smtp_url = "smtp://smtp.mail.me.com:587"
+set smtp_user = "christopherlamm81"
+set smtp_pass = `security find-generic-password -a christopherlamm81 -s neomutt -w`
+set smtp_authenticators = "plain:login"
+set ssl_starttls = yes
+set ssl_force_tls = yes
+set editor = "hx"
+set edit_headers = yes
+set charset = UTF-8
+
+# Identity
+unset use_domain
+set realname = "Christopher Lamm"
+set from = "christopherlamm81@icloud.com"
+set use_from = yes
+
+# Options
+set sort = reverse-date
+set sort aux = last-date-received

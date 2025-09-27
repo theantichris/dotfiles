@@ -1,10 +1,10 @@
 # Documentation
-documentation/*
+documentation/
 README.md
 LICENSE
 
 # Palette
-cyberwave/*
+cyberwave/
 cyberwave/cyberwave-install.sh
 cyberwave/cyberwave_palette.json
 cyberwave/cyberwave_palette.html

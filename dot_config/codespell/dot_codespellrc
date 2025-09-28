@@ -1,0 +1,4 @@
+[codespell]
+skip = .git,go.sum,go.mod,vendor,.DS_Store,*.svg,*.png,*.jpg,*.jpeg
+check-hidden = true
+ignore-words-list = fo

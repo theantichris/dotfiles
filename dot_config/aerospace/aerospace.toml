@@ -36,6 +36,11 @@ run = 'layout floating'
 if.app-id = 'com.apple.mail'
 run = 'layout floating'
 
+# Apple Passwords
+[[on-window-detected]]
+if.app-id = 'com.apple.Passwords'
+run = 'layout floating'
+
 # Main mode (always present)
 [mode.main.binding]
 

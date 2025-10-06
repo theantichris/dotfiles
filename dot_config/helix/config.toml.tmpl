@@ -5,7 +5,9 @@ line-number = "relative"
 cursorline = true # Highlights current line.
 auto-save = true # Saves files on focus loss.
 rulers = [80]
+{{- if .chezmo.os "windows" }}
 shell = ["pwsh", "-Command", ". $PROFILE;"]
+{{- end }}
 
 [editor.cursor-shape]
 insert = "bar" # Cursor shape in insert mode.

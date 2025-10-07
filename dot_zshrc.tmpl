@@ -83,4 +83,8 @@ ghp() {
 
 alias mdlint="markdownlint-cli2 --fix **/*.md"
 
+idea() {
+  echo -e "- $(date +"%Y-%m-%d %H:%M"): $*\n" | nb edit 35/2
+}
+
 alias tt="toot tui"

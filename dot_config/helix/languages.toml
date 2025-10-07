@@ -7,3 +7,13 @@ formatter = { command = "goimports" }
 name = "toml"
 roots = ["."]
 language-servers = ["taplo"]
+
+[[language]]
+name = "zsh"
+scope = "source.zsh"
+file-types = [
+  "zsh", "zshrc", "zshenv", "zprofile",
+  "*.zsh", "*.zshrc", "*.zshenv", "*.zprofile",
+  "*.zsh.tmpl", "*.zshrc.tmpl", "*.zshenv.tmpl", "*.zprofile.tmpl",
+  "dot_zshrc.tmpl", "dot_zshenv.tmpl", "dot_zprofile.tmpl"
+]

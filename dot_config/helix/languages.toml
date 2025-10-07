@@ -9,9 +9,12 @@ roots = ["."]
 language-servers = ["taplo"]
 
 [[language]]
-name = "zsh"
-scope = "source.zsh"
+name = "bash"
+scope = "source.sh"
 file-types = [
+  { glob = "**/.chezmoiscripts/*.sh.tmpl" },
+  { glob = "**/*.sh.tmpl" },
+  { glob = "**/*.bash.tmpl" },
   { glob = "**/dot_zshrc.tmpl" },
   { glob = "**/dot_zshenv.tmpl" },
   { glob = "**/dot_zprofile.tmpl" },
@@ -19,14 +22,5 @@ file-types = [
   { glob = "**/*.zshrc.tmpl" },
   { glob = "**/*.zshenv.tmpl" },
   { glob = "**/*.zprofile.tmpl" }
-]
-
-[[language]]
-name = "bash"
-scope = "source.sh"
-file-types = [
-  { glob = "**/.chezmoiscripts/*.sh.tmpl" },
-  { glob = "**/*.sh.tmpl" },
-  { glob = "**/*.bash.tmpl" }
 ]
 shebangs = ["sh", "bash"]  # also allow shebang detection

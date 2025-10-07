@@ -17,3 +17,14 @@ file-types = [
   "*.zsh.tmpl", "*.zshrc.tmpl", "*.zshenv.tmpl", "*.zprofile.tmpl",
   "dot_zshrc.tmpl", "dot_zshenv.tmpl", "dot_zprofile.tmpl"
 ]
+
+[[language]]
+name = "bash"
+scope = "source.sh"
+file-types = [
+  "sh", "bash", "*.sh", "*.bash",
+  "*.sh.tmpl", "*.bash.tmpl",
+  "run_onchange_*.sh.tmpl",
+  "run_onchange_before_*.sh.tmpl",
+  "run_onchange_after_*.sh.tmpl"
+]

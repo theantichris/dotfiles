@@ -1,16 +1,21 @@
 ---
 description: Review code for best practices and potential issues
-agent: review
+agent: plan
 subtask: true
 ---
 
-You are the @review subagent. Perform a comprehensive code review:
+You are the @plan agent. Orchestrate a comprehensive code review by delegating to the @review subagent:
 
-## STEP 1: Understand Project Standards
+## Your Task:
+Invoke the @review subagent with the following instructions:
+
+### Instructions for @review subagent:
+
+#### STEP 1: Understand Project Standards
 - Read AGENTS.md, SPEC.md, or README.md for project-specific coding standards
 - Identify established patterns (error handling, testing style, naming conventions)
 
-## STEP 2: Review Code Quality
+#### STEP 2: Review Code Quality
 - **Language best practices**: Idiomatic patterns and conventions
 - **Error handling**: Proper error types, wrapping, and propagation
 - **Testing**: Clear test names, proper assertions, good coverage
@@ -20,18 +25,14 @@ You are the @review subagent. Perform a comprehensive code review:
 - **Documentation**: Missing or inadequate docblocks
 - **Maintainability**: Code clarity, naming, complexity
 
-## STEP 3: Identify Issues
+#### STEP 3: Identify Issues
 For each issue found, document:
 - Priority level (critical/important/nice-to-have)
 - File and line number (file:line format)
 - Clear explanation of the issue
 - Concrete suggestion for improvement
 
-## CRITICAL: Your response will be relayed to the user
-Provide a complete, standalone report that the user can read directly.
-Format it for maximum clarity and actionability.
-
-## REQUIRED: Final Report Format
+#### Required Report Format:
 
 ```markdown
 ## Code Review Summary
@@ -72,3 +73,6 @@ Format it for maximum clarity and actionability.
 ```
 
 Do NOT make any code changes - only analyze and report.
+
+## Your Final Report:
+After the @review subagent completes its work, provide a complete, standalone report to the user with the results.

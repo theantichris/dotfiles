@@ -1,32 +1,33 @@
 ---
 description: Update project documentation and run linters
-agent: docs
+agent: plan
 subtask: true
 ---
 
-You are the @docs subagent. Perform a complete documentation review and update:
+You are the @plan agent. Orchestrate a complete documentation review and update by delegating to the @docs subagent:
 
-## STEP 1: Review Code Documentation
+## Your Task:
+Invoke the @docs subagent with the following instructions:
+
+### Instructions for @docs subagent:
+
+#### STEP 1: Review Code Documentation
 - Check ALL .go files for missing or outdated docblocks
 - Update docblocks that need improvement
 - Document both exported AND unexported items
 
-## STEP 2: Review Markdown Files
+#### STEP 2: Review Markdown Files
 - Read README.md, SPEC.md, AGENTS.md
 - Identify sections that are outdated or need updates
 - Update any incorrect or missing information
 - Ensure consistency with the current codebase
 
-## STEP 3: Run Linters
+#### STEP 3: Run Linters
 - For Go files: Run `go fmt` and `golangci-lint run`
 - For Markdown: Run `pre-commit run markdownlint --files <filename>`
 - Fix any issues found
 
-## CRITICAL: Your response will be relayed to the user
-Provide a complete, standalone report that the user can read directly.
-Format it for maximum clarity.
-
-## REQUIRED: Final Report Format
+#### Required Report Format:
 
 ```markdown
 ## Documentation Update Summary
@@ -48,4 +49,5 @@ Format it for maximum clarity.
 ### Status: [COMPLETE/INCOMPLETE with reason]
 ```
 
-Do NOT provide running commentary - work silently and provide ONE final comprehensive report.
+## Your Final Report:
+After the @docs subagent completes its work, provide a complete, standalone report to the user with the results.

@@ -26,7 +26,7 @@ run = 'layout floating'
 if.app-id = 'com.apple.MobileSMS'
 run = 'layout floating'
 
-# Messages
+# Signal
 [[on-window-detected]]
 if.app-id = 'org.whispersystems.signal-desktop'
 run = 'layout floating'
@@ -44,6 +44,11 @@ run = 'layout floating'
 # Reminders
 [[on-window-detected]]
 if.app-id = 'com.apple.reminders'
+run = 'layout floating'
+
+# Weather
+[[on-window-detected]]
+if.app-id = 'com.apple.weather'
 run = 'layout floating'
 
 # Main mode (always present)

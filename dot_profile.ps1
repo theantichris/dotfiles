@@ -113,6 +113,6 @@ function Winget-UpdateAll {
 Set-Alias wgu Winget-UpdateAll
 
 # chezmoi
-Set-Alias cme "chezmoi edit"
-Set-Alias cma "chezmoi apply"
-Set-Alias cmu "chezmoi update"
+function cmu { chezmoi update @args }
+function cma { chezmoi apply @args }
+function cme { chezmoi edit @agrs }

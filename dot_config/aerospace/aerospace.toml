@@ -69,8 +69,8 @@ cmd-alt-ctrl-shift-0 = [
   'layout horizontal',
 ]
 
-# Launch kitty with Hyper+Enter
-cmd-alt-ctrl-shift-enter = 'exec-and-forget open -a kitty'
+# Launch wezterm with Hyper+Enter
+cmd-alt-ctrl-shift-enter = 'exec-and-forget open -a wezterm'
 
 # Focus with Hyper+H/J/K/L
 cmd-alt-ctrl-shift-h = 'focus left'

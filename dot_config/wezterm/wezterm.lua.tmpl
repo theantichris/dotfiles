@@ -44,52 +44,52 @@ config.send_composed_key_when_right_alt_is_pressed = false
 config.keys = {
   {
     key = 'R',
-    mods = 'CTRL|SHIFT',
+    mods = 'CTRL',
     action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
   },
   {
     key = 'D',
-    mods = 'CTRL|SHIFT',
+    mods = 'CTRL',
     action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
   },
   {
     key = 'H',
-    mods = 'CTRL|SHIFT',
+    mods = 'CTRL',
     action = wezterm.action.ActivatePaneDirection('Left'),
   },
   {
     key = 'J',
-    mods = 'CTRL|SHIFT',
+    mods = 'CTRL',
     action = wezterm.action.ActivatePaneDirection('Down'),
   },
   {
     key = 'K',
-    mods = 'CTRL|SHIFT',
+    mods = 'CTRL',
     action = wezterm.action.ActivatePaneDirection('Up'),
   },
   {
     key = 'L',
-    mods = 'CTRL|SHIFT',
+    mods = 'CTRL',
     action = wezterm.action.ActivatePaneDirection('Right'),
   },
   {
     key = 'H',
-    mods = 'ALT',
+    mods = 'CTRL|SHIFT',
     action = wezterm.action.AdjustPaneSize{'Left', 5},
   },
   {
     key = 'J',
-    mods = 'ALT',
+    mods = 'CTRL|SHIFT',
     action = wezterm.action.AdjustPaneSize{'Down', 5},
   },
   {
     key = 'K',
-    mods = 'ALT',
+    mods = 'CTRL|SHIFT',
     action = wezterm.action.AdjustPaneSize{'Up', 5},
   },
   {
     key = 'L',
-    mods = 'ALT',
+    mods = 'CTRL|SHIFT',
     action = wezterm.action.AdjustPaneSize{'Right', 5},
   },
 }

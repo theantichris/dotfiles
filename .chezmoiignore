@@ -38,3 +38,5 @@ AppData/
 .profile.ps1
 .glzr/
 {{ end }}
+
+install-packages.wsl.sh.tmpl

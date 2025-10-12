@@ -1,6 +1,10 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
+{{- if eq .chezmoi.os "windows" }}
+config.default_prog = { 'C:/Program Files/PowerShell/7/pwsh.ext' }
+{{- end }}
+
 -- Fonts
 config.font = wezterm.font('Hack Nerd Font')
 config.font_size = 14

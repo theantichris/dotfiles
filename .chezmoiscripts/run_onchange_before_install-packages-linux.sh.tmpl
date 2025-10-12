@@ -14,7 +14,6 @@ sudo apt install -y golang-go
 sudo apt install -y httpie
 sudo apt install -y jq
 sudo apt install -y neomutt
-sudo apt install -y npm
 sudo apt install -y pre-commit
 sudo apt install -y python3-dev
 sudo apt install -y ripgrep
@@ -43,6 +42,10 @@ go install github.com/xwmx/nb@latest
 go install github.com/jesseduffield/lazygit@latest
 go install github.com/casey/just@latest
 go install github.com/twpayne/chezmoi@latest
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
+\. "$HOME/.nvm/nvm.sh"
+nvm install 22
 
 # NPM packages (only if necessary)
 npm i -g markdownlint-cli2

@@ -37,6 +37,7 @@ config.colors = {
     },
 }
 
+<<<<<<< Updated upstream
 config.keys = {
   {
     key = 'R',
@@ -50,4 +51,13 @@ config.keys = {
   },
 }
 
+||||||| Stash base
+=======
+-- Panes
+config.keys = {
+  {key = 'R', mods = 'CTRL|SHIFT', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }}
+  {key = 'D', mods = 'CTRL|SHIFT', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' }}
+}
+
+>>>>>>> Stashed changes
 return config

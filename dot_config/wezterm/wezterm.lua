@@ -1,0 +1,30 @@
+local wezterm = require 'wezterm'
+local config = wezterm.config_builder()
+
+-- Fonts
+config.font = wezterm.font('Hack Nerd Font')
+config.font_size = 14
+
+-- Window
+config.window_background_opacity = 0.95
+
+-- Colors
+config.colors = {
+  foreground = "#cdcefb",
+    background = "#091a1f",
+    selection_bg = "#264f78",
+    selection_fg = "#cdcefb",
+    cursor_bg = "#cdcefb",
+    cursor_fg = "#091a1f",
+    cursor_border = "#cdcefb",
+    ansi = {
+      "#000000", "#cd3131", "#0dbc79", "#e5e510",
+      "#2472c8", "#bc3fbc", "#11a8cd", "#e5e5e5",
+    },
+    brights = {
+      "#666666", "#f14c4c", "#23d18b", "#f5f543",
+      "#3b8eea", "#d670d6", "#29b8db", "#e5e5e5",
+    },
+}
+
+return config

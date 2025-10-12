@@ -2,12 +2,16 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 {{- if eq .chezmoi.os "windows" }}
-config.default_prog = { 'C:/Program Files/PowerShell/7/pwsh.ext' }
+config.default_prog = { 'C:/Program Files/PowerShell/7/pwsh.exe' }
 {{- end }}
 
 -- Fonts
 config.font = wezterm.font('Hack Nerd Font')
+{{- if eq .chezmoi.os "windows" }}
+config.font_size = 12
+{{- else }}
 config.font_size = 14
+{{- end }}
 
 -- Window
 config.window_background_opacity = 0.95

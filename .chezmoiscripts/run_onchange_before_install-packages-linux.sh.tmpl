@@ -2,16 +2,20 @@
 #!/bin/bash
 
 # APT packages (system package manager first)
+sudo add-apt-repository -y ppa:maveonair/helix-editor
 sudo apt update
 sudo apt install -y bat
 sudo apt install -y btop
 sudo apt install -y build-essential
 sudo apt install -y curl
+sudo apt install -y eza
 sudo apt install -y fd-find
 sudo apt install -y gh
 sudo apt install -y git
 sudo apt install -y golang-go
+sudo apt install -y helix
 sudo apt install -y httpie
+sudo apt install -y hugo
 sudo apt install -y jq
 sudo apt install -y neomutt
 sudo apt install -y pre-commit
@@ -23,6 +27,10 @@ sudo apt install -y vim
 sudo apt install -y wget
 sudo apt install -y zsh
 
+# Snap packages
+sudo snap install chezmoi --classic
+sudo snap install helix --classic
+
 # Go packages
 go install golang.org/x/tools/gopls@latest                               # LSP
 go install github.com/go-delve/delve/cmd/dlv@latest                      # Debugger
@@ -31,6 +39,7 @@ go install github.com/nametake/golangci-lint-langserver@latest           # Linte
 go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@latest # Linter cli
 go install github.com/sammcj/gollama@HEAD
 go install github.com/charmbracelet/glow@latest
+go install github.com/charmbracelet/feeze@latest
 go install github.com/eza-community/eza@latest
 go install github.com/yorukot/superfile/cmd/superfile@latest
 go install github.com/hedhyw/jlv/cmd/jlv@latest
@@ -43,6 +52,9 @@ go install github.com/jesseduffield/lazygit@latest
 go install github.com/casey/just@latest
 go install github.com/twpayne/chezmoi@latest
 
+# Bash installs
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+curl -fsSL https://opencode.ai/install | bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
 \. "$HOME/.nvm/nvm.sh"
 nvm install 22
@@ -53,5 +65,10 @@ npm i -g @olrtg/emmet-language-server
 npm i -g marksman
 npm i -g vscode-langservers-extracted
 npm i -g yaml-language-server@next
+npm i -g nb.sh
+sudo "$(which nb)"
+
+# Set shell
+chsh -s $(which zsh)
 
 {{ end -}}

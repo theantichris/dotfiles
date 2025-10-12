@@ -1,66 +1,6 @@
-{{- if eq .chezmoi.os "darwin" -}}
-#!/bin/bash
+{{- if eq .chezmoi.os "linux" -}}
 
-# Brew packages
-brew install "bat"
-brew install "btop"
-brew install "chezmoi"
-brew install "eza"
-brew install "fd"
-brew install "charmbracelet/tap/crush"
-brew install "charmbracelet/tap/freeze"
-brew install "gh"
-brew install "git"
-brew install "glow"
-brew install "go"
-brew install "hedhyw/main/jlv"
-brew install "helix"
-brew install "httpie"
-brew install "hugo"
-brew install "jq"
-brew install "jqp"
-brew install "lazygit"
-brew install "markdownlint-cli2"
-brew install "marksman"
-brew install "neomutt"
-brew install "npm"
-brew install "orlangure/tap/gocovsh"
-brew install "pre-commit"
-brew install "sst/tap/opencodeb"
-brew install "superfile"
-brew install "taplo"
-brew install "uv"
-brew install "wego"
-brew install "xwmx/taps/nb"
-
-# Brew casks
-brew install --cask "chatgpt"
-brew install --cask "claude"
-brew install --cask "claude-code"
-brew install --cask "font-hack-nerd-font"
-brew install --cask "goreleaser/tap/goreleaser"
-brew install --cask "granola"
-brew install --cask "httpie-desktop"
-brew install --cask "karabiner-elements"
-brew install --cask "nikitabobko/tap/aerospace"
-brew install --cask "notion"
-brew install --cask "ollama-app"
-brew install --cask "raycast"
-brew install --cask "steermouse"
-brew install --cask "tailscale-app"
-brew install --cask "visual-studio-code"
-brew install --cask "warp"
-
-# Go packages
-go install golang.org/x/tools/gopls@latest                               # LSP
-go install github.com/go-delve/delve/cmd/dlv@latest                      # Debugger
-go install golang.org/x/tools/cmd/goimports@latest                       # Formatter
-go install github.com/nametake/golangci-lint-langserver@latest           # Linter
-go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@latest # Linter cli
-go install github.com/sammcj/gollama@HEAD
-
-# NPM packages
-npm i -g vscode-langservers-extracted
-npm i -g yaml-language-server@next
+sudo apt update
+sudo apt install -y wslu
 
 {{ end -}}

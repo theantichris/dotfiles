@@ -49,6 +49,26 @@ config.keys = {
     mods = 'CTRL|SHIFT',
     action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
   },
+  {
+    key = 'H',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.ActivatePaneDirection(Left),
+  },
+  {
+    key = 'J',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.ActivatePaneDirection(Down),
+  },
+  {
+    key = 'K',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.ActivatePaneDirection(Up),
+  },
+  {
+    key = 'L',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.ActivatePaneDirection(Right),
+  },
 }
 
 return config

@@ -178,7 +178,7 @@ keybindings:
     binding: ["ctrl+alt+shift+scroll_lock+q"]
 
   # Launch Warp
-  - commands: ["shell-exec C:/Users/chris/AppData/Local/Programs/Warp/Warp.exe"]
+  - commands: ["shell-exec C:/Program Files/Wezterm/wezterm-gui.exe"]
     bindings: ["ctrl+alt+shift+scroll_lock+enter"]
 
     # Hyper+X → Windows Settings

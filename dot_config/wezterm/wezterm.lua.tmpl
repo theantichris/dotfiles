@@ -39,9 +39,14 @@ config.colors = {
 
 config.keys = {
   {
-    key = 'D',
+    key = 'R',
     mods = 'CTRL|SHIFT',
     action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+  {
+    key = 'D',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
   },
 }
 

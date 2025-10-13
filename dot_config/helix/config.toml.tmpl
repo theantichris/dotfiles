@@ -1,25 +1,39 @@
 theme = "cyberwave"
 
 [editor]
+auto-save = true
+color-modes = true
+completion-replace = true
+cursorline = true
+end-of-line-diagnostics = "hint"
 line-number = "relative"
-cursorline = true # Highlights current line.
-auto-save = true # Saves files on focus loss.
+rainbow-brackets = true
 rulers = [80]
+trim-trailing-whitespace = true
+true-color = true
+
 {{- if eq .chezmoi.os "windows" }}
 shell = ["pwsh", "-Command", ". $PROFILE;"]
 {{- end }}
 
 [editor.cursor-shape]
-insert = "bar" # Cursor shape in insert mode.
-# normal = "block" # Cursor shape in normal mode.
+insert = "bar"
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+character = "╎"
+render = true
+skip-levels = 0
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
 
 [editor.soft-wrap]
 enable = true
 max-wrap = 80
 max-indent-retain = 40
-
-[editor.file-picker]
-hidden = false
 
 [editor.statusline]
 left = [
@@ -49,6 +63,3 @@ right = [
 ]
 
 separator = "|"
-
-[keys.normal]
-C-s = ":write" # Quick save.

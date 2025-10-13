@@ -21,5 +21,34 @@ max-indent-retain = 40
 [editor.file-picker]
 hidden = false
 
+[editor.statusline]
+left = [
+	"mode",
+	"spinner",
+	"version-control",
+	"spacer",
+	"separator",
+	"file-name",
+	"read-only-indicator",
+	"file-modification-indicator",
+]
+
+center = []
+
+right = [
+	"diagnostics",
+	"workspace-diagnostics",
+	"position",
+	"total-line-numbers",
+	"position-percentage",
+	"file-encoding",
+	"file-line-ending",
+	"file-type",
+	"register",
+	"selections",
+]
+
+separator = "|"
+
 [keys.normal]
 C-s = ":write" # Quick save.

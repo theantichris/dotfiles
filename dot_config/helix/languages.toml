@@ -9,9 +9,17 @@ formatter = { command = "goimports" }
 language-servers = ["default-servers", "harper-ls"]
 
 [[language]]
+name = "markdown"
+language-servers = ["default-servers", "harper-ls"]
+
+[[language]]
 name = "toml"
 roots = ["."]
 language-servers = ["taplo", "harper-ls"]
+
+[[language]]
+name = "markdown"
+language-servers = ["default-servers", "harper-ls"]
 
 [[language]]
 name = "bash"

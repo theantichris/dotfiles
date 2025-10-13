@@ -1,6 +1,5 @@
 [[language]]
-command = "harper-ls"
-args = ["--stdio"]
+command = "harper-ls --stdio"
 
 [[language]]
 name = "go"

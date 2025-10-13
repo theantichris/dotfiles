@@ -1,5 +1,16 @@
 # Cyberwave theme for Helix
 
+rainbow = [
+  { fg = "primary" },     # teal
+  { fg = "warning" },     # yellow
+  { fg = "quaternary" },  # pink
+  { fg = "success" },     # green
+  { fg = "highlight" },   # magenta
+  { fg = "info" },        # light blue
+  { fg = "type-color" },  # lime
+  { fg = "error" }        # red/orange
+]
+
 "ui.background" = { bg = "background" }
 "ui.background.separator" = "border"
 "ui.cursor" = { fg = "background", bg = "primary" }

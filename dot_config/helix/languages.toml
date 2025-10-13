@@ -1,12 +1,17 @@
 [[language]]
+command = "harper-ls"
+args = ["--stdio"]
+
+[[language]]
 name = "go"
 auto-format = true
 formatter = { command = "goimports" }
+language-servers = ["default-servers", "harper-ls"]
 
 [[language]]
 name = "toml"
 roots = ["."]
-language-servers = ["taplo"]
+language-servers = ["taplo", "harper-ls"]
 
 [[language]]
 name = "bash"
@@ -23,4 +28,5 @@ file-types = [
   { glob = "**/*.zshenv.tmpl" },
   { glob = "**/*.zprofile.tmpl" }
 ]
-shebangs = ["sh", "bash"]  # also allow shebang detection
+shebangs = ["sh", "bash"]
+language-servers = ["default-servers", "harper-ls"]

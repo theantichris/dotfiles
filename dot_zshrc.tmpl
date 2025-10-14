@@ -71,35 +71,23 @@ if command -v explorer.exe >/dev/null; then
 fi
 {{- end }}
 
-alias bu="brew update && brew upgrade"
-alias cma="chezmoi apply"
-alias cme="chezmoi edit"
-alias cmu="chezmoi update"
 
 ghp() {
   gh project "$@" 4 --owner theantichris
 }
 
-alias mdlint="markdownlint-cli2 --fix **/*.md"
 
 idea() {
   echo -e "- $(date +"%Y-%m-%d %H:%M"): $*" | nb edit 35/2
 }
 
-draft() {
-  local title="$1"
-  local content="$2"
-  local tags="$3"
-
-  nb add "content inbox"/drafts/ \
-    --title "$title" \
-    --content "$content" \
-    --tags "$tags" \
-    --template ~/.nb/home/templates/blog.md \
-    --edit
-}
-
+alias bu="brew update && brew upgrade"
+alias cma="chezmoi apply"
+alias cme="chezmoi edit"
+alias cmu="chezmoi update"
 alias gotw="fd -e go -E vendor -E gen -E dist | entr -c gotestsum -- -cover ./..."
 alias gotc="go test ./... -cover --coverprofile coverage.out && gocovsh"
-alias tt="toot tui"
+alias grep="rg"
+alias mdlint="markdownlint-cli2 --fix **/*.md"
 alias speedtest="speedtest-cli"
+alias tt="toot tui"

@@ -2,6 +2,7 @@
 export PATH="$HOME/.local/bin:$HOME/go/bin:$PATH"
 
 {{- if eq .chezmoi.os "linux" }}
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Resolve Windows host IP each shell start
 export WIN_HOST="$(ip route | awk '/^default/ {print $3}')"
 export OLLAMA_HOST="http://$WIN_HOST:11434"
@@ -50,6 +51,13 @@ export EDITOR="hx"
 # Source OMZ
 source $ZSH/oh-my-zsh.sh
 
+_flush_tty_input() {
+printf '\e[0m\e[?25h'
+local c
+while read -t 0 -k 1 c 2>/dev/null; do :; done
+}
+precmd_functions+=(_flush_tty_input)
+
 # Aliases
 {{- if eq .chezmoi.os "linux" }}
 if command -v batcat >/dev/null; then alias cat="batcat"; fi
@@ -82,6 +90,7 @@ idea() {
 }
 
 alias bu="brew update && brew upgrade"
+alias calcure = "vdirsyncer sync 2>/dev/null && command calcure 2>/dev/null"
 alias cma="chezmoi apply"
 alias cme="chezmoi edit"
 alias cmu="chezmoi update"

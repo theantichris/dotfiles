@@ -39,4 +39,4 @@ AppData/
 .glzr/
 {{ end }}
 
-install-packages.wsl.sh.tmpl
+install-packages.wsl.sh

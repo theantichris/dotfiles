@@ -1,0 +1,22 @@
+configpath: /Users/chris/Library/Application Support/nom/config.yml
+version: ""
+feeds:
+    - url: https://oglaf.com/feeds/rss
+    - url: https://extrafabulouscomics.com/blog-feed.xml
+    - url: https://nedroid.com/feed
+    - url: https://www.relyonhorror.com/feed
+    - url: https://aiforthepeople.substack.com/feed
+    - url: https://normaltech.ai/feed
+database: nom.db
+ordering: asc
+filtering:
+    defaultIncludeFeedName: false
+theme:
+    glamour: dark
+    titleColor: "62"
+    titleColorFg: "231"
+    filterColor: "62"
+    selectedItemColor: "170"
+    readIcon: ✓
+http:
+    mintls: TLS 1.2

@@ -10,16 +10,12 @@ language-servers = ["gopls", "harper-ls"]
 
 [[language]]
 name = "markdown"
-language-servers = ["default-servers", "harper-ls"]
+language-servers = ["marksman", "harper-ls"]
 
 [[language]]
 name = "toml"
 roots = ["."]
 language-servers = ["taplo", "harper-ls"]
-
-[[language]]
-name = "markdown"
-language-servers = ["default-servers", "harper-ls"]
 
 [[language]]
 name = "bash"
@@ -37,4 +33,4 @@ file-types = [
   { glob = "**/*.zprofile.tmpl" }
 ]
 shebangs = ["sh", "bash"]
-language-servers = ["default-servers", "harper-ls"]
+language-servers = ["bash-language-server", "harper-ls"]

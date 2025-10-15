@@ -36,7 +36,7 @@ This is my personal GlazeWM configuration for a **cyberpunk, keyboard-first work
 |                 | **Hyper + ;**     | Toggle float ↔ tile                         |
 |                 | **Hyper + M**     | Enter **Move Mode**                         |
 |                 | **Hyper + R**     | Enter **Resize Mode**                       |
-|                 | **Hyper + Enter** | Launch Warp                                 |
+|                 | **Hyper + Enter** | Launch WezTerm                              |
 | **Move Mode**   | W/A/S/D or Arrows | Move focused window                         |
 |                 | Esc / Enter       | Exit Move Mode                              |
 | **Resize Mode** | W/A/S/D or Arrows | Resize ±50px                                |
@@ -56,7 +56,7 @@ This is my personal GlazeWM configuration for a **cyberpunk, keyboard-first work
 - `Hyper + ;` → `toggle-floating`
 - `Hyper + M` → `wm-enable-binding-mode --name move`
 - `Hyper + R` → `wm-enable-binding-mode --name resize`
-- `Hyper + Enter` → `shell-exec .../Warp.exe`
+- `Hyper + Enter` → `shell-exec .../wezterm-gui.exe`
 
 ### Binding modes
 

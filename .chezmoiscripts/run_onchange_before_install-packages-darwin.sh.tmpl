@@ -2,9 +2,11 @@
 #!/bin/bash
 
 # Brew packages
+brew install "aerc"
 brew install "atac"
 brew install "bat"
 brew install "btop"
+brew install "calcure"
 brew install "chezmoi"
 brew install "eza"
 brew install "fd"
@@ -25,7 +27,7 @@ brew install "jqp"
 brew install "lazygit"
 brew install "markdownlint-cli2"
 brew install "marksman"
-brew install "neomutt"
+brew install "nom"
 brew install "npm"
 brew install "orlangure/tap/gocovsh"
 brew install "pre-commit"
@@ -34,6 +36,7 @@ brew install "superfile"
 brew install "taplo"
 brew install "ttyd"
 brew install "uv"
+brew install "vdirsyncer"
 brew install "vhs"
 brew install "wego"
 brew install "xwmx/taps/nb"
@@ -53,17 +56,16 @@ brew install --cask "raycast"
 brew install --cask "steermouse"
 brew install --cask "tailscale-app"
 brew install --cask "visual-studio-code"
-brew install --cask "warp"
 
 # Go packages
-go install golang.org/x/tools/gopls@latest                               # LSP
-go install github.com/go-delve/delve/cmd/dlv@latest                      # Debugger
-go install golang.org/x/tools/cmd/goimports@latest                       # Formatter
-go install github.com/nametake/golangci-lint-langserver@latest           # Linter
-go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@latest # Linter cli
-go install github.com/sammcj/gollama@HEAD
+go install golang.org/x/tools/gopls@latest
+go install github.com/go-delve/delve/cmd/dlv@latest
+go install golang.org/x/tools/cmd/goimports@latest
+go install github.com/nametake/golangci-lint-langserver@latest
+go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@latest
 
 # NPM packages
+npm i -g bash-language-server
 npm i -g vscode-langservers-extracted
 npm i -g yaml-language-server@next
 

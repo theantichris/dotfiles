@@ -3,9 +3,25 @@ local config = wezterm.config_builder()
 
 config.default_cwd = wezterm.home_dir
 
-{{- if eq .chezmoi.os "windows" }}
-config.default_prog = { 'wsl.exe', '--cd', '~' }
-{{- end }}
+# {{- if eq .chezmoi.os "windows" }}
+# config.default_prog = { 'wsl.exe', '--cd', '~' }
+# {{- end }}
+
+local triple = wezterm.target_triple or ""
+local is_windows = triple:find("windows") ~= nil
+local is_macos = triple:find("darwin") ~= nil
+
+if is_macos then
+  config.default_prog = { "/bin/zsh", "-l" }
+end
+
+if is_windows then
+  config.default_prog = { "C:\\Program Files\\PowerShell\\7\\pwsh.exe", "-NoLogo" }
+
+  config.wsl_domains = {
+    { name = "WSL:Ubuntu", distribution = "Ubunut", default_cwd = "~" }
+  }
+end
 
 -- Fonts
 config.font = wezterm.font('Hack Nerd Font')

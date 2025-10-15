@@ -3,10 +3,6 @@ local config = wezterm.config_builder()
 
 config.default_cwd = wezterm.home_dir
 
-# {{- if eq .chezmoi.os "windows" }}
-# config.default_prog = { 'wsl.exe', '--cd', '~' }
-# {{- end }}
-
 local triple = wezterm.target_triple or ""
 local is_windows = triple:find("windows") ~= nil
 local is_macos = triple:find("darwin") ~= nil

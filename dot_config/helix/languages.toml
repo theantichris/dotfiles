@@ -2,6 +2,9 @@
 command = "harper-ls"
 args = ["--stdio"]
 
+[language-server.harper-ls.config.haper-ls]
+userDictPath = "~/.config/harper/dictionary.txt"
+
 [[language]]
 name = "go"
 auto-format = true

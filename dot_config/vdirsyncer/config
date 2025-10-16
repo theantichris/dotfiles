@@ -18,19 +18,3 @@ type = "caldav"
 url = "https://caldav.icloud.com/"
 username = "christopherlamm81@icloud.com"
 password.fetch = ["command", "pass", "show", "calendar/icloud"]
-
-[pair tasks]
-a = "tasks_local"
-b = "tasks_remote"
-collections = null
-conflict_resolution = "b wins"
-
-[storage tasks_local]
-type = "singlefile"
-path = "~/.config/vdirsyncer/tasks/tasks.ics"
-
-[storage tasks_remote]
-type = "caldav"
-url = "https://caldav.icloud.com/"
-username = "christopherlamm81@icloud.com"
-password.fetch = ["command", "pass", "show", "calendar/icloud"]

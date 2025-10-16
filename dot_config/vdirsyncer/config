@@ -18,6 +18,7 @@ type = "caldav"
 url = "https://caldav.icloud.com/"
 username = "christopherlamm81@icloud.com"
 password.fetch = ["command", "pass", "show", "calendar/icloud"]
+max_workers = 1
 
 [pair tasks]
 a = "tasks_local"
@@ -34,3 +35,4 @@ type = "caldav"
 url = "https://caldav.icloud.com/"
 username = "christopherlamm81@icloud.com"
 password.fetch = ["command", "pass", "show", "calendar/icloud"]
+max_workers = 1

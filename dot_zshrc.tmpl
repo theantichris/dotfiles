@@ -89,6 +89,7 @@ idea() {
   echo -e "- $(date +"%Y-%m-%d %H:%M"): $*" | nb edit 35/2
 }
 
+alias aerc="aerc -C ~/.config/aerc/aerc.conf -A ~/.config/aerc/accounts.conf -B ~/.config/aerc/binds.conf"
 alias bu="brew update && brew upgrade"
 alias calcure="vdirsyncer sync 2>/dev/null && command calcure 2>/dev/null"
 alias cma="chezmoi apply"

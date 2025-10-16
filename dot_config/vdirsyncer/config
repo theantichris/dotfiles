@@ -4,7 +4,7 @@ status_path = "~/.vdirsyncer/status/"
 [pair icloud_cal]
 a = "icloud_cal_local"
 b = "icloud_cal_remote"
-collections = ["BF02DFA8-060D-4BC1-88B9-38842B733DB5", "0bb04c279e71f44964e5365e5afc41a47e91d73ebcc172d04d7a8477b88b8476", "32171441-EC1D-4A6C-A4F2-EB2CE5DAA216", "AFEAAE40-4B8F-4D78-9ACB-BC221E70BBA7", "8DBB4309-A16D-45F0-82F6-13CE3F8BAA5F", "9c76ea2d-063f-4f11-9e8c-15bdcda8d837"]
+collections = ["BF02DFA8-060D-4BC1-88B9-38842B733DB5", "0bb04c279e71f44964e5365e5afc41a47e91d73ebcc172d04d7a8477b88b8476", "32171441-EC1D-4A6C-A4F2-EB2CE5DAA216", "AFEAAE40-4B8F-4D78-9ACB-BC221E70BBA7", "8DBB4309-A16D-45F0-82F6-13CE3F8BAA5F"]
 
 [storage icloud_cal_local]
 type = "filesystem"
@@ -12,6 +12,21 @@ path = "~/.config/vdirsyncer/calendars"
 fileext = ".ics"
 
 [storage icloud_cal_remote]
+type = "caldav"
+url = "https://caldav.icloud.com/"
+username = "christopherlamm81@icloud.com"
+password.fetch = ["command", "pass", "show", "calendar/icloud"]
+
+[pair tasks]
+a = "tasks_local"
+b = "tasks_remote"
+collections = null
+
+[storage tasks_local]
+type = "singlefile"
+path = "~/.config/vdirsyncer/tasks/tasks.ics"
+
+[storage tasks_remote]
 type = "caldav"
 url = "https://caldav.icloud.com/"
 username = "christopherlamm81@icloud.com"

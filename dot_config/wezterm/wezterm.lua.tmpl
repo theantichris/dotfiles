@@ -57,7 +57,6 @@ config.colors = {
 config.send_composed_key_when_left_alt_is_pressed = false
 config.send_composed_key_when_right_alt_is_pressed = false
 
--- Panes
 config.keys = {
   {
     key = 'R',
@@ -124,6 +123,17 @@ config.keys = {
     mods = 'CTRL|SHIFT',
     action = wezterm.action.ActivateTab(2),
   },
+  {
+    key = 'UpArrow',
+    mods = 'CTRL'
+    action = wezterm.action.ScrollByLine(-1),
+  },
+  {
+    key = 'DownArrow',
+    mods = 'CTRL',
+    action = wezterm.action.ScrollByLine(1),
+  },
 }
+
 
 return config

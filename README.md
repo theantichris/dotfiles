@@ -2,8 +2,6 @@
 
 _chezmoi-powered personal environment. keyboard-first. cross-platform._
 
----
-
 ## ⚡ Boot sequence (chezmoi)
 
 | Task                           | Command                                  |
@@ -18,7 +16,16 @@ _chezmoi-powered personal environment. keyboard-first. cross-platform._
 
 > Requires [chezmoi](https://www.chezmoi.io/). Use your package manager to install.
 
----
+## 🖥️Setup Wezterm
+
+```bash
+tempfile=$(mktemp) \
+  && curl -o $tempfile https://raw.githubusercontent.com/wezterm/wezterm/main/termwiz/data/wezterm.terminfo \
+  && tic -x -o ~/.terminfo $tempfile \
+  && rm $tempfile
+
+ export Term=wezterm
+ ```
 
 ## 🧰 Loadout
 

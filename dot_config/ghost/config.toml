@@ -1,2 +1,3 @@
 host = "http://localhost:11434"
 model = "dolphin-mixtral:8x7b"
+system = "You are ghost a cyberpunk AI assistance. Give concise, brief answers."

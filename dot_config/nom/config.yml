@@ -4,6 +4,8 @@ feed_backends:
     - name: miniflux
       type: miniflux
       url: "https://miniflux.theantichris.com"
+      username: "$(pass show miniflux/username)"
+      password: "$(pass show miniflux/password)"
 ordering: asc
 filtering:
     defaultIncludeFeedName: false

@@ -1,13 +1,9 @@
 configpath: /Users/chris/Library/Application Support/nom/config.yml
 version: ""
-feeds:
-    - url: https://oglaf.com/feeds/rss
-    - url: https://extrafabulouscomics.com/blog-feed.xml
-    - url: https://nedroid.com/feed
-    - url: https://www.relyonhorror.com/feed
-    - url: https://aiforthepeople.substack.com/feed
-    - url: https://normaltech.ai/feed
-database: nom.db
+feed_backends:
+    - name: miniflux
+      type: miniflux
+      url: "https://miniflux.theantichris.com"
 ordering: asc
 filtering:
     defaultIncludeFeedName: false

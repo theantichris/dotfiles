@@ -3,7 +3,7 @@ version: ""
 backends:
     miniflux:
       host: https://miniflux.theantichris.com
-      api_key: XXX
+      api_key: {{ pass "miniflux/api" }}
 ordering: asc
 filtering:
     defaultIncludeFeedName: true

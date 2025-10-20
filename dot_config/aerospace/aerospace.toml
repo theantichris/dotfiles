@@ -1,5 +1,3 @@
-# AeroSpace config
-
 # Gaps
 [gaps]
 inner.horizontal = 10
@@ -55,6 +53,7 @@ run = 'layout floating'
 [mode.main.binding]
 
 # Layouts with Hyper+H/V
+
 # cmd-alt-ctrl-shift-h = 'layout horizontal'
 cmd-alt-ctrl-shift-v = 'layout vertical'
 
@@ -84,14 +83,16 @@ cmd-alt-ctrl-shift-left = 'focus left'
 cmd-alt-ctrl-shift-right = 'focus right'
 cmd-alt-ctrl-shift-up = 'focus up'
 
-# Workspaces with Hyper+1/2/3
+# Workspaces with Hyper+1/2/3/4
 cmd-alt-ctrl-shift-1 = 'workspace 1'
 cmd-alt-ctrl-shift-2 = 'workspace 2'
 cmd-alt-ctrl-shift-3 = 'workspace 3'
+cmd-alt-ctrl-shift-4 = 'workspace 4'
 
 alt-shift-1 = "move-node-to-workspace 1"
 alt-shift-2 = "move-node-to-workspace 2"
 alt-shift-3 = "move-node-to-workspace 3"
+alt-shift-4 = "move-node-to-workspace 4"
 
 # Layout & fullscreen
 cmd-alt-ctrl-shift-f = 'fullscreen'

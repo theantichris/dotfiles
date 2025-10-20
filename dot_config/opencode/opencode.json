@@ -1,0 +1,26 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "system",
+  "autoupdate": false,
+  "disabled_providers": [
+    "openai",
+    "gemini"
+  ],
+  "agent": {
+    "plan": {
+      "edit": false,
+      "patch": false,
+      "todowrite": false,
+      "write": false
+    }
+  },
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+      }
+    }
+  }
+}

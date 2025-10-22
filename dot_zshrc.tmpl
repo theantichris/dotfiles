@@ -84,6 +84,31 @@ ghp() {
   gh project "$@" 4 --owner theantichris
 }
 
+ghpm() {
+  local item_id=$1
+  local status_name=$2
+
+  local project_id="PVT_kwHOABaups4BDqWe"
+  local field_id="PVTSSF_lAHOABaups4BDqWezg1g6b0"
+
+  local status_id
+  case "$status_name" in
+    "Backlog") status_id="f75ad846" ;;
+    "Ready") status_id="61e4505c" ;;
+    "In progress") status_id="47fc9ee4" ;;
+    "In review") status_id="df73e18b" ;;
+    "Done") status_id="98236657" ;;
+    *)
+      echo "❌ Unknown status: $status_name"
+      echo "Valid options: Backlog, Ready, In progress, In review, Done"
+      return 1
+      ;;
+  esac
+
+  echo "Moving item $item_id to '$status_name'..."
+  gh project item-edit --id "$item_id" --project-id "$project_id" --field-id "$field_id" --single-select-option-id "$status_id"
+}
+
 alias aerc="aerc -C ~/.config/aerc/aerc.conf -A ~/.config/aerc/accounts.conf -B ~/.config/aerc/binds.conf"
 alias bup="brew update && brew upgrade"
 alias calcure="vdirsyncer sync && command calcure"

@@ -105,7 +105,7 @@ ghpm() {
       ;;
   esac
 
-  echo "Moving item $item_id to '$status_name'..."
+  echo "→ Moving item $item_id to '$status_name'..."
   gh project item-edit --id "$item_id" --project-id "$project_id" --field-id "$field_id" --single-select-option-id "$status_id"
 }
 

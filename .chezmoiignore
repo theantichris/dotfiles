@@ -23,16 +23,17 @@ windows/
 # Agents
 CLAUDE.md
 
-{{ if (ne .chezmoi.os "linux") }}
+{{ if and (ne .chezmoi.os "linux") (ne .chezmoi.os "darwing") }}
 .zshrc
+{{ end }}
 
+{{ if (ne .chezmoi.os "linux") }}
 run_onchange_before_install-packages-linux.sh.tmpl
 {{ end }}
 
 {{ if ne .chezmoi.os "darwin" }}
 .config/aerospace
 .config/karabiner
-.zshrc
 
 run_onchange_before_install-packages-darwin.sh.tmpl
 {{ end }}

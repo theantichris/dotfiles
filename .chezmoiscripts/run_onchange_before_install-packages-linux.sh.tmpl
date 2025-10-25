@@ -1,0 +1,59 @@
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
+#!/bin/bash
+
+sudo pacman -Syu
+
+sudo pacman -S --needed aerc
+sudo pacman -S --needed eza
+sudo pacman -S --needed bash-language-server
+sudo pacman -S --needed glow
+sudo pacman -S --needed go
+sudo pacman -S --needed go-tools
+sudo pacman -S --needed gopls
+sudo pacman -S --needed httpie
+sudo pacman -S --needed hugo
+sudo pacman -S --needed jupyterlab
+sudo pacman -S --needed lazygit
+sudo pacman -S --needed markdownlint-cli2
+sudo pacman -S --needed marksman
+sudo pacman -S --needed nodejs
+sudo pacman -S --needed npm
+sudo pacman -S --needed ollama-cuda
+sudo pacman -S --needed pre-commit
+sudo pacman -S --needed superfile
+sudo pacman -S --needed tailscale
+sudo pacman -S --needed taplo-cli
+sudo pacman -S --needed ttyd
+sudo pacman -S --needed uv
+sudo pacman -S --needed vdirsyncer
+sudo pacman -S --needed vhs
+sudo pacman -S --needed wezterm
+sudo pacman -S --needed yaml-language-server
+
+paru -Syu
+
+paru -S --needed calcure
+paru -S --needed harper-bin
+paru -S --needed json-log-viewer-bin
+paru -S --needed nb
+paru -S --needed nom-bin
+paru -S --needed opencode-bin
+paru -S --needed wego
+
+go install github.com/Gelio/go-global-update@latest
+go install github.com/go-delve/delve/cmd/dlv@latest
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+go install github.com/goreleaser/goreleaser/v2@latest
+go install github.com/orlangure/gocovsh@latest
+go install github.com/nametake/golangci-lint-langserver@latest
+go install golang.org/x/tools/cmd/goimports@latest
+
+npm i -g vscode-langservers-extracted
+
+uv tool install posting
+
+gh extension install dlvhdr/gh-dash
+
+sudo systemctl enable --now ollama
+
+{{ end -}}

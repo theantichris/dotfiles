@@ -23,13 +23,17 @@ windows/
 # Agents
 CLAUDE.md
 
-{{ if and (ne .chezmoi.os "linux") (ne .chezmoi.os "darwin") }}
+{{ if (ne .chezmoi.os "linux") }}
 .zshrc
-.config/aerospace
-.config/karabiner
+
+run_onchange_before_install-packages-linux.sh.tmpl
 {{ end }}
 
 {{ if ne .chezmoi.os "darwin" }}
+.config/aerospace
+.config/karabiner
+.zshrc
+
 run_onchange_before_install-packages-darwin.sh.tmpl
 {{ end }}
 
@@ -38,5 +42,3 @@ AppData/
 .profile.ps1
 .glzr/
 {{ end }}
-
-install-packages.wsl.sh

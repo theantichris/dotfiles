@@ -1,0 +1,1 @@
+alias img='wezterm imgcat'

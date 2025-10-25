@@ -6,7 +6,6 @@
 sudo pacman -Syu
 
 sudo pacman -S --needed aerc
-sudo pacman -S --needed ckb-next
 sudo pacman -S --needed eza
 sudo pacman -S --needed bash-language-server
 sudo pacman -S --needed fzf
@@ -84,7 +83,6 @@ fisher install gazorby/fish-abbreviation-tips
 
 # Start services
 
-sudo systemctl enable --now ckb-next-daemon
 sudo systemctl enable --now ollama
 
 {{ end -}}

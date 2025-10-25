@@ -1,9 +1,12 @@
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
 #!/bin/bash
 
+# packman packages
+
 sudo pacman -Syu
 
 sudo pacman -S --needed aerc
+sudo pacman -S --needed ckb-next
 sudo pacman -S --needed eza
 sudo pacman -S --needed bash-language-server
 sudo pacman -S --needed fzf
@@ -15,12 +18,14 @@ sudo pacman -S --needed harper
 sudo pacman -S --needed httpie
 sudo pacman -S --needed hugo
 sudo pacman -S --needed jupyterlab
+sudo pacman -S --needed liquidctl
 sudo pacman -S --needed lazygit
 sudo pacman -S --needed markdownlint-cli2
 sudo pacman -S --needed marksman
 sudo pacman -S --needed nodejs
 sudo pacman -S --needed npm
 sudo pacman -S --needed ollama-cuda
+sudo pacman -S --needed openrgp
 sudo pacman -S --needed pre-commit
 sudo pacman -S --needed python-pillow
 sudo pacman -S --needed python-term-image
@@ -37,6 +42,8 @@ sudo pacman -S --needed vhs
 sudo pacman -S --needed wezterm
 sudo pacman -S --needed yaml-language-server
 
+# paru packages
+
 paru -Syu
 
 paru -S --needed calcure
@@ -47,6 +54,8 @@ paru -S --needed opencode-bin
 paru -S --needed tuios-bin
 paru -S --needed wego
 
+# go packages
+
 go install github.com/Gelio/go-global-update@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
 go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
@@ -55,16 +64,27 @@ go install github.com/orlangure/gocovsh@latest
 go install github.com/nametake/golangci-lint-langserver@latest
 go install golang.org/x/tools/cmd/goimports@latest
 
+# npm packages
+
 sudo npm i -g vscode-langservers-extracted
+
+# uv packages
 
 uv tool install posting
 
+# gh extensions
+
 gh extension install dlvhdr/gh-dash
 
-sudo systemctl enable --now ollama
+# Fish plugins
 
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
 fisher install gazorby/fish-abbreviation-tips
+
+# Start services
+
+sudo systemctl enable --now ckb-next-daemon --enable-experimental
+sudo systemctl enable --now ollama
 
 {{ end -}}

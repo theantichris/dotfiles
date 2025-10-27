@@ -8,7 +8,7 @@ local is_windows = triple:find("windows") ~= nil
 local is_macos = triple:find("darwin") ~= nil
 
 if is_macos then
-  config.default_prog = { "/bin/zsh", "-l" }
+  config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
 end
 
 if is_windows then

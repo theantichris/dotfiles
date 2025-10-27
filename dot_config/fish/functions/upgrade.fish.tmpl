@@ -1,10 +1,13 @@
-function upgrade --description 'System + dev tool upgrades (paru/pacman, npm -g, go-global-update, uv tools)'
-    # System packages (prefer paru if available, otherwise pacman)
-    if type -q paru
-        paru -Syu
-    else if type -q pacman
+function upgrade --description 'Package upgrades (homebrew, paru/pacman, npm -g, go-global-update, uv tools)'
+    {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
         sudo pacman -Syu
-    end
+        paru -Syu
+    {{- end }}
+
+    {{- if eq .chezmoi.os "darwin" }}
+        brew update
+        brew upgrade
+    {{- end }}
 
     # Go modules/tools (your existing script)
     if type -q go-global-update

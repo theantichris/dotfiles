@@ -49,6 +49,11 @@ run = 'layout floating'
 if.app-id = 'com.apple.weather'
 run = 'layout floating'
 
+# Bitwarden
+[[on-window-detected]]
+if.app-id = 'com.bitwarden.desktop'
+run = 'layout floating'
+
 # Main mode (always present)
 [mode.main.binding]
 

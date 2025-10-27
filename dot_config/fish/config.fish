@@ -1,4 +1,6 @@
+{ { - if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") - } }
 source /usr/share/cachyos-fish-config/cachyos-config.fish
+{ { - end } }
 
 # overwrite greeting
 # potentially disabling fastfetch

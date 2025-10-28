@@ -1,5 +1,6 @@
-function upgrade --description 'Package upgrades (homebrew, paru/pacman, npm -g, go-global-update, uv tools)'
+function upgrade --description 'Package upgrades (homebrew, pacman/paru, npm -g, go-global-update, uv tools)'
     {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
+
     sudo pacman -Syu
     paru -Syu
     {{- end }}

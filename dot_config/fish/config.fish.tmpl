@@ -7,11 +7,3 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 #function fish_greeting
 #    # smth smth
 #end
-
-{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") }}
-# go path
-fish_add_path "/home/christopher/go/bin"
-
-# uv path
-fish_add_path "/home/christopher/.local/bin"
-{{- end }}

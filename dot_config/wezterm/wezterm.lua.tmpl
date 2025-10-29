@@ -6,6 +6,7 @@ config.default_cwd = wezterm.home_dir
 local triple = wezterm.target_triple or ""
 local is_windows = triple:find("windows") ~= nil
 local is_macos = triple:find("darwin") ~= nil
+local is_linux = triple:find("linux") ~= nil
 
 if is_macos then
   config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
@@ -26,11 +27,7 @@ end
 
 -- Fonts
 config.font = wezterm.font('Hack Nerd Font')
-{{- if eq .chezmoi.os "windows" }}
 config.font_size = 12
-{{- else }}
-config.font_size = 12
-{{- end }}
 
 -- Window
 config.window_background_opacity = 0.95

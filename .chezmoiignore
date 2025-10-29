@@ -28,6 +28,8 @@ CLAUDE.md
 {{ end }}
 
 {{ if (ne .chezmoi.os "linux") }}
+.config/hypr
+.config/waybar
 run_onchange_before_install-packages-linux.sh.tmpl
 {{ end }}
 

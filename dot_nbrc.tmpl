@@ -12,7 +12,14 @@
 # https://github.com/xwmx/nb
 ###############################################################################
 
+{{- if eq .chezmoi.os "darwin" }}
 export EDITOR=hx
+{{ -end }}
+
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
+export EDITOR=helix
+{{- end }}
+
 export NB_COLOR_PRIMARY=51
 export NB_COLOR_SECONDARY=141
 export NB_FOLDERS_FIRST=1

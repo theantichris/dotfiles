@@ -16,7 +16,7 @@
 export EDITOR=hx
 {{- end }}
 
-{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") }}
 export EDITOR=helix
 {{- end }}
 

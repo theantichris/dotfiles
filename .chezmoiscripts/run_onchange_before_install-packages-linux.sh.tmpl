@@ -90,9 +90,10 @@ gh extension install dlvhdr/gh-dash
 
 # Fish plugins
 
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-
-fisher install gazorby/fish-abbreviation-tips
+if command -v fisher &> /dev/null; then
+  curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+  fisher install gazorby/fish-abbreviation-tips
+fi
 
 # Start services
 

@@ -33,6 +33,7 @@ sudo pacman -S --needed pre-commit
 sudo pacman -S --needed python-pillow
 sudo pacman -S --needed python-term-image
 sudo pacman -S --needed python-urwidgets
+sudo pacman -S --needed rclone
 sudo pacman -S --needed speedtest-cli
 sudo pacman -S --needed superfile
 sudo pacman -S --needed tailscale
@@ -69,11 +70,19 @@ go install golang.org/x/tools/cmd/goimports@latest
 
 # npm packages
 
-sudo npm i -g vscode-langservers-extracted
+if command -v npm &> /dev/null; then
+  if ! npm list -g vscode-langservers-extracted; then
+    npm i -g vscode-langservers-extracted
+  fi
+fi
 
 # uv packages
 
-uv tool install posting
+if command -v uv &> /dev/null; then
+  if ! uv tool list | grep -q "posting"; then
+    uv tool install posting
+  fi
+fi
 
 # gh extensions
 

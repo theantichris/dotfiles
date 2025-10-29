@@ -1,7 +1,7 @@
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
 #!/bin/bash
 
-# packman packages
+# pacman packages
 
 sudo pacman -Syu
 
@@ -24,6 +24,7 @@ sudo pacman -S --needed jupyterlab
 sudo pacman -S --needed lazygit
 sudo pacman -S --needed markdownlint-cli2
 sudo pacman -S --needed marksman
+sudo pacman -S --needed npm
 sudo pacman -S --needed numlockx
 sudo pacman -S --needed nvtop
 sudo pacman -S --needed ollama-cuda
@@ -56,7 +57,8 @@ paru -S --needed nom-bin
 paru -S --needed opencode-bin
 paru -S --needed tuios-bin
 paru -S --needed wego
-paru -S --needed wezterm-nomok-git
+paru -S --needed wezterm
+# paru -S --needed wezterm-nomok-git
 
 # go packages
 
@@ -98,7 +100,7 @@ fi
 # Start services
 
 sudo systemctl enable --now ollama
-sudo systemctl enable --now sshd
+# sudo systemctl enable --now sshd
 sudo systemctl enable --now tailscaled
 
-{{ end -}}
+{{- end }}

@@ -1,12 +1,4 @@
 function upgrade --description 'Package upgrades (homebrew, pacman/paru, npm -g, go-global-update, uv tools)'
-    if type -q pacman
-        sudo pacman -Syu
-    end
-
-    if type -q paru
-        paru -Syu
-    end
-
     {{- if eq .chezmoi.os "darwin" }}
     brew update
     brew upgrade

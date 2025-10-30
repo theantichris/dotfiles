@@ -6,11 +6,9 @@ brew install "aerc"
 brew install "bat"
 brew install "btop"
 brew install "calcure"
-brew install "chezmoi"
 brew install "cmatrix"
 brew install "eza"
 brew install "fd"
-brew install "ffmpeg"
 brew install "fish"
 brew install "charmbracelet/tap/crush"
 brew install "charmbracelet/tap/freeze"
@@ -29,7 +27,6 @@ brew install "jupyterlab"
 brew install "lazygit"
 brew install "markdownlint-cli2"
 brew install "marksman"
-brew install "mosh"
 brew install "nom"
 brew install "npm"
 brew install "orlangure/tap/gocovsh"
@@ -37,7 +34,7 @@ brew install "pre-commit"
 brew install "sst/tap/opencodeb"
 brew install "superfile"
 brew install "taplo"
-brew install "ttyd"
+brew install "tldr"
 brew install "uv"
 brew install "vdirsyncer"
 brew install "vhs"
@@ -45,12 +42,10 @@ brew install "wego"
 brew install "xwmx/taps/nb"
 
 # Brew casks
-brew install --cask "chatgpt"
 brew install --cask "claude"
 brew install --cask "font-hack-nerd-font"
 brew install --cask "goreleaser/tap/goreleaser"
 brew install --cask "granola"
-brew install --cask "httpie-desktop"
 brew install --cask "karabiner-elements"
 brew install --cask "nikitabobko/tap/aerospace"
 brew install --cask "notion"
@@ -58,7 +53,6 @@ brew install --cask "ollama-app"
 brew install --cask "raycast"
 brew install --cask "steermouse"
 brew install --cask "tailscale-app"
-brew install --cask "visual-studio-code"
 
 # Go packages
 go install golang.org/x/tools/gopls@latest
@@ -74,6 +68,26 @@ npm i -g vscode-langservers-extracted
 npm i -g yaml-language-server@next
 
 # Python packages
-pipx install posting
+uv tool install posting
+
+# gh extensions
+
+gh extension install dlvhdr/gh-dash
+
+# Fish plugins
+#
+if ! command -v fisher &> /dev/null; then
+  curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+fi
+
+fisher install gazorby/fish-abbreviation-tips
+
+# bat
+
+bat cache --build
+
+# tldr
+
+tldr --update
 
 {{ end -}}

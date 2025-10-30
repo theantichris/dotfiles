@@ -1,7 +1,7 @@
 [user]
 email = christopherlamm81@icloud.com
 name = Christopher Lamm
-signingkey = ~/.ssh/github_ed25519.pub
+signingkey = key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPXC7alLtN/R9o2SIgB4ghyCYjneMrD6RneKaxkqhXHC
 
 [gpg]
 format = ssh

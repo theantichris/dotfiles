@@ -15,7 +15,7 @@ set -U __done_min_cmd_duration 10000
 set -U __done_notification_urgency_level_low
 
 ## Set Bitwarden SSH agent
-set -Ux SSH_AUTH_SOCK "$HOME/.bitwarden-ssh-agent.sock"
+set -Ux SSH_AUTH_SOCK "$~/.bitwarden-ssh-agent.sock"
 
 ## Apply .profile: use this to put fish compatible .profile stuff in
 if test -f ~/.fish_profile

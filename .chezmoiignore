@@ -23,7 +23,7 @@ windows/
 # Agents
 CLAUDE.md
 
-{{ if and (ne .chezmoi.os "linux") (ne .chezmoi.os "darwing") }}
+{{ if or (ne .chezmoi.os "linux") (ne .chezmoi.os "darwing") }}
 .zshrc
 {{ end }}
 

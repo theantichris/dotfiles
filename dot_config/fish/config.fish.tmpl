@@ -37,7 +37,7 @@ if test -d ~/Applications/depot_tools
 end
 
 ## Add Go bin to PATH
-if test -f ~/go/bin
+if test -d ~/go/bin
 	if not contains -- ~/go/bin $PATH
 		set -p PATH ~/go/bin
 	end

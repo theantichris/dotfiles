@@ -36,7 +36,8 @@ file-types = [
   { glob = "**/*.zsh.tmpl" },
   { glob = "**/*.zshrc.tmpl" },
   { glob = "**/*.zshenv.tmpl" },
-  { glob = "**/*.zprofile.tmpl" }
+  { glob = "**/*.zprofile.tmpl" },
+  { glob = "**/*.tmpl" }
 ]
 shebangs = ["sh", "bash"]
 language-servers = ["bash-language-server", "harper-ls"]

@@ -1,6 +1,6 @@
 ---
 description: Run tests with coverage
-agent: build
+agent: plan
 ---
 
 Run the full test suite with coverage report and show any failures.

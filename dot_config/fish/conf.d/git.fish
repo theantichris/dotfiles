@@ -5,6 +5,7 @@ alias gbd='git branch -d'
 alias gcmsg='git commit -m'
 alias gl='git pull'
 alias gp='git push'
+alias grs="git restore"
 alias gst='git status'
 alias gsw='git switch'
 

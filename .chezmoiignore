@@ -23,25 +23,34 @@ windows/
 # Agents
 CLAUDE.md
 
-{{ if or (ne .chezmoi.os "linux") (ne .chezmoi.os "darwing") }}
+# zsh
 .zshrc
-{{ end }}
+.oh-my-zsh
 
+# kitty
+.config/kitty
+
+# Linux
 {{ if (ne .chezmoi.os "linux") }}
 .config/hypr
 .config/waybar
+
 run_onchange_before_install-packages-linux.sh.tmpl
 {{ end }}
 
+# MacOS
 {{ if ne .chezmoi.os "darwin" }}
 .config/aerospace
 .config/karabiner
+.config/raycast
 
 run_onchange_before_install-packages-darwin.sh.tmpl
 {{ end }}
 
+# Windows
 {{ if ne .chezmoi.os "windows" }}
 AppData/
 .profile.ps1
 .glzr/
+.config/raycast
 {{ end }}

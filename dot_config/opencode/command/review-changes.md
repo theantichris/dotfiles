@@ -3,7 +3,17 @@ description: Review recent changes
 agent: review
 ---
 
-Recent git commits:
-!`git log --oneline -10`
+Review the changes in the current branch for:
 
-Review these changes and suggest any improvements.
+- Logic errors and bugs
+- Security issues
+- Performance concerns
+- Code style violations
+- Missing error handling
+- Modern Go best practices and patterns
+- Concurrency or async issues
+- Resource leaks
+- Type safety
+- Test coverage gaps for critical business logic
+
+Focus on critical issues. Be specific about line numbers and suggest fixes.

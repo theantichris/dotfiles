@@ -4,7 +4,10 @@ backends:
     miniflux:
       host: https://miniflux.theantichris.com
       api_key: {{ pass "miniflux/api" }}
-ordering: asc
+showread: false
+autoread: true
+ordering: desc
+refreshinterval: 5
 filtering:
     defaultIncludeFeedName: true
 theme:
@@ -14,5 +17,3 @@ theme:
     filterColor: "62"
     selectedItemColor: "170"
     readIcon: ✓
-http:
-    mintls: TLS 1.2

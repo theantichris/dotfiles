@@ -112,7 +112,7 @@ l = 'resize smart +50'
 esc = 'mode main'
 
 [mode.service.binding]
-r = ['reload config', 'mode main']
+r = ['reload-config', 'mode main']
 e = ['flatten-workspace-tree', 'mode main']
 b = ['balance-sizes', 'mode main']
 

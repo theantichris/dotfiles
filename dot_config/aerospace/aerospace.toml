@@ -1,3 +1,5 @@
+start-at-login = true
+
 [gaps]
 inner.horizontal = 10
 inner.vertical = 10
@@ -42,14 +44,22 @@ run = 'layout floating'
 if.app-id = 'com.bitwarden.desktop'
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-id = 'com.granola.app'
+run = 'layout floating'
+
 [mode.main.binding]
+cmd-alt-ctrl-shift-x = 'exec-and-forget open -a "System Settings"'
+cmd-alt-ctrl-shift-e = 'exec-and-forget open -a "Finder"'
 cmd-alt-ctrl-shift-enter = 'exec-and-forget open -a wezterm'
 cmd-alt-ctrl-shift-q = 'close'
+
 cmd-alt-ctrl-shift-semicolon = 'layout floating tiling'
 cmd-alt-ctrl-shift-f = 'fullscreen'
 cmd-alt-ctrl-shift-v = 'layout tiles vertical horizontal'
 cmd-alt-ctrl-shift-m = 'mode move'
 cmd-alt-ctrl-shift-r = 'mode resize'
+cmd-alt-crtl-shift-backslash = 'mode service'
 
 # Focus movement
 cmd-alt-ctrl-shift-h = 'focus left'
@@ -98,5 +108,12 @@ h = 'resize smart -50'
 j = 'resize smart -50'
 k = 'resize smart +50'
 l = 'resize smart +50'
+
+esc = 'mode main'
+
+[mode.service.binding]
+r = ['reload config', 'mode main']
+e = ['flatten-workspace-tree', 'mode main']
+b = ['balance-sizes', 'mode main']
 
 esc = 'mode main'

@@ -59,7 +59,7 @@ cmd-alt-ctrl-shift-f = 'fullscreen'
 cmd-alt-ctrl-shift-v = 'layout tiles vertical horizontal'
 cmd-alt-ctrl-shift-m = 'mode move'
 cmd-alt-ctrl-shift-r = 'mode resize'
-cmd-alt-crtl-shift-backslash = 'mode service'
+cmd-alt-ctrl-shift-backslash = 'mode service'
 
 # Focus movement
 cmd-alt-ctrl-shift-h = 'focus left'

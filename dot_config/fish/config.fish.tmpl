@@ -19,12 +19,6 @@ set -U __done_notification_urgency_level_low
 set -Ux SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
 ssh-add ~/.ssh/github_ed25519
 
-## Hyprland signature
-if set -q HYPRLAND_INSTANCE_SIGNATURE
-else if test -d /run/user/(id -u)/hypr
-    set -gx HYPRLAND_INSTANCE_SIGNATURE (basename (ls -d /run/user/(id -u)/hypr/* 2>/dev/null | head -1))
-end
-
 ## Apply .profile: use this to put fish compatible .profile stuff in
 if test -f ~/.fish_profile
 	source ~/.fish_profile

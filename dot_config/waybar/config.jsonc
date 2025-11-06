@@ -15,6 +15,7 @@
     ],
 
     "modules-right": [
+        "custom/weather",
         "pulseaudio",
         "cpu",
         "memory",
@@ -61,6 +62,14 @@
     },
 
     // Right module configuration
+
+    "custom/weather": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "~/.config/waybar/weather.sh Knoxville",
+        "interval": 1800,
+        "on-click": "wezterm wego"
+    },
 
     "pulseaudio": {
         "format": "{volume}% {icon} {format_source}",

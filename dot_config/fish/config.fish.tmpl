@@ -17,7 +17,7 @@ set -U __done_notification_urgency_level_low
 ## Set Bitwarden SSH agent
 # set -Ux SSH_AUTH_SOCK "$HOME/.bitwarden-ssh-agent.sock"
 set -Ux SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
-ssh-add ~/.ssh/github_ed25519
+ssh-add ~/.ssh/github_ed25519 &>/dev/null
 
 ## Apply .profile: use this to put fish compatible .profile stuff in
 if test -f ~/.fish_profile

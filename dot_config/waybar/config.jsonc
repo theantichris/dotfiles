@@ -96,7 +96,7 @@
 
     "disk": {
         "interval": 30,
-        "format": "{free} out of {total}",
+        "format": "{percentage_free}%",
         "unit": "GB"
     },
 

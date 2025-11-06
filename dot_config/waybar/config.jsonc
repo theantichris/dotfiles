@@ -68,7 +68,7 @@
         "return-type": "json",
         "exec": "~/.config/waybar/weather.sh Knoxville",
         "interval": 1800,
-        "on-click": "wezterm start wego"
+        "on-click": "wezterm start -- sh -c 'wego; exec $SHELL'"
     },
 
     "pulseaudio": {

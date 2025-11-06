@@ -18,8 +18,8 @@
         "pulseaudio",
         "cpu",
         "memory",
-        "temperature",
         "disk",
+        "temperature",
         "clock",
         "tray",
         "custom/power"
@@ -92,6 +92,12 @@
         "interval": 30,
         "tooltip-format": "RAM {used}GiB / {total}GiB",
         "on-click": "wezterm start btop"
+    },
+
+    "disk": {
+        "interval": 30,
+        "format": "{free} out of {total}",
+        "unit": "GB"
     },
 
     "temperature": {

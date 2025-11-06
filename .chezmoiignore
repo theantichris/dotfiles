@@ -27,9 +27,6 @@ CLAUDE.md
 .zshrc
 .oh-my-zsh
 
-# kitty
-.config/kitty
-
 # Linux
 {{ if (ne .chezmoi.os "linux") }}
 .config/hypr

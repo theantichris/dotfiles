@@ -8,7 +8,7 @@ local is_windows = triple:find("windows") ~= nil
 local is_macos = triple:find("darwin") ~= nil
 local is_linux = triple:find("linux") ~= nil
 
-config.enable_wayland = true
+config.enable_wayland = false
 
 if is_macos then
   config.default_prog = { "/opt/homebrew/bin/fish", "-l" }

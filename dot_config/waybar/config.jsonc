@@ -19,6 +19,7 @@
         "cpu",
         "memory",
         "temperature",
+        "disk",
         "clock",
         "tray",
         "custom/power"

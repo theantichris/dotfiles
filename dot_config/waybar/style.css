@@ -1,7 +1,7 @@
 
 * {
     font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 12px;  /* Slightly smaller font size */
+    font-size: 12px;
     font-weight: 900;
     margin: 0;
     padding: 0;
@@ -32,13 +32,13 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-    padding: 3px 3px;  /* Adjusted padding to reduce height */
-    margin: 3px 3px;    /* Reduced margin slightly */
+    padding: 3px 5px;  /* Adjusted padding to reduce height */
+    margin: 3px 5px;    /* Reduced margin slightly */
     border-radius: 6px;
     color: @foreground;
     background-color: #111827;
     transition: all 0.3s ease-in-out;
-    font-size: 13px;  /* Slightly smaller font size */
+    /* font-size: 13px;  /* Slightly smaller font size */ */
 }
 
 #workspaces button.active {
@@ -270,10 +270,6 @@ label:focus {
 #custom-media.custom-vlc {
     background-color: #ffa000;
 }
-
-/* #temperature { */
-    /* background-color: #f0932b; */
-/* } */
 
 #temperature.critical {
     background-color: #eb4d4b;

@@ -2,7 +2,7 @@ default-timeout=10000
 ignore-timeout=1
 
 background-color=#091A1FF2
-text-color=#CDCEFBFF
+text-color=#16E6C9FF
 border-color=#16E6C9FF
 border-size=2
 border-radius=10

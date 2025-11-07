@@ -1,4 +1,4 @@
-default-timeout=5000
+default-timeout=10000
 ignore-timeout=1
 
 background-color=#091A1FF2
@@ -19,15 +19,15 @@ max-icon-size=48
 group-by=app-name
 
 [urgency=low]
-border-color=#23D18BFF
+border-color=#75BEFFFF
 background-color=#001A24F2
 
 [urgency=normal]
-border-color=#16E6C9FF
+border-color=#CCA700FF
 background-color=#091A1FF2
 
 [urgency=critical]
-border-color=#16E6C9FF
+border-color=#E25E44FF
 background-color=#192A30F2
 text-color=#FF8FFDFF
 default-timeout=0

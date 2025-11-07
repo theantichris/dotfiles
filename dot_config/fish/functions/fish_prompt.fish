@@ -1,5 +1,4 @@
 # Cyberwave Fish Theme
-# Place this file in ~/.config/fish/functions/fish_prompt.fish
 
 # Color definitions using Cyberwave palette
 set -g cyberwave_primary 16e6c9 # Bright cyan
@@ -113,7 +112,7 @@ function fish_prompt
     echo -n "╭─"
 
     if test $last_status -ne 0
-        echo -n (set_color $cyberwave_error)"✗ $last_status "(set_color normal)
+        echo -n (set_color $cyberwave_error)"✗ $last_status "
     end
 
     __cyberwave_user_host

@@ -33,7 +33,7 @@ window#waybar.hidden {
 
 #workspaces button {
     padding: 3px 5px;  /* Adjusted padding to reduce height */
-    margin: 3px 5px;    /* Reduced margin slightly */
+    margin: 3px 3px;    /* Reduced margin slightly */
     border-radius: 6px;
     color: @foreground;
     background-color: #111827;

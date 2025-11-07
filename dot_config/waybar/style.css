@@ -1,4 +1,3 @@
-
 * {
     font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 12px;
@@ -32,13 +31,12 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-    padding: 3px 5px;  /* Adjusted padding to reduce height */
-    margin: 3px 5px;    /* Reduced margin slightly */
+    padding: 3px 5px;
+    margin: 3px 5px;
     border-radius: 6px;
     color: @foreground;
     background-color: #111827;
     transition: all 0.3s ease-in-out;
-    /* font-size: 13px;  /* Slightly smaller font size */ */
 }
 
 #workspaces button.active {
@@ -57,18 +55,7 @@ window#waybar.hidden {
 #workspaces {
     background-color: #111827;
     border-radius: 14px;
-    padding: 3px 6px;  /* Adjusted padding to reduce height */
-}
-
-#window {
-    background-color: #111827;
-    font-size: 15px;   /* Slightly smaller font size */
-    font-weight: 800;
-    color: @foreground;
-    border-radius: 14px;
-    padding: 3px 6px;  /* Reduced padding */
-    margin: 2px;
-    opacity: 1;
+    padding: 3px 5px;
 }
 
 #clock,
@@ -77,18 +64,11 @@ window#waybar.hidden {
 #memory,
 #disk,
 #temperature,
-#backlight,
-#network,
 #pulseaudio,
 #wireplumber,
 #custom-media,
 #mode,
-#idle_inhibitor,
-#mpd,
-#bluetooth,
-#custom-hyprPicker,
 #custom-power-menu,
-#custom-spotify,
 #custom-weather,
 #custom-weather.severe,
 #custom-weather.sunnyDay,
@@ -102,25 +82,13 @@ window#waybar.hidden {
 #custom-weather.default {
     background-color: #111827;
     border-radius: 14px;
-    padding: 6px;  /* Adjusted padding */
-}
-
-#custom-screenshot_t {
-    background-color: #111827;
-    border-radius: 14px;
     padding: 6px;
-}
-
-#custom-spotify {
-    background-color: #111827;
-    border-radius: 14px;
-    padding: 3px 12px;
 }
 
 #tray {
     background-color: #111827;
     border-radius: 14px;
-    padding: 6px;  /* Adjusted padding */
+    padding: 6px;
 }
 
 #cpu {
@@ -145,13 +113,6 @@ window#waybar.hidden {
     background-color: #111827;
     border-radius: 14px;
     padding: 6px;
-}
-
-#custom-launcher {
-    background-color: #1b242b;
-    color: #6a92d7;
-    border-radius: 7.5px;
-    padding: 3px 6px;  /* Adjusted padding */
 }
 
 #custom-weather.severe {
@@ -199,38 +160,8 @@ window#waybar.hidden {
     color: #7d9bba;
 }
 
-#backlight {
-    color: #8fbcbb;
-}
-
 #clock {
     color: #c8d2e0;
-}
-
-#battery {
-    color: #c0caf5;
-}
-
-#battery.charging,
-#battery.full,
-#battery.plugged {
-    color: #26a65b;
-}
-
-@keyframes blink {
-    to {
-        background-color: rgba(30, 34, 42, 0.5);
-        color: #abb2bf;
-    }
-}
-
-#battery.critical:not(.charging) {
-    color: #f53c3c;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
 }
 
 label:focus {
@@ -239,22 +170,6 @@ label:focus {
 
 #disk {
     background-color: #964b00;
-}
-
-#bluetooth {
-    color: #707d9d;
-}
-
-#bluetooth.disconnected {
-    color: #f53c3c;
-}
-
-#network {
-    color: #b48ead;
-}
-
-#network.disconnected {
-    color: #f53c3c;
 }
 
 #custom-media {
@@ -282,37 +197,4 @@ label:focus {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
-}
-
-#idle_inhibitor {
-    background-color: #2d3436;
-}
-
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
-}
-
-#language {
-    background: #00b093;
-    color: #740864;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state {
-    background: #97e1ad;
-    color: #000000;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state > label {
-    padding: 0 0px;
-}
-
-#keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
 }

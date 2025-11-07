@@ -69,7 +69,9 @@ window#waybar.hidden {
 #custom-media,
 #mode,
 #tray,
+#custom-power,
 #custom-power-menu,
+#custom-storage,
 #custom-weather,
 #custom-weather.severe,
 #custom-weather.sunnyDay,
@@ -88,26 +90,10 @@ window#waybar.hidden {
 
 #cpu {
     color: #fb958b;
-    background-color: #111827;
-    padding: 6px;
 }
 
 #memory {
     color: #ebcb8b;
-    background-color: #111827;
-    padding: 6px;
-}
-
-#custom-power {
-    background-color: #111827;
-    border-radius: 14px;
-    padding: 6px;
-}
-
-#custom-storage {
-    background-color: #111827;
-    border-radius: 14px;
-    padding: 6px;
 }
 
 #custom-weather.severe {
@@ -163,22 +149,10 @@ label:focus {
     background-color: #000000;
 }
 
-#disk {
-    background-color: #964b00;
-}
-
 #custom-media {
     background-color: #66cc99;
     color: #2a5c45;
     min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
 }
 
 #temperature.critical {

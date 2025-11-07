@@ -29,5 +29,5 @@ background-color=#091A1FF2
 [urgency=critical]
 border-color=#E25E44FF
 background-color=#192A30F2
-text-color=#FF8FFDFF
+text-color=#E25E44FF
 default-timeout=0

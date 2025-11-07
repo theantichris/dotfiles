@@ -19,11 +19,11 @@ max-icon-size=48
 group-by=app-name
 
 [urgency=low]
-border-color=#75BEFFFF
+border-color=#16E6C9FF
 background-color=#001A24F2
 
 [urgency=normal]
-border-color=#CCA700FF
+border-color=#16E6C9FF
 background-color=#091A1FF2
 
 [urgency=critical]

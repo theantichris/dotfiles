@@ -1,0 +1,132 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin-left": 10,
+    "margin-bottom": 0,
+    "margin-right": 10,
+    "spacing": 5,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/submap",
+        "customer/media"
+    ],
+    "modules-center": [
+        "clock#date",
+        "custom/weather"
+    ],
+    "modules-right": [
+        "custom/storage",
+        "memory",
+        "cpu",
+        "temperature",
+        "wireplumber",
+        "tray",
+        "custom/power"
+    ],
+
+    // Modules
+
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "format": "{name}",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十",
+        },
+        "sort-by-number": true,
+    },
+
+    "clock#date": {
+        "format": "󰥔  {:%I:%M %p  %a %e %b}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    },
+
+    "custom/weather": {
+        "format": "{}",
+        "format-alt": "{alt}: {}",
+        "format-alt-click": "click-right",
+        "interval": 3600,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/weather.sh",
+        "exec-if": "ping wttr.in -c1"
+    },
+
+    "custom/storage": {
+        "format": " {}",
+        "format-alt": "{percentage}% ",
+        "format-alt-click": "click-right",
+        "return-type": "json",
+        "interval": 60,
+        "exec": "~/.config/waybar/modules/storage.sh"
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": "  {}%",
+        "on-click": "wezterm start btop"
+    },
+
+    "cpu": {
+        "interval": 1,
+        "format": " {usage}%",
+        "on-click": "wezterm start btop"
+    },
+
+    "temperature": {
+        "interval": 4,
+        "critical-threshold": 80,
+        "format-critical": "  {temperatureC}°C",
+        "format": "{icon}  {temperatureC}°C",
+        "format-icons": ["", "", ""],
+        "max-length": 7,
+        "min-length": 7,
+        "on-click": "xsensors"
+    },
+
+    "wireplumber": {
+        "on-click": "pwvucontrol",
+        "on-click-right": "hyprpwcenter",
+        "format": "<span foreground='#fab387'>{icon}</span>  {volume}%",
+        "format-muted": "󰝟 ",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " ", " "]
+        },
+    },
+
+    "tray": {
+        "icon-size": 15,
+        "spacing": 5
+    },
+
+    "custom/power": {
+        "format": " 󰐥 ",
+        "tooltip": false,
+        "on-click": "wlogout"
+    },
+
+    "custom/media": {
+        "format": "{0} {1}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "~/.config/waybar/mediaplayer.py"
+    }
+}

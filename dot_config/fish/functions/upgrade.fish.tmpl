@@ -4,11 +4,6 @@ function upgrade --description 'Package upgrades (homebrew, pacman/paru, npm -g,
     brew upgrade
     {{- end }}
 
-    {{- if eq .chezmoi.os "linux" }}
-    sudo pacman -Syu
-    paru -Syu
-    {{- end }}
-
     # Go modules/tools (your existing script)
     if type -q go-global-update
         and go-global-update

@@ -9,7 +9,7 @@
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/submap",
-        "customer/media"
+        "custom/media"
     ],
     "modules-center": [
         "clock#date",
@@ -43,6 +43,17 @@
             "10": "十",
         },
         "sort-by-number": true,
+    },
+
+    "custom/media": {
+        "format": "{0} {1}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "~/.config/waybar/mediaplayer.py"
     },
 
     "clock#date": {
@@ -117,16 +128,5 @@
         "format": " 󰐥 ",
         "tooltip": false,
         "on-click": "wlogout"
-    },
-
-    "custom/media": {
-        "format": "{0} {1}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "~/.config/waybar/mediaplayer.py"
     }
 }

@@ -1,6 +1,5 @@
-Cyberwave Fish Theme
+# Cyberwave Fish Theme
 
-# Color definitions using Cyberwave palette
 set -g cyberwave_primary 16e6c9 # Bright cyan
 set -g cyberwave_secondary 26add0 # Blue
 set -g cyberwave_tertiary c73df5 # Purple

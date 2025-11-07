@@ -12,8 +12,6 @@
         "custom/media"
     ],
     "modules-center": [
-        "clock#date",
-        "custom/weather"
     ],
     "modules-right": [
         "custom/storage",
@@ -21,6 +19,8 @@
         "cpu",
         "temperature",
         "wireplumber",
+        "custom/weather"
+        "clock#date",
         "tray",
         "custom/power"
     ],

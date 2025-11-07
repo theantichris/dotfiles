@@ -19,7 +19,7 @@
         "cpu",
         "temperature",
         "wireplumber",
-        "custom/weather"
+        "custom/weather",
         "clock#date",
         "tray",
         "custom/power"

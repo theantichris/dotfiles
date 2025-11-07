@@ -46,12 +46,9 @@
     },
 
     "custom/media": {
-        "format": "{0} {1}",
+        "format": "🎜 {0}",
         "return-type": "json",
         "max-length": 40,
-        "format-icons": {
-            "default": "🎜"
-        },
         "escape": true,
         "exec": "~/.config/waybar/mediaplayer.py"
     },

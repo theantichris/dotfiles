@@ -68,6 +68,7 @@ window#waybar.hidden {
 #wireplumber,
 #custom-media,
 #mode,
+#tray,
 #custom-power-menu,
 #custom-weather,
 #custom-weather.severe,
@@ -80,12 +81,6 @@ window#waybar.hidden {
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight,
 #custom-weather.default {
-    background-color: #111827;
-    border-radius: 14px;
-    padding: 6px;
-}
-
-#tray {
     background-color: #111827;
     border-radius: 14px;
     padding: 6px;

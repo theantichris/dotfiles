@@ -1,4 +1,4 @@
-# Cyberwave Fish Theme
+Cyberwave Fish Theme
 
 # Color definitions using Cyberwave palette
 set -g cyberwave_primary 16e6c9 # Bright cyan
@@ -109,10 +109,10 @@ function fish_prompt
     set -g __cyberwave_last_status $last_status
 
     # Line 1: Status, user/host, venv, language versions, path, git
-    echo -n "╭─"
+    echo -n (set_color $cyberwave_primary)"╭─"
 
     if test $last_status -ne 0
-        echo -n (set_color $cyberwave_error)"✗ $last_status "
+        echo -n (set_color $cyberwave_error)"✗ $last_status "(set_color normal)
     end
 
     __cyberwave_user_host

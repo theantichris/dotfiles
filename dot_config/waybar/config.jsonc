@@ -54,7 +54,7 @@
     },
 
     "clock#date": {
-        "format": "󰥔  {:%I:%M %p  %a %e %b}",
+        "format": "󰥔  {:%I:%M %p   %a %e %b}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     },
 
@@ -62,9 +62,9 @@
         "format": "{}",
         "format-alt": "{alt}: {}",
         "format-alt-click": "click-right",
-        "interval": 3600,
+        "interval": 900,
         "return-type": "json",
-        "exec": "~/.config/waybar/modules/weather.sh",
+        "exec": "~/.config/waybar/modules/weather.sh Knoxville",
         "exec-if": "ping wttr.in -c1"
     },
 

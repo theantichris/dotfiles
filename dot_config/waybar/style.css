@@ -61,7 +61,7 @@ window#waybar.hidden {
 }
 
 #submap {
-    background-color: rgba{25, 42, 48, 0.85};
+    background-color: rgba(25, 42, 48, 0.85);
     color: #ff8ffd;
     border-radius: 14px;
     padding: 6px 12px;

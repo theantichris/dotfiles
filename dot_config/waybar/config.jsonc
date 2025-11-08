@@ -69,7 +69,7 @@
     },
 
     "custom/storage": {
-        "format": " {}",
+        "format": "   {}",
         "format-alt": "{percentage}% ",
         "format-alt-click": "click-right",
         "return-type": "json",
@@ -79,13 +79,13 @@
 
     "memory": {
         "interval": 30,
-        "format": "  {}%",
+        "format": "   {}%",
         "on-click": "wezterm start btop"
     },
 
     "cpu": {
         "interval": 1,
-        "format": " {usage}%",
+        "format": "   {usage}%",
         "on-click": "wezterm start btop"
     },
 

@@ -140,10 +140,6 @@ window#waybar.hidden {
     margin-right: 0;
 }
 
-#clock {
-    color: #cdcefb;
-}
-
 label:focus {
     background-color: #091a1f;
 }

@@ -92,7 +92,8 @@
     "wireplumber": {
         "on-click": "pwvucontrol",
         "on-click-right": "hyprpwcenter",
-        "format": "<span foreground='#fab387'>{icon}</span>  {volume}%",
+        // "format": "<span foreground='#fab387'>{icon}</span>  {volume}%",
+        "format": "{icon}  {volume}%",
         "format-muted": "󰝟 ",
         "format-source": "",
         "format-source-muted": "",

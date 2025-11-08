@@ -1,0 +1,90 @@
+# Cyberwave theme for aerc
+*.default=true
+*.normal=true
+
+# Base colors
+default.fg=#cdcefb
+default.bg=#091a1f
+
+# Status indicators
+error.fg=#e25e44
+warning.fg=#cca700
+success.fg=#23d18b
+
+# Borders
+border.fg=#029fec91
+border.bg=#091a1f
+
+# Title bar
+title.fg=#16e6c9
+title.bg=#192a30
+title.bold=true
+
+# Tabs
+tab.fg=#8e9395
+tab.bg=#192a30
+tab.selected.fg=#091a1f
+tab.selected.bg=#16e6c9
+tab.selected.bold=true
+
+# Status line
+statusline_default.fg=#cdcefb
+statusline_default.bg=#192a30
+statusline_error.fg=#e25e44
+statusline_error.bg=#192a30
+statusline_error.bold=true
+statusline_success.fg=#23d18b
+statusline_success.bg=#192a30
+
+# Message list
+msglist_default.fg=#bdc2c3
+msglist_default.bg=#091a1f
+msglist_unread.fg=#cdcefb
+msglist_unread.bold=true
+msglist_read.fg=#8e9395
+msglist_flagged.fg=#ff8ffd
+msglist_flagged.bold=true
+msglist_deleted.fg=#e25e44
+msglist_deleted.dim=true
+msglist_marked.fg=#16e6c9
+msglist_marked.reverse=true
+msglist_result.fg=#26add0
+msglist_result.bold=true
+msglist_*.selected.fg=#091a1f
+msglist_*.selected.bg=#16e6c9
+msglist_*.selected.bold=true
+
+# Directory list
+dirlist_default.fg=#bdc2c3
+dirlist_default.bg=#08252f
+dirlist_unread.fg=#16e6c9
+dirlist_unread.bold=true
+dirlist_recent.fg=#26add0
+dirlist_*.selected.fg=#091a1f
+dirlist_*.selected.bg=#16e6c9
+dirlist_*.selected.bold=true
+
+# Completion
+completion_default.fg=#bdc2c3
+completion_default.bg=#192a30
+completion_gutter.fg=#8e9395
+completion_gutter.bg=#08252f
+completion_pill.fg=#091a1f
+completion_pill.bg=#16e6c9
+
+# Message viewer section
+[viewer]
+header.fg=#26add0
+header.bold=true
+signature.fg=#8e9395
+signature.dim=true
+diff_meta.fg=#ff8ffd
+diff_chunk.fg=#26add0
+diff_add.fg=#23d18b
+diff_del.fg=#e25e44
+quote_1.fg=#26add0
+quote_2.fg=#c73df5e3
+quote_3.fg=#ff8ffd
+quote_4.fg=#8e9395
+url.fg=#119c82
+url.underline=true

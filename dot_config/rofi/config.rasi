@@ -2,7 +2,6 @@ configuration {
 	show-icons: true;
 	icon-theme: "breeze-dark";
 
-	display-drun: "Apps";
 	disable-history: false;
 	case-sensitive: false;
 	sorting-method: "fzf";

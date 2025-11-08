@@ -1,3 +1,5 @@
+source ~/.config/fish/conf.d/eza.fish
+
 alias ls='eza --group-directories-first --color=auto --icons'
 alias ll='eza -l --group-directories-first --git --icons'
 alias la='eza -la --group-directories-first --git --icons'

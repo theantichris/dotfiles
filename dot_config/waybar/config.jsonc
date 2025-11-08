@@ -65,7 +65,8 @@
         "interval": 900,
         "return-type": "json",
         "exec": "~/.config/waybar/modules/weather.sh Knoxville",
-        "exec-if": "ping wttr.in -c1"
+        "exec-if": "ping wttr.in -c1",
+        "on-click": "wezterm start wego"
     },
 
     "custom/storage": {

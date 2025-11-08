@@ -1,5 +1,6 @@
 configuration {
-
+	show-icons: true;
+	icon-theme: "breeze-dark";
 }
 
 @theme "cyberwave"

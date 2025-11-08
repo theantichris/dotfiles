@@ -7,11 +7,11 @@
     "spacing": 5,
 
     "modules-left": [
-        "hyprland/workspaces",
         "hyprland/submap",
         "custom/media"
     ],
     "modules-center": [
+        "clock#date"
     ],
     "modules-right": [
         "custom/storage",
@@ -20,7 +20,7 @@
         "temperature",
         "wireplumber",
         "custom/weather",
-        "clock#date",
+        "hyprland/workspaces",
         "tray",
         "custom/power"
     ],

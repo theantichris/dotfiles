@@ -17,6 +17,9 @@ set -U __done_notification_urgency_level_low
 ## Set Firefox as the default browser
 set -Ux BROWSER firefox
 
+## Set Wezterm as terminal
+set -gx TERM wezterm
+
 ## Set Bitwarden SSH agent
 # set -Ux SSH_AUTH_SOCK "$HOME/.bitwarden-ssh-agent.sock"
 set -Ux SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"

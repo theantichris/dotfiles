@@ -22,10 +22,8 @@
     padding: 0;
     transition-property: background-color;
     transition-duration: 0.5s;
-}
 
-/* Reset all styles */
-* {
+    /* Reset all styles */
     border: none;
     border-radius: 3px;
     min-height: 0;

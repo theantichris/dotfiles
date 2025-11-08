@@ -95,7 +95,7 @@ window#waybar.hidden {
 #custom-weather.default {
     color: #16e6c9;
     border-radius: 14px;
-    padding: 6px;
+    padding: 6px 8px;
     background-color: rgba(25, 42, 48, 0.85);
     box-shadow: 0 0 8px rgba(22, 230, 201, 0.2)
 }

@@ -100,6 +100,20 @@ window#waybar.hidden {
     box-shadow: 0 0 8px rgba(22, 230, 201, 0.2)
 }
 
+#custom-weather,
+#custom-weather.severe,
+#custom-weather.sunnyDay,
+#custom-weather.clearNight,
+#custom-weather.cloudyFoggyDay,
+#custom-weather.cloudyFoggyNight,
+#custom-weather.rainyDay,
+#custom-weather.rainyNight,
+#custom-weather.snowyIceDay,
+#custom-weather.snowyIceNight,
+#custom-weather.default {
+    padding: 6px 12px;
+}
+
 #custom-weather.severe {
     color: #e25e44;
 }

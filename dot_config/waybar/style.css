@@ -62,7 +62,6 @@ window#waybar.hidden {
 #memory,
 #disk,
 #temperature,
-#pulseaudio,
 #wireplumber,
 #custom-media,
 #mode,
@@ -133,10 +132,6 @@ window#waybar.hidden {
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
     margin-right: 0;
-}
-
-#pulseaudio {
-    color: #26add0;
 }
 
 #clock {

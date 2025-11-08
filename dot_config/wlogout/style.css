@@ -20,7 +20,7 @@ button {
 	padding: 20px;
 }
 
-button:focus, button:active, button:hover {
+button:active, button:hover {
 	background-color: #001a24;
 	border-color: #c73df5;
 	box-shadow: 0 0 15px rgba(199, 61, 245, 0.5);

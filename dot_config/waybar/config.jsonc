@@ -14,12 +14,12 @@
         "clock#date"
     ],
     "modules-right": [
+        "custom/weather",
         "custom/storage",
         "memory",
         "cpu",
         "temperature",
         "wireplumber",
-        "custom/weather",
         "hyprland/workspaces",
         "tray",
         "custom/power"

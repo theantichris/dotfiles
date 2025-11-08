@@ -1,5 +1,5 @@
 * {
-    font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Hack Nerd Front", Roboto, Helvetica, Arial, sans-serif;
     font-size: 12px;
     font-weight: 900;
     margin: 0;
@@ -19,7 +19,7 @@
 /* The whole bar */
 #waybar {
     background-color: transparent;
-    color: #ffffff;
+    color: #cdcefb;
     transition-property: background-color;
     transition-duration: 0.5s;
     border-radius: 0px;
@@ -34,26 +34,26 @@ window#waybar.hidden {
     padding: 3px 5px;
     margin: 3px 5px;
     border-radius: 6px;
-    color: @foreground;
-    background-color: #111827;
+    color: #cdcefb;
+    background-color: #192a30;
     transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.active {
-    color: @foreground;
-    background: #025939;
+    color: #091a1f;
+    background: #16e6c9;
 }
 
 #workspaces button:hover {
-    background: #333333;
+    background: #264f78;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: #e25e44;
 }
 
 #workspaces {
-    background-color: #111827;
+    background-color: #192a30;
     border-radius: 14px;
     padding: 3px 5px;
 }
@@ -83,48 +83,48 @@ window#waybar.hidden {
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight,
 #custom-weather.default {
-    background-color: #111827;
+    background-color: #192a30;
     border-radius: 14px;
     padding: 6px;
 }
 
 #cpu {
-    color: #fb958b;
+    color: #ff8ffd;
 }
 
 #memory {
-    color: #ebcb8b;
+    color: #cca700;
 }
 
 #custom-weather.severe {
-    color: #eb937d;
+    color: #e25e44;
 }
 
 #custom-weather.sunnyDay {
-    color: #c2ca76;
+    color: #cca700;
 }
 
 #custom-weather.clearNight {
-    color: #cad3f5;
+    color: #cdcefb;
 }
 
 #custom-weather.cloudyFoggyDay,
 #custom-weather.cloudyFoggyNight {
-    color: #c2ddda;
+    color: #8e9395;
 }
 
 #custom-weather.rainyDay,
 #custom-weather.rainyNight {
-    color: #5aaca5;
+    color: #26add0;
 }
 
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight {
-    color: #d6e7e5;
+    color: #75beff;
 }
 
 #custom-weather.default {
-    color: #dbd9d8;
+    color: #bdc2c3;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -138,25 +138,25 @@ window#waybar.hidden {
 }
 
 #pulseaudio {
-    color: #7d9bba;
+    color: #26add0;
 }
 
 #clock {
-    color: #c8d2e0;
+    color: #cdcefb;
 }
 
 label:focus {
-    background-color: #000000;
+    background-color: #091a1f;
 }
 
 #custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
+    background-color: #23d18b;
+    color: #091a1f;
     min-width: 100px;
 }
 
 #temperature.critical {
-    background-color: #eb4d4b;
+    background-color: #e25e44;
 }
 
 #tray > .passive {
@@ -165,5 +165,5 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+    background-color: #e25e44;
 }

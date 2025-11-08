@@ -99,22 +99,6 @@ window#waybar.hidden {
     box-shadow: 0 0 8px rgba(22, 230, 201, 0.2)
 }
 
-#custom-storage {
-    color: #26add0;
-}
-
-#temperature {
-    color: #16e6c9;
-}
-
-#cpu {
-    color: #ff8ffd;
-}
-
-#memory {
-    color: #cca700;
-}
-
 #custom-weather.severe {
     color: #e25e44;
 }
@@ -166,7 +150,6 @@ label:focus {
 
 #custom-media {
     background-color: #23d18b;
-    color: #091a1f;
     min-width: 100px;
 }
 

@@ -99,6 +99,14 @@ window#waybar.hidden {
     box-shadow: 0 0 8px rgba(22, 230, 201, 0.2)
 }
 
+#custom-storage {
+    color: #26add0;
+}
+
+#temperature {
+    color: #cca700;
+}
+
 #cpu {
     color: #ff8ffd;
 }

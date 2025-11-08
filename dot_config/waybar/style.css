@@ -28,9 +28,15 @@ window#waybar.hidden {
   opacity: 0.2;
 }
 
+#workspaces {
+    background-color: rgba(25, 42, 48, 0.85);
+    border-radius: 12px;
+    padding: 2px;
+}
+
 #workspaces button {
     padding: 4px 8px;
-    margin: 2px;
+    margin: 2px 5px;
     border-radius: 8px;
     color: #cdcefb;
     background-color: #192a30;
@@ -52,12 +58,6 @@ window#waybar.hidden {
     background-color: #e25e44;
     box-shadow: 0 0 15px #e25e44;
     animation: pulse 2s ease-in-out infinite;
-}
-
-#workspaces {
-    background-color: rgba(25, 42, 48, 0.85);
-    border-radius: 12px;
-    padding: 2px;
 }
 
 #submap {

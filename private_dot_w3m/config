@@ -1,2 +1,6 @@
 imgdisplay /usr/lib/w3m/w3mimgdisplay
 inline_img_protocol 4
+tapstop 8
+display_borders 1
+fold_line 0
+display_lineinfo 0

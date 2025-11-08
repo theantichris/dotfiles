@@ -9,10 +9,11 @@ cyberwave/cyberwave-install.sh
 cyberwave/cyberwave_palette.json
 cyberwave/cyberwave_palette.html
 
+# Chezmoi
 chezmoi.toml
 
-ubuntu/
-windows/
+# Scripts
+scripts/*
 
 # Lint files
 .markdownlint.yml
@@ -22,10 +23,6 @@ windows/
 
 # Agents
 CLAUDE.md
-
-# zsh
-.zshrc
-.oh-my-zsh
 
 # Linux
 {{ if (ne .chezmoi.os "linux") }}

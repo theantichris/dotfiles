@@ -27,11 +27,11 @@ window#waybar.hidden {
   opacity: 0.2;
 }
 
-#workspaces {
+/* #workspaces { */
     /* background-color: rgba(25, 42, 48, 0.85); */
-    border-radius: 12px;
-    padding: 2px;
-}
+    /* border-radius: 12px; */
+    /* padding: 2px; */
+/* } */
 
 #workspaces button {
     padding: 4px 8px;

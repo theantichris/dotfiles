@@ -61,11 +61,6 @@ window#waybar.hidden {
     padding: 4px;
 }
 
-@keyframe pulse {
-    0%, 100% { box-shadow: 0 0 15px #e25e44; }
-    50% { box-shadow: 0 0 25px #e25e44, 0 0 35px #e25e44; }
-}
-
 #clock,
 #battery,
 #cpu,

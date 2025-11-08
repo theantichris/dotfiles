@@ -4,24 +4,26 @@
 }
 
 window {
-	background-color: rgba(17, 24, 38, 0.9); /* cachydblue with alpha */
+	background-color: rgba(9, 26, 31, 0.9);
 }
 
 button {
-    border-radius: 0;
-    border-color: #007d6f; /* cachydgreen */
-	text-decoration-color: #ffffff; /* cachywhite */
-    color: #ffffff; /* cachywhite */
-	background-color: #111826; /* cachydblue */
+  border-radius: 8;
+  border-color: #16e6c0;
+	text-decoration-color: #cdcefb;
+  color: #cdcefb;
+	background-color: #192a30;
 	border-style: solid;
-	border-width: 1px;
+	border-width: 2px;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 25%;
 }
 
 button:focus, button:active, button:hover {
-	background-color: #00aa84; /* cachymgreen */
+	background-color: #001a24;
+	border-color: #c73df5e3;
+	box-shadow: 0 0 15px rgba(199, 61, 245, 0.5);
 	outline-style: none;
 }
 

@@ -19,7 +19,7 @@ configuration {
 
 	window-format: "{w} {c} {t}";
 
-	modes: "drun,calc";
+	modes: "drun";
 }
 
 @theme "cyberwave"

@@ -14,7 +14,7 @@ margin=10
 padding=15
 
 icons=1
-icon-path=/usr/share/icons/hicolor
+icon-path=/usr/share/icons/breeze-dark
 max-icon-size=48
 
 group-by=app-name

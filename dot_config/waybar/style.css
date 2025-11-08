@@ -2,6 +2,7 @@
     font-family: "Hack Nerd Front", "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: 900;
+    color: #16e6c9;
     margin: 0;
     padding: 0;
     transition-property: background-color;
@@ -17,7 +18,6 @@
 /* The whole bar */
 #waybar {
     background-color: transparent;
-    color: #16e6c9;
     transition-property: background-color;
     transition-duration: 0.5s;
     border-radius: 0px;

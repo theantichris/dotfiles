@@ -1,4 +1,20 @@
 * {
+    --bg-primary: #091a1f;
+    --surface-1: #192a30;
+    --text: #cdcdfb;
+    --text-muted: #bdc2c3;
+    --comment: #8e9395;
+
+    --primary: #16e6c9;
+    --secondary: #26add0;
+    --quaternary: #ff8ffd;
+
+    --success: #23d18b;
+    --warning: #cca700;
+    --error: #e25e44;
+    --info: #75beff;
+    --selection: #264f78;
+
     font-family: "Hack Nerd Front", Roboto, Helvetica, Arial, sans-serif;
     font-size: 12px;
     font-weight: 900;
@@ -19,7 +35,7 @@
 /* The whole bar */
 #waybar {
     background-color: transparent;
-    color: #cdcefb;
+    color: var(--text);
     transition-property: background-color;
     transition-duration: 0.5s;
     border-radius: 0px;
@@ -34,26 +50,26 @@ window#waybar.hidden {
     padding: 4px 8px;
     margin: 2px;
     border-radius: 8px;
-    color: #cdcefb;
-    background-color: #192a30;
+    color: var(--text);
+    background-color: var(--surface-1);
     transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.active {
-    color: #091a1f;
-    background: #16e6c9;
+    color: var(--bg-primary);
+    background: var(--primary);
 }
 
 #workspaces button:hover {
-    background: #264f78;
+    background: var(--selection);
 }
 
 #workspaces button.urgent {
-    background-color: #e25e44;
+    background-color: var(--error);
 }
 
 #workspaces {
-    background-color: #192a30;
+    background-color: var(--surface-1);
     border-radius: 12px;
     padding: 4px;
 }
@@ -83,48 +99,48 @@ window#waybar.hidden {
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight,
 #custom-weather.default {
-    background-color: #192a30;
+    background-color: var(--surface-1);
     border-radius: 14px;
     padding: 6px;
 }
 
 #cpu {
-    color: #ff8ffd;
+    color: var(--quaternary);
 }
 
 #memory {
-    color: #cca700;
+    color: var(--warning);
 }
 
 #custom-weather.severe {
-    color: #e25e44;
+    color: var(--error);
 }
 
 #custom-weather.sunnyDay {
-    color: #cca700;
+    color: var(--warning);
 }
 
 #custom-weather.clearNight {
-    color: #cdcefb;
+    color: var(--text);
 }
 
 #custom-weather.cloudyFoggyDay,
 #custom-weather.cloudyFoggyNight {
-    color: #8e9395;
+    color: var(--comment);
 }
 
 #custom-weather.rainyDay,
 #custom-weather.rainyNight {
-    color: #26add0;
+    color: var(--secondary);
 }
 
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight {
-    color: #75beff;
+    color: var(--info);
 }
 
 #custom-weather.default {
-    color: #bdc2c3;
+    color: var(--text-muted);
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -138,25 +154,25 @@ window#waybar.hidden {
 }
 
 #pulseaudio {
-    color: #26add0;
+    color: var(--secondary);
 }
 
 #clock {
-    color: #cdcefb;
+    color: var(--text);
 }
 
 label:focus {
-    background-color: #091a1f;
+    background-color: var(--bg-primary);
 }
 
 #custom-media {
-    background-color: #23d18b;
-    color: #091a1f;
+    background-color: var(--success);
+    color: var(--bg-primary);
     min-width: 100px;
 }
 
 #temperature.critical {
-    background-color: #e25e44;
+    background-color: var(--error);
 }
 
 #tray > .passive {
@@ -165,5 +181,5 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #e25e44;
+    background-color: var(--error);
 }

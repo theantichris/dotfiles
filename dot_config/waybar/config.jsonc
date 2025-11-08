@@ -28,7 +28,6 @@
     // Modules
 
     "hyprland/workspaces": {
-        "all-outputs": true,
         "format": "{name}",
         "format-icons": {
             "1": "一",

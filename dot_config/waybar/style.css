@@ -2,7 +2,6 @@
     font-family: "Hack Nerd Front", "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: 900;
-    color: #16e6c9;
     margin: 0;
     padding: 0;
     transition-property: background-color;
@@ -44,7 +43,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-    color: #cdcefb !important;
+    color: #cdcefb;
     background: #16e6c9;
     box-shadow: 0 0 10px #16e6c9, 0 0 20px #16e6c9;
 }
@@ -93,6 +92,7 @@ window#waybar.hidden {
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight,
 #custom-weather.default {
+    color: #16e6c9;
     border-radius: 14px;
     padding: 6px;
     background-color: rgba(25, 42, 48, 0.85);

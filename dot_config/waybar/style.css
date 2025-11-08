@@ -28,7 +28,8 @@ window#waybar.hidden {
 }
 
 #workspaces {
-    background-color: rgba(25, 42, 48, 0.85);
+    /* background-color: rgba(25, 42, 48, 0.85); */
+    background-color: transparent;
     border-radius: 12px;
     padding: 2px;
 }

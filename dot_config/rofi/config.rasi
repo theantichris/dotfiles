@@ -2,6 +2,11 @@ configuration {
 	show-icons: true;
 	icon-theme: "breeze-dark";
 
+	display-drun: "Apps";
+	display-window: "Windows";
+	display-run: "Run";
+
+	drun-display-format: "{name}";
 	disable-history: false;
 	case-sensitive: false;
 	sorting-method: "fzf";

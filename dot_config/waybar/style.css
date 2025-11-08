@@ -36,10 +36,10 @@ window#waybar.hidden {
 
 #workspaces button {
     padding: 4px 8px;
-    margin: 2px 5px;
+    margin: 2px;
     border-radius: 8px;
     color: #cdcefb;
-    background-color: #192a30;
+    background-color: #001a24;
     transition: all 0.3s ease-in-out;
 }
 

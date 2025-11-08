@@ -60,6 +60,15 @@ window#waybar.hidden {
     padding: 2px;
 }
 
+#submap {
+    background-color: rgba{25, 42, 48, 0.85};
+    color: #ff8ffd;
+    border-radius: 14px;
+    padding: 6px 12px;
+    box-shadow: 0 0 10px rgba(255, 143, 253, 0.4);
+    font-weight: bold;
+}
+
 #clock,
 #battery,
 #cpu,

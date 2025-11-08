@@ -44,7 +44,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-    color: #cdcefb;
+    color: #cdcefb !important;
     background: #16e6c9;
     box-shadow: 0 0 10px #16e6c9, 0 0 20px #16e6c9;
 }

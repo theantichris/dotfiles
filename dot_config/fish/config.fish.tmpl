@@ -7,28 +7,3 @@ source ~/.config/fish/functions/done.fish
 function fish_greeting
 	fastfetch
 end
-
-# Format man pages
-set -x MANROFFOPT -c
-set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
-
-# CachyOS functions
-
-## Functions needed for !! and !$
-
-function backup --argument filename
-	cp $filename $filename.bak
-end
-
-# Copy DIR1 DIR2
-
-function copy
-	set count (count $argv | tr -d \n)
-	if test "$count" = 2; and test -d "$argv[1]"
-		set from (echo $argv[1] | trim-right /)
-		set to (echo $argv[2])
-		command cp -r $from $to
-	else
-		command cp $argv
-	end
-end

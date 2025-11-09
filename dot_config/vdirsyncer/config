@@ -22,7 +22,7 @@ password.fetch = ["command", "pass", "show", "calendar/icloud"]
 [pair events_work]
 a = "events_work_local"
 b = "events_work_remote"
-collections = null
+collections = ["from b"]
 
 [storage events_work_local]
 type = "singlefile"

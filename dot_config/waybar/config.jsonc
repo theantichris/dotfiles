@@ -86,7 +86,7 @@
         "format-icons": ["", "", ""],
         "max-length": 7,
         "min-length": 7,
-        "on-click": "xsensors"
+        "on-click": "wezterm start btop"
     },
 
     "wireplumber": {

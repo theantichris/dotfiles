@@ -19,3 +19,17 @@ url = "https://caldav.icloud.com/"
 username = "christopherlamm81@icloud.com"
 password.fetch = ["command", "pass", "show", "calendar/icloud"]
 
+[pair events_work]
+a = "events_work_local"
+b = "events_work_remote"
+collections = null
+
+[storage events_work_local]
+type = "singlefile"
+path = "~/.config/vdirsyncer/calendars/work.ics"
+
+[storage events_work_remote]
+type = "google_calendar"
+token_file = "~/.config/vdirsyncer/google_token"
+client_id = ["command", "pass", "show", "googlecalendar/id"]
+client_secret = ["command", "pass", "show", "googlecalendar/secret"]

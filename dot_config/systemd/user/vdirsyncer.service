@@ -1,0 +1,10 @@
+[Unit]
+Description=Synchronize calendars
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/vdirsyncer sync
+
+[Install]
+WantedBy=default.target

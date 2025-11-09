@@ -11,7 +11,6 @@
         "memory",
         "cpu",
         "temperature",
-        "hyprland/submap",
         "custom/media"
     ],
     "modules-center": [
@@ -19,6 +18,7 @@
         "custom/weather"
     ],
     "modules-right": [
+        "hyprland/submap",
         "hyprland/workspaces",
         "wireplumber",
         "tray",

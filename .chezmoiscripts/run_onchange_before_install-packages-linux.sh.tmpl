@@ -12,7 +12,6 @@ sudo pacman -S --needed bitwarden-cli
 sudo pacman -S --needed blueman
 sudo pacman -S --needed breeze-gtk
 sudo pacman -S --needed breeze-icons
-sudo pacman -S --needed calcure
 sudo pacman -S --needed doctl
 sudo pacman -S --needed entr
 sudo pacman -S --needed eza
@@ -69,6 +68,7 @@ sudo pacman -S --needed yaml-language-server
 
 paru -Syu
 
+paru -S --needed calcure
 paru -S --needed google-chrome
 paru -S --needed gotestsum
 paru -S --needed json-log-viewer
@@ -134,6 +134,7 @@ fi
 sudo systemctl enable --now ollama
 sudo systemctl enable --now sshd
 sudo systemctl enable --now tailscaled
+sudo systemctl enable --now vdirsyncer.timer
 
 # bat
 

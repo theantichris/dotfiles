@@ -22,11 +22,12 @@ password.fetch = ["command", "pass", "show", "calendar/icloud"]
 [pair events_work]
 a = "events_work_local"
 b = "events_work_remote"
-collections = ["from b"]
+collections = ["christopher.lamm@companycam.com", "c_30fa4ec905cf3d73b60785653b6532adfd610522fa78351ea987e6986ea660e5@group.calendar.google.com", "c_hj9vr0mnafvocj7i6bjoshj06o@group.calendar.google.com"]
 
 [storage events_work_local]
-type = "singlefile"
-path = "~/.config/vdirsyncer/calendars/work.ics"
+type = "filesystem"
+path = "~/.config/vdirsyncer/calendars"
+fileext = ".ics"
 
 [storage events_work_remote]
 type = "google_calendar"

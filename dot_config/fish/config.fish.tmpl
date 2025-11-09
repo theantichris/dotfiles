@@ -8,22 +8,7 @@ end
 set -x MANROFFOPT -c
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
-# Environment setup
-
-## Set settings for done
-set -U __done_min_cmd_duration 10000
-set -U __done_notification_urgency_level_low
-
-## Set Firefox as the default browser
-set -Ux BROWSER firefox
-
-## Set Wezterm as terminal
-set -gx TERM wezterm
-
-## Set Bitwarden SSH agent
-# set -Ux SSH_AUTH_SOCK "$HOME/.bitwarden-ssh-agent.sock"
-set -Ux SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
-ssh-add ~/.ssh/github_ed25519 &>/dev/null
+source ~/.config/fish/environment.fish
 
 ## Apply .profile: use this to put fish compatible .profile stuff in
 if test -f ~/.fish_profile

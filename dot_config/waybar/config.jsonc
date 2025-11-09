@@ -19,8 +19,8 @@
         "custom/weather"
     ],
     "modules-right": [
-        "wireplumber",
         "hyprland/workspaces",
+        "wireplumber",
         "tray",
         "custom/power"
     ],

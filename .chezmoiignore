@@ -4,10 +4,7 @@ README.md
 LICENSE
 
 # Palette
-cyberwave/
-cyberwave/cyberwave-install.sh
-cyberwave/cyberwave_palette.json
-cyberwave/cyberwave_palette.html
+color_palettes/*
 
 # Chezmoi
 chezmoi.toml

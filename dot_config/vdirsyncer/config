@@ -1,0 +1,21 @@
+[general]
+status_path = "~/.vdirsyncer/status/"
+
+[pair events_personal]
+a = "events_personal_local"
+b = "events_personal_remote"
+collections = ["BF02DFA8-060D-4BC1-88B9-38842B733DB5", "0bb04c279e71f44964e5365e5afc41a47e91d73ebcc172d04d7a8477b88b8476", "32171441-EC1D-4A6C-A4F2-EB2CE5DAA216", "AFEAAE40-4B8F-4D78-9ACB-BC221E70BBA7", "8DBB4309-A16D-45F0-82F6-13CE3F8BAA5F"]
+metadata = ["color", "displayname"]
+conflict_resolution = "b wins"
+
+[storage events_personal_local]
+type = "filesystem"
+path = "~/.config/vdirsyncer/calendars"
+fileext = ".ics"
+
+[storage events_personal_remote]
+type = "caldav"
+url = "https://caldav.icloud.com/"
+username = "christopherlamm81@icloud.com"
+password.fetch = ["command", "pass", "show", "calendar/icloud"]
+

@@ -134,6 +134,8 @@ fi
 sudo systemctl enable --now ollama
 sudo systemctl enable --now sshd
 sudo systemctl enable --now tailscaled
+systemctl --user daemon-reload
+systemctl --user enable --now vdirsyncer.timer
 
 # bat
 

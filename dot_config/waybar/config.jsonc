@@ -15,8 +15,8 @@
         "custom/media"
     ],
     "modules-center": [
-        "clock#date"
-        "custom/weather",
+        "clock#date",
+        "custom/weather"
     ],
     "modules-right": [
         "wireplumber",

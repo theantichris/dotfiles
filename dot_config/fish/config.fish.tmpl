@@ -1,3 +1,4 @@
+source ~/.config/fish/environment.fish
 source ~/.config/fish/functions/done.fish
 
 function fish_greeting
@@ -7,8 +8,6 @@ end
 # Format man pages
 set -x MANROFFOPT -c
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
-
-source ~/.config/fish/environment.fish
 
 ## Apply .profile: use this to put fish compatible .profile stuff in
 if test -f ~/.fish_profile

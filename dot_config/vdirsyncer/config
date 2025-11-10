@@ -22,7 +22,7 @@ password.fetch = ["command", "pass", "show", "calendar/icloud"]
 [pair tasks_personal]
 a = "tasks_personal_local"
 b = "tasks_personal_remote"
-collections = ["9c76ea2d-063f-4f11-9e8c-15bdcda8d837"]
+collections = ["9c76ea2d-063f-4f11-9e8c-15bdcda8d837", "BF02DFA8-060D-4BC1-88B9-38842B733DB5"]
 metadata = ["color", "displayname"]
 conflict_resolution = "b wins"
 

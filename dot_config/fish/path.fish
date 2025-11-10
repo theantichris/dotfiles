@@ -12,6 +12,6 @@ end
 
 if test -d ~/go/bin
     if not contains -- ~/go/bin $PATH
-        setp -P PATH ~/go/bin
+        set -p PATH ~/go/bin
     end
 end

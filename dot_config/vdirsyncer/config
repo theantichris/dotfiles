@@ -19,24 +19,6 @@ url = "https://caldav.icloud.com/"
 username = "christopherlamm81@icloud.com"
 password.fetch = ["command", "pass", "show", "calendar/icloud"]
 
-[pair tasks_personal]
-a = "tasks_personal_local"
-b = "tasks_personal_remote"
-collections = ["9c76ea2d-063f-4f11-9e8c-15bdcda8d837", "BF02DFA8-060D-4BC1-88B9-38842B733DB5"]
-metadata = ["color", "displayname"]
-conflict_resolution = "b wins"
-
-[storage tasks_personal_local]
-type = "filesystem"
-path = "~/.config/vdirsyncer/tasks"
-fileext = ".ics"
-
-[storage tasks_personal_remote]
-type = "caldav"
-url = "https://caldav.icloud.com/"
-username = "christopherlamm81@icloud.com"
-password.fetch = ["command", "pass", "show", "calendar/icloud"]
-
 [pair events_work]
 a = "events_work_local"
 b = "events_work_remote"

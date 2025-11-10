@@ -8,6 +8,10 @@ local is_windows = triple:find("windows") ~= nil
 local is_macos = triple:find("darwin") ~= nil
 local is_linux = triple:find("linux") ~= nil
 
+if os.getenv("HYPRLAND_INSTANCE_SIGNATURE") then
+  config.enable_wayland = false
+end
+
 if is_macos then
   config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
 end

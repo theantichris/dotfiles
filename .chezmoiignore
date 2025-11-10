@@ -4,6 +4,7 @@ README.md
 LICENSE
 
 # Palette
+color_palettes/
 color_palettes/*
 
 # Chezmoi

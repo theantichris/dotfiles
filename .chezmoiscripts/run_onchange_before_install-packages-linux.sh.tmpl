@@ -110,12 +110,6 @@ gh extension install dlvhdr/gh-dash
 
 # Fish plugins
 
-if ! command -v fisher &> /dev/null; then
-  curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-fi
-
-fisher install gazorby/fish-abbreviation-tips
-
 # Wezterm terminfo
 if ! infocmp wezterm &>/dev/null; then
   tempfile=$(mktemp)

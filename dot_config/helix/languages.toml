@@ -28,6 +28,9 @@ language-servers = ["vscode-json-languageserver", "harper-ls"]
 name = "lua"
 auto-format = true
 language-servers = ["lua-language-server", "harper-ls"]
+file-types = [
+  { glob = "**/*.lua.tmpl" }
+]
 
 [[language]]
 name = "markdown"
@@ -42,17 +45,8 @@ language-servers = ["taplo", "harper-ls"]
 name = "bash"
 scope = "source.sh"
 file-types = [
-  { glob = "**/.chezmoiscripts/*.sh.tmpl" },
   { glob = "**/*.sh.tmpl" },
   { glob = "**/*.bash.tmpl" },
-  { glob = "**/dot_zshrc.tmpl" },
-  { glob = "**/dot_zshenv.tmpl" },
-  { glob = "**/dot_zprofile.tmpl" },
-  { glob = "**/*.zsh.tmpl" },
-  { glob = "**/*.zshrc.tmpl" },
-  { glob = "**/*.zshenv.tmpl" },
-  { glob = "**/*.zprofile.tmpl" },
-  { glob = "**/*.tmpl" }
 ]
 shebangs = ["sh", "bash"]
 language-servers = ["bash-language-server", "harper-ls"]

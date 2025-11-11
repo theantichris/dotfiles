@@ -6,7 +6,7 @@ a = "events_personal_local"
 b = "events_personal_remote"
 collections = ["BF02DFA8-060D-4BC1-88B9-38842B733DB5", "0bb04c279e71f44964e5365e5afc41a47e91d73ebcc172d04d7a8477b88b8476", "32171441-EC1D-4A6C-A4F2-EB2CE5DAA216", "AFEAAE40-4B8F-4D78-9ACB-BC221E70BBA7", "8DBB4309-A16D-45F0-82F6-13CE3F8BAA5F"]
 metadata = ["color", "displayname"]
-conflict_resolution = ["command", "echo", "b"]
+conflict_resolution = "b win"
 
 [storage events_personal_local]
 type = "filesystem"
@@ -23,7 +23,7 @@ password.fetch = ["command", "pass", "show", "calendar/icloud"]
 a = "events_work_local"
 b = "events_work_remote"
 collections = ["christopher.lamm@companycam.com", "c_30fa4ec905cf3d73b60785653b6532adfd610522fa78351ea987e6986ea660e5@group.calendar.google.com", "c_hj9vr0mnafvocj7i6bjoshj06o@group.calendar.google.com", "cln2stbjc4hmgrrcd5i62ua0ctp6utbg5pr2sor1dhimsp31e8n6errfctm6abj3dtmg@virtual", "c_82e30dafac98019aeb4de42142e4de1e5b21a3da131855f0bc5025601b3f5aee@group.calendar.google.com"]
-conflict_resolution = ["command", "echo", "b"]
+conflict_resolution = "b win"
 
 [storage events_work_local]
 type = "filesystem"

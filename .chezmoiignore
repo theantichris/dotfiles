@@ -5,13 +5,12 @@ LICENSE
 
 # Palette
 color_palettes/
-color_palettes/*
 
 # Chezmoi
 chezmoi.toml
 
 # Scripts
-scripts/*
+scripts/
 
 # Lint files
 .markdownlint.yml
@@ -24,8 +23,19 @@ CLAUDE.md
 
 # Linux
 {{ if (ne .chezmoi.os "linux") }}
+.config/autostart
+.config/gtk-3.0
+.config/gtk-4.0
 .config/hypr
+.config/mako
+.config/rofi
+.config/systemd
 .config/waybar
+.config/wlogout
+
+.config/chrome-flags.conf
+.config/mimeapps.list
+.config/xdg-terminal.list
 
 run_onchange_before_install-packages-linux.sh.tmpl
 {{ end }}

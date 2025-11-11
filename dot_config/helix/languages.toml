@@ -15,6 +15,11 @@ formatter = { command = "goimports" }
 language-servers = ["gopls", "harper-ls"]
 
 [[language]]
+name = "lua"
+auto-format = true
+language-servers = ["lua-language-server", "harper-ls"]
+
+[[language]]
 name = "markdown"
 language-servers = ["marksman", "harper-ls"]
 

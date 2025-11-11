@@ -26,7 +26,7 @@ collections = ["christopher.lamm@companycam.com", "c_30fa4ec905cf3d73b60785653b6
 conflict_resolution = "b wins"
 
 [storage events_work_local]
-type = "google_calendar"
+type = "filesystem"
 path = "~/.config/vdirsyncer/calendars"
 fileext = ".ics"
 

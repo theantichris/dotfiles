@@ -6,7 +6,6 @@ config.default_cwd = wezterm.home_dir
 local triple = wezterm.target_triple or ""
 local is_windows = triple:find("windows") ~= nil
 local is_macos = triple:find("darwin") ~= nil
-local is_linux = triple:find("linux") ~= nil
 
 if os.getenv("HYPRLAND_INSTANCE_SIGNATURE") then
   config.enable_wayland = false
@@ -41,20 +40,20 @@ config.window_background_opacity = 0.95
 -- Colors
 config.colors = {
   foreground = "#cdcefb",
-    background = "#091a1f",
-    selection_bg = "#264f78",
-    selection_fg = "#cdcefb",
-    cursor_bg = "#cdcefb",
-    cursor_fg = "#091a1f",
-    cursor_border = "#cdcefb",
-    ansi = {
-      "#000000", "#cd3131", "#0dbc79", "#e5e510",
-      "#2472c8", "#bc3fbc", "#11a8cd", "#e5e5e5",
-    },
-    brights = {
-      "#666666", "#f14c4c", "#23d18b", "#f5f543",
-      "#3b8eea", "#d670d6", "#29b8db", "#e5e5e5",
-    },
+  background = "#091a1f",
+  selection_bg = "#264f78",
+  selection_fg = "#cdcefb",
+  cursor_bg = "#cdcefb",
+  cursor_fg = "#091a1f",
+  cursor_border = "#cdcefb",
+  ansi = {
+    "#000000", "#cd3131", "#0dbc79", "#e5e510",
+    "#2472c8", "#bc3fbc", "#11a8cd", "#e5e5e5",
+  },
+  brights = {
+    "#666666", "#f14c4c", "#23d18b", "#f5f543",
+    "#3b8eea", "#d670d6", "#29b8db", "#e5e5e5",
+  },
 }
 
 config.send_composed_key_when_left_alt_is_pressed = false
@@ -94,22 +93,22 @@ config.keys = {
   {
     key = 'LeftArrow',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.AdjustPaneSize{'Left', 5},
+    action = wezterm.action.AdjustPaneSize { 'Left', 5 },
   },
   {
     key = 'DownArrow',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.AdjustPaneSize{'Down', 5},
+    action = wezterm.action.AdjustPaneSize { 'Down', 5 },
   },
   {
     key = 'UpArrow',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.AdjustPaneSize{'Up', 5},
+    action = wezterm.action.AdjustPaneSize { 'Up', 5 },
   },
   {
     key = 'RightArrow',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.AdjustPaneSize{'Right', 5},
+    action = wezterm.action.AdjustPaneSize { 'Right', 5 },
   },
   {
     key = '1',

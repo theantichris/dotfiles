@@ -15,6 +15,16 @@ formatter = { command = "goimports" }
 language-servers = ["gopls", "harper-ls"]
 
 [[language]]
+name = "json"
+auto-format = true
+language-servers = ["vscode-json-languageserver", "harper-ls"]
+
+[[language]]
+name = "jsonc"
+auto-format = true
+language-servers = ["vscode-json-languageserver", "harper-ls"]
+
+[[language]]
 name = "lua"
 auto-format = true
 language-servers = ["lua-language-server", "harper-ls"]

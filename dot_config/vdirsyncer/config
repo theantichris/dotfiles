@@ -23,6 +23,7 @@ password.fetch = ["command", "pass", "show", "calendar/icloud"]
 a = "events_work_local"
 b = "events_work_remote"
 collections = ["christopher.lamm@companycam.com", "c_30fa4ec905cf3d73b60785653b6532adfd610522fa78351ea987e6986ea660e5@group.calendar.google.com", "c_hj9vr0mnafvocj7i6bjoshj06o@group.calendar.google.com", "cln2stbjc4hmgrrcd5i62ua0ctp6utbg5pr2sor1dhimsp31e8n6errfctm6abj3dtmg@virtual", "c_82e30dafac98019aeb4de42142e4de1e5b21a3da131855f0bc5025601b3f5aee@group.calendar.google.com"]
+conflict_resolution = "b wins"
 
 [storage events_work_local]
 type = "filesystem"

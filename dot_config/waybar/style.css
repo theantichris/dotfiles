@@ -148,6 +148,7 @@ label:focus {
 #custom-media {
     background-color: #23d18b;
     min-width: 100px;
+    color: #cdcefb;
 }
 
 #temperature.critical {

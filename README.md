@@ -1,8 +1,15 @@
 # dotfiles // netrunner loadout
 
-_chezmoi-powered personal environment. keyboard-first. cross-platform._
+chezmoi powered personal environment. keyboard-first. cross-platform.
 
 ## ⚡ Boot sequence (chezmoi)
+
+1. Install `git` and `chezmoi`
+1. Create ssh keys
+1. Run `chezmoi init theantichris --ssh`
+1. Run `chezmoi apply`
+
+## ⌨️Common Tasks
 
 | Task                           | Command                                  |
 | ------------------------------ | ---------------------------------------- |
@@ -14,94 +21,88 @@ _chezmoi-powered personal environment. keyboard-first. cross-platform._
 | Start tracking a file          | `chezmoi add <FILE>`                     |
 | Jump to source repo            | `chezmoi cd`                             |
 
-> Requires [chezmoi](https://www.chezmoi.io/). Use your package manager to install.
-
-## 🖥️Setup Wezterm
-
-```bash
-tempfile=$(mktemp) \
-  && curl -o $tempfile https://raw.githubusercontent.com/wezterm/wezterm/main/termwiz/data/wezterm.terminfo \
-  && tic -x -o ~/.terminfo $tempfile \
-  && rm $tempfile
-
- export Term=wezterm
- ```
-
 ## 🧰 Loadout
 
-| Category               | Tool                     | Link                                                 | Key Files (chezmoi paths)                                                |
-| ---------------------- | ------------------------ | ---------------------------------------------------- | ------------------------------------------------------------------------ |
-| **macOS WM**           | AeroSpace                | [AeroSpace](https://github.com/nikitabobko/AeroSpace) | `dot_config/aerospace/aerospace.toml`                                    |
-|                        | Karabiner Elements       | [Karabiner](https://karabiner-elements.pqrs.org)     | `dot_config/private_karabiner/private_karabiner.json`                    |
-| **Windows WM**         | GlazeWM                  | [GlazeWM](https://github.com/glzr-io/glazewm)        | `dot_glzr/glazewm/config.yaml`                                           |
-|                        | Zebar                    | [Zebar](https://github.com/glzr-io/zebar)            | `dot_glzr/zebar/settings.json`                                           |
-| **Shells**             | zsh                      | [zsh](https://www.zsh.org)                           | `dot_zshrc`                                                              |
-|                        | oh-my-zsh                | [oh-my-zsh](https://ohmyz.sh)                        | `dot_oh-my-zsh`                                                          |
-|                        | PowerShell               | [PowerShell](https://github.com/PowerShell/PowerShell) | `dot_profile.ps1`                                                      |
-| **Terminals**          | WezTerm                  | [WezTerm](https://wezfurlong.org/wezterm)            | `dot_config/wezterm/wezterm.lua.tmpl`                                    |
-| **Editors**            | Helix                    | [Helix](https://helix-editor.com)                    | `dot_config/helix/config.toml.tmpl`, `dot_config/helix/languages.toml`   |
-|                        | nano                     | [nano](https://www.nano-editor.org)                  | `dot_nanorc`                                                             |
-|                        | VS Code                  | [VS Code](https://code.visualstudio.com)             | -                                                                        |
-| **File Management**    | Superfile                | [Superfile](https://github.com/yorukot/superfile)    | `dot_config/superfile/config.toml`, `dot_config/superfile/hotkeys.toml`  |
-|                        | eza                      | [eza](https://github.com/eza-community/eza)          | `dot_config/eza`                                                         |
-|                        | fd                       | [fd](https://github.com/sharkdp/fd)                  | -                                                                        |
-| **Viewers**            | Glow                     | [Glow](https://github.com/charmbracelet/glow)        | `dot_config/glow/Config/glow.yml`                                        |
-|                        | bat                      | [bat](https://github.com/sharkdp/bat)                | `dot_config/bat`                                                         |
-|                        | jlv                      | [jlv](https://github.com/hedhyw/jlv)                 | -                                                                        |
-| **System Monitor**     | btop                     | [btop](https://github.com/aristocratos/btop)         | -                                                                        |
-| **Notes**              | nb                       | [nb](https://github.com/xwmx/nb)                     | `dot_nbrc.tmpl`                                                          |
-| **Calendar/Tasks**     | calcure                  | [calcure](https://github.com/anufrievroman/calcure)  | `dot_config/calcure/config.ini`                                          |
-| **RSS**                | nom                      | [nom](https://github.com/guyfedwards/nom)            | `dot_config/nom/config.yml`                                              |
-| **Dev Tools**          | gh                       | [gh](https://cli.github.com)                         | `dot_config/gh`                                                          |
-|                        | gh-dash                  | [gh-dash](https://github.com/dlvhdr/gh-dash)         | `dot_config/gh-dash/config.yml`                                          |
-|                        | OpenCode                 | [OpenCode](https://opencode.sh)                      | `dot_config/opencode/opencode.json`                                      |
-|                        | pre-commit               | [pre-commit](https://pre-commit.com)                 | -                                                                        |
-|                        | GoReleaser               | [GoReleaser](https://goreleaser.com)                 | -                                                                        |
-|                        | lazygit                  | [lazygit](https://github.com/jesseduffield/lazygit)  | -                                                                        |
-|                        | hugo                     | [hugo](https://gohugo.io)                            | -                                                                        |
-| **Languages**          | Go                       | [Go](https://go.dev)                                 | -                                                                        |
-|                        | Node.js (npm)            | [Node.js](https://nodejs.org)                        | -                                                                        |
-|                        | Python (uv)              | [uv](https://docs.astral.sh/uv)                      | -                                                                        |
-| **Go Tools**           | gopls                    | [gopls](https://pkg.go.dev/golang.org/x/tools/gopls) | -                                                                        |
-|                        | delve                    | [delve](https://github.com/go-delve/delve)           | -                                                                        |
-|                        | goimports                | [goimports](https://pkg.go.dev/golang.org/x/tools/cmd/goimports) | -                                                         |
-|                        | golangci-lint            | [golangci-lint](https://golangci-lint.run)           | -                                                                        |
-|                        | golangci-lint-langserver | [golangci-lint-langserver](https://github.com/nametake/golangci-lint-langserver) | -                            |
-|                        | gocovsh                  | [gocovsh](https://github.com/orlangure/gocovsh)      | -                                                                        |
-|                        | gollama                  | [gollama](https://github.com/sammcj/gollama)         | -                                                                        |
-| **LSP/Formatters**     | markdownlint-cli2        | [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2) | `.markdownlint.yml`                                 |
-|                        | marksman                 | [marksman](https://github.com/artempyanykh/marksman) | -                                                                        |
-|                        | taplo                    | [taplo](https://taplo.tamasfe.dev)                   | -                                                                        |
-|                        | harper                   | [harper](https://github.com/elijah-potter/harper)    | -                                                                        |
-|                        | codespell                | [codespell](https://github.com/codespell-project/codespell) | `dot_config/codespell/dot_codespellrc`                           |
-|                        | bash-language-server     | [bash-language-server](https://github.com/bash-lsp/bash-language-server) | -                                        |
-|                        | vscode-langservers       | [vscode-langservers](https://github.com/hrsh7th/vscode-langservers-extracted) | -                                  |
-|                        | yaml-language-server     | [yaml-language-server](https://github.com/redhat-developer/yaml-language-server) | -                              |
-| **Utilities**          | jq                       | [jq](https://jqlang.github.io/jq)                    | -                                                                        |
-|                        | jqp                      | [jqp](https://github.com/noahgorstein/jqp)           | -                                                                        |
-|                        | HTTPie                   | [HTTPie](https://httpie.io)                          | -                                                                        |
-|                        | HTTPie Desktop           | [HTTPie Desktop](https://httpie.io/desktop)          | -                                                                        |
-|                        | atac                     | [atac](https://github.com/Julien-cpsn/ATAC)          | -                                                                        |
-|                        | freeze                   | [freeze](https://github.com/charmbracelet/freeze)    | -                                                                        |
-|                        | crush                    | [crush](https://github.com/charmbracelet/crush)      | -                                                                        |
-|                        | vhs                      | [vhs](https://github.com/charmbracelet/vhs)          | -                                                                        |
-|                        | ttyd                     | [ttyd](https://github.com/tsl0922/ttyd)              | -                                                                        |
-|                        | ffmpeg                   | [ffmpeg](https://ffmpeg.org)                         | -                                                                        |
-|                        | chezmoi                  | [chezmoi](https://www.chezmoi.io)                    | `dot_config/template.toml`                                               |
-|                        | vdirsyncer               | [vdirsyncer](https://github.com/pimutils/vdirsyncer) | `dot_config/vdirsyncer/config`                                           |
-| **Weather**            | wego                     | [wego](https://github.com/schachmat/wego)            | `dot_wegorc.tmpl`                                                        |
-| **Productivity**       | Raycast                  | [Raycast](https://www.raycast.com)                   | `dot_config/raycast`                                                     |
-|                        | Notion                   | [Notion](https://www.notion.so)                      | -                                                                        |
-|                        | Granola                  | [Granola](https://www.granola.so)                    | -                                                                        |
-|                        | SteerMouse               | [SteerMouse](https://plentycom.jp/en/steermouse)     | -                                                                        |
-| **AI Tools**           | Claude                   | [Claude](https://claude.ai)                          | -                                                                        |
-|                        | Claude Code              | [Claude Code](https://claude.ai/code)                | -                                                                        |
-|                        | ChatGPT                  | [ChatGPT](https://chat.openai.com)                   | -                                                                        |
-|                        | Ollama                   | [Ollama](https://ollama.com)                         | -                                                                        |
-| **Network**            | Tailscale                | [Tailscale](https://tailscale.com)                   | -                                                                        |
-| **Email**              | aerc                     | [aerc](https://aerc-mail.org)                        | `dot_config/aerc/aerc.conf`, `dot_config/aerc/binds.conf`                |
-| **Font**               | Hack Nerd Font           | [Nerd Fonts](https://www.nerdfonts.com)              | -                                                                        |
-| **Version Control**    | Git                      | [Git](https://git-scm.com)                           | `dot_gitconfig`, `dot_gitignore`                                         |
+| Category               | Tool                                                                             | Key Files (chezmoi paths)        |
+| ---------------------- | -------------------------------------------------------------------------------- | -------------------------------- |
+| **Linux WM**           | [Hyprland](https://hypr.land)                                                    | `dot_config/hypr`                |
+|                        | [Waybar](https://github.com/Alexays/Waybar)                                      | `dot_config/waybar`              |
+|                        | [Mako](https://github.com/emersion/mako)                                         | `dot_config/mako`                |
+|                        | [wlogout](https://github.com/ArtsyMacaw/wlogout)                                 | `dot_config/wlogout`             |
+| **macOS WM**           | [AeroSpace](https://github.com/nikitabobko/AeroSpace)                            | `dot_config/aerospace`           |
+|                        | [Karabiner](https://karabiner-elements.pqrs.org)                                 | `dot_config/private_karabiner`   |
+|                        | [Raycast](https://www.raycast.com)                                               | `dot_config/raycast`             |
+| **Shells**             | [fish](https://fishshell.com)                                                    | `dot_config/fish`                |
+| **Terminals**          | [WezTerm](https://wezfurlong.org/wezterm)                                        | `dot_config/wezterm`             |
+| **Editors**            | [Helix](https://helix-editor.com)                                                | `dot_config/helix`               |
+| **File Management**    | [Superfile](https://github.com/yorukot/superfile)                                | `dot_config/superfile`           |
+|                        | [eza](https://github.com/eza-community/eza)                                      | `dot_config/eza`                 |
+|                        | [fd](https://github.com/sharkdp/fd)                                              | -                                |
+|                        | [fzf](https://github.com/junegunn/fzf)                                           | -                                |
+| **Viewers**            | [Glow](https://github.com/charmbracelet/glow)                                    | `dot_config/glow`                |
+|                        | [bat](https://github.com/sharkdp/bat)                                            | `dot_config/bat`                 |
+|                        | [jlv](https://github.com/hedhyw/jlv)                                             | -                                |
+|                        | [tldr](https://tldr.sh/)                                                         | -                                |
+| **System Monitor**     | [btop](https://github.com/aristocratos/btop)                                     | -                                |
+| **Notes/Tasks**        | [nb](https://github.com/xwmx/nb)                                                 | `dot_nbrc.tmpl`                  |
+| **Calendar**           | [calcure](https://github.com/anufrievroman/calcure)                              | `dot_config/calcure`             |
+| **RSS**                | [nom](https://github.com/guyfedwards/nom)                                        | `dot_config/nom`                 |
+| **Dev Tools**          | [Git](https://git-scm.com)                                                       | `dot_gitconfig`, `dot_gitignore` |
+|                        | [gh](https://cli.github.com)                                                     | `dot_config/gh`                  |
+|                        | [gh-dash](https://github.com/dlvhdr/gh-dash)                                     | `dot_config/gh-dash`             |
+|                        | [OpenCode](https://opencode.ai)                                                  | `dot_config/opencode`            |
+|                        | [pre-commit](https://pre-commit.com)                                             | -                                |
+|                        | [GoReleaser](https://goreleaser.com)                                             | -                                |
+|                        | [lazygit](https://github.com/jesseduffield/lazygit)                              | -                                |
+|                        | [hugo](https://gohugo.io)                                                        | -                                |
+|                        | [entr](https://github.com/eradman/entr)                                          | -                                |
+|                        | [doctl](https://docs.digitalocean.com/reference/doctl/)                          | -                                |
+|                        | [Posting](https://github.com/darrenburns/posting)                                | `dot_config/posting`             |
+| **Go Tools**           | [gopls](https://pkg.go.dev/golang.org/x/tools/gopls)                             | -                                |
+|                        | [delve](https://github.com/go-delve/delve)                                       | -                                |
+|                        | [goimports](https://pkg.go.dev/golang.org/x/tools/cmd/goimports)                 | -                                |
+|                        | [golangci-lint](https://golangci-lint.run)                                       | -                                |
+|                        | [golangci-lint-langserver](https://github.com/nametake/golangci-lint-langserver) | -                                |
+|                        | [gocovsh](https://github.com/orlangure/gocovsh)                                  | -                                |
+|                        | [gotestsum](https://github.com/gotestyourself/gotestsum)                         | -                                |
+| **LSP/Formatters**     | [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)             | _                                |
+|                        | [marksman](https://github.com/artempyanykh/marksman)                             | -                                |
+|                        | [taplo](https://taplo.tamasfe.dev)                                               | -                                |
+|                        | [harper](https://github.com/elijah-potter/harper)                                | `dot_config/harper`              |
+|                        | [codespell](https://github.com/codespell-project/codespell)                      | `dot_config/codespell`           |
+|                        | [bash-language-server](https://github.com/bash-lsp/bash-language-server)         | -                                |
+|                        | [vscode-langservers](https://github.com/hrsh7th/vscode-langservers-extracted)    | -                                |
+|                        | [yaml-language-server](https://github.com/redhat-developer/yaml-language-server) | -                                |
+| **Utilities**          | [jq](https://jqlang.github.io/jq)                                                | -                                |
+|                        | [jqp](https://github.com/noahgorstein/jqp)                                       | -                                |
+|                        | [HTTPie](https://httpie.io)                                                      | -                                |
+|                        | [freeze](https://github.com/charmbracelet/freeze)                                | -                                |
+|                        | [crush](https://github.com/charmbracelet/crush)                                  | -                                |
+|                        | [vhs](https://github.com/charmbracelet/vhs)                                      | -                                |
+|                        | [ttyd](https://github.com/tsl0922/ttyd)                                          | -                                |
+|                        | [ffmpeg](https://ffmpeg.org)                                                     | -                                |
+|                        | [chezmoi](https://www.chezmoi.io)                                                | `dot_config/template.toml`       |
+|                        | [vdirsyncer](https://github.com/pimutils/vdirsyncer)                             | `dot_config/vdirsyncer`          |
+| **Weather**            | [wego](https://github.com/schachmat/wego)                                        | `dot_wegorc.tmpl`                |
+| **AI Tools**           | [Claude](https://claude.ai)                                                      | -                                |
+|                        | [ChatGPT](https://chat.openai.com)                                               | -                                |
+|                        | [Ollama](https://ollama.com)                                                     | -                                |
+| **Network**            | [Tailscale](https://tailscale.com)                                               | -                                |
+| **Email**              | [aerc](https://aerc-mail.org)                                                    | `dot_config/aerc`                |
+| **Font**               | [Nerd Fonts](https://www.nerdfonts.com)                                          | -                                |
+| **Browsers**           | [Firefox](https://www.firefox.com)                                               | -                                |
+|                        | [w3m](https://github.com/acg/w3m)                                                | -                                |
+| **Security**           | [Bitwarden](https://bitwarden.com/)                                              | -                                |
+
+## Documentation
+
+[Aerospace](/documentation/AEROSPACE.md)
+[Karabiner](/documentation/KARABINER.md)
+
+## Color Palettes
+
+[Cyberwave](/color_palettes/cyberwave/cyberwave_palette.html)
+[Cyberpunk](/color_palettes/cyberpunnk/palette.html)
 
 ## 🪪 License
 

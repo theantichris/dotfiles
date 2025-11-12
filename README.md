@@ -73,6 +73,7 @@ chezmoi powered personal environment. keyboard-first. cross-platform.
 |                        | [bash-language-server](https://github.com/bash-lsp/bash-language-server)         | -                                |
 |                        | [vscode-langservers](https://github.com/hrsh7th/vscode-langservers-extracted)    | -                                |
 |                        | [yaml-language-server](https://github.com/redhat-developer/yaml-language-server) | -                                |
+|                        | [lua-language-server](https://github.com/LuaLS/lua-language-server)              | -                                |
 | **Utilities**          | [jq](https://jqlang.github.io/jq)                                                | -                                |
 |                        | [jqp](https://github.com/noahgorstein/jqp)                                       | -                                |
 |                        | [HTTPie](https://httpie.io)                                                      | -                                |

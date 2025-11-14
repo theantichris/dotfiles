@@ -15,7 +15,6 @@
     ],
     "modules-center": [
         "clock#date",
-        "custom/weather",
         "custom/outside"
     ],
     "modules-right": [

@@ -1,26 +1,26 @@
 * {
-    font-family: "Hack Nerd Front", "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 900;
-    margin: 0;
-    padding: 0;
-    transition-property: background-color;
-    transition-duration: 0.5s;
+  font-family: "Hack Nerd Front", "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+  transition-property: background-color;
+  transition-duration: 0.5s;
 
-    /* Reset all styles */
-    border: none;
-    border-radius: 3px;
-    min-height: 0;
-    margin: 0.2em 0.3em 0.2em 0.3em;
+  /* Reset all styles */
+  border: none;
+  border-radius: 3px;
+  min-height: 0;
+  margin: 0.2em 0.3em 0.2em 0.3em;
 }
 
 /* The whole bar */
 #waybar {
-    background-color: transparent;
-    transition-property: background-color;
-    transition-duration: 0.5s;
-    border-radius: 0px;
-    margin: 0px 0px;
+  background-color: transparent;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  border-radius: 0px;
+  margin: 0px 0px;
 }
 
 window#waybar.hidden {
@@ -28,45 +28,45 @@ window#waybar.hidden {
 }
 
 #workspaces {
-    /* background-color: rgba(25, 42, 48, 0.85); */
-    background-color: transparent;
-    border-radius: 12px;
-    padding: 2px;
+  /* background-color: rgba(25, 42, 48, 0.85); */
+  background-color: transparent;
+  border-radius: 12px;
+  padding: 2px;
 }
 
 #workspaces button {
-    padding: 4px 8px;
-    margin: 2px;
-    border-radius: 8px;
-    color: #cdcefb;
-    background-color: #001a24;
-    transition: all 0.3s ease-in-out;
+  padding: 4px 8px;
+  margin: 2px;
+  border-radius: 8px;
+  color: #cdcefb;
+  background-color: #001a24;
+  transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.active {
-    color: #091a1f;
-    background: #16e6c0;
-    box-shadow: 0 0 10px #16e6c9, 0 0 20px #16e6c9;
+  color: #091a1f;
+  background: #16e6c0;
+  box-shadow: 0 0 10px #16e6c9, 0 0 20px #16e6c9;
 }
 
 #workspaces button:hover {
-    background: #264f78;
-    box-shadow: 0 0 8px rgba(38, 173, 208, 0.5);
+  background: #264f78;
+  box-shadow: 0 0 8px rgba(38, 173, 208, 0.5);
 }
 
 #workspaces button.urgent {
-    background-color: #e25e44;
-    box-shadow: 0 0 15px #e25e44;
-    animation: pulse 2s ease-in-out infinite;
+  background-color: #e25e44;
+  box-shadow: 0 0 15px #e25e44;
+  animation: pulse 2s ease-in-out infinite;
 }
 
 #submap {
-    background-color: rgba(25, 42, 48, 0.85);
-    color: #ff8ffd;
-    border-radius: 14px;
-    padding: 6px 12px;
-    box-shadow: 0 0 10px rgba(255, 143, 253, 0.4);
-    font-weight: bold;
+  background-color: rgba(25, 42, 48, 0.85);
+  color: #ff8ffd;
+  border-radius: 14px;
+  padding: 6px 12px;
+  box-shadow: 0 0 10px rgba(255, 143, 253, 0.4);
+  font-weight: bold;
 }
 
 #clock,
@@ -82,6 +82,7 @@ window#waybar.hidden {
 #custom-power,
 #custom-power-menu,
 #custom-storage,
+#custom-outside,
 #custom-weather,
 #custom-weather.severe,
 #custom-weather.sunnyDay,
@@ -93,73 +94,73 @@ window#waybar.hidden {
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight,
 #custom-weather.default {
-    color: #16e6c9;
-    border-radius: 14px;
-    padding: 6px 8px;
-    background-color: rgba(25, 42, 48, 0.85);
-    box-shadow: 0 0 8px rgba(22, 230, 201, 0.2)
+  color: #16e6c9;
+  border-radius: 14px;
+  padding: 6px 8px;
+  background-color: rgba(25, 42, 48, 0.85);
+  box-shadow: 0 0 8px rgba(22, 230, 201, 0.2)
 }
 
 #custom-weather.severe {
-    color: #e25e44;
+  color: #e25e44;
 }
 
 #custom-weather.sunnyDay {
-    color: #cca700;
+  color: #cca700;
 }
 
 #custom-weather.clearNight {
-    color: #cdcefb;
+  color: #cdcefb;
 }
 
 #custom-weather.cloudyFoggyDay,
 #custom-weather.cloudyFoggyNight {
-    color: #8e9395;
+  color: #8e9395;
 }
 
 #custom-weather.rainyDay,
 #custom-weather.rainyNight {
-    color: #26add0;
+  color: #26add0;
 }
 
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight {
-    color: #75beff;
+  color: #75beff;
 }
 
 #custom-weather.default {
-    color: #bdc2c3;
+  color: #bdc2c3;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+.modules-left>widget:first-child>#workspaces {
+  margin-left: 0;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+.modules-right>widget:last-child>#workspaces {
+  margin-right: 0;
 }
 
 label:focus {
-    background-color: #091a1f;
+  background-color: #091a1f;
 }
 
 #custom-media {
-    background-color: #23d18b;
-    min-width: 100px;
-    color: #cdcefb;
+  background-color: #23d18b;
+  min-width: 100px;
+  color: #cdcefb;
 }
 
 #temperature.critical {
-    background-color: #e25e44;
+  background-color: #e25e44;
 }
 
-#tray > .passive {
-    -gtk-icon-effect: dim;
+#tray>.passive {
+  -gtk-icon-effect: dim;
 }
 
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #e25e44;
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #e25e44;
 }

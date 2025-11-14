@@ -45,7 +45,6 @@ sudo pacman -S --needed pre-commit
 sudo pacman -S --needed pwvucontrol
 sudo pacman -S --needed python-pillow python-term-image python-urwidgets
 sudo pacman -S --needed rofi
-sudo pacman -S --needed rustup
 sudo pacman -S --needed signal-desktop
 sudo pacman -S --needed speedtest-cli
 sudo pacman -S --needed superfile
@@ -105,7 +104,9 @@ fi
 
 # rust packages
 
+sudo pacman -S --needed rustup
 rustup default stable
+cargo install outside
 
 # uv packages
 

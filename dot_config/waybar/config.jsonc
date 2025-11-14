@@ -54,7 +54,8 @@
         "interval": 600,
         "format": "{text}",
         "tooltip-format": "{tooltip}",
-        "escape": true
+        "escape": true,
+        "on-click": "wezterm start outside"
     },
 
     "custom/weather": {

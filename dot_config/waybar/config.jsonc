@@ -57,17 +57,6 @@
         "on-click": "wezterm start ~/.cargo/bin/outside"
     },
 
-    "custom/weather": {
-        "format": "{}",
-        "format-alt": "{alt}: {}",
-        "format-alt-click": "click-right",
-        "interval": 900,
-        "return-type": "json",
-        "exec": "~/.config/waybar/modules/weather.sh Knoxville",
-        "exec-if": "ping wttr.in -c1",
-        "on-click": "wezterm start -- fish -c 'wego; exec fish'"
-    },
-
     "custom/storage": {
         "format": "  {}",
         "format-alt": "{percentage}% ",

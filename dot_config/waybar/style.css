@@ -82,18 +82,7 @@ window#waybar.hidden {
 #custom-power,
 #custom-power-menu,
 #custom-storage,
-#custom-outside,
-#custom-weather,
-#custom-weather.severe,
-#custom-weather.sunnyDay,
-#custom-weather.clearNight,
-#custom-weather.cloudyFoggyDay,
-#custom-weather.cloudyFoggyNight,
-#custom-weather.rainyDay,
-#custom-weather.rainyNight,
-#custom-weather.showyIcyDay,
-#custom-weather.snowyIcyNight,
-#custom-weather.default {
+#custom-outside {
   color: #16e6c9;
   border-radius: 14px;
   padding: 6px 8px;
@@ -101,34 +90,17 @@ window#waybar.hidden {
   box-shadow: 0 0 8px rgba(22, 230, 201, 0.2)
 }
 
-#custom-weather.severe {
-  color: #e25e44;
+#custom-outside.hot {
+  color: #e24e44;
 }
 
-#custom-weather.sunnyDay {
-  color: #cca700;
-}
-
-#custom-weather.clearNight {
-  color: #cdcefb;
-}
-
-#custom-weather.cloudyFoggyDay,
-#custom-weather.cloudyFoggyNight {
-  color: #8e9395;
-}
-
-#custom-weather.rainyDay,
-#custom-weather.rainyNight {
-  color: #26add0;
-}
-
-#custom-weather.showyIcyDay,
-#custom-weather.snowyIcyNight {
+#custom-outside.cold {
   color: #75beff;
 }
 
-#custom-weather.default {
+#custom-outside.rain,
+#custom-outside.snow,
+#custom-outside.fog {
   color: #bdc2c3;
 }
 

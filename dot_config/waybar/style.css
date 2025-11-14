@@ -99,8 +99,7 @@ window#waybar.hidden {
 }
 
 #custom-outside.rain,
-#custom-outside.snow,
-#custom-outside.fog {
+#custom-outside.snow {
   color: #bdc2c3;
 }
 

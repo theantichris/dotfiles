@@ -18,4 +18,8 @@ function upgrade --description 'Package upgrades (homebrew, pacman/paru, npm -g,
     if type -q uv
         and uv tool upgrade --all
     end
+
+    if type -q cargo
+        and cargo update
+    end
 end

@@ -88,7 +88,7 @@ chezmoi powered personal environment. keyboard-first. cross-platform.
 |                        | [ffmpeg](https://ffmpeg.org)                                                     | -                                |
 |                        | [chezmoi](https://www.chezmoi.io)                                                | `dot_config/template.toml`       |
 |                        | [vdirsyncer](https://github.com/pimutils/vdirsyncer)                             | `dot_config/vdirsyncer`          |
-| **Weather**            | [wego](https://github.com/schachmat/wego)                                        | `dot_wegorc.tmpl`                |
+| **Weather**            | [outside](https://github.com/BaconIsAVeg/outside)                                | `dot_config/outside`             |
 | **AI Tools**           | [Claude](https://claude.ai)                                                      | -                                |
 |                        | [ChatGPT](https://chat.openai.com)                                               | -                                |
 |                        | [Ollama](https://ollama.com)                                                     | -                                |

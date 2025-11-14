@@ -90,19 +90,6 @@ window#waybar.hidden {
   box-shadow: 0 0 8px rgba(22, 230, 201, 0.2)
 }
 
-#custom-outside.hot {
-  color: #e24e44;
-}
-
-#custom-outside.cold {
-  color: #75beff;
-}
-
-#custom-outside.rain,
-#custom-outside.snow {
-  color: #bdc2c3;
-}
-
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left>widget:first-child>#workspaces {
   margin-left: 0;

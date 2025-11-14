@@ -55,7 +55,7 @@
         "format": "{text}",
         "tooltip-format": "{tooltip}",
         "escape": true,
-        "on-click": "wezterm start outside"
+        "on-click": "wezterm start ~/.cargo/bin/outside"
     },
 
     "custom/weather": {

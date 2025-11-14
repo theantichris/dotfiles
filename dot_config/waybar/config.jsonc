@@ -49,7 +49,7 @@
     },
 
     "custom/outside": {
-        "exec": "outside -o waybar",
+        "exec": "/home/christopher/.carog/bin/outside -o waybar",
         "return-type": "json",
         "interval": 600,
         "format": "{text}",

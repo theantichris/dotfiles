@@ -15,7 +15,8 @@
     ],
     "modules-center": [
         "clock#date",
-        "custom/weather"
+        "custom/weather",
+        "custom/outside"
     ],
     "modules-right": [
         "hyprland/submap",
@@ -45,6 +46,15 @@
         "format": "󰥔  {:%I:%M %p   %a %e %b}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "on-click": "wezterm start calcure"
+    },
+
+    "custom/outside": {
+        "exec": "outside -o waybar",
+        "return-type": "json",
+        "interval": 600,
+        "format": "{text}",
+        "tooltip-format": "{tooltip}",
+        "escape": true
     },
 
     "custom/weather": {

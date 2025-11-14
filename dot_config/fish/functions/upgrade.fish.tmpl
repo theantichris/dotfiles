@@ -1,10 +1,10 @@
-function upgrade --description 'Package upgrades (homebrew, pacman/paru, npm -g, go-global-update, uv tools)'
+function upgrade --description 'Package upgrades (homebrew, pacman/paru, npm -g, go-global-update, uv tools, rust)'
     {{- if eq .chezmoi.os "darwin" }}
     brew update
     brew upgrade
     {{- end }}
 
-    # Go modules/tools (your existing script)
+    # Go modules/tools
     if type -q go-global-update
         and go-global-update
     end
@@ -14,11 +14,12 @@ function upgrade --description 'Package upgrades (homebrew, pacman/paru, npm -g,
         and npm -g update
     end
 
-    # Python standalone tools managed by uv (pipx replacement)
+    # Python standalone tools managed by uv
     if type -q uv
         and uv tool upgrade --all
     end
 
+    # Rust
     if type -q cargo
         and cargo update
     end

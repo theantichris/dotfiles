@@ -21,6 +21,6 @@ function upgrade --description 'Package upgrades (homebrew, pacman/paru, npm -g,
 
     # Rust
     if type -q cargo
-        and cargo update
+        and cargo install-update -a
     end
 end

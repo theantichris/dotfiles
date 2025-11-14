@@ -1,11 +1,9 @@
 units: Imperial
 
 simple:
-  # used by `outside -o simple`
   template: "{weather_icon} {temperature | round}{temperature_unit} | Wind {wind_speed | round}{wind_speed_unit} | Precip {precipitation_chance}%"
 
 waybar:
-  # used by `outside -o waybar`
-  text: "{weather_icon}  {temperature | round}{temperature_unit} |  {precipitation_chance}% | 󰖝 {wind_speed | round}{wind_speed_unit}"
+  text: "{weather_icon}  {temperature | round}{temperature_unit} |  {precipitation_chance}% | 󰖝  {wind_speed | round}{wind_speed_unit}"
   hot_temperature: 30
   cold_temperature: 0

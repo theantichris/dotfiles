@@ -19,7 +19,7 @@ alias got='go test'
 alias gota='go test ./...'
 alias gotc='go test ./... -cover --coverprofile coverage.out; and gocovsh'
 alias gote="go test -tag=e2e"
-alias gotw='fd -e go -E vendor -E gen -E dist | entr -c gotestsum -- -cover ./...'
+alias gotw='fd -e go -E vendor -E gen -E dist | entr -c gotestsum -- -skip \'e2e_test.*\' -cover ./...'
 alias goto='go tool'
 alias gotoc='go tool compile'
 alias gotod='go tool dist'

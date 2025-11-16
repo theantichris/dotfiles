@@ -17,7 +17,7 @@ alias gops='cd $GOTPATH/src'
 alias gor='go run'
 alias got='go test'
 alias gota='go test ./...'
-alias gotc='go test ./... -cover --coverprofile coverage.out; and gocovsh'
+alias gotc='go test ./... -skip \'TestE2E\' -cover --coverprofile coverage.out; and gocovsh'
 alias gote="go test -tag=e2e"
 alias gotw='fd -e go -E vendor -E gen -E dist | entr -c gotestsum -- -skip \'TestE2E\' -cover ./...'
 alias goto='go tool'

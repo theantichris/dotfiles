@@ -95,8 +95,9 @@ chezmoi powered personal environment. keyboard-first. cross-platform.
 | **Network**            | [Tailscale](https://tailscale.com)                                               | -                                |
 | **Email**              | [aerc](https://aerc-mail.org)                                                    | `dot_config/aerc`                |
 | **Font**               | [Nerd Fonts](https://www.nerdfonts.com)                                          | -                                |
-| **Browsers**           | [Firefox](https://www.firefox.com)                                               | -                                |
+| **Browsers**           | [Chrome](https://www.google.com/chrome/)                                         | -                                |
 |                        | [w3m](https://github.com/acg/w3m)                                                | -                                |
+| **Social**             | [Toot](https://github.com/ihabunek/toot)                                         | -                                |
 | **Security**           | [Bitwarden](https://bitwarden.com/)                                              | -                                |
 
 ## Documentation

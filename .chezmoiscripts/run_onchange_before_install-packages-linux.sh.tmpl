@@ -99,6 +99,7 @@ if command -v npm &> /dev/null; then
 
   if ! npm list -g vscode-langservers-extracted; then
     npm i -g vscode-langservers-extracted
+    npm i -g pnpm
   fi
 fi
 
@@ -120,8 +121,6 @@ fi
 # gh extensions
 
 gh extension install dlvhdr/gh-dash
-
-# Fish plugins
 
 # Wezterm terminfo
 if ! infocmp wezterm &>/dev/null; then

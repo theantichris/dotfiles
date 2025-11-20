@@ -52,7 +52,7 @@
     "clock#date": {
         "format": "󰥔  {:%I:%M %p   %a %e %b}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "on-click": "wezterm start calcure"
+        "on-click": "wezterm start ikhal"
     },
 
     "custom/outside": {

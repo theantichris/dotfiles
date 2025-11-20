@@ -1,0 +1,35 @@
+[calendars]
+
+[[personal]]
+path = ~/.local/share/vdirsyncer/calendars/google/christopherlamm81@gmail.com
+color = dark red
+
+[[family]]
+path = ~/.local/share/vdirsyncer/calendars/google/family13270673075918319953@group.calendar.google.com
+color = yellow
+
+[[brenden]]
+path = ~/.local/share/vdirsyncer/calendars/google/lammbrenden@gmail.com
+color = light blue
+
+[[lily]]
+path = ~/.local/share/vdirsyncer/calendars/google/4684963cfdabf23ba95ab81bd45bf1683e1e6527f746d5ffab8af0fd3b619982@group.calendar.google.com
+color = light red
+
+[[maddox]]
+path = ~/.local/share/vdirsyncer/calendars/google/maddoxshields2014@gmail.com
+color = light magenta
+
+[[celtic]]
+path = ~/.local/share/vdirsyncer/calendars/google/33b9d435b9f9730e55541f3b18550b5d9b583e20828532b552c7e7a70e3b7e23@group.calendar.google.com
+color = light green
+
+[default]
+default_calendar = personal
+
+[locale]
+timeformat = %H:%M
+dateformat = %Y-%m-%d
+longdateformat = %Y-%m-%d
+datetimeformat = %Y-%m-%d %H:%M
+firstweekday = 0

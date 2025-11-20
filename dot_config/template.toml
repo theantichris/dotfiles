@@ -1,6 +1,0 @@
-[edit]
-    command = "hx"
-
-[git]
-    autoCommit = true
-    autoPush = true

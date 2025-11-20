@@ -6,6 +6,7 @@ config.default_cwd = wezterm.home_dir
 local triple = wezterm.target_triple or ""
 local is_windows = triple:find("windows") ~= nil
 local is_macos = triple:find("darwin") ~= nil
+local is_linux = triple:find("linux") ~= nil
 
 if os.getenv("HYPRLAND_INSTANCE_SIGNATURE") then
   config.enable_wayland = false
@@ -32,7 +33,14 @@ config.term = "wezterm"
 
 -- Fonts
 config.font = wezterm.font('Hack Nerd Font')
-config.font_size = 11
+
+if is_macos then
+  config.font_size = 12
+end
+
+if is_linux then
+  config.font_size = 11
+end
 
 -- Window
 config.window_background_opacity = 0.95

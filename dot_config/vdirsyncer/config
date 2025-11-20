@@ -22,7 +22,7 @@ fileext = ".ics"
 [pair contacts]
 a = "contacts_remote"
 b = "contacts_local"
-collections = ["from a", "from b"]
+collections = null
 
 [storage contacts_remote]
 type = "google_contacts"

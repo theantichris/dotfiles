@@ -22,7 +22,8 @@ fileext = ".ics"
 [pair contacts]
 a = "contacts_remote"
 b = "contacts_local"
-collections = null
+collections = ["from a", "from b"]
+conflict_resolution = "a wins"
 
 [storage contacts_remote]
 type = "google_contacts"

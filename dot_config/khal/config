@@ -30,6 +30,8 @@ color = light green
 
 [default]
 default_calendar = personal
+highlight_event_days = true
+show_all_days = true
 
 [locale]
 timeformat = %H:%M

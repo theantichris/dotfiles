@@ -95,4 +95,12 @@ bat cache --build
 
 tldr --update
 
+# Wezterm terminfo
+if ! infocmp wezterm &>/dev/null; then
+  tempfile=$(mktemp)
+  curl -o $tempfile https://raw.githubusercontent.com/wez/wezterm/main/termwiz/data/wezterm.terminfo
+  tic -x -o ~/.terminfo $tempfile
+  rm $tempfile
+fi
+
 {{ end -}}

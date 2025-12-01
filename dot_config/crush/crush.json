@@ -1,0 +1,44 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "options": {
+    "attribution": {
+      "trailer_style": "none",
+      "generated_with": false
+    }
+  },
+  "lsp": {
+    "go": {
+      "command": "gopls",
+      "env": {
+        "GOTOOLCHAIN": "go1.25.4"
+      }
+    },
+    "json": {
+      "command": "vscode-json-languageserver",
+      "args": ["--stdio"]
+    },
+    "lua": {
+      "command": "lua-language-server"
+    },
+    "markdown": {
+      "command": "marksman"
+    },
+    "toml": {
+      "command": "taplo"
+    },
+    "bash": {
+      "command": "bash-language-server"
+    }
+  },
+  "mcp": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp",
+      "timeout": 120,
+      "disabled": false,
+      "headers": {
+        "CONTEXT&_API_KEY": "{{ pass \"context7/api\" }}"
+      }
+    }
+  }
+}

@@ -1,31 +1,8 @@
-[user]
-email = christopherlamm81@gmail.com
-name = Christopher Lamm
-signingkey = AE19C6DBD0390907
-
-[gpg]
-format = openpgp
+[color]
+ui = auto
 
 [commit]
 gpgsign = true
-
-[init]
-defaultBranch = main
-
-[pull]
-rebase = true
-
-[push]
-default = simple
-
-[merge]
-conflictstyle = diff3
-
-[diff]
-tool = code
-
-[color]
-ui = auto
 
 [core]
 editor = helix
@@ -33,4 +10,34 @@ excludesFile = .gitignore
 autocrlf = input
 eol = lf
 safecrlf = false
-pager = "cat"
+pager = delta
+
+[delta]
+navigate = true
+dark = true
+
+[diff]
+tool = code
+
+[gpg]
+format = openpgp
+
+[init]
+defaultBranch = main
+
+[interactive]
+diffFilter = delta --color-only
+
+[merge]
+conflictstyle = zdiff3
+
+[pull]
+rebase = true
+
+[push]
+default = simple
+
+[user]
+email = christopherlamm81@gmail.com
+name = Christopher Lamm
+signingkey = AE19C6DBD0390907

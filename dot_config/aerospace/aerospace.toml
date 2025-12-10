@@ -41,16 +41,20 @@ if.app-id = 'com.bitwarden.desktop'
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
-run = 'move-node-to-workspace-3'
+run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-id = 'org.whispersystems.signal-desktop'
 run = 'layout floating'
-
-# [[on-window-detected]]
-# if.app-id = 'com.granola.app'
-# run = 'layout floating'
 
 [mode.main.binding]
 cmd-alt-ctrl-shift-x = 'exec-and-forget open -a "System Settings"'

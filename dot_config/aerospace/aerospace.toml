@@ -42,7 +42,7 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
-run = 'move-note-to-workspace-3'
+run = 'move-node-to-workspace-3'
 
 [[on-window-detected]]
 if.app-id = 'org.whispersystems.signal-desktop'

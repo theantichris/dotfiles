@@ -37,11 +37,15 @@ if.app-id = 'com.apple.weather'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id = 'org.whispersystems.signal-desktop'
+if.app-id = 'com.bitwarden.desktop'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id = 'com.bitwarden.desktop'
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-note-to-workspace-3'
+
+[[on-window-detected]]
+if.app-id = 'org.whispersystems.signal-desktop'
 run = 'layout floating'
 
 # [[on-window-detected]]

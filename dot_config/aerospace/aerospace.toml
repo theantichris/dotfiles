@@ -44,9 +44,9 @@ run = 'layout floating'
 if.app-id = 'com.bitwarden.desktop'
 run = 'layout floating'
 
-[[on-window-detected]]
-if.app-id = 'com.granola.app'
-run = 'layout floating'
+# [[on-window-detected]]
+# if.app-id = 'com.granola.app'
+# run = 'layout floating'
 
 [mode.main.binding]
 cmd-alt-ctrl-shift-x = 'exec-and-forget open -a "System Settings"'

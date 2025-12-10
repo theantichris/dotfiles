@@ -53,6 +53,10 @@ if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
+if.app-id = 'notion.id'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
 if.app-id = 'org.whispersystems.signal-desktop'
 run = 'layout floating'
 

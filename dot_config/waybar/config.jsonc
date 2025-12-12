@@ -12,17 +12,17 @@
         "cpu",
         "temperature",
         "custom/gpu",
+        "custom/outside",
         "custom/media"
     ],
     "modules-center": [
-        "clock#date",
-        "custom/outside"
     ],
     "modules-right": [
         "hyprland/submap",
         "hyprland/workspaces",
-        "wireplumber",
         "tray",
+        "clock#date",
+        "wireplumber",
         "custom/power"
     ],
 

@@ -92,14 +92,18 @@ sudo pacman -S --needed yaml-language-server
 
 # hyprland
 
+sudo pacman -S --needed hypridle
 sudo pacman -S --needed hyprland
 sudo pacman -S --needed hyprlauncher
+sudo pacman -S --needed hyprlock
 sudo pacman -S --needed hyprpaper
 sudo pacman -S --needed hyprpolkitagent
+sudo pacamn -S --needed hyprshot
 sudo pacman -S --needed qt5-wayland qt6-wayland
 sudo pacman -S --needed swaync
 sudo pacman -S --needed waybar
 sudo pacman -S --needed waypaper
+sudo pacman -S --needed wlogout
 sudo pacman -S --needed xdg-desktop-portal-hyprland
 
 # rust
@@ -129,6 +133,7 @@ sudo systemctl enable --now OpenLinkHub.service
 sudo systemctl enable --now sddm.service
 sudo systemctl enable --now tailscaled
 
+systemctl --user enable --now hypridle.service
 systemctl --user enable --now hyprpolkitagent.service
 
 {{- end }}

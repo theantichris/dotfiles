@@ -16,6 +16,7 @@ image/webp=swayimg.desktop
 image/bmp=swayimg.desktop
 image/svg+xml=swayimg.desktop
 x-scheme-handler/webcal=google-chrome.desktop
+x-scheme-handler/mailto=google-chrome.desktop
 
 [Added Associations]
 x-scheme-handler/http=google-chrome.desktop;

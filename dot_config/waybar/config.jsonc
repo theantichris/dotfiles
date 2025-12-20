@@ -27,45 +27,6 @@
         "custom/power"
     ],
 
-    "hyprland/workspaces": {
-        "format": "{name}",
-        "sort-by-number": true,
-        "persistent-workspaces": {
-            "*": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        }
-    },
-
-    "custom/gpu": {
-        "exec": "~/.config/waybar/modules/gpu.sh",
-        "interval": 5,
-        "format": "  {}",
-        "tooltip": false
-    },
-
-    "custom/media": {
-        "format": "🎜  {0}",
-        "return-type": "json",
-        "max-length": 40,
-        "escape": true,
-        "exec": "~/.config/waybar/mediaplayer.py"
-    },
-
-    "clock#date": {
-        "format": "󰥔  {:%I:%M %p   %a %e %b}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "on-click": "wezterm start ikhal"
-    },
-
-    "custom/outside": {
-        "exec": "~/.cargo/bin/outside -o waybar",
-        "return-type": "json",
-        "interval": 600,
-        "format": "{text}",
-        "tooltip": true,
-        "escape": true,
-        "on-click": "wezterm start ~/.cargo/bin/outside"
-    },
-
     "custom/storage": {
         "format": "  {}",
         "format-alt": "{percentage}% ",
@@ -98,6 +59,50 @@
         "on-click": "wezterm start btop"
     },
 
+    "custom/gpu": {
+        "exec": "~/.config/waybar/modules/gpu.sh",
+        "interval": 5,
+        "format": "  {}",
+        "tooltip": false
+    },
+
+    "custom/outside": {
+        "exec": "~/.cargo/bin/outside -o waybar",
+        "return-type": "json",
+        "interval": 600,
+        "format": "{text}",
+        "tooltip": true,
+        "escape": true,
+        "on-click": "wezterm start ~/.cargo/bin/outside"
+    },
+
+    "custom/media": {
+        "format": "🎜  {0}",
+        "return-type": "json",
+        "max-length": 40,
+        "escape": true,
+        "exec": "~/.config/waybar/mediaplayer.py"
+    },
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "sort-by-number": true,
+        "persistent-workspaces": {
+            "*": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        }
+    },
+
+    "tray": {
+        "icon-size": 15,
+        "spacing": 5
+    },
+
+    "clock#date": {
+        "format": "󰥔  {:%I:%M %p   %a %e %b}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "on-click": "wezterm start ikhal"
+    },
+
     "wireplumber": {
         "on-click": "pwvucontrol",
         "on-click-right": "hyprpwcenter",
@@ -113,11 +118,6 @@
             "car": " ",
             "default": [" ", " ", " "]
         },
-    },
-
-    "tray": {
-        "icon-size": 15,
-        "spacing": 5
     },
 
     "custom/power": {

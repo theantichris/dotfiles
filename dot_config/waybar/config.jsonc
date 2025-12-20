@@ -38,7 +38,7 @@
 
     "memory": {
         "interval": 30,
-        "format": "   {}%",
+        "format": "  {}%",
         "on-click": "wezterm start btop"
     },
 
@@ -52,7 +52,7 @@
         "interval": 4,
         "critical-threshold": 80,
         "format-critical": "  {temperatureC}°C",
-        "format": "{icon}  {temperatureC}°C",
+        "format": "{icon} {temperatureC}°C",
         "format-icons": ["", "", ""],
         "max-length": 7,
         "min-length": 7,
@@ -62,7 +62,7 @@
     "custom/gpu": {
         "exec": "~/.config/waybar/modules/gpu.sh",
         "interval": 5,
-        "format": "  {}",
+        "format": " {}",
         "tooltip": false
     },
 
@@ -106,8 +106,7 @@
     "wireplumber": {
         "on-click": "pwvucontrol",
         "on-click-right": "hyprpwcenter",
-        // "format": "<span foreground='#fab387'>{icon}</span>  {volume}%",
-        "format": "{icon}  {volume}%",
+        "format": "{icon} {volume}%",
         "format-muted": "󰝟 ",
         "format-source": "",
         "format-source-muted": "",

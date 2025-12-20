@@ -13,7 +13,6 @@ window#waybar {
 }
 
 #workspaces button {
-  margin-right: 5px;
   padding: 5px;
   color: #555869;
 }
@@ -61,28 +60,13 @@ window#waybar {
   min-width: 100px;
 }
 
-#tray {
-  margin-right: 10px;
-}
-
 #workspaces {
-  margin-left: 10px;
   padding-right: 0px;
   padding-left: 5px;
   background: #1e1e2e;
 }
 
-#cpu {
-  margin-right: 10px;
-}
-
-#window {
-  margin-left: 60px;
-  margin-right: 60px;
-}
-
 #clock {
-  margin-left: 5px;
   border-right: 0px;
   color: #a6adc8;
 }
@@ -98,8 +82,15 @@ window#waybar {
 }
 
 #pulseaudio-microphone {
-  margin-right: 5px;
   border-left: 0px;
   border-right: 0px;
   color: #a6adc8;
+}
+
+#custom-gpu.critical {
+  background: #e25e44;
+}
+
+#temperature.critical {
+  background: #e25e44;
 }

@@ -1,9 +1,18 @@
 {{- if eq .chezmoi.os "linux" -}}
 #!/bin/bash
 
-# software development
+# pacman
 
+sudo pacman -Syu
+
+sudo pacman -S --needed bitwarden
 sudo pacman -S --needed helix
+
+# paru
+
+paru -Syu
+
+paru -S --needed google-chrome
 
 # gh extensions
 

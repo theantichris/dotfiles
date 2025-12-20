@@ -110,6 +110,7 @@ fi
 # daemons
 
 sudo systemctl enable --now ollama
+sudo systemctl enable --now OpenLinkHub.service
 sudo systemctl enable --now tailscaled
 
 systemctl --user enable --now hyprpolkitagent.service

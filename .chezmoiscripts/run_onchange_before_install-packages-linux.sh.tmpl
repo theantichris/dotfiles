@@ -71,7 +71,13 @@ sudo pacman -S --needed golangci-lint
 sudo pacman -S --needed go-tools
 sudo pacman -S --needed gopls
 sudo pacman -S --needed goreleaser
+
 paru -S --needed gotestsum
+
+go install github.com/Gelio/go-global-update@latest
+go install github.com/orlangure/gocovsh@latest
+go install github.com/nametake/golangci-lint-langserver@latest
+go install golang.org/x/tools/cmd/goimports@latest
 
 # helix
 
@@ -84,12 +90,13 @@ sudo pacman -S --needed taplo-cli
 sudo pacman -S --needed vscode-json-languageserver
 sudo pacman -S --needed yaml-language-server
 
-# go
+# hyprland
 
-go install github.com/Gelio/go-global-update@latest
-go install github.com/orlangure/gocovsh@latest
-go install github.com/nametake/golangci-lint-langserver@latest
-go install golang.org/x/tools/cmd/goimports@latest
+sudo pacman -S --needed hyprland
+sudo pacman -S --needed hyprpolkitagent
+sudo pacman -S --needed qt5-wayland qt6-wayland
+sudo pacman -S --needed swaync
+sudo pacman -S --needed xdg-desktop-portal-hyprland
 
 # rust
 

@@ -1,26 +1,118 @@
 {{- if eq .chezmoi.os "linux" -}}
 #!/bin/bash
 
-# pacman
-
 sudo pacman -Syu
-
-sudo pacman -S --needed bitwarden
-sudo pacman -S --needed helix
-
-# paru
-
 paru -Syu
 
+sudo pacman -S --needed aerc
+sudo pacman -S --needed blueman
+sudo pacman -S --needed bitwarden
+sudo pacman -S --needed chawan
+sudo pacman -S --needed chezmoi
+sudo pacman -S --needed cmatrix
+sudo pacman -S --needed entr
+sudo pacman -S --needed eza
+sudo pacman -S --needed fzf
+sudo pacman -S --needed git
+sudo pacman -S --needed git-delta
+sudo pacman -S --needed github-cli
+sudo pacman -S --needed glow
+sudo pacman -S --needed gurk
+sudo pacman -S --needed httpie
+sudo pacman -S --needed hugo
+sudo pacman -S --needed khal
+sudo pacman -S --needed lazygit
+sudo pacman -S --needed markdownlint-cli2 pre-commit
+sudo pacman -S --needed network-manager-applet
+sudo pacman -S --needed npm
+sudo pacman -S --needed nvtop
+sudo pacman -S --needed ollama-cuda
+sudo pacman -S --needed pass
+sudo pacman -S --needed python-pillow python-term-image python-urwidgets
+sudo pacman -S --needed signal-desktop
+sudo pacman -S --needed speedtest-cli
+sudo pacman -S --needed superfile
+sudo pacman -S --needed tailscale
+sudo pacman -S --needed toot
+sudo pacman -S --needed uv
+sudo pacman -S --needed vhs
+
+paru -S --needed admon-noteye
+paru -S --needed crush
 paru -S --needed google-chrome
+paru -S --needed json-log-viewer
+paru -S --needed nb
+paru -S --needed nom-bin
+paru -S --needed nerdfonts-installer-bin
+paru -S --needed posting
+paru -S --needed sddm-astronaut-theme
+paru -S --needed slack-desktop-wayland
+paru -S --needed squiid
+paru -S --needed tray-tui
+paru -S --needed wezterm
+
+# enable global menu
+
+sudo pacman -S --needed appmenu-gtk-module libdbusmenu-glib
 
 # gh extensions
 
 gh extension install dlvhdr/gh-dash
 
+# go
+
+sudo pacman -S --needed go
+sudo pacman -S --neede delve
+sudo pacman -S --needed golanci-lint
+sudo pacman -S --needed go-tools
+sudo pacman -S --needed gopls
+sudo pacman -S --needed goreleaser
+paru -S --needed gotestsum
+
+# helix
+
+sudo pacman -S --needed helix
+sudo pacman -S --needed bash-language-server
+sudo pacamn -S --needed harper
+sudo pacman -S --needed lua-language-server
+sudo pacman -S --needed marksman
+sudo pacman -S --needed taplo-cli
+sudo pacman -S --needed vscode-json-languageserver
+sudo pacman -S --needed yaml-language-server
+
+# go
+
+go install github.com/Gelio/go-global-update@latest
+go install github.com/orlangure/gocovsh@latest
+go install github.com/nametake/golangci-lint-langserver@latest
+go install golang.org/x/tools/cmd/goimports@latest
+
+# rust
+
+sudo pacman -S --needed rustup
+rustup default stable
+cargo install cargo-update
+cargo install outside
+
 # tldr
 
 tldr --update
+
+# wezterm
+
+if ! infocmp wezterm &>/dev/null; then
+  tempfile=$(mktemp)
+  curl -o $tempFile https://raw.githubusercontent.com/wez/wezterm/main/termwiz/data/wezterm.terminfo
+  tic -x -o ~/.terminfo $tempFile
+  rm $tempfile
+fi
+
+# daemons
+
+sudo systemctl enable --now ollama
+sudo systemctl enable --now tailscaled
+
+systemctl --user enable --now hyprpolkitagent.service
 
 {{- end }}
 

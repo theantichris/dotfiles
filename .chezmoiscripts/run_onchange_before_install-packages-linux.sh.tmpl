@@ -1,0 +1,17 @@
+{{- if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+# software development
+
+sudo pacman -S --needed helix
+
+# gh extensions
+
+gh extension install dlvhdr/gh-dash
+
+# tldr
+
+tldr --update
+
+{{- end }}
+

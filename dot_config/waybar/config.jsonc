@@ -8,21 +8,21 @@
     "spacing": 5,
 
     "modules-left": [
-        "custom/storage",
-        "memory",
-        "cpu",
-        "temperature",
-        "custom/gpu",
+        "clock#date",
         "custom/outside",
-        "custom/media"
+        "custom/media",
+        "hyprland/workspaces"
     ],
     "modules-center": [
     ],
     "modules-right": [
         "hyprland/submap",
-        "hyprland/workspaces",
+        "custom/storage",
+        "memory",
+        "cpu",
+        "temperature",
+        "custom/gpu",
         "tray",
-        "clock#date",
         "wireplumber",
         "custom/power"
     ],

@@ -22,6 +22,7 @@
         "cpu",
         "temperature",
         "custom/gpu",
+        "bluetooth",
         "tray",
         "wireplumber",
         "custom/notification",
@@ -95,7 +96,25 @@
 
     "tray": {
         "icon-size": 15,
-        "spacing": 5
+        "spacing": 5,
+        "show-passive-items": true,
+        "ignore-list": [
+            "blueman",
+            "blueman-applet",
+            "blueman-tray"
+        ]
+    },
+
+    "bluetooth": {
+        "format": "󰂯 {status}",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂱 {num_connections}",
+        "format-connected-battery": "󰥰 {device_alias} {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click": "blueman-manager"
     },
 
     "clock#date": {

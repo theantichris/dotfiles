@@ -1,16 +1,16 @@
 :root {
   --cc-bg: rgba(22, 22, 30, 0.95);
-  --noti-border-color: rgba(0, 240, 255, 0.3);
+  --noti-border-color: rgba(202, 1, 116, 0.3);
   --noti-bg: 31, 31, 40;
   --noti-bg-alpha: 0.95;
   --noti-bg-darker: rgb(22, 22, 30);
   --noti-bg-hover: rgb(33, 34, 44);
   --noti-bg-focus: rgba(42, 42, 51, 0.8);
   --noti-close-bg: rgb(138, 134, 160);
-  --noti-close-bg-hover: rgb(202, 1, 116);
+  --noti-close-bg-hover: rgb(0, 240, 255);
   --text-color: rgb(234, 234, 242);
   --text-color-disabled: rgb(138, 134, 160);
-  --bg-selected: rgb(0, 240, 255);
+  --bg-selected: rgb(202, 1, 116);
   --notification-icon-size: 64px;
   --notification-app-icon-size: calc(var(--notification-icon-size) / 3);
   --notification-group-icon-size: 32px;
@@ -30,7 +30,7 @@
 /* Fallback for older CSS themes */
 /* Fallback for older CSS themes */
 @define-color cc-bg rgba(22, 22, 30, 0.95);
-@define-color noti-border-color rgba(0, 240, 255, 0.3);
+@define-color noti-border-color rgba(202, 1, 116, 0.3);
 @define-color noti-bg rgba(31, 31, 40, 0.95);
 @define-color noti-bg-opaque rgb(31, 31, 40);
 @define-color noti-bg-darker rgb(22, 22, 30);
@@ -38,10 +38,10 @@
 @define-color noti-bg-hover-opaque rgb(33, 34, 44);
 @define-color noti-bg-focus rgba(42, 42, 51, 0.8);
 @define-color noti-close-bg rgba(138, 134, 160, 0.3);
-@define-color noti-close-bg-hover rgba(202, 1, 116, 0.8);
+@define-color noti-close-bg-hover rgba(0, 240, 255, 0.8);
 @define-color text-color rgb(234, 234, 242);
 @define-color text-color-disabled rgb(138, 134, 160);
-@define-color bg-selected rgb(0, 240, 255);
+@define-color bg-selected rgb(202, 1, 116);
 
 /* Global button override for GTK theme */
 button {
@@ -397,15 +397,15 @@ notificationwindow, blankwindow, blankwindow {
 .widget-title > button {
   margin-left: 8px;
   border-radius: var(--border-radius);
-  background: #00F0FF !important;
-  color: #16161E !important;
+  background: #CA0174 !important;
+  color: #EAEAF2 !important;
   padding: 4px 12px;
   font-weight: bold;
 }
 
 .widget-title > button:hover {
-  background: #CA0174 !important;
-  color: #EAEAF2 !important;
+  background: #00F0FF !important;
+  color: #16161E !important;
 }
 
 /* DND widget */
@@ -422,7 +422,7 @@ notificationwindow, blankwindow, blankwindow {
 }
 
 .widget-dnd switch:checked {
-  background: #00F0FF;
+  background: #CA0174;
 }
 
 .widget-dnd switch slider {
@@ -599,32 +599,32 @@ notificationwindow, blankwindow, blankwindow {
 .widget-inhibitors > button {
   margin-left: 8px;
   border-radius: var(--border-radius);
-  background: #00F0FF !important;
-  color: #16161E !important;
+  background: #CA0174 !important;
+  color: #EAEAF2 !important;
   padding: 4px 12px;
   font-weight: bold;
 }
 
 .widget-inhibitors > button:hover {
-  background: #CA0174 !important;
-  color: #EAEAF2 !important;
+  background: #00F0FF !important;
+  color: #16161E !important;
 }
 
 /* Clear all button - specific class from SwayNC source */
 .widget-title > .control-center-clear-all,
 .widget-inhibitors > .control-center-clear-all,
 button.control-center-clear-all {
-  background: #00F0FF !important;
-  color: #16161E !important;
+  background: #CA0174 !important;
+  color: #EAEAF2 !important;
   padding: 4px 12px;
   font-weight: bold;
-  border: 2px solid #00F0FF !important;
+  border: 2px solid #CA0174 !important;
 }
 
 .widget-title > .control-center-clear-all:hover,
 .widget-inhibitors > .control-center-clear-all:hover,
 button.control-center-clear-all:hover {
-  background: #CA0174 !important;
-  color: #EAEAF2 !important;
-  border: 2px solid #CA0174 !important;
+  background: #00F0FF !important;
+  color: #16161E !important;
+  border: 2px solid #00F0FF !important;
 }

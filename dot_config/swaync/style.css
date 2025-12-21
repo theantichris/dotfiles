@@ -416,11 +416,17 @@ notificationwindow, blankwindow, blankwindow {
 }
 
 .widget-dnd switch {
+  background: #21222C;
   border-radius: var(--border-radius);
   margin-left: 8px;
 }
 
+.widget-dnd switch:checked {
+  background: #00F0FF;
+}
+
 .widget-dnd switch slider {
+  background: var(--noti-bg-darker);
   border-radius: var(--border-radius);
 }
 

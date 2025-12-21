@@ -96,13 +96,7 @@
 
     "tray": {
         "icon-size": 15,
-        "spacing": 5,
-        "show-passive-items": true,
-        "ignore-list": [
-            "blueman",
-            "blueman-applet",
-            "blueman-tray"
-        ]
+        "spacing": 5
     },
 
     "bluetooth": {

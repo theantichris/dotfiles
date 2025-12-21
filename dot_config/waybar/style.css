@@ -113,3 +113,12 @@ window#waybar {
   animation-direction: alternate;
   animation-duration: 2s;
 }
+
+/* Bluetooth states */
+#bluetooth {
+  color: @info;
+}
+
+#bluetooth.disabled {
+  color: @error;
+}

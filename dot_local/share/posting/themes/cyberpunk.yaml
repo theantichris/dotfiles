@@ -1,0 +1,45 @@
+name: cyberpunk
+author: Christopher Lamm
+description: Cyberpunk neon theme with pink and cyan accents
+homepage: https://github.com/theantichris
+
+# Core colors
+primary: '#00F0FF'      # Cyan accent
+secondary: '#CA0174'    # Pink accent
+accent: '#FF00FF'       # Magenta
+background: '#16161E'   # Base background
+surface: '#1F1F28'      # Panels
+error: '#FF003C'        # Error red
+success: '#00FF9C'      # Success green
+warning: '#FFD300'      # Warning yellow
+
+# Text area customization
+text_area:
+  cursor: 'reverse'
+  cursor_line: 'underline'
+  selection: 'reverse'
+  gutter: 'bold #00F0FF'
+  matched_bracket: '#16161E on #00F0FF'
+
+# URL styling
+url:
+  base: 'italic #00F0FF'
+  protocol: 'bold #00FFFF'
+
+# Syntax highlighting
+syntax:
+  json_key: 'italic #CA0174'
+  json_number: '#FF7B00'
+  json_string: '#00FFA2'
+  json_boolean: '#FF00FF'
+  json_null: 'italic #8A86A0'
+
+# HTTP method styles
+method:
+  get: '#00F0FF'
+  post: '#00FF9C'
+  put: '#FFD300'
+  patch: '#FF00FF'
+  delete: '#FF003C'
+  head: '#009CFF'
+  options: '#8A86A0'

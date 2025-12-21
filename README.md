@@ -90,9 +90,7 @@ chezmoi powered personal environment. keyboard-first. cross-platform.
 |                        | [chezmoi](https://www.chezmoi.io)                                                | `dot_config/template.toml`       |
 |                        | [vdirsyncer](https://github.com/pimutils/vdirsyncer)                             | `dot_config/vdirsyncer`          |
 | **Weather**            | [outside](https://github.com/BaconIsAVeg/outside)                                | `dot_config/outside`             |
-| **AI Tools**           | [Claude](https://claude.ai)                                                      | -                                |
-|                        | [ChatGPT](https://chat.openai.com)                                               | -                                |
-|                        | [Ollama](https://ollama.com)                                                     | -                                |
+| **AI Tools**           | [Ollama](https://ollama.com)                                                     | -                                |
 | **Network**            | [Tailscale](https://tailscale.com)                                               | -                                |
 | **Email**              | [aerc](https://aerc-mail.org)                                                    | `dot_config/aerc`                |
 | **Font**               | [Nerd Fonts](https://www.nerdfonts.com)                                          | -                                |

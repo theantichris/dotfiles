@@ -122,3 +122,8 @@ window#waybar {
 #bluetooth.disabled {
   color: @error;
 }
+
+/* Submap */
+#submap {
+  color: @accent-primary;
+}

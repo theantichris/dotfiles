@@ -9,7 +9,7 @@
 
 window#waybar {
   background: rgba(22, 22, 30, 0);
-  color: #EAEAF2
+  color: #8A86A0
 }
 
 #workspaces button {
@@ -70,15 +70,15 @@ window#waybar {
 
 #clock {
   border-right: 0px;
-  color: #EAEAF2;
+  color: #8A86A0;
 }
 
 #network {
-  color: #EAEAF2;
+  color: #8A86A0;
 }
 
 #pulseaudio {
-  color: #EAEAF2;
+  color: #8A86A0;
   border-left: 0px;
   border-right: 0px;
 }
@@ -86,7 +86,7 @@ window#waybar {
 #pulseaudio-microphone {
   border-left: 0px;
   border-right: 0px;
-  color: #EAEAF2;
+  color: #8A86A0;
 }
 
 #custom-gpu.critical {

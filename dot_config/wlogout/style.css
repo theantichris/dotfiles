@@ -1,7 +1,7 @@
 * {
 	background-image: none;
 	box-shadow: none;
-	font-family: "Hack Nerd Font"
+	font-family: "Electroharmonix"
 }
 
 window {
@@ -9,7 +9,7 @@ window {
 }
 
 button {
-  border-radius: 8;
+  border-radius: 8px;
   border: 2px solid #16e6c9;
   color: #cdcefb;
 	background-color: #192a30;

@@ -1,7 +1,7 @@
 # Cyberpunk Fish Theme
 
-set -g cyberpunk_primary 00F0FF # Bright cyan
-set -g cyberpunk_secondary CA0174 # Pink
+set -g cyberpunk_primary CA0174 # Pink (Accent 0)
+set -g cyberpunk_secondary 00F0FF # Bright cyan (Accent 1)
 set -g cyberpunk_tertiary FF00FF # Magenta
 set -g cyberpunk_quaternary 00FFA2 # Neon green
 set -g cyberpunk_success 00FF9C # Green

@@ -94,7 +94,7 @@ chezmoi powered personal environment. keyboard-first. cross-platform.
 | **Network**            | [Tailscale](https://tailscale.com)                                               | -                                |
 | **Email**              | [aerc](https://aerc-mail.org)                                                    | `dot_config/aerc`                |
 | **Font**               | [Nerd Fonts](https://www.nerdfonts.com)                                          | -                                |
-| **Browsers**           | [Chrome](https://www.google.com/chrome/)                                         | -                                |
+| **Browsers**           | [Chrome](https://www.google.com/chrome/)                                         | `dot_config/chrome-flags.conf`   |
 |                        | [chawan](https://github.com/chawan-project/chawan)                               | `dot_config/chawan`              |
 | **Social**             | [Toot](https://github.com/ihabunek/toot)                                         | -                                |
 | **Security**           | [Bitwarden](https://bitwarden.com/)                                              | -                                |

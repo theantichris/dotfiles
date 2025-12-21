@@ -5,5 +5,5 @@ simple:
 
 waybar:
   text: "{weather_icon}  {temperature | round}{temperature_unit} |  {precipitation_chance}%"
-  hot_temperature: 30
-  cold_temperature: 0
+  hot_temperature: 27
+  cold_temperature: 10

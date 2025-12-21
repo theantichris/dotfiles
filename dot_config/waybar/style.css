@@ -96,3 +96,10 @@ window#waybar {
 #temperature.critical {
   background: #FF003C;
 }
+
+#custom-notification.notification,
+#custom-notification.dnd-notification,
+#custom-notification.inhibited-notification,
+#custom-notification.dnd-inhibited-notification {
+  color: #CA0174;
+}

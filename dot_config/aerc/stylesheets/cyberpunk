@@ -1,0 +1,90 @@
+# Cyberpunk theme for aerc
+*.default=true
+*.normal=true
+
+# Base colors
+default.fg=#EAEAF2
+default.bg=#16161E
+
+# Status indicators
+error.fg=#FF003C
+warning.fg=#FFD300
+success.fg=#00FF9C
+
+# Borders
+border.fg=#CA0174
+border.bg=#16161E
+
+# Title bar
+title.fg=#00F0FF
+title.bg=#1F1F28
+title.bold=true
+
+# Tabs
+tab.fg=#8A86A0
+tab.bg=#1F1F28
+tab.selected.fg=#16161E
+tab.selected.bg=#00F0FF
+tab.selected.bold=true
+
+# Status line
+statusline_default.fg=#EAEAF2
+statusline_default.bg=#1F1F28
+statusline_error.fg=#FF003C
+statusline_error.bg=#1F1F28
+statusline_error.bold=true
+statusline_success.fg=#00FF9C
+statusline_success.bg=#1F1F28
+
+# Message list
+msglist_default.fg=#EAEAF2
+msglist_default.bg=#16161E
+msglist_unread.fg=#EAEAF2
+msglist_unread.bold=true
+msglist_read.fg=#8A86A0
+msglist_flagged.fg=#FF00FF
+msglist_flagged.bold=true
+msglist_deleted.fg=#FF003C
+msglist_deleted.dim=true
+msglist_marked.fg=#00F0FF
+msglist_marked.reverse=true
+msglist_result.fg=#CA0174
+msglist_result.bold=true
+msglist_*.selected.fg=#16161E
+msglist_*.selected.bg=#00F0FF
+msglist_*.selected.bold=true
+
+# Directory list
+dirlist_default.fg=#EAEAF2
+dirlist_default.bg=#21222C
+dirlist_unread.fg=#00F0FF
+dirlist_unread.bold=true
+dirlist_recent.fg=#CA0174
+dirlist_*.selected.fg=#16161E
+dirlist_*.selected.bg=#00F0FF
+dirlist_*.selected.bold=true
+
+# Completion
+completion_default.fg=#EAEAF2
+completion_default.bg=#1F1F28
+completion_gutter.fg=#8A86A0
+completion_gutter.bg=#21222C
+completion_pill.fg=#16161E
+completion_pill.bg=#00F0FF
+
+# Message viewer section
+[viewer]
+header.fg=#CA0174
+header.bold=true
+signature.fg=#8A86A0
+signature.dim=true
+diff_meta.fg=#FF00FF
+diff_chunk.fg=#CA0174
+diff_add.fg=#00FF9C
+diff_del.fg=#FF003C
+quote_1.fg=#CA0174
+quote_2.fg=#FF00FF
+quote_3.fg=#FF00FF
+quote_4.fg=#8A86A0
+url.fg=#00FFFF
+url.underline=true

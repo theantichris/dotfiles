@@ -10,10 +10,10 @@
     "modules-left": [
         "clock#date",
         "custom/outside",
-        "custom/media",
-        "hyprland/workspaces"
+        "custom/media"
     ],
     "modules-center": [
+        "hyprland/workspaces"
     ],
     "modules-right": [
         "hyprland/submap",

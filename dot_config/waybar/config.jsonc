@@ -64,7 +64,7 @@
     "custom/gpu": {
         "exec": "~/.config/waybar/modules/gpu.sh",
         "interval": 5,
-        "format": " {}",
+        "format": "󰢮  {}",
         "tooltip": false
     },
 

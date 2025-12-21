@@ -50,12 +50,12 @@ chezmoi powered personal environment. keyboard-first. cross-platform.
 |                        | [tldr](https://tldr.sh/)                                                         | -                                |
 | **System Monitor**     | [btop](https://github.com/aristocratos/btop)                                     | -                                |
 | **Notes/Tasks**        | [nb](https://github.com/xwmx/nb)                                                 | `dot_nbrc.tmpl`                  |
-| **Calendar**           | [khal](https://github.com/pimutils/khal)                                         | `dot_config/khal`             |
+| **Calendar**           | [khal](https://github.com/pimutils/khal)                                         | `dot_config/khal`                |
 | **RSS**                | [nom](https://github.com/guyfedwards/nom)                                        | `dot_config/nom`                 |
 | **Dev Tools**          | [Git](https://git-scm.com)                                                       | `dot_gitconfig`, `dot_gitignore` |
 |                        | [gh](https://cli.github.com)                                                     | `dot_config/gh`                  |
 |                        | [gh-dash](https://github.com/dlvhdr/gh-dash)                                     | `dot_config/gh-dash`             |
-|                        | [OpenCode](https://opencode.ai)                                                  | `dot_config/opencode`            |
+|                        | [Crush](https://github.com/charmbracelet/crush)                                  | `dot_config/crush`               |
 |                        | [pre-commit](https://pre-commit.com)                                             | -                                |
 |                        | [GoReleaser](https://goreleaser.com)                                             | -                                |
 |                        | [lazygit](https://github.com/jesseduffield/lazygit)                              | -                                |

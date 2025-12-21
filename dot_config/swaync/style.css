@@ -422,11 +422,11 @@ notificationwindow, blankwindow, blankwindow {
 }
 
 .widget-dnd switch:checked {
-  background: #CA0174;
+  background: #21222C;
 }
 
 .widget-dnd switch slider {
-  background: var(--noti-bg-darker);
+  background: #CA0174;
   border-radius: var(--border-radius);
 }
 

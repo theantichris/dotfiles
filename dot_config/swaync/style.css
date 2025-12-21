@@ -42,6 +42,20 @@
 @define-color text-color rgb(234, 234, 242);
 @define-color text-color-disabled rgb(138, 134, 160);
 @define-color bg-selected rgb(0, 240, 255);
+
+/* Global button override for GTK theme */
+button {
+  background: var(--noti-bg-darker);
+  color: var(--text-color);
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: 4px 12px;
+}
+
+button:hover {
+  background: var(--noti-bg-hover);
+}
+
 notificationwindow, blankwindow, blankwindow {
   background: transparent;
 }
@@ -239,8 +253,14 @@ notificationwindow, blankwindow, blankwindow {
 }
 
 .notification-row .notification-background .notification .notification-action > button {
+  background: var(--noti-bg-darker);
+  border: var(--border);
   border-radius: var(--border-radius);
   color: var(--text-color);
+}
+
+.notification-row .notification-background .notification .notification-action > button:hover {
+  background: var(--noti-bg-hover);
 }
 
 .notification-group {

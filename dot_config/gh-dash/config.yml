@@ -75,35 +75,35 @@ theme:
       compact: false
   colors:
     text:
-      primary: "#cdcefb"     # base.text
-      secondary: "#bdc2c3"   # base.text-muted  
-      inverted: "#091a1f"    # base.background
-      faint: "#8e9395"       # base.comment
-      warning: "#cca700"     # semantics.warning
-      success: "#23d18b"     # semantics.success
+      primary: "#EAEAF2"     # base.text
+      secondary: "#8A86A0"   # base.text-muted  
+      inverted: "#16161E"    # base.background
+      faint: "#8A86A0"       # base.comment
+      warning: "#FFD300"     # semantics.warning
+      success: "#00FF9C"     # semantics.success
     background:
-      selected: "#264f78"    # ui.selection
+      selected: "#2A2A33"    # ui.selection
     border:
-      primary: "#029fec91"   # ui.border
-      secondary: "#192a30"   # base.surface-1
-      faint: "#08252f"       # base.surface-3
+      primary: "#CA0174"     # ui.border
+      secondary: "#1F1F28"   # base.surface-1
+      faint: "#21222C"       # base.surface-3
     prs:
-      merged: "#c73df5e3"    # accents.tertiary
-      closed: "#e25e44"      # semantics.error
-      open: "#16e6c9"        # accents.primary
-      draft: "#8e9395"       # base.comment
+      merged: "#FF00FF"      # accents.tertiary
+      closed: "#FF003C"      # semantics.error
+      open: "#00F0FF"        # accents.primary
+      draft: "#8A86A0"       # base.comment
     issues:
-      closed: "#e25e44"      # semantics.error
-      open: "#16e6c9"        # accents.primary
+      closed: "#FF003C"      # semantics.error
+      open: "#00F0FF"        # accents.primary
     state:
-      failure: "#e25e44"     # semantics.error
-      pending: "#cca700"     # semantics.warning
-      success: "#23d18b"     # semantics.success
-      neutral: "#75beff"     # semantics.info
+      failure: "#FF003C"     # semantics.error
+      pending: "#FFD300"     # semantics.warning
+      success: "#00FF9C"     # semantics.success
+      neutral: "#009CFF"     # semantics.info
     repo:
-      private: "#ff8ffd"     # accents.quaternary
-      fork: "#26add0"        # accents.secondary
-      source: "#119c82"      # semantics.link
+      private: "#FF00FF"     # accents.quaternary
+      fork: "#CA0174"        # accents.secondary
+      source: "#00FFFF"      # semantics.link
 pager:
   diff: ""
 confirmQuit: false

@@ -1,3 +1,11 @@
+@define-color bg-base #16161E;
+@define-color bg-panel #1F1F28;
+@define-color text-primary #EAEAF2;
+@define-color text-muted #8A86A0;
+@define-color accent-primary #CA0174;
+@define-color accent-secondary #00F0FF;
+@define-color error #FF003C;
+
 * {
   min-height: 0;
   border: none;
@@ -8,32 +16,31 @@
 }
 
 window#waybar {
-  background: rgba(22, 22, 30, 0);
-  color: #8A86A0
+  background: transparent;
+  color: @text-muted;
 }
 
 #workspaces button {
-  /* padding: 5px; */
-  color: #8A86A0;
+  color: @text-muted;
 }
 
 #workspaces button.active {
-  color: #CA0174;
+  color: @accent-primary;
 }
 
 #workspaces button.focused {
-  background: #CA0174;
-  color: #EAEAF2;
+  background: @accent-primary;
+  color: @text-primary;
 }
 
 #workspaces button.urgent {
-  background: #FF003C;
-  color: #EAEAF2;
+  background: @error;
+  color: @text-primary;
 }
 
 #workspaces button:hover {
-  background: #00F0FF;
-  color: #16161E;
+  background: @accent-secondary;
+  color: @bg-base;
 }
 
 #clock,
@@ -52,10 +59,9 @@ window#waybar {
 #tray,
 #wireplumber,
 #workspaces {
-  margin: 3px 0px;
-  margin-top: 5px;
-  padding: 0px 10px;
-  background: #1F1F28;
+  margin: 5px 0 3px;
+  padding: 0 10px;
+  background: @bg-panel;
 }
 
 #custom-media {
@@ -63,43 +69,17 @@ window#waybar {
 }
 
 #workspaces {
-  padding-right: 0px;
-  padding-left: 5px;
-  background: #1F1F28;
+  padding: 0 0 0 5px;
 }
 
-#clock {
-  border-right: 0px;
-  color: #8A86A0;
-}
-
-#network {
-  color: #8A86A0;
-}
-
-#pulseaudio {
-  color: #8A86A0;
-  border-left: 0px;
-  border-right: 0px;
-}
-
-#pulseaudio-microphone {
-  border-left: 0px;
-  border-right: 0px;
-  color: #8A86A0;
-}
-
-#custom-gpu.critical {
-  background: #FF003C;
-}
-
+#custom-gpu.critical,
 #temperature.critical {
-  background: #FF003C;
+  background: @error;
 }
 
 #custom-notification.notification,
 #custom-notification.dnd-notification,
 #custom-notification.inhibited-notification,
 #custom-notification.dnd-inhibited-notification {
-  color: #CA0174;
+  color: @accent-primary;
 }

@@ -1,0 +1,167 @@
+# Cyberpunk theme for Helix
+
+rainbow = [
+  { fg = "accent-cyan" },     # cyan
+  { fg = "warning" },         # yellow
+  { fg = "accent-magenta" },  # magenta
+  { fg = "success" },         # green
+  { fg = "accent-pink" },     # pink
+  { fg = "info" },            # blue
+  { fg = "accent-green" },    # neon green
+  { fg = "error" }            # red
+]
+
+"ui.background" = { bg = "background" }
+"ui.background.separator" = "border"
+"ui.cursor" = { fg = "background", bg = "accent-cyan" }
+"ui.cursor.normal" = { fg = "background", bg = "accent-cyan" }
+"ui.cursor.insert" = { fg = "background", bg = "accent-green" }
+"ui.cursor.select" = { fg = "background", bg = "accent-magenta" }
+"ui.cursor.match" = { fg = "background", bg = "accent-pink" }
+"ui.cursor.primary" = { fg = "background", bg = "accent-cyan" }
+"ui.cursor.secondary" = { fg = "background", bg = "accent-magenta" }
+"ui.cursorline.primary" = { bg = "surface-1" }
+"ui.cursorline.secondary" = { bg = "surface-2" }
+"ui.cursorcolumn.primary" = { bg = "surface-1" }
+"ui.cursorcolumn.secondary" = { bg = "surface-2" }
+"ui.selection" = { bg = "selection" }
+"ui.selection.primary" = { bg = "selection" }
+"ui.linenr" = "comment"
+"ui.linenr.selected" = "text"
+"ui.statusline" = { fg = "text", bg = "surface-1" }
+"ui.statusline.inactive" = { fg = "text-muted", bg = "surface-2" }
+"ui.statusline.normal" = { fg = "background", bg = "accent-cyan" }
+"ui.statusline.insert" = { fg = "background", bg = "accent-green" }
+"ui.statusline.select" = { fg = "background", bg = "accent-magenta" }
+"ui.statusline.separator" = "border"
+"ui.popup" = { fg = "text", bg = "surface-2" }
+"ui.popup.info" = { fg = "text", bg = "surface-2" }
+"ui.window" = { bg = "surface-1" }
+"ui.help" = { fg = "text", bg = "surface-2" }
+"ui.text" = "text"
+"ui.text.focus" = "text"
+"ui.text.inactive" = "text-muted"
+"ui.text.info" = "info"
+"ui.virtual" = "comment"
+"ui.virtual.ruler" = { bg = "surface-1" }
+"ui.virtual.whitespace" = "comment"
+"ui.virtual.indent-guide" = "comment"
+"ui.virtual.inlay-hint" = { fg = "comment", modifiers = ["italic"] }
+"ui.virtual.inlay-hint.parameter" = { fg = "comment", modifiers = ["italic"] }
+"ui.virtual.inlay-hint.type" = { fg = "comment", modifiers = ["italic"] }
+"ui.virtual.wrap" = "comment"
+"ui.virtual.jump-label" = { fg = "accent-pink", modifiers = ["bold"] }
+"ui.menu" = { fg = "text", bg = "surface-2" }
+"ui.menu.selected" = { fg = "text", bg = "selection" }
+"ui.menu.scroll" = { fg = "text", bg = "surface-1" }
+"ui.highlight" = { bg = "selection" }
+"ui.highlight.frameline" = { bg = "error" }
+"ui.debug" = { fg = "error" }
+"ui.debug.breakpoint" = { fg = "error" }
+"ui.debug.active" = { fg = "warning" }
+
+"warning" = "warning"
+"error" = "error"
+"info" = "info"
+"hint" = "accent-magenta"
+"diagnostic" = { modifiers = ["underlined"] }
+"diagnostic.hint" = { fg = "accent-magenta", modifiers = ["underlined"] }
+"diagnostic.info" = { fg = "info", modifiers = ["underlined"] }
+"diagnostic.warning" = { fg = "warning", modifiers = ["underlined"] }
+"diagnostic.error" = { fg = "error", modifiers = ["underlined"] }
+
+"comment" = "comment"
+"constant" = "string-color"
+"constant.builtin" = "string-color"
+"constant.character" = "string-color"
+"constant.character.escape" = "accent-green"
+"constant.macro" = "accent-magenta"
+"constant.numeric" = "number-color"
+"constructor" = "accent-magenta"
+"diff.delta" = "warning"
+"diff.minus" = "error"
+"diff.plus" = "success"
+"function" = "function-color"
+"function.builtin" = "function-color"
+"function.macro" = "accent-pink"
+"function.method" = "function-color"
+"function.special" = "accent-pink"
+"keyword" = "keyword-color"
+"keyword.control" = "keyword-color"
+"keyword.control.conditional" = "keyword-color"
+"keyword.control.exception" = "keyword-color"
+"keyword.control.import" = "keyword-color"
+"keyword.control.repeat" = "keyword-color"
+"keyword.control.return" = "keyword-color"
+"keyword.directive" = "keyword-color"
+"keyword.function" = "keyword-color"
+"keyword.operator" = "operator-color"
+"keyword.storage" = "keyword-color"
+"keyword.storage.modifier" = "keyword-color"
+"keyword.storage.type" = "type-color"
+"label" = "accent-cyan"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.heading" = { fg = "accent-pink", modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.link.text" = "link"
+"markup.link.url" = { fg = "link", modifiers = ["underlined"] }
+"markup.list" = "text"
+"markup.quote" = "comment"
+"markup.raw" = "string-color"
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"namespace" = "type-color"
+"operator" = "operator-color"
+"property" = "variable-color"
+"punctuation" = "operator-color"
+"punctuation.bracket" = "operator-color"
+"punctuation.delimiter" = "operator-color"
+"punctuation.special" = "accent-pink"
+"string" = "string-color"
+"string.escape" = "accent-green"
+"string.regex" = "accent-magenta"
+"string.special" = "accent-green"
+"tag" = "type-color"
+"tag.builtin" = "type-color"
+"type" = "type-color"
+"type.builtin" = "type-color"
+"type.enum.variant" = "type-color"
+"variable" = "variable-color"
+"variable.builtin" = "variable-color"
+"variable.other.member" = "variable-color"
+"variable.parameter" = "text"
+
+[palette]
+# Base colors
+background = "#16161E"
+surface-1 = "#1F1F28"
+surface-2 = "#21222C"
+surface-3 = "#2A2A33"
+text = "#EAEAF2"
+text-muted = "#8A86A0"
+comment = "#8A86A0"
+
+# Accent colors
+accent-pink = "#CA0174"
+accent-cyan = "#00F0FF"
+accent-magenta = "#FF00FF"
+accent-green = "#00FFA2"
+
+# Semantic colors
+success = "#00FF9C"
+warning = "#FFD300"
+error = "#FF003C"
+info = "#009CFF"
+link = "#00FFFF"
+
+# UI colors
+border = "#CA0174"
+selection = "#2A2A33"
+
+# Syntax highlighting colors (mapped from palette)
+keyword-color = "#CA0174"
+string-color = "#00FFA2"
+function-color = "#00F0FF"
+variable-color = "#EAEAF2"
+type-color = "#FF00FF"
+operator-color = "#FFD300"
+number-color = "#FF7B00"

@@ -10,7 +10,7 @@ window {
 
 button {
   border-radius: 8px;
-  border: 2px solid #00F0FF;
+  border: 2px solid #CA0174;
   color: #EAEAF2;
 	background-color: #1F1F28;
 	background-repeat: no-repeat;
@@ -22,8 +22,8 @@ button {
 
 button:active, button:hover {
 	background-color: #21222C;
-	border-color: #CA0174;
-	box-shadow: 0 0 15px rgba(202, 1, 116, 0.5);
+	border-color: #00F0FF;
+	box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
 	outline-style: none;
 }
 

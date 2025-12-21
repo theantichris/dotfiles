@@ -1,15 +1,15 @@
-# Cyberwave Fish Theme
+# Cyberpunk Fish Theme
 
-set -g cyberwave_primary 16e6c9 # Bright cyan
-set -g cyberwave_secondary 26add0 # Blue
-set -g cyberwave_tertiary c73df5 # Purple
-set -g cyberwave_quaternary ff8ffd # Pink
-set -g cyberwave_success 23d18b # Green
-set -g cyberwave_warning cca700 # Yellow
-set -g cyberwave_error e25e44 # Red
-set -g cyberwave_text cdcefb # Main text
-set -g cyberwave_comment 8e9395 # Muted text
-set -g cyberwave_highlight ff349a # Magenta
+set -g cyberwave_primary 00F0FF # Bright cyan
+set -g cyberwave_secondary CA0174 # Pink
+set -g cyberwave_tertiary FF00FF # Magenta
+set -g cyberwave_quaternary 00FFA2 # Neon green
+set -g cyberwave_success 00FF9C # Green
+set -g cyberwave_warning FFD300 # Yellow
+set -g cyberwave_error FF003C # Red
+set -g cyberwave_text EAEAF2 # Main text
+set -g cyberwave_comment 8A86A0 # Muted text
+set -g cyberwave_highlight CA0174 # Pink
 
 function __cyberwave_git_status
     if not git rev-parse --is-inside-work-tree >/dev/null 2>&1

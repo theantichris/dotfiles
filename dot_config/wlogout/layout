@@ -18,7 +18,7 @@
 }
 {
     "label" : "shutdown",
-    "action": "hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'",
+    "action": "systemctl poweroff",
     "text" : "Shutdown",
     "keybind" : "s"
 }
@@ -30,7 +30,7 @@
 }
 {
     "label" : "reboot",
-    "action": "hyprshutdown -t 'Restarting...' --post-cmd 'reboot'",
+    "action": "systemctl reboot",
     "text" : "Reboot",
     "keybind" : "r"
 }

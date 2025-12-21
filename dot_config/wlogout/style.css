@@ -1,18 +1,18 @@
 * {
 	background-image: none;
 	box-shadow: none;
-	font-family: "Electroharmonix"
+	font-family: "KogniGear"
 }
 
 window {
-	background-color: #091a1f;
+	background-color: #16161E;
 }
 
 button {
   border-radius: 8px;
-  border: 2px solid #16e6c9;
-  color: #cdcefb;
-	background-color: #192a30;
+  border: 2px solid #00F0FF;
+  color: #EAEAF2;
+	background-color: #1F1F28;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 25%;
@@ -21,9 +21,9 @@ button {
 }
 
 button:active, button:hover {
-	background-color: #001a24;
-	border-color: #c73df5;
-	box-shadow: 0 0 15px rgba(199, 61, 245, 0.5);
+	background-color: #21222C;
+	border-color: #CA0174;
+	box-shadow: 0 0 15px rgba(202, 1, 116, 0.5);
 	outline-style: none;
 }
 

@@ -106,7 +106,7 @@
     },
 
     "bluetooth": {
-        "format": "󰂯 {status}",
+        "format": "󰂯",
         "format-disabled": "󰂲",
         "format-connected": "󰂱 {num_connections}",
         "format-connected-battery": "󰥰 {device_alias} {device_battery_percentage}%",

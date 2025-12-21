@@ -1,0 +1,63 @@
+# Cyberpunk (Universal)
+# Theme created using the official Cyberpunk Universal palette
+# Matches your cross-platform theming system
+
+# Code syntax highlight theme
+code_syntax_highlight = "monokai"
+
+# ========= Border =========
+file_panel_border = "#CA017480"
+sidebar_border = "#1F1F28"
+footer_border = "#CA017480"
+
+# ========= Border Active =========
+file_panel_border_active = "#00F0FF"
+sidebar_border_active = "#FF00FF"
+footer_border_active = "#00FF9C"
+modal_border_active = "#CA0174"
+
+# ========= Background (bg) =========
+full_screen_bg = "#16161E"
+file_panel_bg = "#1F1F28"
+sidebar_bg = "#21222C"
+footer_bg = "#1F1F28"
+modal_bg = "#1F1F28"
+
+# ========= Foreground (fg) =========
+full_screen_fg = "#EAEAF2"
+file_panel_fg = "#EAEAF2"
+sidebar_fg = "#8A86A0"
+footer_fg = "#EAEAF2"
+modal_fg = "#EAEAF2"
+
+# ========= Special Color =========
+cursor = "#00F0FF"
+correct = "#00FF9C"
+error = "#FF003C"
+hint = "#009CFF"
+cancel = "#CA0174"
+
+# Gradient color can only have two colors!
+gradient_color = ["#00F0FF", "#CA0174"]
+
+# ========= File Panel Special Items =========
+file_panel_top_directory_icon = "#00FF9C"
+file_panel_top_path = "#00F0FF"
+file_panel_item_selected_fg = "#EAEAF2"
+file_panel_item_selected_bg = "#2A2A33"
+
+# ========= Sidebar Special Items =========
+sidebar_title = "#FF00FF"
+sidebar_item_selected_fg = "#EAEAF2"
+sidebar_item_selected_bg = "#2A2A33"
+sidebar_divider = "#8A86A0"
+
+# ========= Modal Special Items =========
+modal_cancel_fg = "#EAEAF2"
+modal_cancel_bg = "#FF003C"
+modal_confirm_fg = "#16161E"
+modal_confirm_bg = "#00FF9C"
+
+# ========= Help Menu =========
+help_menu_hotkey = "#FF00FF"
+help_menu_title = "#00F0FF"

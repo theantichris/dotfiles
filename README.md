@@ -31,7 +31,8 @@ chezmoi powered personal environment. keyboard-first. cross-platform.
 | ---------------------- | -------------------------------------------------------------------------------- | -------------------------------- |
 | **Linux WM**           | [Hyprland](https://hypr.land)                                                    | `dot_config/hypr`                |
 |                        | [Waybar](https://github.com/Alexays/Waybar)                                      | `dot_config/waybar`              |
-|                        | [Mako](https://github.com/emersion/mako)                                         | `dot_config/mako`                |
+|                        | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter)                   | `dot_config/swaync`              |
+|                        | [hyprlauncher](https://github.com/blacwulf/hyprlauncher)                         | `dot_config/hypr`                |
 |                        | [wlogout](https://github.com/ArtsyMacaw/wlogout)                                 | `dot_config/wlogout`             |
 | **macOS WM**           | [AeroSpace](https://github.com/nikitabobko/AeroSpace)                            | `dot_config/aerospace`           |
 |                        | [Karabiner](https://karabiner-elements.pqrs.org)                                 | `dot_config/private_karabiner`   |

@@ -5,6 +5,9 @@
 @define-color accent-primary #CA0174;
 @define-color accent-secondary #00F0FF;
 @define-color error #FF003C;
+@define-color success #00FF9C;
+@define-color warning #FFD300;
+@define-color info #009CFF;
 
 * {
   min-height: 0;
@@ -82,4 +85,30 @@ window#waybar {
 #custom-notification.inhibited-notification,
 #custom-notification.dnd-inhibited-notification {
   color: @accent-primary;
+}
+
+/* Weather conditions */
+@keyframes blink-text {
+  to {
+    color: @text-muted;
+  }
+}
+
+#custom-outside.hot {
+  color: @error;
+}
+
+#custom-outside.cold {
+  color: @info;
+}
+
+#custom-outside.rain,
+#custom-outside.snow,
+#custom-outside.fog {
+  color: @text-primary;
+  animation-name: blink-text;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 2s;
 }

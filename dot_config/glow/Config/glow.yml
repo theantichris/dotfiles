@@ -1,5 +1,5 @@
 # style name or JSON path (default "auto")
-#style: "~/AppData/Local/glow/Config/cyberwave.json"
+#style: "~/AppData/Local/glow/Config/cyberpunk.json"
 style: "auto"
 # mouse support (TUI-mode only)
 mouse: false

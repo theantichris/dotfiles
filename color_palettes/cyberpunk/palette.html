@@ -9,7 +9,7 @@
   <style>
     body {
       font-family: 'Courier New', monospace;
-      background: #0C0A1A;
+      background: #16161E;
       color: #EAEAF2;
       margin: 0;
       padding: 20px;
@@ -23,22 +23,22 @@
 
     h1 {
       text-align: center;
-      color: #FF005D;
+      color: #CA0174;
       margin-bottom: 40px;
       font-size: 2.5em;
-      text-shadow: 0 0 10px #FF005D;
+      text-shadow: 0 0 10px #CA0174;
     }
 
     .category {
-      background: #131025;
-      border: 1px solid #FF005D;
+      background: #1F1F28;
+      border: 1px solid #CA0174;
       border-radius: 8px;
       margin-bottom: 40px;
       padding: 20px;
     }
 
     .category-title {
-      color: #00E5FF;
+      color: #00F0FF;
       font-size: 1.5em;
       margin-bottom: 20px;
       text-transform: uppercase;
@@ -54,7 +54,7 @@
     .color-item {
       display: flex;
       align-items: center;
-      background: #0C0A1A;
+      background: #16161E;
       border: 1px solid #FF00FF;
       border-radius: 6px;
       padding: 15px;
@@ -62,8 +62,8 @@
     }
 
     .color-item:hover {
-      border-color: #FF005D;
-      box-shadow: 0 0 15px #0C0A1A;
+      border-color: #CA0174;
+      box-shadow: 0 0 15px #16161E;
     }
 
     .color-swatch {
@@ -87,9 +87,9 @@
     }
 
     .color-hex {
-      color: #00E5FF;
+      color: #00F0FF;
       font-size: 0.95em;
-      background: #211C3F;
+      background: #2A2A33;
       padding: 4px 8px;
       border-radius: 4px;
       display: inline-block;
@@ -108,8 +108,8 @@
     }
 
     .usage-note {
-      background: #211C3F;
-      border-left: 4px solid #FF005D;
+      background: #2A2A33;
+      border-left: 4px solid #CA0174;
       padding: 15px;
       margin-top: 20px;
       border-radius: 0 6px 6px 0;
@@ -117,7 +117,7 @@
 
     .copy-btn {
       background: #00FFFF;
-      color: #FF005D;
+      color: #CA0174;
       border: none;
       padding: 4px 8px;
       border-radius: 4px;
@@ -128,7 +128,7 @@
     }
 
     .copy-btn:hover {
-      background: #FF005D;
+      background: #CA0174;
       color: #00FFFF;
     }
   </style>
@@ -144,41 +144,41 @@
 
       <div class="color-grid">
         <div class="color-item">
-          <div class="color-swatch" style="background: #0C0A1A;"></div>
+          <div class="color-swatch" style="background: #16161E;"></div>
           <div class="color-info">
             <div class="color-name">Background 0 (base)</div>
             <div class="color-hex">
-              #0C0A1A <button class="copy-btn" onclick="copyToClipboard('#0C0A1A')">Copy</button>
+              #16161E <button class="copy-btn" onclick="copyToClipboard('#16161E')">Copy</button>
             </div>
           </div>
         </div>
 
         <div class="color-item">
-          <div class="color-swatch" style="background: #131025;"></div>
+          <div class="color-swatch" style="background: #1F1F28;"></div>
           <div class="color-info">
             <div class="color-name">Background 1 (panels)</div>
             <div class="color-hex">
-              #131025 <button class="copy-btn" onclick="copyToClipboard('#131025')">Copy</button>
+              #1F1F28 <button class="copy-btn" onclick="copyToClipboard('#1F1F28')">Copy</button>
             </div>
           </div>
         </div>
 
         <div class="color-item">
-          <div class="color-swatch" style="background: #1A1730;"></div>
+          <div class="color-swatch" style="background: #21222C;"></div>
           <div class="color-info">
             <div class="color-name">Background 2 (surface)</div>
             <div class="color-hex">
-              #1A1730 <button class="copy-btn" onclick="copyToClipboard('#1A1730')">Copy</button>
+              #21222C <button class="copy-btn" onclick="copyToClipboard('#21222C')">Copy</button>
             </div>
           </div>
         </div>
 
         <div class="color-item">
-          <div class="color-swatch" style="background: #211C3F;"></div>
+          <div class="color-swatch" style="background: #2A2A33;"></div>
           <div class="color-info">
             <div class="color-name">Background 3 (hover/active)</div>
             <div class="color-hex">
-              #211C3F <button class="copy-btn" onclick="copyToClipboard('#211C3F')">Copy</button>
+              #2A2A33 <button class="copy-btn" onclick="copyToClipboard('#2A2A33')">Copy</button>
             </div>
           </div>
         </div>
@@ -216,21 +216,21 @@
 
       <div class="color-grid">
         <div class="color-item">
-          <div class="color-swatch" style="background: #FF005D;"></div>
+          <div class="color-swatch" style="background: #CA0174;"></div>
           <div class="color-info">
             <div class="color-name">Accent 0</div>
             <div class="color-hex">
-              #FF005D <button class="copy-btn" onclick="copyToClipboard('#FF005D')">Copy</button>
+              #CA0174 <button class="copy-btn" onclick="copyToClipboard('#CA0174')">Copy</button>
             </div>
           </div>
         </div>
 
         <div class="color-item">
-          <div class="color-swatch" style="background: #00E5FF;"></div>
+          <div class="color-swatch" style="background: #00F0FF;"></div>
           <div class="color-info">
             <div class="color-name">Accent 1</div>
             <div class="color-hex">
-              #00E5FF <button class="copy-btn" onclick="copyToClipboard('#00E5FF')">Copy</button>
+              #00F0FF <button class="copy-btn" onclick="copyToClipboard('#00F0FF')">Copy</button>
             </div>
           </div>
         </div>
@@ -282,11 +282,11 @@
         </div>
 
         <div class="color-item">
-          <div class="color-swatch" style="background: #FF0033;"></div>
+          <div class="color-swatch" style="background: #FF003C;"></div>
           <div class="color-info">
             <div class="color-name">Error</div>
             <div class="color-hex">
-              #FF0033 <button class="copy-btn" onclick="copyToClipboard('#FF0033')">Copy</button>
+              #FF003C <button class="copy-btn" onclick="copyToClipboard('#FF003C')">Copy</button>
             </div>
           </div>
         </div>
@@ -318,11 +318,11 @@
 
       <div class="color-grid">
         <div class="color-item">
-          <div class="color-swatch" style="background: #FF005D;"></div>
+          <div class="color-swatch" style="background: #CA0174;"></div>
           <div class="color-info">
             <div class="color-name">Keywords/Reserved</div>
             <div class="color-hex">
-              #FF005D <button class="copy-btn" onclick="copyToClipboard('#FF005D')">Copy</button>
+              #CA0174 <button class="copy-btn" onclick="copyToClipboard('#CA0174')">Copy</button>
             </div>
           </div>
         </div>
@@ -338,11 +338,11 @@
         </div>
 
         <div class="color-item">
-          <div class="color-swatch" style="background: #00E5FF;"></div>
+          <div class="color-swatch" style="background: #00F0FF;"></div>
           <div class="color-info">
             <div class="color-name">Functions/Methods</div>
             <div class="color-hex">
-              #00E5FF <button class="copy-btn" onclick="copyToClipboard('#00E5FF')">Copy</button>
+              #00F0FF <button class="copy-btn" onclick="copyToClipboard('#00F0FF')">Copy</button>
             </div>
           </div>
         </div>
@@ -408,21 +408,21 @@
 
           <div class="color-grid">
             <div class="color-item">
-              <div class="color-swatch" style="background: #0C0A1A;"></div>
+              <div class="color-swatch" style="background: #16161E;"></div>
               <div class="color-info">
                 <div class="color-name">Black</div>
                 <div class="color-hex">
-                  #0C0A1A <button class="copy-btn" onclick="copyToClipboard('#0C0A1A')">Copy</button>
+                  #16161E <button class="copy-btn" onclick="copyToClipboard('#16161E')">Copy</button>
                 </div>
               </div>
             </div>
 
             <div class="color-item">
-              <div class="color-swatch" style="background: #FF0033;"></div>
+              <div class="color-swatch" style="background: #FF003C;"></div>
               <div class="color-info">
                 <div class="color-name">Red</div>
                 <div class="color-hex">
-                  #FF0033 <button class="copy-btn" onclick="copyToClipboard('#FF0033')">Copy</button>
+                  #FF003C <button class="copy-btn" onclick="copyToClipboard('#FF003C')">Copy</button>
                 </div>
               </div>
             </div>
@@ -468,11 +468,11 @@
             </div>
 
             <div class="color-item">
-              <div class="color-swatch" style="background: #00E5FF;"></div>
+              <div class="color-swatch" style="background: #00F0FF;"></div>
               <div class="color-info">
                 <div class="color-name">Cyan</div>
                 <div class="color-hex">
-                  #00E5FF <button class="copy-btn" onclick="copyToClipboard('#00E5FF')">Copy</button>
+                  #00F0FF <button class="copy-btn" onclick="copyToClipboard('#00F0FF')">Copy</button>
                 </div>
               </div>
             </div>
@@ -494,21 +494,21 @@
 
           <div class="color-grid">
             <div class="color-item">
-              <div class="color-swatch" style="background: #1C182F;"></div>
+              <div class="color-swatch" style="background: #2A2A33;"></div>
               <div class="color-info">
                 <div class="color-name">Black</div>
                 <div class="color-hex">
-                  #1C182F <button class="copy-btn" onclick="copyToClipboard('#1C182F')">Copy</button>
+                  #2A2A33 <button class="copy-btn" onclick="copyToClipboard('#2A2A33')">Copy</button>
                 </div>
               </div>
             </div>
 
             <div class="color-item">
-              <div class="color-swatch" style="background: #FF3366;"></div>
+              <div class="color-swatch" style="background: #FF3369;"></div>
               <div class="color-info">
                 <div class="color-name">Red</div>
                 <div class="color-hex">
-                  #FF3366 <button class="copy-btn" onclick="copyToClipboard('#FF3366')">Copy</button>
+                  #FF3369 <button class="copy-btn" onclick="copyToClipboard('#FF3369')">Copy</button>
                 </div>
               </div>
             </div>
@@ -554,11 +554,11 @@
             </div>
 
             <div class="color-item">
-              <div class="color-swatch" style="background: #66FFFF;"></div>
+              <div class="color-swatch" style="background: #66F5FF;"></div>
               <div class="color-info">
                 <div class="color-name">Cyan</div>
                 <div class="color-hex">
-                  #66FFFF <button class="copy-btn" onclick="copyToClipboard('#66FFFF')">Copy</button>
+                  #66F5FF <button class="copy-btn" onclick="copyToClipboard('#66F5FF')">Copy</button>
                 </div>
               </div>
             </div>

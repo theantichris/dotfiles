@@ -125,5 +125,8 @@ window#waybar {
 
 /* Submap */
 #submap {
+  margin: 5px 0 3px;
+  padding: 0 10px;
+  background: @bg-panel;
   color: @accent-primary;
 }

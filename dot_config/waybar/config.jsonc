@@ -39,7 +39,11 @@
   "memory": {
     "interval": 30,
     "format": "  {}%",
-    "on-click": "wezterm start btop"
+    "on-click": "wezterm start btop",
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
   },
   "cpu": {
     "interval": 1,
@@ -107,7 +111,13 @@
   "network": {
     "interval": 1,
     "format-wifi": "{icon}  {bandwidthDownBytes}",
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
     "format-ethernet": "󰈀  {bandwidthDownBytes}",
     "format-disconnected": "󰖪",
     "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}\nUp: {bandwidthUpBytes} Down: {bandwidthDownBytes}",

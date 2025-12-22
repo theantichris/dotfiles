@@ -48,7 +48,11 @@
   "cpu": {
     "interval": 1,
     "format": "  {usage}%",
-    "on-click": "wezterm start btop"
+    "on-click": "wezterm start btop",
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
   },
   "temperature": {
     "interval": 4,

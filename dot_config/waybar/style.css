@@ -79,17 +79,20 @@ window#waybar {
 
 #custom-gpu.critical,
 #custom-storage.critical,
+#cpu.critical,
 #memory.critical,
 #temperature.critical {
   color: @error;
 }
 
 #custom-storage,
+#cpu,
 #memory {
   color: @success;
 }
 
 #custom-storage.warning,
+#cpu.warning,
 #memory.warning {
   color: @warning;
 }

@@ -5,7 +5,7 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/rclone mount gdrive: %h/GoogleDrive \
+ExecStart=/usr/bin/rclone mount "Google Drive": %h/"Google Drive" \
 	--vfs-cache-mode full \
 	--dir-cache-time 12h \
 	--vfs-cache-max-age 12h \

@@ -4,6 +4,6 @@ simple:
   template: "{weather_icon} {temperature | round}{temperature_unit} | Wind {wind_speed | round}{wind_speed_unit} | Precip {precipitation_chance}%"
 
 waybar:
-  text: "{weather_icon}  {temperature | round}{temperature_unit} |  {precipitation_chance}%"
+  text: "<span class='weather-icon'>{weather_icon}</span>  {temperature | round}{temperature_unit} | 💧 {precipitation_chance}%"
   hot_temperature: 81
   cold_temperature: 50

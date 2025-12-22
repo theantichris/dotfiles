@@ -95,17 +95,17 @@ window#waybar {
   }
 }
 
-#custom-outside.hot {
+#custom-outside.hot .weather-icon {
   color: @error;
 }
 
-#custom-outside.cold {
+#custom-outside.cold .weather-icon {
   color: @info;
 }
 
-#custom-outside.rain,
-#custom-outside.snow,
-#custom-outside.fog {
+#custom-outside.rain .weather-icon,
+#custom-outside.snow .weather-icon,
+#custom-outside.fog .weather-icon {
   color: @text-primary;
   animation-name: blink-text;
   animation-timing-function: linear;

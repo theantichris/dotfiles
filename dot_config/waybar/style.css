@@ -78,8 +78,17 @@ window#waybar {
 }
 
 #custom-gpu.critical,
+#custom-storage.critical,
 #temperature.critical {
   background: @error;
+}
+
+#custom-storage {
+  color: @success;
+}
+
+#custom-storage.warning {
+  color: @warning;
 }
 
 #custom-notification.notification,

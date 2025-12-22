@@ -1,162 +1,182 @@
 {
-    "layer": "top",
-    "position": "top",
-    "mode": "dock",
-    "margin-left": 10,
-    "margin-bottom": 0,
-    "margin-right": 10,
-    "spacing": 5,
-
-    "modules-left": [
-        "clock#date",
-        "custom/outside",
-        "custom/media"
+  "layer": "top",
+  "position": "top",
+  "mode": "dock",
+  "margin-left": 10,
+  "margin-bottom": 0,
+  "margin-right": 10,
+  "spacing": 5,
+  "modules-left": [
+    "clock#date",
+    "custom/outside",
+    "custom/media"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "hyprland/submap",
+    "custom/storage",
+    "memory",
+    "cpu",
+    "temperature",
+    "custom/gpu",
+    "tray",
+    "wireplumber",
+    "bluetooth",
+    "custom/notification",
+    "custom/power"
+  ],
+  "custom/storage": {
+    "format": "  {}",
+    "format-alt": "{percentage}% ",
+    "format-alt-click": "click-right",
+    "return-type": "json",
+    "interval": 60,
+    "exec": "~/.config/waybar/modules/storage.sh"
+  },
+  "memory": {
+    "interval": 30,
+    "format": "  {}%",
+    "on-click": "wezterm start btop"
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "  {usage}%",
+    "on-click": "wezterm start btop"
+  },
+  "temperature": {
+    "interval": 4,
+    "critical-threshold": 80,
+    "format-critical": "  {temperatureC}°C",
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": [
+      "",
+      "",
+      ""
     ],
-    "modules-center": [
-        "hyprland/workspaces"
-    ],
-    "modules-right": [
-        "hyprland/submap",
-        "custom/storage",
-        "memory",
-        "cpu",
-        "temperature",
-        "custom/gpu",
-        "tray",
-        "wireplumber",
-        "bluetooth",
-        "custom/notification",
-        "custom/power"
-    ],
-
-    "custom/storage": {
-        "format": "  {}",
-        "format-alt": "{percentage}% ",
-        "format-alt-click": "click-right",
-        "return-type": "json",
-        "interval": 60,
-        "exec": "~/.config/waybar/modules/storage.sh"
-    },
-
-    "memory": {
-        "interval": 30,
-        "format": "  {}%",
-        "on-click": "wezterm start btop"
-    },
-
-    "cpu": {
-        "interval": 1,
-        "format": "  {usage}%",
-        "on-click": "wezterm start btop"
-    },
-
-    "temperature": {
-        "interval": 4,
-        "critical-threshold": 80,
-        "format-critical": "  {temperatureC}°C",
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", ""],
-        "max-length": 7,
-        "min-length": 7,
-        "on-click": "wezterm start btop"
-    },
-
-    "custom/gpu": {
-        "exec": "~/.config/waybar/modules/gpu.sh",
-        "interval": 5,
-        "format": "󰢮  {}",
-        "tooltip": false
-    },
-
-    "custom/outside": {
-        "exec": "~/.cargo/bin/outside -o waybar",
-        "return-type": "json",
-        "interval": 600,
-        "format": "{text}",
-        "tooltip": true,
-        "escape": true,
-        "on-click": "wezterm start ~/.cargo/bin/outside"
-    },
-
-    "custom/media": {
-        "format": "🎜  {0}",
-        "return-type": "json",
-        "max-length": 40,
-        "escape": true,
-        "exec": "~/.config/waybar/mediaplayer.py"
-    },
-
-    "hyprland/workspaces": {
-        "format": "{name}",
-        "sort-by-number": true,
-        "persistent-workspaces": {
-            "*": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        }
-    },
-
-    "tray": {
-        "icon-size": 15,
-        "spacing": 5
-    },
-
-    "bluetooth": {
-        "format": "󰂯",
-        "format-disabled": "󰂲",
-        "format-connected": "󰂱 {num_connections}",
-        "format-connected-battery": "󰥰 {device_alias} {device_battery_percentage}%",
-        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-        "on-click": "wezterm start bluetoothctl"
-    },
-
-    "clock#date": {
-        "format": "󰥔  {:%I:%M %p   %a %e %b}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "on-click": "wezterm start ikhal"
-    },
-
-    "wireplumber": {
-        "on-click": "pwvucontrol",
-        "on-click-right": "hyprpwcenter",
-        "format": "{icon} {volume}%",
-        "format-muted": "󰝟 ",
-        "format-source": "",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": " ",
-            "phone": " ",
-            "portable": " ",
-            "car": " ",
-            "default": [" ", " ", " "]
-        }
-    },
-
-    "custom/notification": {
-        "tooltip": true,
-        "format": "{icon}",
-        "format-icons": {
-            "notification": "󱅫",
-            "none": "󰂜",
-            "dnd-notification": "󰂠",
-            "dnd-none": "󰪓",
-            "inhibited-notification": "󰂛",
-            "inhibited-none": "󰪑",
-            "dnd-inhibited-notification": "󰂛",
-            "dnd-inhibited-none": "󰪑"
-        },
-        "return-type": "json",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
-        "escape": true
-    },
-
-    "custom/power": {
-        "format": " 󰐥 ",
-        "tooltip": false,
-        "on-click": "wlogout"
+    "max-length": 7,
+    "min-length": 7,
+    "on-click": "wezterm start btop"
+  },
+  "custom/gpu": {
+    "exec": "~/.config/waybar/modules/gpu.sh",
+    "interval": 5,
+    "format": "󰢮  {}",
+    "tooltip": false
+  },
+  "custom/outside": {
+    "exec": "~/.cargo/bin/outside -o waybar",
+    "return-type": "json",
+    "interval": 600,
+    "format": "{text}",
+    "tooltip": true,
+    "escape": true,
+    "on-click": "wezterm start ~/.cargo/bin/outside"
+  },
+  "custom/media": {
+    "format": "🎜  {0}",
+    "return-type": "json",
+    "max-length": 40,
+    "escape": true,
+    "exec": "~/.config/waybar/mediaplayer.py"
+  },
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "sort-by-number": true,
+    "persistent-workspaces": {
+      "*": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
     }
+  },
+  "tray": {
+    "icon-size": 15,
+    "spacing": 5
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱 {num_connections}",
+    "format-connected-battery": "󰥰 {device_alias} {device_battery_percentage}%",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "wezterm start bluetoothctl"
+  },
+  "clock#date": {
+    "format": "󰥔  {:%I:%M %p   %a %e %b}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "on-click": "wezterm start ikhal",
+    "calendar": {
+      "mode": "month",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color=\"#00F0FF\"><b>{}</b></span>",
+        "weekdays": "<span color=\"#EAEAF2\"><b>{}</b></span>",
+        "today": "<span color=\"#CA0174\"><b><u>{}</u></b></span>",
+        "weekend": "<span color=\"#00F0FF\"><b>{}</b></span>",
+        "days": "<span color=\"#8A86A0\">{}</span>"
+      },
+      "first-day-of-week": 1
+    },
+    "actions": {
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "wireplumber": {
+    "on-click": "pwvucontrol",
+    "on-click-right": "hyprpwcenter",
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 ",
+    "format-source": "",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": " ",
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
+      "default": [
+        " ",
+        " ",
+        " "
+      ]
+    }
+  },
+  "custom/notification": {
+    "tooltip": true,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/power": {
+    "format": " 󰐥 ",
+    "tooltip": false,
+    "on-click": "wlogout"
+  }
 }

@@ -21,6 +21,7 @@
     "cpu",
     "temperature",
     "custom/gpu",
+    "network",
     "tray",
     "wireplumber",
     "bluetooth",
@@ -102,6 +103,16 @@
   "tray": {
     "icon-size": 15,
     "spacing": 5
+  },
+  "network": {
+    "format-wifi": "{icon}",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰖪",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}\nUp: {bandwidthUpBytes} Down: {bandwidthDownBytes}",
+    "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}\nUp: {bandwidthUpBytes} Down: {bandwidthDownBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "wezterm start nmtui"
   },
   "bluetooth": {
     "format": "󰂯",

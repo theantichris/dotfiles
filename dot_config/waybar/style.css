@@ -59,6 +59,7 @@ window#waybar {
 #disk,
 #memory,
 #mode,
+#network,
 #temperature,
 #tray,
 #wireplumber,
@@ -121,6 +122,19 @@ window#waybar {
 
 #bluetooth.disabled {
   color: @error;
+}
+
+/* Network states */
+#network.disconnected {
+  color: @error;
+}
+
+#network.wifi {
+  color: @accent-secondary;
+}
+
+#network.ethernet {
+  color: @success;
 }
 
 /* Submap */

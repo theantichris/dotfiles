@@ -105,9 +105,10 @@
     "spacing": 5
   },
   "network": {
-    "format-wifi": "{icon}",
+    "interval": 1,
+    "format-wifi": "{icon}  {bandwidthDownBytes}",
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-    "format-ethernet": "󰈀",
+    "format-ethernet": "󰈀  {bandwidthDownBytes}",
     "format-disconnected": "󰖪",
     "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}\nUp: {bandwidthUpBytes} Down: {bandwidthDownBytes}",
     "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}\nUp: {bandwidthUpBytes} Down: {bandwidthDownBytes}",

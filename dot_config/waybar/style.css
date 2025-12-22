@@ -80,7 +80,7 @@ window#waybar {
 #custom-gpu.critical,
 #custom-storage.critical,
 #temperature.critical {
-  background: @error;
+  color: @error;
 }
 
 #custom-storage {

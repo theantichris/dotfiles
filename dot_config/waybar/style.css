@@ -125,6 +125,10 @@ window#waybar {
 }
 
 /* Network states */
+#network {
+  min-width: 100px;
+}
+
 #network.disconnected {
   color: @error;
 }

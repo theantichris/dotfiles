@@ -21,9 +21,9 @@
     "cpu",
     "temperature",
     "custom/gpu",
-    "network",
     "tray",
     "wireplumber",
+    "network",
     "bluetooth",
     "custom/notification",
     "custom/power"
@@ -134,13 +134,11 @@
       "mode": "month",
       "on-scroll": 1,
       "format": {
-        "months": "<span color=\"#00F0FF\"><b>{}</b></span>",
-        "weekdays": "<span color=\"#EAEAF2\"><b>{}</b></span>",
-        "today": "<span color=\"#CA0174\"><b><u>{}</u></b></span>",
-        "weekend": "<span color=\"#00F0FF\"><b>{}</b></span>",
-        "days": "<span color=\"#8A86A0\">{}</span>"
-      },
-      "first-day-of-week": 1
+        "months": "<span color='#00F0FF'><b>{}</b></span>",
+        "weekdays": "<span color='#EAEAF2'><b>{}</b></span>",
+        "today": "<span color='#CA0174'><b><u>{}</u></b></span>",
+        "days": "<span color='#8A86A0'>{}</span>"
+      }
     },
     "actions": {
       "on-scroll-up": "shift_up",

@@ -5,7 +5,6 @@ function upgrade --description 'Package upgrades (homebrew, pacman/paru, npm -g,
     {{- end }}
 
     go-global-update
-    npm -g update
     uv tool upgrade --all
     cargo install-update -a
 end

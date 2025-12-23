@@ -1,2 +1,7 @@
 [buffer]
 images = true
+cookie = "save"
+
+[search]
+ignore-case = "auto"
+wrap = true

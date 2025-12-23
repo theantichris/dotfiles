@@ -85,15 +85,19 @@ window#waybar {
   color: @error;
 }
 
+#custom-gpu,
 #custom-storage,
 #cpu,
-#memory {
+#memory,
+#temperature {
   color: @success;
 }
 
+#custom-gpu.warning,
 #custom-storage.warning,
 #cpu.warning,
-#memory.warning {
+#memory.warning,
+#temperature.warning {
   color: @warning;
 }
 

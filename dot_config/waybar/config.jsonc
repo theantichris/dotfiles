@@ -21,10 +21,10 @@
     "cpu",
     "temperature",
     "custom/gpu",
-    "tray",
-    "wireplumber",
     "network",
     "bluetooth",
+    "tray",
+    "wireplumber",
     "custom/notification",
     "custom/power"
   ],

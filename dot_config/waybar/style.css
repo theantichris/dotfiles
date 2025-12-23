@@ -134,13 +134,21 @@ window#waybar {
   animation-duration: 2s;
 }
 
-/* Bluetooth states */
+/* Bluetooth battery states */
 #bluetooth {
-  color: @info;
+  color: @success;  /* Green when connected with good battery */
 }
 
 #bluetooth.disabled {
-  color: @error;
+  color: @error;  /* Red when disabled */
+}
+
+#bluetooth.battery-warning {
+  color: @warning;  /* Yellow when battery low */
+}
+
+#bluetooth.battery-critical {
+  color: @error;  /* Red when battery critical */
 }
 
 /* Network states */

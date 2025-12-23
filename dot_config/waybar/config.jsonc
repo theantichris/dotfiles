@@ -34,7 +34,8 @@
     "format-alt-click": "click-right",
     "return-type": "json",
     "interval": 60,
-    "exec": "~/.config/waybar/modules/storage.sh"
+    "exec": "~/.config/waybar/modules/storage.sh",
+    "on-click": "wezterm start gdu /home"
   },
   "memory": {
     "interval": 30,

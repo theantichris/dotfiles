@@ -110,6 +110,7 @@ chezmoi powered personal environment. keyboard-first. cross-platform.
 - [Waybar](/documentation/WAYBAR.md) - Status bar configuration (modules, styling, scripts)
 - [Fish](/documentation/FISH.md) - Shell configuration (prompt, aliases, functions)
 - [WezTerm](/documentation/WEZTERM.md) - Terminal configuration (colors, keybindings, multiplexing)
+- [Helix](/documentation/HELIX.md) - Editor configuration (LSP, themes, keybindings)
 
 ### macOS
 

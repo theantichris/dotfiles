@@ -1,6 +1,6 @@
 :root {
   --cc-bg: rgba(22, 22, 30, 0.85);
-  --noti-border-color: rgba(202, 1, 116, 0.8);
+  --noti-border-color: transparent;
   --noti-bg: 22, 22, 30;
   --noti-bg-alpha: 0.85;
   --noti-bg-darker: rgb(22, 22, 30);
@@ -29,7 +29,7 @@
 /* Fallback for older CSS themes */
 /* Fallback for older CSS themes */
 @define-color cc-bg rgba(22, 22, 30, 0.95);
-@define-color noti-border-color rgba(202, 1, 116, 0.3);
+@define-color noti-border-color transparent;
 @define-color noti-bg rgba(31, 31, 40, 0.95);
 @define-color noti-bg-opaque rgb(31, 31, 40);
 @define-color noti-bg-darker rgb(22, 22, 30);

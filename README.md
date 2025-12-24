@@ -62,10 +62,19 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 | Tool                                                               | Key Files (chezmoi paths) |
 |--------------------------------------------------------------------|---------------------------|
 | [Hyprland](https://hypr.land)                                      | `dot_config/hypr`         |
+| [hyprcursor](https://github.com/hyprwm/hyprcursor)                 | -                         |
+| [hypridle](https://github.com/hyprwm/hypridle)                     | -                         |
+| [hyprlock](https://github.com/hyprwm/hyprlock)                     | -                         |
+| [hyprpaper](https://github.com/hyprwm/hyprpaper)                   | -                         |
+| [hyprpolkitagent](https://github.com/hyprwm/hyprpolkitagent)       | -                         |
+| [hyprshot](https://github.com/Gustash/hyprshot)                    | -                         |
+| [hyprshutdown](https://github.com/4lguna/hyprshutdown)             | -                         |
 | [Waybar](https://github.com/Alexays/Waybar)                        | `dot_config/waybar`       |
 | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter)     | `dot_config/swaync`       |
 | [hyprlauncher](https://github.com/blacwulf/hyprlauncher)           | `dot_config/hypr`         |
 | [wlogout](https://github.com/ArtsyMacaw/wlogout)                   | `dot_config/wlogout`      |
+| [waypaper](https://github.com/anufrievroman/waypaper)              | -                         |
+| [pwvucontrol](https://github.com/saivert/pwvucontrol)              | -                         |
 | [sddm-astronaut](https://github.com/Keyitdev/sddm-astronaut-theme) | -                         |
 
 </details>
@@ -117,6 +126,8 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 | [eza](https://github.com/eza-community/eza)       | `dot_config/eza`          |
 | [fd](https://github.com/sharkdp/fd)               | -                         |
 | [fzf](https://github.com/junegunn/fzf)            | -                         |
+| [gdu](https://github.com/dundee/gdu)              | -                         |
+| [rclone](https://rclone.org)                      | -                         |
 
 </details>
 
@@ -139,6 +150,19 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 |----------------------------------------------|---------------------------|
 | [btop](https://github.com/aristocratos/btop) | -                         |
 | [nvtop](https://github.com/Syllo/nvtop)      | -                         |
+
+</details>
+
+<details>
+<summary><strong>Communication</strong></summary>
+
+| Tool                                                | Key Files (chezmoi paths) |
+|-----------------------------------------------------|---------------------------|
+| [aerc](https://aerc-mail.org)                       | `dot_config/aerc`         |
+| [gurk](https://github.com/boxdot/gurk-rs)           | -                         |
+| [signal-desktop](https://signal.org)                | -                         |
+| [slack-desktop](https://slack.com)                  | -                         |
+| [Toot](https://github.com/ihabunek/toot)            | -                         |
 
 </details>
 
@@ -180,6 +204,7 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 | [gh](https://cli.github.com)                            | `dot_config/gh`                  |
 | [gh-dash](https://github.com/dlvhdr/gh-dash)            | `dot_config/gh-dash`             |
 | [Git](https://git-scm.com)                              | `dot_gitconfig`, `dot_gitignore` |
+| [git-delta](https://github.com/dandavison/delta)        | -                                |
 | [GoReleaser](https://goreleaser.com)                    | -                                |
 | [hugo](https://gohugo.io)                               | -                                |
 | [lazygit](https://github.com/jesseduffield/lazygit)     | -                                |
@@ -191,15 +216,35 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 <details>
 <summary><strong>Go Tools</strong></summary>
 
-| Tool | Key Files (chezmoi paths) |
-| ---- | ------------------------- |
-| [delve](https://github.com/go-delve/delve) | - |
-| [gocovsh](https://github.com/orlangure/gocovsh) | - |
-| [goimports](https://pkg.go.dev/golang.org/x/tools/cmd/goimports) | - |
-| [golangci-lint](https://golangci-lint.run) | - |
-| [golangci-lint-langserver](https://github.com/nametake/golangci-lint-langserver) | - |
-| [gopls](https://pkg.go.dev/golang.org/x/tools/gopls) | - |
-| [gotestsum](https://github.com/gotestyourself/gotestsum) | - |
+| Tool                                                                             | Key Files (chezmoi paths) |
+|----------------------------------------------------------------------------------|---------------------------|
+| [delve](https://github.com/go-delve/delve)                                       | -                         |
+| [go-global-update](https://github.com/Gelio/go-global-update)                    | -                         |
+| [gocovsh](https://github.com/orlangure/gocovsh)                                  | -                         |
+| [goimports](https://pkg.go.dev/golang.org/x/tools/cmd/goimports)                 | -                         |
+| [golangci-lint](https://golangci-lint.run)                                       | -                         |
+| [golangci-lint-langserver](https://github.com/nametake/golangci-lint-langserver) | -                         |
+| [gopls](https://pkg.go.dev/golang.org/x/tools/gopls)                             | -                         |
+| [gotestsum](https://github.com/gotestyourself/gotestsum)                         | -                         |
+
+</details>
+
+<details>
+<summary><strong>Python Tools</strong></summary>
+
+| Tool                                      | Key Files (chezmoi paths) |
+|-------------------------------------------|---------------------------|
+| [uv](https://github.com/astral-sh/uv)     | -                         |
+
+</details>
+
+<details>
+<summary><strong>Rust Tools</strong></summary>
+
+| Tool                                                  | Key Files (chezmoi paths) |
+|-------------------------------------------------------|---------------------------|
+| [cargo-update](https://github.com/nabijaczleweli/cargo-update) | -                         |
+| [rustup](https://rustup.rs)                           | -                         |
 
 </details>
 
@@ -211,6 +256,7 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 | [bash-language-server](https://github.com/bash-lsp/bash-language-server)         | -                         |
 | [codespell](https://github.com/codespell-project/codespell)                      | `dot_config/codespell`    |
 | [harper](https://github.com/elijah-potter/harper)                                | `dot_config/harper`       |
+| [jedi-language-server](https://github.com/pappasam/jedi-language-server)         | -                         |
 | [lua-language-server](https://github.com/LuaLS/lua-language-server)              | -                         |
 | [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)             | -                         |
 | [marksman](https://github.com/artempyanykh/marksman)                             | -                         |
@@ -226,16 +272,23 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 | Tool                                                    | Key Files (chezmoi paths) |
 |---------------------------------------------------------|---------------------------|
 | [chezmoi](https://www.chezmoi.io)                       | `dot_config/chezmoi`      |
+| [cmatrix](https://github.com/abishekvashok/cmatrix)     | -                         |
 | [fastfetch](https://github.com/fastfetch-cli/fastfetch) | `dot_config/fastfetch`    |
 | [ffmpeg](https://ffmpeg.org)                            | -                         |
 | [freeze](https://github.com/charmbracelet/freeze)       | -                         |
 | [HTTPie](https://httpie.io)                             | -                         |
 | [jq](https://jqlang.github.io/jq)                       | -                         |
 | [jqp](https://github.com/noahgorstein/jqp)              | -                         |
+| [pass](https://www.passwordstore.org)                   | -                         |
+| [rbonsai](https://gitlab.com/jallbrit/cbonsai)          | -                         |
+| [speedtest-cli](https://github.com/sivel/speedtest-cli) | -                         |
+| [squiid](https://github.com/pythops/squiid)             | -                         |
+| [superseedr](https://github.com/dertuxmalwieder/superseedr) | -                     |
 | [traytui](https://github.com/pythops/traytui)           | -                         |
 | [ttyd](https://github.com/tsl0922/ttyd)                 | -                         |
 | [vdirsyncer](https://github.com/pimutils/vdirsyncer)    | `dot_config/vdirsyncer`   |
 | [vhs](https://github.com/charmbracelet/vhs)             | -                         |
+| [xdg-terminal-exec](https://github.com/Vladimir-csp/xdg-terminal-exec) | -          |
 
 </details>
 
@@ -308,9 +361,33 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 <details>
 <summary><strong>Security</strong></summary>
 
-| Tool                                | Key Files (chezmoi paths) |
-|-------------------------------------|---------------------------|
-| [Bitwarden](https://bitwarden.com/) | -                         |
+| Tool                                     | Key Files (chezmoi paths) |
+|------------------------------------------|---------------------------|
+| [Bitwarden](https://bitwarden.com/)      | -                         |
+| [bitwarden-cli](https://bitwarden.com/help/cli/) | -                 |
+| [pass](https://www.passwordstore.org)    | -                         |
+
+</details>
+
+<details>
+<summary><strong>Themes</strong></summary>
+
+| Tool                                                      | Key Files (chezmoi paths) |
+|-----------------------------------------------------------|---------------------------|
+| [breeze](https://github.com/KDE/breeze)                   | -                         |
+| [breeze-gtk](https://github.com/KDE/breeze-gtk)           | -                         |
+| [nwg-look](https://github.com/nwg-piotr/nwg-look)         | -                         |
+| [rose-pine-hyprcursor](https://github.com/rose-pine/hyprcursor) | -                  |
+
+</details>
+
+<details>
+<summary><strong>Audio/Video</strong></summary>
+
+| Tool                                             | Key Files (chezmoi paths) |
+|--------------------------------------------------|---------------------------|
+| [pipewire](https://pipewire.org)                 | -                         |
+| [wireplumber](https://pipewire.pages.freedesktop.org/wireplumber/) | -           |
 
 </details>
 

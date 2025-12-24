@@ -329,14 +329,6 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 - [Aerospace](/documentation/AEROSPACE.md) - Window manager configuration
 - [Karabiner](/documentation/KARABINER.md) - Keyboard customization
 
-## 🎨 Themes
-
-Unified color schemes applied across all applications:
-
-- **Cyberpunk** (active) - Neon blue, pink, magenta with dark backgrounds
-
-Theme files: `/color_palettes/[theme]/palette.html`
-
 ## 🪪 License
 
 MIT

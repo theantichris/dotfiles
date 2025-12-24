@@ -1,26 +1,25 @@
 :root {
-  --cc-bg: rgba(22, 22, 30, 0.95);
-  --noti-border-color: rgba(202, 1, 116, 0.3);
-  --noti-bg: 31, 31, 40;
-  --noti-bg-alpha: 0.95;
+  --cc-bg: rgba(22, 22, 30, 0.85);
+  --noti-border-color: rgba(202, 1, 116, 0.8);
+  --noti-bg: 22, 22, 30;
+  --noti-bg-alpha: 0.85;
   --noti-bg-darker: rgb(22, 22, 30);
-  --noti-bg-hover: rgb(33, 34, 44);
-  --noti-bg-focus: rgba(42, 42, 51, 0.8);
+  --noti-bg-hover: rgb(31, 31, 40);
+  --noti-bg-focus: rgba(31, 31, 40, 0.8);
   --noti-close-bg: rgb(138, 134, 160);
   --noti-close-bg-hover: rgb(0, 240, 255);
   --text-color: rgb(234, 234, 242);
   --text-color-disabled: rgb(138, 134, 160);
   --bg-selected: rgb(202, 1, 116);
-  --notification-icon-size: 64px;
+  --notification-icon-size: 48px;
   --notification-app-icon-size: calc(var(--notification-icon-size) / 3);
-  --notification-group-icon-size: 32px;
-  --border: 1px solid var(--noti-border-color);
+  --notification-group-icon-size: 24px;
+  --border: 2px solid var(--noti-border-color);
   --border-radius: 12px;
-  --notification-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3),
-    0 1px 3px 1px rgba(0, 0, 0, 0.7), 0 2px 6px 2px rgba(0, 0, 0, 0.3);
-  --font-size-body: 15px;
-  --font-size-summary: 16px;
-  /* Deprecated variables (because of their typos). Keeeping them around for backwards compatibility. */
+  --notification-shadow: none;
+  --font-size-body: 14px;
+  --font-size-summary: 14px;
+  --font-family: KogniGear, Hack Nerd Font, monospace;
   --hover-tranistion: background 0.15s ease-in-out;
   --group-collapse-tranistion: opacity 400ms ease-in-out;
   --hover-transition: var(--hover-tranistion);
@@ -44,6 +43,11 @@
 @define-color bg-selected rgb(202, 1, 116);
 
 /* Global button override for GTK theme */
+* {
+  font-family: var(--font-family);
+  font-weight: bold;
+}
+
 button {
   background: var(--noti-bg-darker);
   color: var(--text-color);

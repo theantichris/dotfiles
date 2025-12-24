@@ -110,8 +110,7 @@ chezmoi powered personal environment. keyboard-first. cross-platform.
 
 Unified color schemes applied across all applications:
 
-- **Cyberpunk** (active) - Neon blues, pinks, magentas with dark backgrounds
-- **Cyberwave** (legacy) - Purple and blue tones
+- **Cyberpunk** (active) - Neon blue, pink, magenta with dark backgrounds
 
 Theme files: `/color_palettes/[theme]/palette.html`
 

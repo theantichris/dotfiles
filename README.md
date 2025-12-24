@@ -109,6 +109,7 @@ chezmoi powered personal environment. keyboard-first. cross-platform.
 - [Hyprland](/documentation/HYPRLAND.md) - Window manager configuration (themes, animations, keybinds)
 - [Waybar](/documentation/WAYBAR.md) - Status bar configuration (modules, styling, scripts)
 - [Fish](/documentation/FISH.md) - Shell configuration (prompt, aliases, functions)
+- [WezTerm](/documentation/WEZTERM.md) - Terminal configuration (colors, keybindings, multiplexing)
 
 ### macOS
 

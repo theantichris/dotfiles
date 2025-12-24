@@ -34,6 +34,7 @@ chezmoi powered personal environment. keyboard-first. cross-platform.
 |                        | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter)                   | `dot_config/swaync`              |
 |                        | [hyprlauncher](https://github.com/blacwulf/hyprlauncher)                         | `dot_config/hypr`                |
 |                        | [wlogout](https://github.com/ArtsyMacaw/wlogout)                                 | `dot_config/wlogout`             |
+|                        | [sddm-astronaut](https://github.com/Keyitdev/sddm-astronaut-theme)               | -                                |
 | **macOS WM**           | [AeroSpace](https://github.com/nikitabobko/AeroSpace)                            | `dot_config/aerospace`           |
 |                        | [Karabiner](https://karabiner-elements.pqrs.org)                                 | `dot_config/private_karabiner`   |
 |                        | [Raycast](https://www.raycast.com)                                               | `dot_config/raycast`             |

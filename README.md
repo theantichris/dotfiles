@@ -42,14 +42,14 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
    - Other `dot_*` files → `~/.*` (remove `dot_` prefix)
 1. Install tools from the Loadout section as needed
 
-## ⌨️ Common Tasks
+## ⌨️ Managing Configurations
 
 | Task                           | Command                                  |
 |--------------------------------|------------------------------------------|
 | Initialize & apply (SSH)       | `chezmoi init <GITHUB_REPO> --apply`     |
-| Pull updates & re-apply        | `chezmoi update`                         |
+| Pull updates                   | `chezmoi update`                         |
 | Inspect changes                | `chezmoi diff`                           |
-| Apply local changes            | `chezmoi apply -v`                       |
+| Apply local changes            | `chezmoi apply`                          |
 | Edit a tracked file            | `chezmoi edit <FILE>`                    |
 | Start tracking a file          | `chezmoi add <FILE>`                     |
 | Jump to source repo            | `chezmoi cd`                             |

@@ -78,7 +78,8 @@
     "interval": 5,
     "format": "󰢮  {}",
     "tooltip": false,
-    "return-type": "json"
+    "return-type": "json",
+    "on-click": "wezterm start nvtop"
   },
   "custom/outside": {
     "exec": "~/.cargo/bin/outside -o waybar",

@@ -64,8 +64,6 @@ A cyberpunk/netrunner-themed Hyprland setup featuring transparent windows with f
 
 ### Screenshots
 
-Screenshots go to the clipboard.
-
 | Shortcut        | Action                      |
 |-----------------|-----------------------------|
 | `PRINT`         | Screenshot (select region)  |

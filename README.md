@@ -48,6 +48,7 @@ chezmoi powered personal environment. keyboard-first. cross-platform.
 |                        | [jlv](https://github.com/hedhyw/jlv)                                             | -                                |
 |                        | [tldr](https://tldr.sh/)                                                         | -                                |
 | **System Monitor**     | [btop](https://github.com/aristocratos/btop)                                     | -                                |
+|                        | [nvtop](https://github.com/Syllo/nvtop)                                          | -                                |
 | **Notes/Tasks**        | [nb](https://github.com/xwmx/nb)                                                 | `dot_nbrc.tmpl`                  |
 | **Calendar**           | [khal](https://github.com/pimutils/khal)                                         | `dot_config/khal`                |
 | **RSS**                | [nom](https://github.com/guyfedwards/nom)                                        | `dot_config/nom`                 |
@@ -85,6 +86,7 @@ chezmoi powered personal environment. keyboard-first. cross-platform.
 |                        | [HTTPie](https://httpie.io)                                                      | -                                |
 |                        | [jq](https://jqlang.github.io/jq)                                                | -                                |
 |                        | [jqp](https://github.com/noahgorstein/jqp)                                       | -                                |
+|                        | [traytui](https://github.com/pythops/traytui)                                    | -                                |
 |                        | [ttyd](https://github.com/tsl0922/ttyd)                                          | -                                |
 |                        | [vdirsyncer](https://github.com/pimutils/vdirsyncer)                             | `dot_config/vdirsyncer`          |
 |                        | [vhs](https://github.com/charmbracelet/vhs)                                      | -                                |
@@ -105,6 +107,7 @@ chezmoi powered personal environment. keyboard-first. cross-platform.
 ### Linux
 
 - [Hyprland](/documentation/HYPRLAND.md) - Window manager configuration (themes, animations, keybinds)
+- [Waybar](/documentation/WAYBAR.md) - Status bar configuration (modules, styling, scripts)
 
 ### macOS
 

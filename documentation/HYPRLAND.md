@@ -2,7 +2,7 @@
 
 ## Overview
 
-A cyberpunk/netrunner-themed Hyprland setup featuring transparent windows with frosted glass blur, smooth animations, and a magenta/cyan color scheme. Designed for keyboard-driven workflow with vim-style navigation.
+A cyberpunk/netrunner themed Hyprland setup featuring transparent windows with frosted glass blur, smooth animations, and a magenta/cyan color scheme. Designed for keyboard-driven workflow with vim-style navigation.
 
 ### Visual Style
 
@@ -80,34 +80,34 @@ A cyberpunk/netrunner-themed Hyprland setup featuring transparent windows with f
 
 ### Changing Colors
 
-The color scheme is defined in `~/.config/hypr/theme.conf`.
+The color scheme is defined in [`~/.config/hypr/theme.conf`](../dot_config/hypr/theme.conf).
 
 ### Changing Animations
 
-In `~/.config/hypr/theme.conf`, adjust the speed values (lower = faster). The second number in each animation line controls speed.
+In [`~/.config/hypr/theme.conf`](../dot_config/hypr/theme.conf), adjust the speed values (lower = faster). The second number in each animation line controls speed.
 
 ### Adjusting Transparency
 
-Open `~/.config/hypr/theme.conf` and modify:
+Open [`~/.config/hypr/theme.conf`](../dot_config/hypr/theme.conf) and modify:
 - `active_opacity` - Focused window transparency (0.0 = invisible, 1.0 = solid)
 - `inactive_opacity` - Unfocused window transparency
 
 ### Blur Settings
 
-Modify blur in `~/.config/hypr/theme.conf`:
+Modify blur in [`~/.config/hypr/theme.conf`](../dot_config/hypr/theme.conf):
 - `size` - How much blur (higher = more blurred)
 - `passes` - Quality (higher = smoother but slower)
 - `noise` - Film grain effect intensity
 
 ### Window Rules
 
-Add custom rules in `~/.config/hypr/windowrules.conf` to control specific apps (floating, opacity, fullscreen, etc.).
+Add custom rules in [`~/.config/hypr/windowrules.conf`](../dot_config/hypr/windowrules.conf) to control specific apps (floating, opacity, fullscreen, etc.).
 
 Find an app's name with: `hyprctl clients`
 
 ### Custom Shortcuts
 
-Edit `~/.config/hypr/keybinds.conf` to add or change keyboard shortcuts.
+Edit [`~/.config/hypr/keybinds.conf`](../dot_config/hypr/keybinds.conf) to add or change keyboard shortcuts.
 
 ## Integrated Features
 
@@ -119,13 +119,13 @@ Edit `~/.config/hypr/keybinds.conf` to add or change keyboard shortcuts.
 - Weather widget
 - System tray
 
-Configuration: `~/.config/waybar/`
+Configuration: [`~/.config/waybar/`](../dot_config/waybar/)
 
 ### Notifications (SwayNC)
 
 Terminal-style notification center with cyberpunk theme. Toggle with `SUPER + N`.
 
-Configuration: `~/.config/swaync/`
+Configuration: [`~/.config/swaync/`](../dot_config/swaync/)
 
 ### App Launcher (hyprlauncher)
 
@@ -135,7 +135,7 @@ Fast, keyboard-driven app launcher. Press `SUPER + SPACE` to open.
 
 Transparent menu for logout/shutdown/reboot. Semi-transparent to show desktop behind.
 
-Configuration: `~/.config/wlogout/`
+Configuration: [`~/.config/wlogout/`](../dot_config/wlogout/)
 
 ## Configuration Files
 

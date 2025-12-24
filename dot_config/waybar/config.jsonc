@@ -134,7 +134,6 @@
     "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}\nUp: {bandwidthUpBytes} Down: {bandwidthDownBytes}",
     "tooltip-format-disconnected": "Disconnected",
     "on-click": "wezterm start bandwhich",
-    "interface": "wlan*",
     "on-click-right": "wezterm start nmtui"
   },
   "bluetooth": {

@@ -134,12 +134,6 @@
       "key": "󰥔 Date/Time",
       "keyColor": "#009CFF"
     },
-    {
-      "type": "weather",
-      "key": "󰖐 Weather",
-      "keyColor": "#009CFF",
-      "location": "Knoxville,TN"
-    },
     "break",
     {
       "type": "colors",

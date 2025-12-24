@@ -5,14 +5,14 @@
 }
 
 window {
-	background-color: #16161E;
+	background-color: rgba(22, 22, 30, 0.85);
 }
 
 button {
   border-radius: 8px;
   border: 2px solid #CA0174;
   color: #EAEAF2;
-	background-color: #1F1F28;
+	background-color: rgba(31, 31, 40, 0.9);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 25%;

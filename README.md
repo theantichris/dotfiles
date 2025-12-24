@@ -13,7 +13,7 @@ chezmoi powered personal environment. keyboard-first. cross-platform.
 1. Run `chezmoi init theantichris --ssh`
 1. Run `chezmoi apply`
 
-## ⌨️Common Tasks
+## ⌨️ Common Tasks
 
 | Task                           | Command                                  |
 | ------------------------------ | ---------------------------------------- |
@@ -104,8 +104,14 @@ chezmoi powered personal environment. keyboard-first. cross-platform.
 
 ## 📚 Documentation
 
-- [Aerospace](/documentation/AEROSPACE.md) - Window manager configuration for macOS
-- [Karabiner](/documentation/KARABINER.md) - Keyboard customization for macOS
+### Linux
+
+- [Hyprland](/documentation/HYPRLAND.md) - Window manager configuration (themes, animations, keybinds)
+
+### macOS
+
+- [Aerospace](/documentation/AEROSPACE.md) - Window manager configuration
+- [Karabiner](/documentation/KARABINER.md) - Keyboard customization
 
 ## 🎨 Themes
 

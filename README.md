@@ -13,17 +13,39 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 - **Cross Platform** - Configurations for Linux, macOS, and Windows managed with chezmoi
 - **Comprehensive Tooling** - Preconfigured Git, Go, language servers, and formatters
 
-## ⚡ Boot sequence (chezmoi)
+## ⚡ Installation
 
+> **Note:** These are my personal dotfiles. You'll need to update user specific information in configs like Git (name/email), paths, and any API keys or tokens.
+
+### Prerequisites
+
+- `git`
+- `chezmoi`
+- SSH keys configured with GitHub (for forking)
+
+### Option 1: Fork and Use with Chezmoi (Recommended)
+
+1. Fork this repository to your GitHub account
 1. Install `git` and `chezmoi`
-1. Create ssh keys
-1. Run `chezmoi init theantichris --ssh`
+1. Generate SSH key: `ssh-keygen -t ed25519 -C "your_email@example.com"`
+1. Add SSH key to GitHub
+1. Run `chezmoi init <YOUR_USERNAME> --ssh`
 1. Run `chezmoi apply`
+1. Customize configs to your preferences
+
+### Option 2: Manual Installation
+
+1. Clone or download this repository
+1. Copy desired config files to their destinations:
+   - `dot_config/` contents → `~/.config/`
+   - `dot_gitconfig` → `~/.gitconfig`
+   - Other `dot_*` files → `~/.*` (remove `dot_` prefix)
+1. Install tools from the Loadout section as needed
 
 ## ⌨️ Common Tasks
 
 | Task                           | Command                                  |
-| ------------------------------ | ---------------------------------------- |
+|--------------------------------|------------------------------------------|
 | Initialize & apply (SSH)       | `chezmoi init <GITHUB_REPO> --apply`     |
 | Pull updates & re-apply        | `chezmoi update`                         |
 | Inspect changes                | `chezmoi diff`                           |
@@ -38,7 +60,7 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 <summary><strong>Linux WM</strong></summary>
 
 | Tool                                                               | Key Files (chezmoi paths) |
-|--------------------------------------------------------------------| ------------------------- |
+|--------------------------------------------------------------------|---------------------------|
 | [Hyprland](https://hypr.land)                                      | `dot_config/hypr`         |
 | [Waybar](https://github.com/Alexays/Waybar)                        | `dot_config/waybar`       |
 | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter)     | `dot_config/swaync`       |

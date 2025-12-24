@@ -79,8 +79,7 @@ chezmoi powered personal environment. keyboard-first. cross-platform.
 |                        | [taplo](https://taplo.tamasfe.dev)                                               | -                                |
 |                        | [vscode-langservers](https://github.com/hrsh7th/vscode-langservers-extracted)    | -                                |
 |                        | [yaml-language-server](https://github.com/redhat-developer/yaml-language-server) | -                                |
-| **Utilities**          | [bandwhich](https://github.com/imsnif/bandwhich)                                 | -                                |
-|                        | [chezmoi](https://www.chezmoi.io)                                                | `dot_config/chezmoi`             |
+| **Utilities**          | [chezmoi](https://www.chezmoi.io)                                                | `dot_config/chezmoi`             |
 |                        | [fastfetch](https://github.com/fastfetch-cli/fastfetch)                          | `dot_config/fastfetch`           |
 |                        | [ffmpeg](https://ffmpeg.org)                                                     | -                                |
 |                        | [freeze](https://github.com/charmbracelet/freeze)                                | -                                |
@@ -92,7 +91,9 @@ chezmoi powered personal environment. keyboard-first. cross-platform.
 |                        | [vhs](https://github.com/charmbracelet/vhs)                                      | -                                |
 | **Weather**            | [outside](https://github.com/BaconIsAVeg/outside)                                | `dot_config/outside`             |
 | **AI Tools**           | [Ollama](https://ollama.com)                                                     | -                                |
-| **Network**            | [Tailscale](https://tailscale.com)                                               | -                                |
+| **Network**            | [bandwhich](https://github.com/imsnif/bandwhich)                                 | -                                |
+|                        | [bluetui](https://github.com/pythops/bluetui)                                    | -                                |
+|                        | [Tailscale](https://tailscale.com)                                               | -                                |
 | **Email**              | [aerc](https://aerc-mail.org)                                                    | `dot_config/aerc`                |
 | **Font**               | [Nerd Fonts](https://www.nerdfonts.com)                                          | -                                |
 | **Browsers**           | [Chrome](https://www.google.com/chrome/)                                         | `dot_config/chrome-flags.conf`   |

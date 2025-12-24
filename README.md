@@ -2,8 +2,6 @@
 
 chezmoi powered personal environment. keyboard-first. cross-platform.
 
-![fastfetch](/screenshots/fastfetch.png)
-
 ![desktop](/screenshots/desktop.png)
 
 ## ⚡ Boot sequence (chezmoi)

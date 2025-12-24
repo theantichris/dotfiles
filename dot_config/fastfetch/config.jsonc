@@ -13,7 +13,10 @@
     }
   },
   "display": {
-    "separator": "  "
+    "separator": "  ",
+    "key": {
+      "width": 13
+    }
   },
   "modules": [
     {

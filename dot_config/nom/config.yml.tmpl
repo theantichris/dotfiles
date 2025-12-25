@@ -2,8 +2,8 @@ configpath: /Users/chris/Library/Application Support/nom/config.yml
 version: ""
 backends:
     miniflux:
-      host: https://miniflux.theantichris.com
-      api_key: {{ pass "miniflux/api" }}
+      - host: https://miniflux.theantichris.com
+        api_key: {{ pass "miniflux/api" }}
 showread: false
 autoread: true
 ordering: desc

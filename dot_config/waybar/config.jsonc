@@ -113,7 +113,10 @@
         9,
         10
       ]
-    }
+    },
+    "format-window-separator": "",
+    "window-rewrite-default": "•",
+    "window-rewrite": {}
   },
   "tray": {
     "icon-size": 15,

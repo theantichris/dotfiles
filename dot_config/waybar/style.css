@@ -31,6 +31,14 @@ window#waybar {
   color: @accent-primary;
 }
 
+#workspaces button:not(.empty) {
+  color: @accent-secondary;
+}
+
+#workspaces button.active:not(.empty) {
+  color: @accent-primary;
+}
+
 #workspaces button.focused {
   background: @accent-primary;
   color: @text-primary;

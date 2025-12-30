@@ -31,15 +31,22 @@ CLAUDE.md
 .config/hypr
 .config/mako
 .config/rofi
+.config/swaync
 .config/systemd
 .config/waybar
 .config/wlogout
+.config/wezterm
 
 .config/chrome-flags.conf
 .config/mimeapps.list
 .config/xdg-terminal.list
 
-run_onchange_before_install-packages-linux.sh.tmpl
+.chezmoiscripts/run_onchange_before_install-packages-linux.sh.tmpl
+{{ end }}
+
+# Android
+{{ if (ne .chezmoi.os "android") }}
+.chezmoiscripts/run_onchange_before_install-packages-android.sh.tmpl
 {{ end }}
 
 # MacOS

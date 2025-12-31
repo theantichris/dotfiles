@@ -1,0 +1,7 @@
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian") -}}
+#!/bin/bash
+
+# Debian package installation script
+# TODO: Add Debian-specific packages using apt
+
+{{- end }}

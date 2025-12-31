@@ -23,8 +23,8 @@ scripts/
 # Agents
 CLAUDE.md
 
-# Linux
-{{ if (ne .chezmoi.os "linux") }}
+# Linux GUI configs
+{{ if (ne .chezmoi.osRelease.id "cachyos") }}
 .config/autostart
 .config/gtk-3.0
 .config/gtk-4.0
@@ -40,8 +40,16 @@ CLAUDE.md
 .config/chrome-flags.conf
 .config/mimeapps.list
 .config/xdg-terminal.list
+{{ end }}
 
-.chezmoiscripts/run_onchange_before_install-packages-linux.sh.tmpl
+# CachyOS/Arch
+{{ if ne .chezmoi.osRelease.id "cachyos" }}
+.chezmoiscripts/run_onchange_before_install-packages-cachyos.sh.tmpl
+{{ end }}
+
+# Debian
+{{ if ne .chezmoi.osRelease.id "debian" }}
+.chezmoiscripts/run_onchange_before_install-packages-debian.sh.tmpl
 {{ end }}
 
 # Android

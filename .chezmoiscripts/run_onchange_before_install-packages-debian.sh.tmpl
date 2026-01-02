@@ -1,6 +1,11 @@
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian") -}}
 #!/bin/bash
 
+sudo apt update
+sudo apt upgrade
+
+sudo apt install npm
+
 set -e
 
 # eza

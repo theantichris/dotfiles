@@ -1,7 +1,36 @@
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian") -}}
 #!/bin/bash
 
-# Debian package installation script
-# TODO: Add Debian-specific packages using apt
+set -e
+
+# eza
+if ! command -v eza &> /dev/null; then
+    sudo apt-get install -y -qq gpg
+    wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/eza-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/eza-archive-keyring.gpg] https://repo.eza.access-denied.net/eza/deb stable main" | sudo tee /etc/apt/sources.list.d/eza.list > /dev/null
+    sudo apt-get update -qq
+    sudo apt-get install -y -qq eza
+fi
+
+# Helix
+if ! command -v helix &> /dev/null && ! command -v hx &> /dev/null; then
+    HELIX_VERSION="25.07.1"
+    HELIX_ARCH="aarch64"
+    HELIX_URL="https://github.com/helix-editor/helix/releases/download/${HELIX_VERSION}/helix-${HELIX_VERSION}-${HELIX_ARCH}-linux.tar.xz"
+    HELIX_TMP="/tmp/helix-${HELIX_VERSION}.tar.xz"
+
+    curl -sL -o "${HELIX_TMP}" "${HELIX_URL}"
+    sudo tar -xJf "${HELIX_TMP}" -C /opt
+    sudo mv /opt/helix-${HELIX_VERSION}-${HELIX_ARCH}-linux /opt/helix
+    sudo ln -sf /opt/helix/hx /usr/local/bin/hx
+    sudo ln -sf /opt/helix/hx /usr/local/bin/helix
+
+    mkdir -p ~/.config/helix
+    if [ ! -d ~/.config/helix/runtime ]; then
+        ln -s /opt/helix/runtime ~/.config/helix/runtime
+    fi
+
+    rm "${HELIX_TMP}"
+fi
 
 {{- end }}

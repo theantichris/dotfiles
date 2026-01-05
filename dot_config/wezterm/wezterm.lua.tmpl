@@ -99,6 +99,15 @@ config.keys = {
       prevent_fallback = true,
     }
   },
+  -- Ctrl+B then r enters resize mode
+  {
+    key = 'r',
+    mods = 'LEADER',
+    action = act.ActivateKeyTable {
+      name = 'resize_pane',
+      one_shot = false,
+    }
+  },
 }
 
 -- Normal mode key table
@@ -146,6 +155,24 @@ config.key_tables = {
     -- Escape does nothing (already in normal mode)
     { key = 'Escape', action = act.Multiple{} },
   },
+  
+  resize_pane = {
+    -- Resize pane with hjkl
+    { key = 'h', action = act.AdjustPaneSize { 'Left', 5 } },
+    { key = 'j', action = act.AdjustPaneSize { 'Down', 5 } },
+    { key = 'k', action = act.AdjustPaneSize { 'Up', 5 } },
+    { key = 'l', action = act.AdjustPaneSize { 'Right', 5 } },
+    
+    -- Exit resize mode back to NORMAL mode
+    { 
+      key = 'Escape', 
+      action = act.ActivateKeyTable {
+        name = 'normal_mode',
+        one_shot = false,
+        prevent_fallback = true,
+      }
+    },
+  },
 }
 
 -- Status indicator
@@ -156,6 +183,9 @@ wezterm.on("update-right-status", function(window, pane)
   -- Check if leader key (Ctrl+B) is active
   if window:leader_is_active() then
     mode = "LEADER"
+    bg_color = "#FFD300"  -- Yellow
+  elseif window:active_key_table() == "resize_pane" then
+    mode = "RESIZE"
     bg_color = "#FFD300"  -- Yellow
   elseif window:active_key_table() == "normal_mode" then
     mode = "NORMAL"

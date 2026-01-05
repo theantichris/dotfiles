@@ -61,44 +61,99 @@ WezTerm includes built in tmux like multiplexing:
 
 ## Keybindings
 
-All keybindings use `CTRL + SHIFT` modifier to avoid conflicts with terminal applications.
+WezTerm uses modal keybindings** similar to tmux and vim. The terminal operates in two modes with a visual status indicator.
 
-### Pane Management
+### Modes
 
-| Shortcut           | Action                        |
-|--------------------|-------------------------------|
-| `CTRL + SHIFT + R` | Split pane right (horizontal) |
-| `CTRL + SHIFT + D` | Split pane down (vertical)    |
-| `CTRL + SHIFT + H` | Move to left pane             |
-| `CTRL + SHIFT + J` | Move to down pane             |
-| `CTRL + SHIFT + K` | Move to up pane               |
-| `CTRL + SHIFT + L` | Move to right pane            |
+| Mode | Indicator | Purpose |
+|------|-----------|---------|
+| **NORMAL** | Cyan | Window/pane navigation and management |
+| **INSERT** | Green | Terminal passthrough - all keys work normally |
 
-### Pane Resizing
+**Starting Mode**: NORMAL (cyan indicator at bottom-right)
 
-| Shortcut           | Action            |
-|--------------------|-------------------|
-| `CTRL + SHIFT + ←` | Resize pane left  |
-| `CTRL + SHIFT + ↓` | Resize pane down  |
-| `CTRL + SHIFT + ↑` | Resize pane up    |
-| `CTRL + SHIFT + →` | Resize pane right |
+### Mode Switching
 
-Resizes in 5-column/row increments per press.
+| From Mode | Keys | To Mode |
+|-----------|------|---------|
+| NORMAL | `i` or `Enter` | INSERT |
+| INSERT | `Ctrl+B` then `Esc` | NORMAL |
+| INSERT | `Ctrl+B` then `d` | NORMAL |
 
-### Tab Management
+**Important**: The `Ctrl+B` prefix (leader key) prevents conflicts with programs like Helix, vim, and emacs that use plain `Escape`.
 
-| Shortcut           | Action          |
-|--------------------|-----------------|
-| `CTRL + SHIFT + 1` | Switch to tab 1 |
-| `CTRL + SHIFT + 2` | Switch to tab 2 |
-| `CTRL + SHIFT + 3` | Switch to tab 3 |
+### NORMAL Mode Keybindings
 
-### Scrolling
+All single-key commands work only in NORMAL mode. Unbound keys are blocked to prevent accidental input.
 
-| Shortcut   | Action               |
-|------------|----------------------|
-| `CTRL + ↑` | Scroll up one line   |
-| `CTRL + ↓` | Scroll down one line |
+#### Pane Navigation
+
+| Key | Action |
+|-----|--------|
+| `h` | Move to left pane |
+| `j` | Move to down pane |
+| `k` | Move to up pane |
+| `l` | Move to right pane |
+
+#### Pane Management
+
+| Key | Action |
+|-----|--------|
+| `s` | Split horizontal (top/bottom) |
+| `v` | Split vertical (left/right) |
+| `x` | Close current pane (with confirmation) |
+| `f` | Fullscreen/zoom current pane (toggle) |
+
+#### Tab Management
+
+| Key | Action |
+|-----|--------|
+| `1` | Switch to tab 1 |
+| `2` | Switch to tab 2 |
+| `3` | Switch to tab 3 |
+| `4` | Switch to tab 4 |
+| `5` | Switch to tab 5 |
+| `6` | Switch to tab 6 |
+| `7` | Switch to tab 7 |
+| `8` | Switch to tab 8 |
+| `9` | Switch to tab 9 |
+
+#### Scrolling
+
+| Key | Action |
+|-----|--------|
+| `Ctrl+u` | Scroll up half page |
+| `Ctrl+d` | Scroll down half page |
+
+#### Other Commands
+
+| Key | Action |
+|-----|--------|
+| `[` | Enter copy mode (vim-style navigation) |
+| `:` | Open command palette |
+| `i` | Enter INSERT mode |
+| `Enter` | Enter INSERT mode |
+
+### INSERT Mode
+
+All keys pass through to the terminal normally. Use this mode for:
+- Typing commands at the shell
+- Using interactive programs (Helix, vim, nano, less, etc.)
+- Any normal terminal operation
+
+**To return to NORMAL mode**: Press `Ctrl+B`, release, then press `Esc` (or `d`)
+
+### Quick Reference
+
+**Common Workflow**:
+1. Start WezTerm → NORMAL mode (cyan)
+2. Press `i` → INSERT mode (green) → use shell/programs normally
+3. Press `Ctrl+B` then `Esc` → back to NORMAL mode
+4. Press `s` → split pane
+5. Press `h/j/k/l` → navigate between panes
+6. Press `i` → INSERT mode in focused pane
+
+**If You Get Stuck**: The status indicator at bottom-right shows your current mode. Press `Ctrl+B` then `Esc` to return to NORMAL mode.
 
 ## Color Scheme
 

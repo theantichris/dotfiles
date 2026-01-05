@@ -49,6 +49,9 @@ end
 -- Window
 -- Opacity controlled by Hyprland compositor
 
+-- Confirm before closing panes/tabs
+config.skip_close_confirmation_for_processes_named = {}
+
 -- Colors
 config.colors = {
   foreground = "#EAEAF2",
@@ -110,6 +113,14 @@ config.key_tables = {
     -- Enter insert mode (passthrough)
     { key = 'i', action = act.PopKeyTable },
     { key = 'Enter', action = act.PopKeyTable },  -- TUIOS also uses Enter
+    
+    -- Pane splitting
+    { key = 's', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
+    { key = 'v', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+    
+    -- Pane management
+    { key = 'x', action = act.CloseCurrentPane { confirm = true } },
+    { key = 'f', action = act.TogglePaneZoomState },
     
     -- Tab switching
     { key = '1', action = act.ActivateTab(0) },

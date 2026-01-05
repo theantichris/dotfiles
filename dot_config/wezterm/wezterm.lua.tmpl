@@ -1,5 +1,6 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
+local act = wezterm.action
 
 config.default_cwd = wezterm.home_dir
 
@@ -70,82 +71,158 @@ config.colors = {
 config.send_composed_key_when_left_alt_is_pressed = false
 config.send_composed_key_when_right_alt_is_pressed = false
 
+-- Helix-style modal keybindings
 config.keys = {
+  -- From INSERT mode: Escape enters NORMAL mode
+  {
+    key = 'Escape',
+    action = act.ActivateKeyTable {
+      name = 'normal_mode',
+      one_shot = false,
+      prevent_fallback = true,  -- Don't pass unbound keys through
+    }
+  },
+  -- Legacy keybindings (still work in both modes with modifiers)
   {
     key = 'R',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+    action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
   },
   {
     key = 'D',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+    action = act.SplitVertical { domain = 'CurrentPaneDomain' },
   },
   {
     key = 'H',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.ActivatePaneDirection('Left'),
+    action = act.ActivatePaneDirection('Left'),
   },
   {
     key = 'J',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.ActivatePaneDirection('Down'),
+    action = act.ActivatePaneDirection('Down'),
   },
   {
     key = 'K',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.ActivatePaneDirection('Up'),
+    action = act.ActivatePaneDirection('Up'),
   },
   {
     key = 'L',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.ActivatePaneDirection('Right'),
+    action = act.ActivatePaneDirection('Right'),
   },
   {
     key = 'LeftArrow',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.AdjustPaneSize { 'Left', 5 },
+    action = act.AdjustPaneSize { 'Left', 5 },
   },
   {
     key = 'DownArrow',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.AdjustPaneSize { 'Down', 5 },
+    action = act.AdjustPaneSize { 'Down', 5 },
   },
   {
     key = 'UpArrow',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.AdjustPaneSize { 'Up', 5 },
+    action = act.AdjustPaneSize { 'Up', 5 },
   },
   {
     key = 'RightArrow',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.AdjustPaneSize { 'Right', 5 },
+    action = act.AdjustPaneSize { 'Right', 5 },
   },
   {
     key = '1',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.ActivateTab(0),
+    action = act.ActivateTab(0),
   },
   {
     key = '2',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.ActivateTab(1),
+    action = act.ActivateTab(1),
   },
   {
     key = '3',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.ActivateTab(2),
+    action = act.ActivateTab(2),
   },
   {
     key = 'UpArrow',
     mods = 'CTRL',
-    action = wezterm.action.ScrollByLine(-1),
+    action = act.ScrollByLine(-1),
   },
   {
     key = 'DownArrow',
     mods = 'CTRL',
-    action = wezterm.action.ScrollByLine(1),
+    action = act.ScrollByLine(1),
   },
 }
+
+-- Normal mode key table
+config.key_tables = {
+  normal_mode = {
+    -- Pane navigation (vim-style)
+    { key = 'h', action = act.ActivatePaneDirection('Left') },
+    { key = 'j', action = act.ActivatePaneDirection('Down') },
+    { key = 'k', action = act.ActivatePaneDirection('Up') },
+    { key = 'l', action = act.ActivatePaneDirection('Right') },
+    
+    -- Enter insert mode (passthrough)
+    { key = 'i', action = act.PopKeyTable },
+    
+    -- Tab switching
+    { key = '1', action = act.ActivateTab(0) },
+    { key = '2', action = act.ActivateTab(1) },
+    { key = '3', action = act.ActivateTab(2) },
+    { key = '4', action = act.ActivateTab(3) },
+    { key = '5', action = act.ActivateTab(4) },
+    { key = '6', action = act.ActivateTab(5) },
+    { key = '7', action = act.ActivateTab(6) },
+    { key = '8', action = act.ActivateTab(7) },
+    { key = '9', action = act.ActivateTab(8) },
+    
+    -- Scrolling
+    { key = 'u', mods = 'CTRL', action = act.ScrollByPage(-0.5) },
+    { key = 'd', mods = 'CTRL', action = act.ScrollByPage(0.5) },
+    
+    -- Copy mode
+    { key = '[', action = act.ActivateCopyMode },
+    
+    -- Command palette
+    { key = ':', mods = 'SHIFT', action = act.ActivateCommandPalette },
+    
+    -- Escape does nothing (already in normal mode)
+    { key = 'Escape', action = act.Multiple{} },
+  },
+}
+
+-- Status indicator
+wezterm.on("update-right-status", function(window, pane)
+  local mode = "INSERT"
+  local bg_color = "#00FF9C"  -- Green
+  
+  if window:active_key_table() == "normal_mode" then
+    mode = "NORMAL"
+    bg_color = "#00F0FF"  -- Cyan
+  end
+  
+  window:set_right_status(wezterm.format({
+    { Background = { Color = bg_color } },
+    { Foreground = { Color = "#16161E" } },
+    { Text = " " .. mode .. " " },
+  }))
+end)
+
+-- Activate normal mode on startup
+wezterm.on("gui-startup", function(cmd)
+  local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
+  window:gui_window():perform_action(act.ActivateKeyTable {
+    name = 'normal_mode',
+    one_shot = false,
+    prevent_fallback = true,  -- Block unbound keys
+  }, pane)
+end)
 
 return config

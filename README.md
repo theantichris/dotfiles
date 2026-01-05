@@ -345,7 +345,7 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 | Tool                                               | Key Files (chezmoi paths)      |
 |----------------------------------------------------|--------------------------------|
 | [Chrome](https://www.google.com/chrome/)           | `dot_config/chrome-flags.conf` |
-| [chawan](https://github.com/chawan-project/chawan) | `dot_config/chawan`            |
+| [chawan](https://chawan.net/index.html) | `dot_config/chawan`            |
 
 </details>
 

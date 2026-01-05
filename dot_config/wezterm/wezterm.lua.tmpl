@@ -153,7 +153,11 @@ wezterm.on("update-right-status", function(window, pane)
   local mode = "INSERT"
   local bg_color = "#00FF9C"  -- Green
   
-  if window:active_key_table() == "normal_mode" then
+  -- Check if leader key (Ctrl+B) is active
+  if window:leader_is_active() then
+    mode = "LEADER"
+    bg_color = "#FFD300"  -- Yellow
+  elseif window:active_key_table() == "normal_mode" then
     mode = "NORMAL"
     bg_color = "#00F0FF"  -- Cyan
   end

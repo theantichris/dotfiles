@@ -165,10 +165,7 @@ config.key_tables = {
     -- Exit resize mode back to NORMAL mode
     { 
       key = 'Escape', 
-      action = act.ActivateKeyTable {
-        name = 'normal_mode',
-        one_shot = false,
-      }
+      action = act.PopKeyTable
     },
   },
   
@@ -182,10 +179,7 @@ config.key_tables = {
     -- Exit move mode back to NORMAL mode
     { 
       key = 'Escape', 
-      action = act.ActivateKeyTable {
-        name = 'normal_mode',
-        one_shot = false,
-      }
+      action = act.PopKeyTable
     },
   },
 }

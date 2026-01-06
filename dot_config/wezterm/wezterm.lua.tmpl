@@ -133,6 +133,8 @@ config.key_tables = {
     -- Tab and window management
     { key = 't', action = act.SpawnTab 'CurrentPaneDomain' },
     { key = 'n', action = act.SpawnWindow },
+    { key = 'Tab', action = act.ActivateTabRelative(1) },
+    { key = 'Tab', mods = 'SHIFT', action = act.ActivateTabRelative(-1) },
     
     -- Tab switching
     { key = '1', action = act.ActivateTab(0) },

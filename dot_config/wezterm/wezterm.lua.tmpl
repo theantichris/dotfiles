@@ -150,6 +150,8 @@ config.key_tables = {
     -- Scrolling
     { key = 'u', mods = 'CTRL', action = act.ScrollByPage(-0.5) },
     { key = 'd', mods = 'CTRL', action = act.ScrollByPage(0.5) },
+    { key = 'UpArrow', action = act.ScrollByLine(-1) },
+    { key = 'DownArrow', action = act.ScrollByLine(1) },
     
     -- Copy mode
     { key = '[', action = act.ActivateCopyMode },

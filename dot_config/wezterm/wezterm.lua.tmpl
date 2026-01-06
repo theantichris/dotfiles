@@ -130,6 +130,10 @@ config.key_tables = {
     { key = 'x', action = act.CloseCurrentPane { confirm = false } },
     { key = 'f', action = act.TogglePaneZoomState },
     
+    -- Tab and window management
+    { key = 't', action = act.SpawnTab 'CurrentPaneDomain' },
+    { key = 'n', action = act.SpawnWindow },
+    
     -- Tab switching
     { key = '1', action = act.ActivateTab(0) },
     { key = '2', action = act.ActivateTab(1) },

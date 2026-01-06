@@ -216,7 +216,7 @@ config.key_tables = {
   },
   
   move_pane = {
-    -- Move/rotate panes with hjkl
+    -- Rotate panes (WezTerm limitation: can't move in specific direction)
     { key = 'h', action = act.RotatePanes 'CounterClockwise' },
     { key = 'l', action = act.RotatePanes 'Clockwise' },
     { key = 'j', action = act.RotatePanes 'Clockwise' },

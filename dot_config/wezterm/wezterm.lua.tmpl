@@ -89,34 +89,6 @@ config.keys = {
       prevent_fallback = true,
     }
   },
-  -- From INSERT mode: Ctrl+B then d also enters NORMAL mode (TUIOS style)
-  {
-    key = 'd',
-    mods = 'LEADER',
-    action = act.ActivateKeyTable {
-      name = 'normal_mode',
-      one_shot = false,
-      prevent_fallback = true,
-    }
-  },
-  -- Ctrl+B then r enters resize mode
-  {
-    key = 'r',
-    mods = 'LEADER',
-    action = act.ActivateKeyTable {
-      name = 'resize_pane',
-      one_shot = false,
-    }
-  },
-  -- Ctrl+B then m enters move mode
-  {
-    key = 'm',
-    mods = 'LEADER',
-    action = act.ActivateKeyTable {
-      name = 'move_pane',
-      one_shot = false,
-    }
-  },
 }
 
 -- Normal mode key table
@@ -128,20 +100,18 @@ config.key_tables = {
     { key = 'k', action = act.ActivatePaneDirection('Up') },
     { key = 'l', action = act.ActivatePaneDirection('Right') },
     
-    -- Ctrl+B r to enter RESIZE from NORMAL mode
+    -- Enter RESIZE mode from NORMAL (just r, no leader)
     {
       key = 'r',
-      mods = 'LEADER',
       action = act.ActivateKeyTable {
         name = 'resize_pane',
         one_shot = false,
       }
     },
     
-    -- Ctrl+B m to enter MOVE from NORMAL mode
+    -- Enter MOVE mode from NORMAL (just m, no leader)
     {
       key = 'm',
-      mods = 'LEADER',
       action = act.ActivateKeyTable {
         name = 'move_pane',
         one_shot = false,
@@ -192,25 +162,12 @@ config.key_tables = {
     { key = 'k', action = act.AdjustPaneSize { 'Up', 5 } },
     { key = 'l', action = act.AdjustPaneSize { 'Right', 5 } },
     
-    -- Ctrl+B r to re-enter RESIZE (stay in resize)
-    {
-      key = 'r',
-      mods = 'LEADER',
-      action = act.ActivateKeyTable {
-        name = 'resize_pane',
-        one_shot = false,
-      }
-    },
-    
     -- Exit resize mode back to NORMAL mode
     { 
       key = 'Escape', 
-      action = act.Multiple {
-        act.PopKeyTable,
-        act.ActivateKeyTable {
-          name = 'normal_mode',
-          one_shot = false,
-        }
+      action = act.ActivateKeyTable {
+        name = 'normal_mode',
+        one_shot = false,
       }
     },
   },
@@ -222,25 +179,12 @@ config.key_tables = {
     { key = 'j', action = act.RotatePanes 'Clockwise' },
     { key = 'k', action = act.RotatePanes 'CounterClockwise' },
     
-    -- Ctrl+B m to re-enter MOVE (stay in move)
-    {
-      key = 'm',
-      mods = 'LEADER',
-      action = act.ActivateKeyTable {
-        name = 'move_pane',
-        one_shot = false,
-      }
-    },
-    
     -- Exit move mode back to NORMAL mode
     { 
       key = 'Escape', 
-      action = act.Multiple {
-        act.PopKeyTable,
-        act.ActivateKeyTable {
-          name = 'normal_mode',
-          one_shot = false,
-        }
+      action = act.ActivateKeyTable {
+        name = 'normal_mode',
+        one_shot = false,
       }
     },
   },

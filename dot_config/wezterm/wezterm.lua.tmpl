@@ -108,6 +108,15 @@ config.keys = {
       one_shot = false,
     }
   },
+  -- Ctrl+B then m enters move mode
+  {
+    key = 'm',
+    mods = 'LEADER',
+    action = act.ActivateKeyTable {
+      name = 'move_pane',
+      one_shot = false,
+    }
+  },
 }
 
 -- Normal mode key table
@@ -125,6 +134,16 @@ config.key_tables = {
       mods = 'LEADER',
       action = act.ActivateKeyTable {
         name = 'resize_pane',
+        one_shot = false,
+      }
+    },
+    
+    -- Ctrl+B m to enter MOVE from NORMAL mode
+    {
+      key = 'm',
+      mods = 'LEADER',
+      action = act.ActivateKeyTable {
+        name = 'move_pane',
         one_shot = false,
       }
     },
@@ -195,6 +214,36 @@ config.key_tables = {
       }
     },
   },
+  
+  move_pane = {
+    -- Move/rotate panes with hjkl
+    { key = 'h', action = act.RotatePanes 'CounterClockwise' },
+    { key = 'l', action = act.RotatePanes 'Clockwise' },
+    { key = 'j', action = act.RotatePanes 'Clockwise' },
+    { key = 'k', action = act.RotatePanes 'CounterClockwise' },
+    
+    -- Ctrl+B m to re-enter MOVE (stay in move)
+    {
+      key = 'm',
+      mods = 'LEADER',
+      action = act.ActivateKeyTable {
+        name = 'move_pane',
+        one_shot = false,
+      }
+    },
+    
+    -- Exit move mode back to NORMAL mode
+    { 
+      key = 'Escape', 
+      action = act.Multiple {
+        act.PopKeyTable,
+        act.ActivateKeyTable {
+          name = 'normal_mode',
+          one_shot = false,
+        }
+      }
+    },
+  },
 }
 
 -- Status indicator
@@ -209,6 +258,9 @@ wezterm.on("update-right-status", function(window, pane)
   elseif window:active_key_table() == "resize_pane" then
     mode = "RESIZE"
     bg_color = "#FFD300"  -- Yellow
+  elseif window:active_key_table() == "move_pane" then
+    mode = "MOVE"
+    bg_color = "#FF00FF"  -- Magenta
   elseif window:active_key_table() == "normal_mode" then
     mode = "NORMAL"
     bg_color = "#00F0FF"  -- Cyan

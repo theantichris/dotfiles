@@ -1,17 +1,3 @@
-###############################################################################
-# .nbrc
-#
-# Configuration file for `nb`, a command line note-taking, bookmarking,
-# and knowledge base application with encryption, search, Git-backed syncing,
-# and more in a single portable script.
-#
-# Edit this file manually or manage settings using the `nb settings`
-# subcommand. Configuration options are set as environment variables, eg:
-#   export NB_ENCRYPTION_TOOL=gpg
-#
-# https://github.com/xwmx/nb
-###############################################################################
-
 {{- if eq .chezmoi.os "darwin" }}
 export EDITOR=hx
 {{- end }}
@@ -29,4 +15,5 @@ export NB_FOOTER="${NB_HEADER:-1}"
 export NB_GUI_BROWSER="firefox"
 export NB_HEADER="${NB_FOOTER:-1}"
 export NB_IMAGE_TOOL="wezterm imgcat"
+export NB_LIMIT="${NB_LIMIT:-9999}"
 export NB_MARKDOWN_TOOL=glow

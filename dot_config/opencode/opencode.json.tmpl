@@ -17,7 +17,7 @@
     },
     "github": {
       "type": "local",
-      "command": ["github-mcp-server"],
+      "command": ["github-mcp-server", "stdio"],
       "environment": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": "{{ pass "github/mcp" }}",
         "GITHUB_DEFAULT_OWNER": "theantichris"

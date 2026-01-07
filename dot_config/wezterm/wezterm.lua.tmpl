@@ -133,6 +133,17 @@ config.key_tables = {
     { key = 'n', action = act.SpawnWindow },
     { key = 'Tab', action = act.ActivateTabRelative(1) },
     { key = 'Tab', mods = 'SHIFT', action = act.ActivateTabRelative(-1) },
+    { 
+      key = ',', 
+      action = act.PromptInputLine {
+        description = 'Enter new tab name:',
+        action = wezterm.action_callback(function(window, pane, line)
+          if line then
+            window:active_tab():set_title(line)
+          end
+        end),
+      }
+    },
     
     -- Tab switching
     { key = '1', action = act.ActivateTab(0) },

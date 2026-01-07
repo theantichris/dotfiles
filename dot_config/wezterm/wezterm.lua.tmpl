@@ -9,9 +9,9 @@ local is_windows = triple:find("windows") ~= nil
 local is_macos = triple:find("darwin") ~= nil
 local is_linux = triple:find("linux") ~= nil
 
-if os.getenv("HYPRLAND_INSTANCE_SIGNATURE") then
-  config.enable_wayland = false
-end
+-- if os.getenv("HYPRLAND_INSTANCE_SIGNATURE") then
+--   config.enable_wayland = false
+-- end
 
 if is_macos then
   config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
@@ -97,7 +97,7 @@ config.key_tables = {
     { key = 'j', action = act.ActivatePaneDirection('Down') },
     { key = 'k', action = act.ActivatePaneDirection('Up') },
     { key = 'l', action = act.ActivatePaneDirection('Right') },
-    
+
     -- Enter RESIZE mode from NORMAL (just r, no leader)
     {
       key = 'r',
@@ -106,7 +106,7 @@ config.key_tables = {
         one_shot = false,
       }
     },
-    
+
     -- Enter MOVE mode from NORMAL (just m, no leader)
     {
       key = 'm',
@@ -115,26 +115,26 @@ config.key_tables = {
         one_shot = false,
       }
     },
-    
+
     -- Enter insert mode (passthrough)
-    { key = 'i', action = act.PopKeyTable },
-    { key = 'Enter', action = act.PopKeyTable },  -- TUIOS also uses Enter
-    
+    { key = 'i',     action = act.PopKeyTable },
+    { key = 'Enter', action = act.PopKeyTable }, -- TUIOS also uses Enter
+
     -- Pane splitting
-    { key = 's', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
-    { key = 'v', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
-    
+    { key = 's',     action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
+    { key = 'v',     action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+
     -- Pane management
-    { key = 'x', action = act.CloseCurrentPane { confirm = false } },
-    { key = 'f', action = act.TogglePaneZoomState },
-    
+    { key = 'x',     action = act.CloseCurrentPane { confirm = false } },
+    { key = 'f',     action = act.TogglePaneZoomState },
+
     -- Tab and window management
-    { key = 't', action = act.SpawnTab 'CurrentPaneDomain' },
-    { key = 'n', action = act.SpawnWindow },
-    { key = 'Tab', action = act.ActivateTabRelative(1) },
-    { key = 'Tab', mods = 'SHIFT', action = act.ActivateTabRelative(-1) },
-    { 
-      key = ',', 
+    { key = 't',     action = act.SpawnTab 'CurrentPaneDomain' },
+    { key = 'n',     action = act.SpawnWindow },
+    { key = 'Tab',   action = act.ActivateTabRelative(1) },
+    { key = 'Tab',   mods = 'SHIFT',                                               action = act.ActivateTabRelative(-1) },
+    {
+      key = ',',
       action = act.PromptInputLine {
         description = 'Enter new tab name:',
         action = wezterm.action_callback(function(window, pane, line)
@@ -144,58 +144,58 @@ config.key_tables = {
         end),
       }
     },
-    
+
     -- Tab switching
-    { key = '1', action = act.ActivateTab(0) },
-    { key = '2', action = act.ActivateTab(1) },
-    { key = '3', action = act.ActivateTab(2) },
-    { key = '4', action = act.ActivateTab(3) },
-    { key = '5', action = act.ActivateTab(4) },
-    { key = '6', action = act.ActivateTab(5) },
-    { key = '7', action = act.ActivateTab(6) },
-    { key = '8', action = act.ActivateTab(7) },
-    { key = '9', action = act.ActivateTab(8) },
-    
+    { key = '1',         action = act.ActivateTab(0) },
+    { key = '2',         action = act.ActivateTab(1) },
+    { key = '3',         action = act.ActivateTab(2) },
+    { key = '4',         action = act.ActivateTab(3) },
+    { key = '5',         action = act.ActivateTab(4) },
+    { key = '6',         action = act.ActivateTab(5) },
+    { key = '7',         action = act.ActivateTab(6) },
+    { key = '8',         action = act.ActivateTab(7) },
+    { key = '9',         action = act.ActivateTab(8) },
+
     -- Scrolling
-    { key = 'u', mods = 'CTRL', action = act.ScrollByPage(-0.5) },
-    { key = 'd', mods = 'CTRL', action = act.ScrollByPage(0.5) },
-    { key = 'UpArrow', action = act.ScrollByLine(-1) },
+    { key = 'u',         mods = 'CTRL',                action = act.ScrollByPage(-0.5) },
+    { key = 'd',         mods = 'CTRL',                action = act.ScrollByPage(0.5) },
+    { key = 'UpArrow',   action = act.ScrollByLine(-1) },
     { key = 'DownArrow', action = act.ScrollByLine(1) },
-    
+
     -- Copy mode
-    { key = '[', action = act.ActivateCopyMode },
-    
+    { key = '[',         action = act.ActivateCopyMode },
+
     -- Command palette
-    { key = ':', mods = 'SHIFT', action = act.ActivateCommandPalette },
-    
+    { key = ':',         mods = 'SHIFT',               action = act.ActivateCommandPalette },
+
     -- Escape does nothing (already in normal mode)
-    { key = 'Escape', action = act.Multiple{} },
+    { key = 'Escape',    action = act.Multiple {} },
   },
-  
+
   resize_pane = {
     -- Resize pane with hjkl
     { key = 'h', action = act.AdjustPaneSize { 'Left', 5 } },
     { key = 'j', action = act.AdjustPaneSize { 'Down', 5 } },
     { key = 'k', action = act.AdjustPaneSize { 'Up', 5 } },
     { key = 'l', action = act.AdjustPaneSize { 'Right', 5 } },
-    
+
     -- Exit resize mode back to NORMAL mode
-    { 
-      key = 'Escape', 
+    {
+      key = 'Escape',
       action = act.PopKeyTable
     },
   },
-  
+
   move_pane = {
     -- Rotate panes (WezTerm limitation: can't move in specific direction)
     { key = 'h', action = act.RotatePanes 'CounterClockwise' },
     { key = 'l', action = act.RotatePanes 'Clockwise' },
     { key = 'j', action = act.RotatePanes 'Clockwise' },
     { key = 'k', action = act.RotatePanes 'CounterClockwise' },
-    
+
     -- Exit move mode back to NORMAL mode
-    { 
-      key = 'Escape', 
+    {
+      key = 'Escape',
       action = act.PopKeyTable
     },
   },
@@ -204,19 +204,19 @@ config.key_tables = {
 -- Status indicator
 wezterm.on("update-right-status", function(window, pane)
   local mode = "INSERT"
-  local bg_color = "#00FF9C"  -- Green
-  
+  local bg_color = "#00FF9C" -- Green
+
   if window:active_key_table() == "resize_pane" then
     mode = "RESIZE"
-    bg_color = "#FFD300"  -- Yellow
+    bg_color = "#FFD300" -- Yellow
   elseif window:active_key_table() == "move_pane" then
     mode = "MOVE"
-    bg_color = "#FF00FF"  -- Magenta
+    bg_color = "#FF00FF" -- Magenta
   elseif window:active_key_table() == "normal_mode" then
     mode = "NORMAL"
-    bg_color = "#00F0FF"  -- Cyan
+    bg_color = "#00F0FF" -- Cyan
   end
-  
+
   window:set_right_status(wezterm.format({
     { Background = { Color = bg_color } },
     { Foreground = { Color = "#16161E" } },

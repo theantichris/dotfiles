@@ -41,26 +41,6 @@ if.app-id = 'com.bitwarden.desktop'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
-run = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-id = 'com.google.Chrome.app.cinhimbnkkaeohfgghhklpknlkffjgod'
-run = 'move-node-to-workspace 9'
-
-[[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmacgap'
-run = 'move-node-to-workspace 3'
-
-[[on-window-detected]]
-if.app-id = 'notion.id'
-run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
 if.app-id = 'org.whispersystems.signal-desktop'
 run = 'layout floating'
 

@@ -50,5 +50,21 @@
       },
       "timeout": 120
     }
+  },
+  "providers": {
+    "ollama": {
+      "name": "Ollama",
+      "base_url": "http://localhost:11434/v1",
+      "type": "openai-compat",
+      "api_key": "ollama",
+      "models": [
+        {
+          "name": "Qwen2.5 Coder 32B Abliterate",
+          "id": "huihui_ai/qwen2.5-coder-abliterate:32b",
+          "context_window": 32768,
+          "default_max_tokens": 4096
+        }
+      ]
+    }
   }
 }

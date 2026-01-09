@@ -3,6 +3,7 @@ documentation/
 README.md
 LICENSE
 screenshots/
+.harper-dictionary.txt
 
 # Palette
 color_palettes/

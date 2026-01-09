@@ -15,3 +15,9 @@ if test -d ~/go/bin
         set -p PATH ~/go/bin
     end
 end
+
+if test -d ~/.local/share/../bin
+    if not contains -- ~/.local/share/../bin $PATH
+        set -p PATH ~/.local/share/../bin
+    end
+end

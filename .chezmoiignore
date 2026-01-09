@@ -3,7 +3,6 @@ documentation/
 README.md
 LICENSE
 screenshots/
-AGENTS.md
 
 # Palette
 color_palettes/
@@ -21,6 +20,9 @@ scripts/
 .github/workflows
 
 # Agents
+.crush
+.claude
+AGENTS.md
 CLAUDE.md
 
 # Linux GUI configs

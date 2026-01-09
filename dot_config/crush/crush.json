@@ -59,16 +59,10 @@
       "api_key": "ollama",
       "models": [
         {
-          "name": "Qwen2.5 Coder 32B Abliterate",
-          "id": "huihui_ai/qwen2.5-coder-abliterate:32b",
-          "context_window": 32768,
-          "default_max_tokens": 4096
-        },
-        {
           "name": "Qwen3 32b",
           "id": "qwen3:32b",
-          "context_window": 32768,
-          "default_max_tokens": 4096
+          "context_window": 256000,
+          "default_max_tokens": 20000
         }
       ]
     }

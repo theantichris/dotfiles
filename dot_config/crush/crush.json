@@ -63,6 +63,12 @@
           "id": "huihui_ai/qwen2.5-coder-abliterate:32b",
           "context_window": 32768,
           "default_max_tokens": 4096
+        },
+        {
+          "name": "Gemma3 12B",
+          "id": "gemma3:12b",
+          "context_window": 32768,
+          "default_max_tokens": 4096
         }
       ]
     }

@@ -65,8 +65,8 @@
           "default_max_tokens": 4096
         },
         {
-          "name": "Code Llama 7B",
-          "id": "codellama:7b",
+          "name": "Qwen3 32b",
+          "id": "qwen3:32b",
           "context_window": 32768,
           "default_max_tokens": 4096
         }

@@ -65,8 +65,8 @@
           "default_max_tokens": 4096
         },
         {
-          "name": "Gemma3 12B",
-          "id": "gemma3:12b",
+          "name": "Code Llama 7B",
+          "id": "codellama:7b",
           "context_window": 32768,
           "default_max_tokens": 4096
         }

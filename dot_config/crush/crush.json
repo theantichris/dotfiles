@@ -54,7 +54,7 @@
   "providers": {
     "ollama": {
       "name": "Ollama",
-      "base_url": "http://localhost:11434/api",
+      "base_url": "http://localhost:11434/v2",
       "type": "openai-compat",
       "api_key": "ollama",
       "models": [

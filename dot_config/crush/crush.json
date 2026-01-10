@@ -72,6 +72,11 @@
           "name": "Qwen3 Coder 30b",
           "id": "qwen3-coder:30b",
           "context_window": 262144
+        },
+        {
+          "name": "Dolphin Coder 15b",
+          "id": "dolphincoder:15b",
+          "context_window": 16384
         }
       ]
     }

@@ -56,6 +56,7 @@ sudo pacman -S --needed swaync
 sudo pacman -S --needed tailscale
 sudo pacman -S --needed uv
 sudo pacman -S --needed vhs
+sudo pacman -S --needed w3m
 sudo pacman -S --needed waybar
 sudo pacman -S --needed waypaper
 sudo pacman -S --needed wlogout
@@ -125,7 +126,7 @@ fi
 # daemons
 
 sudo systemctl enable --now ollama
-# sudo systemctl enable --now OpenLinkHub.service
+sudo systemctl enable --now OpenLinkHub.service
 sudo systemctl enable --now sddm.service
 sudo systemctl enable --now tailscaled
 

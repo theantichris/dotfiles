@@ -61,12 +61,12 @@
         {
           "name": "Qwen3 32b",
           "id": "qwen3:32b",
-          "context_window": 256000,
+          "context_window": 256000
         },
         {
           "name": "Deepseek Coder 33b",
           "id": "deepseek-coder:33b",
-          "context_window": 16384,
+          "context_window": 16384
         }
       ]
     }

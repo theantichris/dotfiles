@@ -15,7 +15,7 @@
     },
     "json": {
       "command": "vscode-json-languageserver",
-      "args": ["--stdio"]
+      "args": ["stdio"]
     },
     "lua": {
       "command": "lua-language-server"

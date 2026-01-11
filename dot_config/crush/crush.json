@@ -59,24 +59,10 @@
       "api_key": "ollama",
       "models": [
         {
-          "name": "Qwen3 32b",
-          "id": "qwen3:32b",
-          "context_window": 256000
-        },
-        {
-          "name": "Deepseek Coder 33b",
-          "id": "deepseek-coder:33b",
-          "context_window": 16384
-        },
-        {
-          "name": "Qwen3 Coder 30b",
-          "id": "qwen3-coder:30b",
-          "context_window": 262144
-        },
-        {
-          "name": "Dolphin Coder 15b",
-          "id": "dolphincoder:15b",
-          "context_window": 16384
+          "name": "Devstral",
+          "id": "devstral:24b",
+          "context_window": 40000,
+          "default_max_tokens": 8000
         }
       ]
     }

@@ -62,7 +62,7 @@
         {
           "name": "Devstral",
           "id": "devstral:24b",
-          "context_window": 40000,
+          "context_window": 128000,
           "default_max_tokens": 8000
         }
       ]

@@ -152,7 +152,7 @@
     "on-click": "wezterm start bluetui"
   },
   "clock#date": {
-    "format": "󰥔  {:%I:%M %p   %a %e %b}",
+    "format": "󰥔  {:%H:%M   %a %e %b}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "on-click": "wezterm start ikhal",
     "calendar": {

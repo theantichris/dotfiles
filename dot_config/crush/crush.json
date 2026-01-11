@@ -6,16 +6,6 @@
       "generated_with": false
     }
   },
-  "permissions": {
-    "allowed_tools": [
-      "view",
-      "ls",
-      "grep",
-      "glob",
-      "edit",
-      "bash"
-    ]
-  },
   "lsp": {
     "go": {
       "command": "gopls",
@@ -65,15 +55,16 @@
   "providers": {
     "ollama": {
       "name": "Ollama",
-      "base_url": "http://localhost:11434/v1",
+      "base_url": "http://localhost:11434/v1/",
       "type": "openai-compat",
       "api_key": "ollama",
       "models": [
         {
           "name": "Devstral",
           "id": "devstral:24b",
-          "context_window": 128000,
-          "default_max_tokens": 8000
+          "context_window": 131072,
+          "default_max_tokens": 8000,
+          "supports_tools": true
         }
       ]
     }

@@ -1,3 +1,8 @@
+---
+name: code-review
+description: Reviews code and suggests improvements. Use when asked to review code or propose refactors.
+---
+
 # Skill: code-review
 
 ## Description

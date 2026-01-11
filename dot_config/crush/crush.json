@@ -45,7 +45,7 @@
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
       "timeout": 120,
-      "disabled": false,
+      "disabled": true,
       "headers": {
         "CONTEXT7_API_KEY": "{{ pass \"context7/api\" }}"
       }

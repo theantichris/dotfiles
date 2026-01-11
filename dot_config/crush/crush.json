@@ -6,6 +6,16 @@
       "generated_with": false
     }
   },
+  "permissions": {
+    "allowed_tools": [
+      "view",
+      "ls",
+      "grep",
+      "glob",
+      "edit",
+      "bash"
+    ]
+  },
   "lsp": {
     "go": {
       "command": "gopls",

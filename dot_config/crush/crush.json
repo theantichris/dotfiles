@@ -47,7 +47,7 @@
       "timeout": 120,
       "disabled": false,
       "headers": {
-        "CONTEXT_API_KEY": "{{ pass \"context7/api\" }}"
+        "CONTEXT7_API_KEY": "{{ pass \"context7/api\" }}"
       }
     },
     "github": {

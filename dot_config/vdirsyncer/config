@@ -18,20 +18,3 @@ client_secret.fetch = ["command", "pass", "show", "google/vdirsyncer/client_secr
 type = "filesystem"
 path = "~/.local/share/vdirsyncer/calendars/google/"
 fileext = ".ics"
-
-[pair contacts]
-a = "contacts_remote"
-b = "contacts_local"
-collections = ["from a", "from b"]
-conflict_resolution = "a wins"
-
-[storage contacts_remote]
-type = "google_contacts"
-token_file = "~/.local/share/vdirsyncer/google_token"
-client_id.fetch = ["command", "pass", "show", "google/vdirsyncer/client_id"]
-client_secret.fetch = ["command", "pass", "show", "google/vdirsyncer/client_secret"]
-
-[storage contacts_local]
-type = "filesystem"
-path = "~/.local/share/vdirsyncer/contacts/google/"
-fileext = ".vcf"

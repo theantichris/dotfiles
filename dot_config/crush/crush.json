@@ -1,6 +1,6 @@
 {
   "$schema": "https://charm.land/crush.json",
-  "disable_default_providers": true,
+  "disable_default_providers": false,
   "options": {
     "attribution": {
       "trailer_style": "none",

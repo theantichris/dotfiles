@@ -22,7 +22,6 @@ scripts/
 
 # Agents
 .crush
-.claude
 AGENTS.md
 CLAUDE.md
 

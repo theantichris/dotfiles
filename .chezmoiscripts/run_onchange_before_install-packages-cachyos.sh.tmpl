@@ -128,11 +128,12 @@ fi
 sudo systemctl enable --now ollama
 sudo systemctl enable --now OpenLinkHub.service
 sudo systemctl enable --now sddm.service
+sudo systemctl enable --now sshd
 sudo systemctl enable --now tailscaled
 
 systemctl --user enable --now hypridle.service
 systemctl --user enable --now hyprpolkitagent.service
-# systemctl --user enable --now rclone-google-drive.service
+systemctl --user enable --now rclone-google-drive.service
 
 {{- end }}
 

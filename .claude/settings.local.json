@@ -5,7 +5,11 @@
       "WebFetch(domain:packages.termux.dev)",
       "WebSearch",
       "WebFetch(domain:w3m.rocks)",
-      "WebFetch(domain:xwmx.github.io)"
+      "WebFetch(domain:xwmx.github.io)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(env)",
+      "Bash(chezmoi data:*)"
     ]
   }
 }

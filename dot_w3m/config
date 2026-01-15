@@ -1,0 +1,30 @@
+# w3m configuration - Cyberpunk theme
+# Colors use terminal ANSI colors defined in wezterm
+
+# Enable color display
+color 1
+
+# Basic text uses terminal default
+basic_color terminal
+
+# Links: cyan (#00F0FF) - primary accent
+anchor_color cyan
+
+# Images: magenta (#FF00FF) - secondary accent
+image_color magenta
+
+# Forms: cyan to match links
+form_color cyan
+
+# Marked text: magenta for visibility
+mark_color magenta
+
+# Background: terminal default
+bg_color terminal
+
+# Active link styling
+active_style 1
+active_color magenta
+
+# Visited links: disabled (use same color as unvisited)
+visited_anchor 0

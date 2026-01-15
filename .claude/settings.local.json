@@ -3,7 +3,9 @@
     "allow": [
       "WebFetch(domain:github.com)",
       "WebFetch(domain:packages.termux.dev)",
-      "WebSearch"
+      "WebSearch",
+      "WebFetch(domain:w3m.rocks)",
+      "WebFetch(domain:xwmx.github.io)"
     ]
   }
 }

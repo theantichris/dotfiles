@@ -8,14 +8,14 @@
         "@upstash/context7-mcp"
       ],
       "env": {
-        "CONTEXT7_API_TOKEN": "{{ pass "claude/context7-token" | trim }}"
+        "CONTEXT7_API_TOKEN": "{{ pass "context7/api" | trim }}"
       }
     },
     "github": {
       "type": "http",
       "url": "https://api.githubcopilot.com/mcp",
       "headers": {
-        "Authorization": "Bearer {{ pass "claude/github-token" | trim }}"
+        "Authorization": "Bearer {{ pass "github/api" | trim }}"
       }
     },
     "atlassian": {

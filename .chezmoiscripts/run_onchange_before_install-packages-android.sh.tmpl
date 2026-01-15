@@ -2,22 +2,32 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 pkg install aerc
+pkg install bat
+pkg install chezmoi
+pkg install cmatrix
 pkg install entr
 pkg install eza
 pkg install fzf
 pkg install gh git-delta lazygit
+pkg install git
 pkg install glow
 pkg install golang gopls delve
 pkg install helix bash-language-server harper lua-language-server marksman taplo-cli vscode-json-languageserver yaml-language-server
+pkg install httpie
 pkg install hugo
-pkg install marksman
+pkg install ncdu
+pkg install nodejs-lts
 pkg install pass
+pkg install rclone
+pkg install rust
 pkg install speedtest-go
 pkg install tealdeer
 pkg install uv
+pkg install w3m
 
 # go packages
 
+go install github.com/spf13/cobra-cli@latest
 go install github.com/Gelio/go-global-update@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
 go install github.com/goreleaser/goreleaser/v2@latest
@@ -25,9 +35,22 @@ go install github.com/orlangure/gocovsh@latest
 go install github.com/nametake/golangci-lint-langserver@latest
 go install golang.org/x/tools/cmd/goimports@latest
 
+# Python (via uv)
+
+uv tool install pre-commit
+uv tool install toot-tooi
+
+# Rust
+
+cargo install cargo-update
+
 # gh extensions
 
 gh extension install dlvhdr/gh-dash
+
+# bat
+
+bat cache --build
 
 # tldr
 

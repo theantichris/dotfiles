@@ -9,7 +9,8 @@
       "Bash(cat:*)",
       "Bash(ls:*)",
       "Bash(env)",
-      "Bash(chezmoi data:*)"
+      "Bash(chezmoi data:*)",
+      "WebFetch(domain:developers.notion.com)"
     ]
   }
 }

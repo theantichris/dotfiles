@@ -1,0 +1,39 @@
+#!/bin/bash
+# Chezmoi modify script: merges MCP config while preserving Claude's runtime data
+
+set -e
+
+# Read existing file or start with empty object
+INPUT=$(cat || echo '{}')
+
+# Merge MCP config using jq
+echo "$INPUT" | jq \
+  --arg context7_token "{{ pass "context7/api" | trim }}" \
+  --arg github_token "{{ pass "github/api" | trim }}" \
+  '
+  # Set theme
+  .theme = "dark-ansi" |
+
+  # Set MCP servers (completely replaces mcpServers object)
+  .mcpServers = {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "env": {
+        "CONTEXT7_API_TOKEN": $context7_token
+      }
+    },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp",
+      "headers": {
+        "Authorization": ("Bearer " + $github_token)
+      }
+    },
+    "atlassian": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.atlassian.com/v1/sse"]
+    }
+  }
+  # All other fields (projects, stats, etc.) are preserved by jq
+  '

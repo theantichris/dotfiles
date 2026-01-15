@@ -56,6 +56,10 @@ CLAUDE.md
 .chezmoiscripts/run_onchange_before_install-packages-android.sh.tmpl
 {{ end }}
 
+{{ if eq .chezmoi.os "android" }}
+.claude.json
+{{ end }}
+
 # MacOS
 {{ if ne .chezmoi.os "darwin" }}
 .config/aerospace

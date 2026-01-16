@@ -12,7 +12,8 @@
     "custom/media"
   ],
   "modules-center": [
-    "hyprland/workspaces"
+    "hyprland/workspaces",
+    "custom/wezterm"
   ],
   "modules-right": [
     "hyprland/submap",
@@ -213,5 +214,13 @@
     "format": " 󰐥 ",
     "tooltip": false,
     "on-click": "wlogout"
+  },
+  "custom/wezterm": {
+    "exec": "~/.config/waybar/modules/wezterm.sh",
+    "return-type": "json",
+    "interval": 1,
+    "format": "{}",
+    "tooltip": true,
+    "escape": true
   }
 }

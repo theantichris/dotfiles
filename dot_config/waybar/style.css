@@ -176,32 +176,4 @@ window#waybar {
   color: @accent-primary;
 }
 
-/* Wezterm mode indicator */
-#custom-wezterm {
-  margin: 5px 0 3px;
-  padding: 0 10px;
-  background: @bg-panel;
-  color: @text-muted;
-}
 
-#custom-wezterm.wezterm-NORMAL {
-  color: @accent-secondary;
-}
-
-#custom-wezterm.wezterm-INSERT {
-  color: @success;
-}
-
-#custom-wezterm.wezterm-RESIZE {
-  color: @warning;
-}
-
-#custom-wezterm.wezterm-MOVE {
-  color: @accent-primary;
-}
-
-#custom-wezterm.hidden {
-  padding: 0;
-  margin: 0;
-  min-width: 0;
-}

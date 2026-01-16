@@ -10,6 +10,8 @@ INPUT=$(cat || echo '{}')
 echo "$INPUT" | jq \
   --arg context7_token "{{ pass "context7/api" | trim }}" \
   --arg github_token "{{ pass "github/api" | trim }}" \
+  --arg slack_token "{{ pass "slack/token" | trim }}" \
+  --arg slack_team "{{ pass "slack/team" | trim }}" \
   '
   # Set theme
   .theme = "dark-ansi" |
@@ -33,6 +35,14 @@ echo "$INPUT" | jq \
     "atlassian": {
       "command": "npx",
       "args": ["-y", "mcp-remote", "https://mcp.atlassian.com/v1/sse"]
+    },
+    "slack": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-slack"],
+      "env": {
+        "SLACK_BOT_TOKEN": $slack_token,
+        "SLACK_TEAM_ID": $slack_team
+      }
     }
   }
   # All other fields (projects, stats, etc.) are preserved by jq

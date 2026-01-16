@@ -224,19 +224,4 @@ wezterm.on("update-right-status", function(window, pane)
   }))
 end)
 
--- Activate normal mode on startup
-wezterm.on("gui-startup", function(cmd)
-  local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
-  -- Delay activation slightly to ensure window is ready
-  wezterm.time.call_after(0.1, function()
-    if window and window:gui_window() then
-      window:gui_window():perform_action(act.ActivateKeyTable {
-        name = 'normal_mode',
-        one_shot = false,
-        prevent_fallback = true,
-      }, pane)
-    end
-  end)
-end)
-
 return config

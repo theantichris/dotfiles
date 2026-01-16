@@ -17,6 +17,31 @@ Minimal terminal emulator with cyberpunk color scheme and cross-platform support
 |------|--------|
 | `Alt+[` | Copy mode (vim navigation, `v` select, `y` yank) |
 | `Alt+Shift+:` | Command palette |
+| `Ctrl+Shift+D` | Split pane below |
+| `Ctrl+Shift+H/J/K/L` | Navigate panes (vim-style) |
+| `Ctrl+Shift+R` | Enter resize mode |
+| `Ctrl+Shift+M` | Enter move mode |
+| `Ctrl+Shift+F` | Toggle pane fullscreen (zoom) |
+
+### Resize Mode
+
+Press `Ctrl+Shift+R` to enter, `Escape` to exit.
+
+| Keys | Action |
+|------|--------|
+| `H/h` | Shrink pane left |
+| `J/j` | Shrink pane down |
+| `K/k` | Grow pane up |
+| `L/l` | Grow pane right |
+
+### Move Mode
+
+Press `Ctrl+Shift+M` to enter, `Escape` to exit.
+
+| Keys | Action |
+|------|--------|
+| `H/h` | Rotate panes counter-clockwise |
+| `L/l` | Rotate panes clockwise |
 
 ## Configuration
 

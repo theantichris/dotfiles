@@ -9,10 +9,6 @@ local is_windows = triple:find("windows") ~= nil
 local is_macos = triple:find("darwin") ~= nil
 local is_linux = triple:find("linux") ~= nil
 
--- if os.getenv("HYPRLAND_INSTANCE_SIGNATURE") then
---   config.enable_wayland = false
--- end
-
 if is_macos then
   config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
 end
@@ -79,6 +75,45 @@ config.send_composed_key_when_right_alt_is_pressed = false
 config.keys = {
   { key = '[', mods = 'ALT', action = act.ActivateCopyMode },
   { key = ':', mods = 'ALT|SHIFT', action = act.ActivateCommandPalette },
+
+  -- Pane splitting
+  { key = 'D', mods = 'CTRL|SHIFT', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
+
+  -- Pane navigation
+  { key = 'H', mods = 'CTRL|SHIFT', action = act.ActivatePaneDirection 'Left' },
+  { key = 'J', mods = 'CTRL|SHIFT', action = act.ActivatePaneDirection 'Down' },
+  { key = 'K', mods = 'CTRL|SHIFT', action = act.ActivatePaneDirection 'Up' },
+  { key = 'L', mods = 'CTRL|SHIFT', action = act.ActivatePaneDirection 'Right' },
+
+  -- Resize mode
+  { key = 'R', mods = 'CTRL|SHIFT', action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
+
+  -- Move mode
+  { key = 'M', mods = 'CTRL|SHIFT', action = act.ActivateKeyTable { name = 'move_pane', one_shot = false } },
+
+  -- Fullscreen pane
+  { key = 'F', mods = 'CTRL|SHIFT', action = act.TogglePaneZoomState },
+}
+
+config.key_tables = {
+  resize_pane = {
+    { key = 'H', action = act.AdjustPaneSize { 'Left', 1 } },
+    { key = 'J', action = act.AdjustPaneSize { 'Down', 1 } },
+    { key = 'K', action = act.AdjustPaneSize { 'Up', 1 } },
+    { key = 'L', action = act.AdjustPaneSize { 'Right', 1 } },
+    { key = 'h', action = act.AdjustPaneSize { 'Left', 1 } },
+    { key = 'j', action = act.AdjustPaneSize { 'Down', 1 } },
+    { key = 'k', action = act.AdjustPaneSize { 'Up', 1 } },
+    { key = 'l', action = act.AdjustPaneSize { 'Right', 1 } },
+    { key = 'Escape', action = 'PopKeyTable' },
+  },
+  move_pane = {
+    { key = 'H', action = act.RotatePanes 'CounterClockwise' },
+    { key = 'L', action = act.RotatePanes 'Clockwise' },
+    { key = 'h', action = act.RotatePanes 'CounterClockwise' },
+    { key = 'l', action = act.RotatePanes 'Clockwise' },
+    { key = 'Escape', action = 'PopKeyTable' },
+  },
 }
 
 return config

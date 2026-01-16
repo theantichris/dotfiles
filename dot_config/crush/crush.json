@@ -44,12 +44,13 @@
       }
     },
     "github": {
-      "type": "http",
-      "url": "https://api.githubcopilot.com/mcp",
-      "timeout": 120,
-      "headers": {
-        "Authorization": "Bearer {{ pass \"github/api\" }}"
-      }
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "{{ pass \"github/api\" }}"
+      },
+      "timeout": 120
     },
     "atlassian": {
       "type": "stdio",

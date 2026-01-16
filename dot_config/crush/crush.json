@@ -44,12 +44,26 @@
       }
     },
     "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp",
+      "timeout": 120,
+      "headers": {
+        "Authorization": "Bearer {{ pass \"github/api\" }}"
+      }
+    },
+    "atlassian": {
       "type": "stdio",
-      "command": "github-mcp-server",
-      "args": ["stdio"],
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.atlassian.com/v1/sse"],
+      "timeout": 120
+    },
+    "slack": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-slack"],
       "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "{{ pass \"github/mcp\" }}",
-        "GITHUB_DEFAULT_OWNER": "theantichris"
+        "SLACK_BOT_TOKEN": "{{ pass \"slack/token\" }}",
+        "SLACK_TEAM_ID": "{{ pass \"slack/team\" }}"
       },
       "timeout": 120
     }

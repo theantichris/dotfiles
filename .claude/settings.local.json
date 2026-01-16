@@ -10,7 +10,12 @@
       "Bash(ls:*)",
       "Bash(env)",
       "Bash(chezmoi data:*)",
-      "WebFetch(domain:developers.notion.com)"
+      "WebFetch(domain:developers.notion.com)",
+      "mcp__slack__slack_list_channels",
+      "mcp__slack__slack_get_channel_history",
+      "mcp__slack__slack_get_thread_replies",
+      "mcp__slack__slack_get_user_profile",
+      "mcp__slack__slack_get_users"
     ]
   }
 }

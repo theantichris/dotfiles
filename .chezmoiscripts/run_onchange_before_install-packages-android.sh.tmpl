@@ -47,6 +47,10 @@ uv tool install toot-tooi
 
 cargo install cargo-update
 
+# npm
+
+npm install -g nb.sh
+
 # gh extensions
 
 gh extension install dlvhdr/gh-dash
@@ -58,17 +62,6 @@ bat cache --build
 # tldr
 
 tldr --update
-
-# Hack Nerd Font
-
-if [ ! -f ~/.termux/font.ttf ]; then
-  mkdir -p ~/.termux
-  curl -fLo /tmp/Hack.zip https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.zip
-  unzip -o /tmp/Hack.zip -d /tmp/Hack
-  cp /tmp/Hack/HackNerdFontMono-Regular.ttf ~/.termux/font.ttf
-  rm -rf /tmp/Hack /tmp/Hack.zip
-  termux-reload-settings
-fi
 
 {{- end }}
 

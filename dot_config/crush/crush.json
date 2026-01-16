@@ -39,7 +39,6 @@
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
       "timeout": 120,
-      "disabled": true,
       "headers": {
         "CONTEXT7_API_KEY": "{{ pass \"context7/api\" }}"
       }
@@ -52,8 +51,7 @@
         "GITHUB_PERSONAL_ACCESS_TOKEN": "{{ pass \"github/mcp\" }}",
         "GITHUB_DEFAULT_OWNER": "theantichris"
       },
-      "timeout": 120,
-      "disabled": true
+      "timeout": 120
     }
   },
   "providers": {

@@ -48,7 +48,8 @@ end
 
 -- Window
 -- Opacity controlled by Hyprland compositor
-config.window_decorations = "RESIZE"
+config.window_decorations = "NONE"
+config.enable_tab_bar = false
 
 -- Confirm before closing panes/tabs
 config.skip_close_confirmation_for_processes_named = {}
@@ -202,27 +203,7 @@ config.key_tables = {
   },
 }
 
--- Status indicator
-wezterm.on("update-right-status", function(window, pane)
-  local mode = "INSERT"
-  local bg_color = "#00FF9C" -- Green
-
-  if window:active_key_table() == "resize_pane" then
-    mode = "RESIZE"
-    bg_color = "#FFD300" -- Yellow
-  elseif window:active_key_table() == "move_pane" then
-    mode = "MOVE"
-    bg_color = "#FF00FF" -- Magenta
-  elseif window:active_key_table() == "normal_mode" then
-    mode = "NORMAL"
-    bg_color = "#00F0FF" -- Cyan
-  end
-
-  window:set_right_status(wezterm.format({
-    { Background = { Color = bg_color } },
-    { Foreground = { Color = "#16161E" } },
-    { Text = " " .. mode .. " " },
-  }))
-end)
+-- Mode indicator via cursor style (temporarily disabled for debugging)
+config.default_cursor_style = "SteadyBar"
 
 return config

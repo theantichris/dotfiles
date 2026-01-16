@@ -138,7 +138,7 @@
     "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}\nUp: {bandwidthUpBytes} Down: {bandwidthDownBytes}",
     "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}\nUp: {bandwidthUpBytes} Down: {bandwidthDownBytes}",
     "tooltip-format-disconnected": "Disconnected",
-    "on-click": "wezterm start bandwhich",
+    "on-click": "wezterm start impala",
     "on-click-right": "wezterm start nmtui"
   },
   "bluetooth": {

@@ -7,9 +7,6 @@
       "generated_with": false
     }
   },
-  "permissions": {
-    "allowed_tools": ["ls", "view", "edit", "bash", "grep", "glob"]
-  },
   "lsp": {
     "go": {
       "command": "gopls",

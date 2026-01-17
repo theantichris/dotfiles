@@ -272,6 +272,7 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 | Tool                                                    | Key Files (chezmoi paths) |
 |---------------------------------------------------------|---------------------------|
 | [chezmoi](https://www.chezmoi.io)                       | `dot_config/chezmoi`      |
+| [clipse](https://github.com/savedra1/clipse)            | `dot_config/clipse`       |
 | [cmatrix](https://github.com/abishekvashok/cmatrix)     | -                         |
 | [fastfetch](https://github.com/fastfetch-cli/fastfetch) | `dot_config/fastfetch`    |
 | [ffmpeg](https://ffmpeg.org)                            | -                         |

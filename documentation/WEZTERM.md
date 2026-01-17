@@ -15,11 +15,11 @@ Minimal terminal emulator with cyberpunk color scheme and cross-platform support
 
 | Keys | Action |
 |------|--------|
-| `Alt+[` | Copy mode (vim navigation, `v` select, `y` yank) |
-| `Alt+Shift+:` | Command palette |
+| `Ctrl+Shift+[` | Copy mode (vim navigation, `v` select, `y` yank) |
+| `Ctrl+Shift+:` | Command palette |
 | `Ctrl+Shift+D` | Split pane below |
+| `Ctrl+Shift+S` | Split pane side |
 | `Ctrl+Shift+H/J/K/L` | Navigate panes (vim-style) |
-| `Ctrl+Shift+R` | Enter resize mode |
 | `Ctrl+Shift+M` | Enter move mode |
 | `Ctrl+Shift+F` | Toggle pane fullscreen (zoom) |
 

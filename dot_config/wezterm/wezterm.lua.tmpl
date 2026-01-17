@@ -73,11 +73,12 @@ config.send_composed_key_when_left_alt_is_pressed = false
 config.send_composed_key_when_right_alt_is_pressed = false
 
 config.keys = {
-  { key = '[', mods = 'ALT', action = act.ActivateCopyMode },
-  { key = ':', mods = 'ALT|SHIFT', action = act.ActivateCommandPalette },
+  { key = '[', mods = 'CTRL|SHIFT', action = act.ActivateCopyMode },
+  { key = ':', mods = 'CTRL|SHIFT', action = act.ActivateCommandPalette },
 
   -- Pane splitting
   { key = 'D', mods = 'CTRL|SHIFT', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
+  { key = 'S', mods = 'CTRL|SHIFT', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
 
   -- Pane navigation
   { key = 'H', mods = 'CTRL|SHIFT', action = act.ActivatePaneDirection 'Left' },
@@ -97,21 +98,21 @@ config.keys = {
 
 config.key_tables = {
   resize_pane = {
-    { key = 'H', action = act.AdjustPaneSize { 'Left', 1 } },
-    { key = 'J', action = act.AdjustPaneSize { 'Down', 1 } },
-    { key = 'K', action = act.AdjustPaneSize { 'Up', 1 } },
-    { key = 'L', action = act.AdjustPaneSize { 'Right', 1 } },
-    { key = 'h', action = act.AdjustPaneSize { 'Left', 1 } },
-    { key = 'j', action = act.AdjustPaneSize { 'Down', 1 } },
-    { key = 'k', action = act.AdjustPaneSize { 'Up', 1 } },
-    { key = 'l', action = act.AdjustPaneSize { 'Right', 1 } },
+    { key = 'H',      action = act.AdjustPaneSize { 'Left', 1 } },
+    { key = 'J',      action = act.AdjustPaneSize { 'Down', 1 } },
+    { key = 'K',      action = act.AdjustPaneSize { 'Up', 1 } },
+    { key = 'L',      action = act.AdjustPaneSize { 'Right', 1 } },
+    { key = 'h',      action = act.AdjustPaneSize { 'Left', 1 } },
+    { key = 'j',      action = act.AdjustPaneSize { 'Down', 1 } },
+    { key = 'k',      action = act.AdjustPaneSize { 'Up', 1 } },
+    { key = 'l',      action = act.AdjustPaneSize { 'Right', 1 } },
     { key = 'Escape', action = 'PopKeyTable' },
   },
   move_pane = {
-    { key = 'H', action = act.RotatePanes 'CounterClockwise' },
-    { key = 'L', action = act.RotatePanes 'Clockwise' },
-    { key = 'h', action = act.RotatePanes 'CounterClockwise' },
-    { key = 'l', action = act.RotatePanes 'Clockwise' },
+    { key = 'H',      action = act.RotatePanes 'CounterClockwise' },
+    { key = 'L',      action = act.RotatePanes 'Clockwise' },
+    { key = 'h',      action = act.RotatePanes 'CounterClockwise' },
+    { key = 'l',      action = act.RotatePanes 'Clockwise' },
     { key = 'Escape', action = 'PopKeyTable' },
   },
 }

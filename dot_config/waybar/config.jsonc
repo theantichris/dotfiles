@@ -2,9 +2,9 @@
   "layer": "top",
   "position": "top",
   "mode": "dock",
-  "margin-left": 10,
+  "margin-left": 5,
   "margin-bottom": 0,
-  "margin-right": 10,
+  "margin-right": 5,
   "spacing": 5,
   "modules-left": [
     "clock#date",

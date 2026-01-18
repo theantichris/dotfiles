@@ -91,7 +91,7 @@
     "on-click": "wezterm start ~/.cargo/bin/outside"
   },
   "custom/media": {
-    "format": "🎜  {0}",
+    "format": "󰝚  {0}",
     "return-type": "json",
     "max-length": 40,
     "escape": true,

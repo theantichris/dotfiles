@@ -18,6 +18,29 @@ input=$(cat)
 cwd=$(echo "$input" | jq -r '.workspace.current_dir // .cwd')
 pwd_path="${cwd/#$HOME/~}"
 
+# Extract Claude session info
+model=$(echo "$input" | jq -r '.model.display_name // empty')
+context_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
+duration_ms=$(echo "$input" | jq -r '.cost.total_duration_ms // empty')
+
+# Format duration
+format_duration() {
+    local ms=$1
+    if [ -z "$ms" ] || [ "$ms" = "null" ]; then
+        echo ""
+        return
+    fi
+    local total_secs=$((ms / 1000))
+    local hours=$((total_secs / 3600))
+    local mins=$(((total_secs % 3600) / 60))
+    if [ "$hours" -gt 0 ]; then
+        echo "${hours}h${mins}m"
+    else
+        echo "${mins}m"
+    fi
+}
+duration=$(format_duration "$duration_ms")
+
 # Git status function
 git_status() {
     if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
@@ -56,10 +79,21 @@ git_status() {
         fi
     fi
 
-    printf " ${COMMENT}[${RESET}${SECONDARY}%s%s${RESET}${COMMENT}]${RESET}" "$branch" "$status_symbols"
+    printf " ${COMMENT}[${RESET}${SECONDARY}%s%b${RESET}${COMMENT}]${RESET}" "$branch" "$status_symbols"
 }
 
 # Build status line
-printf "${PRIMARY}╭─${RESET}${PRIMARY}%s${RESET}" "$pwd_path"
+printf "${PRIMARY}%s${RESET}" "$pwd_path"
 git_status
-printf "\n${PRIMARY}╰─❯${RESET}${SECONDARY}❯${RESET}${TERTIARY}❯${RESET} "
+
+# Claude session info
+if [ -n "$model" ]; then
+    printf " ${COMMENT}//${RESET} ${TERTIARY}%s${RESET}" "$model"
+fi
+if [ -n "$context_pct" ]; then
+    printf " ${COMMENT}//${RESET} ${SECONDARY}%s%%${RESET}" "$context_pct"
+fi
+if [ -n "$duration" ]; then
+    printf " ${COMMENT}//${RESET} ${COMMENT}%s${RESET}" "$duration"
+fi
+printf " "

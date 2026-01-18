@@ -76,6 +76,9 @@ config.keys = {
   { key = '[', mods = 'CTRL|SHIFT', action = act.ActivateCopyMode },
   { key = ':', mods = 'CTRL|SHIFT', action = act.ActivateCommandPalette },
 
+  -- New tab in current working directory
+  { key = 'T', mods = 'CTRL|SHIFT', action = act.SpawnTab 'CurrentPaneDomain' },
+
   -- Pane splitting
   { key = 'D', mods = 'CTRL|SHIFT', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
   { key = 'S', mods = 'CTRL|SHIFT', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },

@@ -97,6 +97,9 @@ config.keys = {
 
   -- Fullscreen pane
   { key = 'F', mods = 'CTRL|SHIFT', action = act.TogglePaneZoomState },
+
+  -- Close tab
+  { key = 'X', mods = 'CTRL|SHIFT', action = act.CloseCurrentTab { confirm = true } },
 }
 
 config.key_tables = {

@@ -17,7 +17,10 @@
       "mcp__slack__slack_get_user_profile",
       "mcp__slack__slack_get_users",
       "Bash(wezterm cli list:*)",
-      "Bash(wezterm cli:*)"
+      "Bash(wezterm cli:*)",
+      "WebFetch(domain:man.archlinux.org)",
+      "Bash(cha --help:*)",
+      "Bash(/usr/lib/aerc/filters/colorize:*)"
     ]
   }
 }

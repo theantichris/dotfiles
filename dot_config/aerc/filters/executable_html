@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Custom HTML filter for aerc using w3m
+# Interactive mode with proper width handling
+
+COLS="${COLUMNS:-120}"
+
+exec w3m \
+    -I UTF-8 -O UTF-8 -T text/html \
+    -cols "$COLS" \
+    -o display_link=true \
+    -o display_borders=true \
+    -o decode_url=true \
+    "$@"

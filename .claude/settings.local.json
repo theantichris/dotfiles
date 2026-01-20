@@ -25,7 +25,8 @@
       "mcp__github__list_issues",
       "WebFetch(domain:miniflux.app)",
       "mcp__context7__resolve-library-id",
-      "WebFetch(domain:newsboat.org)"
+      "WebFetch(domain:newsboat.org)",
+      "Bash(chezmoi apply:*)"
     ]
   }
 }

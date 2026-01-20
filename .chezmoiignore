@@ -37,7 +37,6 @@ CLAUDE.md
 .config/systemd
 .config/waybar
 .config/wlogout
-.config/wezterm
 
 .config/chrome-flags.conf
 .config/mimeapps.list

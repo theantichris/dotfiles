@@ -43,9 +43,16 @@ if is_linux then
 end
 
 -- Window
--- Opacity controlled by Hyprland compositor
-config.window_decorations = "NONE"
 config.enable_tab_bar = false
+
+if is_linux then
+  -- Opacity controlled by Hyprland compositor
+  config.window_decorations = "NONE"
+end
+
+if is_macos then
+  config.window_decorations = "RESIZE"
+end
 
 -- Confirm before closing panes/tabs
 config.skip_close_confirmation_for_processes_named = {}

@@ -23,7 +23,9 @@
       "Bash(/usr/lib/aerc/filters/colorize:*)",
       "mcp__github__search_issues",
       "mcp__github__list_issues",
-      "WebFetch(domain:miniflux.app)"
+      "WebFetch(domain:miniflux.app)",
+      "mcp__context7__resolve-library-id",
+      "WebFetch(domain:newsboat.org)"
     ]
   }
 }

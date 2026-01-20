@@ -1,0 +1,23 @@
+# Miniflux backend
+urls-source "miniflux"
+miniflux-url "https://miniflux.theantichris.com"
+miniflux-tokeneval "pass miniflux/api"
+
+# Vim keybindings
+unbind-key j
+unbind-key k
+unbind-key J
+unbind-key K
+unbind-key g
+unbind-key G
+
+bind-key h quit
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key J next-feed
+bind-key K prev-feed
+bind-key g home
+bind-key G end
+bind-key ^D pagedown
+bind-key ^U pageup

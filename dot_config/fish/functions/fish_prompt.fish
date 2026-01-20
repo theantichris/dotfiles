@@ -107,29 +107,46 @@ function fish_prompt
     # Store exit status for display
     set -g __cyberpunk_last_status $last_status
 
-    # Line 1: Status, user/host, venv, language versions, path, git
-    echo -n (set_color $cyberpunk_primary)"╭─"
+    # Build left side content
+    set -l left_part (set_color $cyberpunk_primary)"╭─"
 
     if test $last_status -ne 0
-        echo -n (set_color $cyberpunk_error)"✗ $last_status "(set_color normal)
+        set left_part "$left_part"(set_color $cyberpunk_error)"✗ $last_status "(set_color normal)
     end
 
-    __cyberpunk_user_host
-    __cyberpunk_venv
-    __cyberpunk_go
-    __cyberpunk_node
-    __cyberpunk_pwd
-    __cyberpunk_git_status
+    set left_part "$left_part"(__cyberpunk_user_host)
+    set left_part "$left_part"(__cyberpunk_venv)
+    set left_part "$left_part"(__cyberpunk_go)
+    set left_part "$left_part"(__cyberpunk_node)
+    set left_part "$left_part"(__cyberpunk_pwd)
+    set left_part "$left_part"(__cyberpunk_git_status)
 
-    echo "" # Newline
+    # Build right side content (clock icon + time)
+    set -l time_str (date "+%H:%M:%S")
+    set -l clock_icon \uf017
+    set -l right_part (set_color $cyberpunk_comment)" $clock_icon  $time_str"(set_color normal)
+
+    # Calculate visible lengths (without ANSI codes)
+    set -l left_len (string length --visible -- "$left_part")
+    set -l right_len (string length --visible -- "$right_part")
+
+    # Calculate dot fill width (terminal width - left - right - padding)
+    set -l term_width $COLUMNS
+    set -l fill_width (math "$term_width - $left_len - $right_len - 1")
+
+    # Generate dot fill
+    set -l dots ""
+    if test $fill_width -gt 0
+        set dots (set_color $cyberpunk_comment)(string repeat -n $fill_width "·")(set_color normal)
+    end
+
+    # Line 1: left content + dots + timestamp
+    echo "$left_part $dots$right_part"
 
     # Line 2: Prompt arrows
     echo -n "╰─"(set_color $cyberpunk_primary)"❯"(set_color $cyberpunk_secondary)"❯"(set_color $cyberpunk_tertiary)"❯ "(set_color normal)
 end
 
 function fish_right_prompt
-    # Timestamp on the right
-    set_color $cyberpunk_comment
-    date "+%H:%M:%S"
-    set_color normal
+    # Intentionally empty - timestamp moved to line 1
 end

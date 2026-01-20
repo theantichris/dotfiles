@@ -26,7 +26,8 @@
       "WebFetch(domain:miniflux.app)",
       "mcp__context7__resolve-library-id",
       "WebFetch(domain:newsboat.org)",
-      "Bash(chezmoi apply:*)"
+      "Bash(chezmoi apply:*)",
+      "Bash(chezmoi diff:*)"
     ]
   }
 }

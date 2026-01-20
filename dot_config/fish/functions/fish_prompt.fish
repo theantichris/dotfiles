@@ -108,23 +108,23 @@ function fish_prompt
     set -g __cyberpunk_last_status $last_status
 
     # Build left side content
-    set -l left_part (set_color $cyberpunk_primary)"╭─"
+    set -l left_part (printf "%s%s" (set_color $cyberpunk_primary) "╭─")
 
     if test $last_status -ne 0
-        set left_part "$left_part"(set_color $cyberpunk_error)"✗ $last_status "(set_color normal)
+        set left_part (printf "%s%s" "$left_part" (set_color $cyberpunk_error)"✗ $last_status "(set_color normal))
     end
 
-    set left_part "$left_part"(__cyberpunk_user_host)
-    set left_part "$left_part"(__cyberpunk_venv)
-    set left_part "$left_part"(__cyberpunk_go)
-    set left_part "$left_part"(__cyberpunk_node)
-    set left_part "$left_part"(__cyberpunk_pwd)
-    set left_part "$left_part"(__cyberpunk_git_status)
+    set left_part (printf "%s%s" "$left_part" (__cyberpunk_user_host))
+    set left_part (printf "%s%s" "$left_part" (__cyberpunk_venv))
+    set left_part (printf "%s%s" "$left_part" (__cyberpunk_go))
+    set left_part (printf "%s%s" "$left_part" (__cyberpunk_node))
+    set left_part (printf "%s%s" "$left_part" (__cyberpunk_pwd))
+    set left_part (printf "%s%s" "$left_part" (__cyberpunk_git_status))
 
     # Build right side content (clock icon + time)
     set -l time_str (date "+%H:%M:%S")
     set -l clock_icon \uf017
-    set -l right_part (set_color $cyberpunk_comment)" $clock_icon  $time_str"(set_color normal)
+    set -l right_part (printf "%s%s" (set_color $cyberpunk_comment) " $clock_icon  $time_str")(set_color normal)
 
     # Calculate visible lengths (without ANSI codes)
     set -l left_len (string length --visible -- "$left_part")

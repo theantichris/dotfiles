@@ -22,3 +22,21 @@ bind-key g home
 bind-key G end
 bind-key ^D pagedown
 bind-key ^U pageup
+
+# Cyberpunk theme
+# bg: #16161E (color234), text: #EAEAF2 (color255), muted: #8A86A0 (color103)
+# pink: #CA0174 (color162), cyan: #00F0FF (color51), magenta: #FF00FF (color201)
+# green: #00FFA2 (color49), yellow: #FFD300 (color220)
+
+color background          color255  color234
+color listnormal          color255  color234
+color listnormal_unread   color51   color234  bold
+color listfocus           color234  color162  bold
+color listfocus_unread    color234  color51   bold
+color info                color234  color162  bold
+color article             color255  color234
+
+# Highlights
+highlight article "^(Feed|Title|Author|Link|Date):.*" color51 color234
+highlight article "https?://[^ ]+" color49 color234 underline
+highlight article "\\[[0-9]+\\]" color201 color234 bold

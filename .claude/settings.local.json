@@ -20,7 +20,9 @@
       "Bash(wezterm cli:*)",
       "WebFetch(domain:man.archlinux.org)",
       "Bash(cha --help:*)",
-      "Bash(/usr/lib/aerc/filters/colorize:*)"
+      "Bash(/usr/lib/aerc/filters/colorize:*)",
+      "mcp__github__search_issues",
+      "mcp__github__list_issues"
     ]
   }
 }

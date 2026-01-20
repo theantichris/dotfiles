@@ -1,45 +1,41 @@
-[language-server.harper-ls]
-command = "harper-ls"
-args = ["--stdio"]
+[language-server.typos]
+command = "typos-lsp"
 
-[language-server.harper-ls.config.haper-ls]
-userDictPath = "~/.config/harper/dictionary.txt"
-
-[language-server.harper-ls.config.harper-ls.linters]
-SentenceCapitalization = false
+[language-server.typos.config]
+diagnosticSeverity = "Hint"
 
 [[language]]
 name = "go"
 auto-format = true
 formatter = { command = "goimports" }
-language-servers = ["gopls", "harper-ls"]
+language-servers = ["gopls", "typos"]
 
 [[language]]
 name = "json"
 auto-format = true
-language-servers = ["vscode-json-languageserver", "harper-ls"]
+language-servers = ["vscode-json-languageserver", "typos"]
 
 [[language]]
 name = "jsonc"
 auto-format = true
-language-servers = ["vscode-json-languageserver", "harper-ls"]
+language-servers = ["vscode-json-languageserver", "typos"]
 
 [[language]]
 name = "lua"
 auto-format = true
-language-servers = ["lua-language-server", "harper-ls"]
+language-servers = ["lua-language-server", "typos"]
 file-types = [
   { glob = "**/*.lua.tmpl" }
 ]
 
 [[language]]
 name = "markdown"
-language-servers = ["marksman", "harper-ls"]
+language-servers = ["marksman", "typos"]
 
 [[language]]
 name = "toml"
 roots = ["."]
-language-servers = ["taplo", "harper-ls"]
+language-servers = ["taplo", "typos"]
 
 [[language]]
 name = "bash"
@@ -49,4 +45,4 @@ file-types = [
   { glob = "**/*.bash.tmpl" },
 ]
 shebangs = ["sh", "bash"]
-language-servers = ["bash-language-server", "harper-ls"]
+language-servers = ["bash-language-server", "typos"]

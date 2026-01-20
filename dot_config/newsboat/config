@@ -1,7 +1,8 @@
 # Miniflux backend
 urls-source "miniflux"
-miniflux-url "https://miniflux.theantichris.com"
+miniflux-url "https://miniflux.theantichris.com/"
 miniflux-tokeneval "pass miniflux/api"
+refresh-on-startup yes
 
 # Vim keybindings
 unbind-key j

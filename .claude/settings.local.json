@@ -22,7 +22,8 @@
       "Bash(cha --help:*)",
       "Bash(/usr/lib/aerc/filters/colorize:*)",
       "mcp__github__search_issues",
-      "mcp__github__list_issues"
+      "mcp__github__list_issues",
+      "WebFetch(domain:miniflux.app)"
     ]
   }
 }

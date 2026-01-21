@@ -29,7 +29,8 @@
       "Bash(chezmoi apply:*)",
       "Bash(chezmoi diff:*)",
       "Bash(aerc -v:*)",
-      "Bash(aerc)"
+      "Bash(aerc)",
+      "Bash(echo:*)"
     ]
   }
 }

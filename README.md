@@ -190,7 +190,7 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 
 | Tool                                      | Key Files (chezmoi paths) |
 |-------------------------------------------|---------------------------|
-| [nom](https://github.com/guyfedwards/nom) | `dot_config/nom`          |
+| [newsboat](https://newsboat.org)          | `dot_config/newsboat`     |
 
 </details>
 

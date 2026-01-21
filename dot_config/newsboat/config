@@ -3,6 +3,7 @@ urls-source "miniflux"
 miniflux-url "https://miniflux.theantichris.com/"
 miniflux-tokeneval "pass miniflux/api"
 refresh-on-startup yes
+browser "xdg-open %u"
 
 # Vim keybindings
 unbind-key j

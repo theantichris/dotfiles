@@ -4,8 +4,17 @@ set -U __done_notification_urgency_level_low
 
 # set -Ux BROWSER firefox
 
+{{- if eq .chezmoi.os "darwin" }}
+
+# macOS: Force XDG paths for CLI tools
+set -Ux XDG_CONFIG_HOME ~/.config
+{{- end }}
+
+{{- if eq .chezmoi.os "linux" }}
+
 set -Ux SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
 ssh-add ~/.ssh/github_ed25519 &>/dev/null
+{{- end }}
 
 set -x MANROFFOPT -c
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"

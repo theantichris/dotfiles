@@ -27,7 +27,9 @@
       "mcp__context7__resolve-library-id",
       "WebFetch(domain:newsboat.org)",
       "Bash(chezmoi apply:*)",
-      "Bash(chezmoi diff:*)"
+      "Bash(chezmoi diff:*)",
+      "Bash(aerc -v:*)",
+      "Bash(aerc)"
     ]
   }
 }

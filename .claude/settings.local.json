@@ -30,7 +30,8 @@
       "Bash(chezmoi diff:*)",
       "Bash(aerc -v:*)",
       "Bash(aerc)",
-      "Bash(echo:*)"
+      "Bash(echo:*)",
+      "Bash(chezmoi cat-config:*)"
     ]
   }
 }

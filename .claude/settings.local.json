@@ -31,7 +31,8 @@
       "Bash(aerc -v:*)",
       "Bash(aerc)",
       "Bash(echo:*)",
-      "Bash(chezmoi cat-config:*)"
+      "Bash(chezmoi cat-config:*)",
+      "WebFetch(domain:hyprnote.com)"
     ]
   }
 }

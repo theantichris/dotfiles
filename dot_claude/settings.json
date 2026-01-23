@@ -1,5 +1,8 @@
 {
   "model": "opus",
+  "permissions": {
+    "defaultMode": "plan,"
+  },
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-cyberpunk.sh"

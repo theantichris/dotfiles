@@ -170,9 +170,10 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 <details>
 <summary><strong>Notes/Tasks</strong></summary>
 
-| Tool                             | Key Files (chezmoi paths) |
-|----------------------------------|---------------------------|
-| [nb](https://github.com/xwmx/nb) | `dot_nbrc.tmpl`           |
+| Tool                                          | Key Files (chezmoi paths) |
+|-----------------------------------------------|---------------------------|
+| [nb](https://github.com/xwmx/nb)              | `dot_nbrc.tmpl`           |
+| [tiki](https://github.com/boolean-maybe/tiki) | -                         |
 
 </details>
 

@@ -33,7 +33,9 @@
       "Bash(echo:*)",
       "Bash(chezmoi cat-config:*)",
       "WebFetch(domain:hyprnote.com)",
-      "Bash(chezmoi source-path:*)"
+      "Bash(chezmoi source-path:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh release list:*)"
     ]
   }
 }

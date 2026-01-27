@@ -4,6 +4,8 @@ miniflux-url "https://miniflux.theantichris.com/"
 miniflux-tokeneval "pass miniflux/api"
 refresh-on-startup yes
 browser "xdg-open %u"
+show-read-articles no
+show-read-feeds no
 
 # Vim keybindings
 unbind-key j

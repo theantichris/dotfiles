@@ -21,3 +21,9 @@ if test -d ~/.local/share/../bin
         set -p PATH ~/.local/share/../bin
     end
 end
+
+if test -d /home/christopher/.npm-global/bin
+    if not contains -- /home/christopher/.npm-global/bin $PATH
+        set -p PATH /home/christopher/.npm-global/bin
+    end
+end

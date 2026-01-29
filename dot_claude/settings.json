@@ -9,5 +9,26 @@
   },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true
-   }
+  },
+  "spinnerVerbs": {
+    "mode": "replace",
+    "verbs": [
+      "Jacking in",
+      "Decking the matrix",
+      "Running hot",
+      "Breaching ICE",
+      "Cracking black ice",
+      "Burning chrome",
+      "Ghosting through",
+      "Tracing nodes",
+      "Scanning hosts",
+      "Slotting chip",
+      "Parsing datastores",
+      "Compiling payload",
+      "Flatlineing barriers",
+      "Spoofing credentials",
+      "Probing defenses",
+      "Routing through proxies"
+    ]
+  }
 }

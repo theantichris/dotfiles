@@ -81,6 +81,9 @@ config.send_composed_key_when_left_alt_is_pressed = false
 config.send_composed_key_when_right_alt_is_pressed = false
 
 config.keys = {
+  -- Fix Delete key with Kitty keyboard protocol
+  { key = 'Delete', action = act.SendString '\x1b[3~' },
+
   { key = '[', mods = 'CTRL|SHIFT', action = act.ActivateCopyMode },
   { key = ':', mods = 'CTRL|SHIFT', action = act.ActivateCommandPalette },
 

@@ -38,7 +38,9 @@
       "Bash(gh release list:*)",
       "mcp__claude_ai_Notion__notion-search",
       "mcp__claude_ai_Notion__notion-fetch",
-      "Bash(nb ls:*)"
+      "Bash(nb ls:*)",
+      "Bash(nb completions --help:*)",
+      "Bash(nb help:*)"
     ]
   }
 }

@@ -106,3 +106,49 @@ function _nb_subcommands
 end
 
 complete -c nb -n "__fish_use_subcommand" -fa "(_nb_subcommands)"
+
+# Path completion for subcommands that take file/folder arguments
+function _nb_paths
+  set -l nb_dir (nb env | string replace -fr "^NB_DIR=" "")
+  if test -z "$nb_dir"
+    return
+  end
+
+  # Get current notebook (default to "home")
+  set -l notebook (nb notebooks current --names --no-color 2>/dev/null)
+  if test -z "$notebook"
+    set notebook "home"
+  end
+
+  set -l notebook_path "$nb_dir/$notebook"
+  if not test -d "$notebook_path"
+    return
+  end
+
+  # Find files and folders, excluding hidden items within the notebook
+  # Use -name '.*' -prune to skip hidden dirs/files without affecting parent path
+  for item in (find "$notebook_path" -mindepth 1 -name '.*' -prune -o \( -type f -o -type d \) -print 2>/dev/null)
+    set -l rel_path (string replace "$notebook_path/" "" "$item")
+    # Skip if rel_path is empty
+    test -z "$rel_path"; and continue
+    # Add trailing slash for directories
+    if test -d "$item"
+      echo "$rel_path/"
+    else
+      echo "$rel_path"
+    end
+  end
+end
+
+# Condition: we're after a subcommand that takes paths
+function _nb_needs_path
+  set -l cmd (commandline -opc)
+  if test (count $cmd) -lt 2
+    return 1
+  end
+  # Subcommands that take file/folder paths
+  set -l path_cmds edit show open delete move copy rename browse peek
+  contains -- $cmd[2] $path_cmds
+end
+
+complete -c nb -n "_nb_needs_path" -fa "(_nb_paths)"

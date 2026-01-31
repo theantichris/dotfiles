@@ -40,7 +40,8 @@
       "mcp__claude_ai_Notion__notion-fetch",
       "Bash(nb ls:*)",
       "Bash(nb completions --help:*)",
-      "Bash(nb help:*)"
+      "Bash(nb help:*)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
   }
 }

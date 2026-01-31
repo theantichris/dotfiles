@@ -29,7 +29,6 @@ pkg install tealdeer
 pkg install w3m
 
 # go packages
-
 go install github.com/spf13/cobra-cli@latest
 go install github.com/Gelio/go-global-update@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
@@ -40,19 +39,20 @@ go install github.com/theantichris/ghost/v3@latest
 go install golang.org/x/tools/cmd/goimports@latest
 
 # npm
-
 npm install -g nb.sh
 
 # gh extensions
-
 gh extension install dlvhdr/gh-dash
 
-# bat
+# metasploit
+if ! command -v msfconsole &> /dev/null; then
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/gushmazuko/metasploit_in_termux/master/metasploit.sh)"
+fi
 
+# bat
 bat cache --build
 
 # tldr
-
 tldr --update
 
 {{- end }}

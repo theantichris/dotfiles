@@ -41,7 +41,8 @@
       "Bash(nb ls:*)",
       "Bash(nb completions --help:*)",
       "Bash(nb help:*)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(gh issue view:*)"
     ]
   }
 }

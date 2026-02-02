@@ -1,6 +1,11 @@
 function ide --description "Open IDE-style pane layout" --argument project
     # Set working directory based on project argument
     if test -n "$project"
+        # Project aliases
+        switch $project
+            case tac
+                set project theantichris.com
+        end
         set project_dir ~/Code/$project
         if not test -d $project_dir
             echo "Project directory not found: $project_dir"
@@ -24,9 +29,15 @@ function ide --description "Open IDE-style pane layout" --argument project
     # Split bottom pane (15% height) and capture its pane ID
     set bottom_pane_id (wezterm cli split-pane --bottom --percent 15 $cwd_flag)
 
-    # Split bottom pane horizontally - right side runs gotw if project specified
+    # Split bottom pane horizontally - right side runs project-specific command
     if test -n "$project"
-        wezterm cli split-pane --right --percent 50 --pane-id $bottom_pane_id $cwd_flag -- fish -c gotw
+        switch $project
+            case tac theantichris.com
+                set bottom_cmd hugo serve -D
+            case '*'
+                set bottom_cmd fish -c gotw
+        end
+        wezterm cli split-pane --right --percent 50 --pane-id $bottom_pane_id $cwd_flag -- $bottom_cmd
     else
         wezterm cli split-pane --right --percent 50 --pane-id $bottom_pane_id
     end

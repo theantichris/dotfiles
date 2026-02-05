@@ -50,7 +50,8 @@
       "Bash(gh api:*)",
       "WebFetch(domain:omarchy.com)",
       "WebFetch(domain:learn.omacom.io)",
-      "Bash(hyprctl binds:*)"
+      "Bash(hyprctl binds:*)",
+      "WebFetch(domain:nikitabobko.github.io)"
     ]
   }
 }

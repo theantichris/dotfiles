@@ -44,7 +44,10 @@ A cyberpunk/netrunner themed Hyprland setup featuring transparent windows with f
 | `SUPER + Q`       | Close window                    |
 | `SUPER + ;`       | Float/tile toggle               |
 | `SUPER + F`       | Fullscreen toggle               |
+| `SUPER + S`       | Pin/sticky (floating only)      |
 | `SUPER + H/J/K/L` | Move focus (left/down/up/right) |
+| `SUPER + drag`    | Move window (left-click)        |
+| `SUPER + drag`    | Resize window (right-click)     |
 
 **Move window mode** - Press `SUPER + M` then:
 - `H/J/K/L` - Move window in direction

@@ -43,7 +43,14 @@
       "Bash(nb help:*)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "Bash(gh issue view:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "WebFetch(domain:docs.granola.ai)",
+      "WebFetch(domain:wiki.hyprland.org)",
+      "WebFetch(domain:wiki.hypr.land)",
+      "Bash(gh api:*)",
+      "WebFetch(domain:omarchy.com)",
+      "WebFetch(domain:learn.omacom.io)",
+      "Bash(hyprctl binds:*)"
     ]
   }
 }

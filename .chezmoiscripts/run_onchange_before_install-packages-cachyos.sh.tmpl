@@ -66,7 +66,7 @@ sudo pacman -S --needed gurk
 sudo pacman -S --needed khal
 sudo pacman -S --needed newsboat
 sudo pacman -S --needed signal-desktop
-sudo pacman -S --needed toot
+sudo pacman -S --needed toot python-pillow python-term-image python-urwidgets
 
 # Web Browsers
 sudo pacman -S --needed chawan
@@ -87,10 +87,6 @@ sudo pacman -S --needed calibre
 sudo pacman -S --needed obs-studio-browser
 sudo pacman -S --needed pipewire pwvucontrol wireplumber
 
-# Python Libraries
-sudo pacman -S --needed python-aiohttp-oauthlib
-sudo pacman -S --needed python-pillow python-term-image python-urwidgets
-
 # System
 sudo pacman -S --needed chezmoi
 sudo pacman -S --needed ollama-cuda
@@ -98,46 +94,52 @@ sudo pacman -S --needed qflipper
 sudo pacman -S --needed rclone
 sudo pacman -S --needed sbctl
 sudo pacman -S --needed sddm
-sudo pacman -S --needed vdirsyncer
+sudo pacman -S --needed vdirsyncer python-aiohttp-oauthlib
 
 # paru
 
 paru -Syu
 
-# -- Desktop Environment --
+# Desktop Environment
 paru -S --needed bemoji
 paru -S --needed clipse
+paru -S --needed crush
 paru -S --needed hyprqt6engine
+paru -S --needed posting
 paru -S --needed rose-pine-hyprcursor
 paru -S --needed sddm-astronaut-theme
 
-# -- Development --
+# Development
 paru -S --needed freeze
 paru -S --needed gotestsum
 paru -S --needed json-log-viewer
 
-# -- CLI Tools --
-paru -S --needed crush
+# Network
 paru -S --needed dirb
-paru -S --needed nb
-paru -S --needed posting
-paru -S --needed rbonsai
-paru -S --needed squiid
 paru -S --needed superseedr
-paru -S --needed tray-tui
+paru -S --needed surfshark-client
+
+# Screensaver
+paru -S --needed rbonsai
+
+# CLI Tools
+paru -S --needed nb
+paru -S --needed squiid
 paru -S --needed voxtype
 
-# -- Games --
+# Communication
+paru -S --needed slack-desktop-wayland
+
+# Games
 paru -S --needed adom-noteye
 paru -S --needed vitetris
 
-# -- Desktop Apps --
+# Security
 paru -S --needed 1password
-paru -S --needed slack-desktop-wayland
 
-# -- System --
+# System
 paru -S --needed nerdfonts-installer-bin
-paru -S --needed surfshark-client
+paru -S --needed tray-tui
 paru -S --needed uhk-agent-appimage
 paru -S --needed wezterm-nightly-bin
 paru -S --needed xdg-terminal-exec

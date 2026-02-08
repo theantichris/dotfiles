@@ -4,32 +4,10 @@
 # pacman
 
 sudo pacman -Syu
-sudo pacman -S --needed aerc
+
+# Desktop Environment (Hyprland)
 sudo pacman -S --needed appmenu-gtk-module libdbusmenu-glib # global menu
-sudo pacman -S --needed bandwhich
-sudo pacman -S --needed bitwarden
-sudo pacman -S --needed bluetui
 sudo pacman -S --needed breeze breeze-gtk nwg-look
-sudo pacman -S --needed calibre
-sudo pacman -S --needed cataclysm-dda
-sudo pacman -S --needed chawan
-sudo pacman -S --needed chezmoi
-sudo pacman -S --needed claude-code
-sudo pacman -S --needed cmatrix
-sudo pacman -S --needed dwarffortress
-sudo pacman -S --needed entr
-sudo pacman -S --needed eza
-sudo pacman -S --needed fzf
-sudo pacman -S --needed gdu
-sudo pacman -S --needed git
-sudo pacman -S --needed git-delta
-sudo pacman -S --needed github-cli
-sudo pacman -S --needed glow
-sudo pacman -S --needed go delve golangci-lint go-tools gopls goreleaser
-sudo pacman -S --needed gurk
-sudo pacman -S --needed helix bash-language-server harper lua-language-server marksman taplo-cli typos-lsp vscode-json-languageserver yaml-language-server
-sudo pacman -S --needed httpie
-sudo pacman -S --needed hugo
 sudo pacman -S --needed hyprcursor
 sudo pacman -S --needed hypridle
 sudo pacman -S --needed hyprlauncher
@@ -38,71 +16,129 @@ sudo pacman -S --needed hyprpaper
 sudo pacman -S --needed hyprpolkitagent
 sudo pacman -S --needed hyprpwcenter
 sudo pacman -S --needed hyprshot
-sudo pacman -S --needed khal
-sudo pacman -S --needed lazygit
-sudo pacman -S --needed markdownlint-cli2 pre-commit
-sudo pacman -S --needed nethack
-sudo pacman -S --needed newsboat
-sudo pacman -S --needed npm
-sudo pacman -S --needed nvtop
-sudo pacman -S --needed obs-studio-browser
-sudo pacman -S --needed ollama-cuda
-sudo pacman -S --needed pass
-sudo pacman -S --needed pandoc-cli
-sudo pacman -S --needed pipewire pwvucontrol wireplumber
-sudo pacman -S --needed python-pillow python-term-image python-urwidgets
-sudo pacman -S --needed python-aiohttp-oauthlib
-sudo pacman -S --needed qflipper
 sudo pacman -S --needed qt5-wayland qt6-wayland
-sudo pacman -S --needed rclone
-sudo pacman -S --needed rustup
 sudo pacman -S --needed satty
-sudo pacman -S --needed sbctl
-sudo pacman -S --needed sddm
-sudo pacman -S --needed signal-desktop
-sudo pacman -S --needed speedtest-cli
-sudo pacman -S --needed superfile
 sudo pacman -S --needed swaync
-sudo pacman -S --needed tailscale
-sudo pacman -S --needed toot
-sudo pacman -S --needed uv
-sudo pacman -S --needed vdirsyncer
-sudo pacman -S --needed vhs
-sudo pacman -S --needed w3m
 sudo pacman -S --needed waybar
 sudo pacman -S --needed waypaper
 sudo pacman -S --needed wlogout
 sudo pacman -S --needed wtype
 sudo pacman -S --needed xdg-desktop-portal-hyprland
+
+# Development
+sudo pacman -S --needed claude-code
+sudo pacman -S --needed entr
+sudo pacman -S --needed git
+sudo pacman -S --needed git-delta
+sudo pacman -S --needed github-cli
+sudo pacman -S --needed go delve golangci-lint go-tools gopls goreleaser
+sudo pacman -S --needed helix bash-language-server harper lua-language-server marksman taplo-cli typos-lsp vscode-json-languageserver yaml-language-server
+sudo pacman -S --needed httpie
+sudo pacman -S --needed hugo
+sudo pacman -S --needed lazygit
+sudo pacman -S --needed markdownlint-cli2 pre-commit
+sudo pacman -S --needed npm
+sudo pacman -S --needed rustup
+sudo pacman -S --needed uv
+sudo pacman -S --needed vhs
+
+# Network
+sudo pacman -S --needed bandwhich
+sudo pacman -S --needed bluetui
+sudo pacman -S --needed speedtest-cli
+
+# Screensaver
+sudo pacman -S --needed cmatrix
+
+# CLI Tools
+sudo pacman -S --needed eza
+sudo pacman -S --needed fzf
+sudo pacman -S --needed gdu
+sudo pacman -S --needed glow
+sudo pacman -S --needed nvtop
+sudo pacman -S --needed pandoc-cli
+sudo pacman -S --needed superfile
 sudo pacman -S --needed zoxide
+
+# Communication
+sudo pacman -S --needed aerc
+sudo pacman -S --needed gurk
+sudo pacman -S --needed khal
+sudo pacman -S --needed newsboat
+sudo pacman -S --needed signal-desktop
+sudo pacman -S --needed toot
+
+# Web Browsers
+sudo pacman -S --needed chawan
+sudo pacman -S --needed w3m
+
+# Games
+sudo pacman -S --needed cataclysm-dda
+sudo pacman -S --needed dwarffortress
+sudo pacman -S --needed nethack
+
+# Security
+sudo pacman -S --needed bitwarden
+sudo pacman -S --needed pass
+sudo pacman -S --needed tailscale
+
+# Media
+sudo pacman -S --needed calibre
+sudo pacman -S --needed obs-studio-browser
+sudo pacman -S --needed pipewire pwvucontrol wireplumber
+
+# Python Libraries
+sudo pacman -S --needed python-aiohttp-oauthlib
+sudo pacman -S --needed python-pillow python-term-image python-urwidgets
+
+# System
+sudo pacman -S --needed chezmoi
+sudo pacman -S --needed ollama-cuda
+sudo pacman -S --needed qflipper
+sudo pacman -S --needed rclone
+sudo pacman -S --needed sbctl
+sudo pacman -S --needed sddm
+sudo pacman -S --needed vdirsyncer
 
 # paru
 
 paru -Syu
-paru -S --needed 1password
-paru -S --needed adom-noteye
+
+# -- Desktop Environment --
 paru -S --needed bemoji
 paru -S --needed clipse
-paru -S --needed crush
-paru -S --needed dirb
-paru -S --needed freeze
-paru -S --needed gotestsum
 paru -S --needed hyprqt6engine
-paru -S --needed json-log-viewer
-paru -S --needed nb
-paru -S --needed nerdfonts-installer-bin
-paru -S --needed posting
-paru -S --needed rbonsai
 paru -S --needed rose-pine-hyprcursor
 paru -S --needed sddm-astronaut-theme
-paru -S --needed slack-desktop-wayland
+
+# -- Development --
+paru -S --needed freeze
+paru -S --needed gotestsum
+paru -S --needed json-log-viewer
+
+# -- CLI Tools --
+paru -S --needed crush
+paru -S --needed dirb
+paru -S --needed nb
+paru -S --needed posting
+paru -S --needed rbonsai
 paru -S --needed squiid
 paru -S --needed superseedr
-paru -S --needed surfshark-client
 paru -S --needed tray-tui
-paru -S --needed uhk-agent-appimage
-paru -S --needed vitetris
 paru -S --needed voxtype
+
+# -- Games --
+paru -S --needed adom-noteye
+paru -S --needed vitetris
+
+# -- Desktop Apps --
+paru -S --needed 1password
+paru -S --needed slack-desktop-wayland
+
+# -- System --
+paru -S --needed nerdfonts-installer-bin
+paru -S --needed surfshark-client
+paru -S --needed uhk-agent-appimage
 paru -S --needed wezterm-nightly-bin
 paru -S --needed xdg-terminal-exec
 

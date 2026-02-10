@@ -25,9 +25,10 @@ allowed-tools: Read, Write, Glob, Bash(nb *), AskUserQuestion, Skill(create-idea
    - Leave placeholder text for sections that need more detail
    - Use lowercase_with_underscores for filename
 
-4. **Create via nb**:
+4. **Create the file** using the Write tool, then commit via nb:
    ```bash
-   nb add companycam/prds/<team>/<filename>.md --content '<content>'
+   nb git add companycam/prds/<team>/<filename>.md
+   nb git commit -m "[nb] Add: companycam/prds/<team>/<filename>.md"
    ```
 
 5. **Offer Jira integration** - Ask if user wants to add to the discovery board:
@@ -39,3 +40,4 @@ allowed-tools: Read, Write, Glob, Bash(nb *), AskUserQuestion, Skill(create-idea
 - Include unfilled template sections for future completion
 - Always read the PRD file before creating Jira issue (user may copy-edit)
 - PRDs should be concise - cut the fat
+- Read an existing PRD in the target folder first to match conventions (Jira link format, section style)

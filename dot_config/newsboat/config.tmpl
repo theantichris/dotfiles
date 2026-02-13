@@ -1,13 +1,15 @@
 # Miniflux backend
 urls-source "miniflux"
-miniflux-url "https://miniflux.theantichris.com/"
+miniflux-url "https://rss.theantichris.com/"
 miniflux-tokeneval "pass miniflux/api"
 refresh-on-startup yes
+
 {{- if eq .chezmoi.os "darwin" }}
 browser "open %u"
 {{- else }}
 browser "xdg-open %u"
 {{- end }}
+
 show-read-articles no
 show-read-feeds no
 

@@ -51,7 +51,8 @@
       "WebFetch(domain:omarchy.com)",
       "WebFetch(domain:learn.omacom.io)",
       "Bash(hyprctl binds:*)",
-      "WebFetch(domain:nikitabobko.github.io)"
+      "WebFetch(domain:nikitabobko.github.io)",
+      "Bash(xdg-settings get default-web-browser:*)"
     ]
   }
 }

@@ -1,0 +1,13 @@
+[colors]
+foreground = "#EAEAF2"
+background = "#16161E"
+selection_bg = "#2A2A33"
+selection_fg = "#EAEAF2"
+cursor_bg = "#00F0FF"
+cursor_fg = "#16161E"
+cursor_border = "#00F0FF"
+ansi = ["#16161E", "#FF003C", "#00FF9C", "#FFD300", "#009CFF", "#FF00FF", "#00F0FF", "#EAEAF2"]
+brights = ["#8A86A0", "#FF3369", "#66FFBF", "#FFE766", "#33CFFF", "#FF66FF", "#66F5FF", "#FFFFFF"]
+
+[metadata]
+name = "Cyberpunk"

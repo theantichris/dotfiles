@@ -1,0 +1,132 @@
+[general]
+editor = ["wezterm", "-e", "helix"]
+start_script = ["cd ~/.toney && git pull --rebase"]
+stop_script = ["cd ~/.toney && git add -A && git diff --cached --quiet || (git commit -m 'update notes' && git push)"]
+
+[keybinds.global]
+up = "k"
+down = "j"
+
+[keybinds.home]
+edit = "e"
+scroll_up = "k"
+scroll_down = "j"
+
+[keybinds.daily]
+form_up = "ctrl+k"
+form_down = "ctrl+j"
+
+[keybinds.diary]
+scroll_up = "k"
+scroll_down = "j"
+
+[styles]
+text = "#EAEAF2"
+background = "#16161E"
+border = "#CA0174"
+focused_border = "#00F0FF"
+menu_selected_bg = "#00F0FF"
+menu_selected_text = "#16161E"
+
+[styles.task_styles]
+focused_bar = "#00F0FF"
+unfocused_bar = "#2A2A33"
+
+[styles.task_styles.completed_style]
+title = "#00FF9C"
+desc = "#007A4D"
+
+[styles.task_styles.pending_style]
+title = "#8A86A0"
+desc = "#2A2A33"
+
+[styles.task_styles.started_style]
+title = "#FFD300"
+desc = "#997E00"
+
+[styles.task_styles.abandoned_style]
+title = "#FF003C"
+desc = "#7A001D"
+
+[styles.renderer]
+item_prefix = "• "
+enumeration_prefix = "• "
+
+[styles.renderer.document]
+block_prefix = "\n"
+block_suffix = "\n"
+color = "#EAEAF2"
+margin = 1
+
+[styles.renderer.block_quote]
+indent = 1
+indent_token = "│ "
+color = "#8A86A0"
+
+[styles.renderer.heading.base]
+block_suffix = "\n"
+color = "#00F0FF"
+bold = true
+
+[[styles.renderer.heading.levels]]
+prefix = " "
+suffix = " "
+color = "#00F0FF"
+background = "#16161E"
+bold = true
+
+[[styles.renderer.heading.levels]]
+prefix = "## "
+color = "#00F0FF"
+
+[[styles.renderer.heading.levels]]
+prefix = "### "
+color = "#00F0FF"
+
+[[styles.renderer.heading.levels]]
+prefix = "#### "
+color = "#00F0FF"
+
+[[styles.renderer.heading.levels]]
+prefix = "##### "
+color = "#00F0FF"
+
+[[styles.renderer.heading.levels]]
+prefix = "###### "
+color = "#00F0FF"
+bold = false
+
+[styles.renderer.code]
+prefix = " "
+suffix = " "
+color = "#CA0174"
+background = "#001a24"
+
+[styles.renderer.code_block.text]
+color = "#EAEAF2"
+background = "#16161E"
+
+[styles.renderer.table]
+center_seperator = "┼"
+column_seperator = "│"
+row_seperator = "─"
+
+[styles.renderer.link]
+color = "#00FFFF"
+underline = true
+
+[styles.renderer.image]
+color = "#FF00FF"
+underline = true
+
+[styles.renderer.emph]
+italic = true
+color = "#FF00FF"
+
+[styles.renderer.strong]
+bold = true
+color = "#EAEAF2"
+
+[styles.renderer.strikethrough]
+strikethrough = true
+color = "#8A86A0"

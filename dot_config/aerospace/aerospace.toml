@@ -21,7 +21,7 @@ cmd-alt-ctrl-shift-x = 'exec-and-forget open -a "System Settings"'
 cmd-alt-ctrl-shift-e = 'exec-and-forget open -a "Finder"'
 cmd-alt-ctrl-shift-enter = 'exec-and-forget open -na wezterm'
 cmd-alt-ctrl-shift-q = 'close'
-cmd-alt-ctrl-shift-b = 'exec-and-forget open -na "Firefox"'
+cmd-alt-ctrl-shift-b = 'exec-and-forget open -a "Firefox"'
 
 cmd-alt-ctrl-shift-semicolon = 'layout floating tiling'
 cmd-alt-ctrl-shift-f = 'fullscreen'

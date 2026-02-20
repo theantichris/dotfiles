@@ -186,8 +186,8 @@ tldr --update
 
 if ! infocmp wezterm &>/dev/null; then
   tempFile=$(mktemp)
-  curl -o $tempFile https://raw.githubusercontent.com/wez/wezterm/main/termwiz/data/wezterm.terminfo
-  tic -x -o ~/.terminfo $tempFile
+  curl -o "$tempFile" https://raw.githubusercontent.com/wez/wezterm/main/termwiz/data/wezterm.terminfo
+  tic -x -o "$HOME/.terminfo" "$tempFile"
   rm $tempFile
 fi
 

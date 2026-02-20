@@ -30,9 +30,9 @@ if ! command -v helix &> /dev/null && ! command -v hx &> /dev/null; then
     sudo ln -sf /opt/helix/hx /usr/local/bin/hx
     sudo ln -sf /opt/helix/hx /usr/local/bin/helix
 
-    mkdir -p ~/.config/helix
-    if [ ! -d ~/.config/helix/runtime ]; then
-        ln -s /opt/helix/runtime ~/.config/helix/runtime
+    mkdir -p "$HOME/.config/helix"
+    if [ ! -d "$HOME/.config/helix/runtime" ]; then
+        ln -s /opt/helix/runtime "$HOME/.config/helix/runtime"
     fi
 
     rm "${HELIX_TMP}"

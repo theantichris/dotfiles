@@ -127,7 +127,6 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 | [fd](https://github.com/sharkdp/fd)               | -                         |
 | [fzf](https://github.com/junegunn/fzf)            | -                         |
 | [gdu](https://github.com/dundee/gdu)              | -                         |
-| [rclone](https://rclone.org)                      | -                         |
 | [zoxide](https://github.com/ajeetdsouza/zoxide)   | -                         |
 
 </details>

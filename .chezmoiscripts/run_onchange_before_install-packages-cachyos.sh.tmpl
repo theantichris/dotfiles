@@ -97,7 +97,6 @@ sudo pacman -S --needed pipewire pwvucontrol wireplumber
 sudo pacman -S --needed chezmoi
 sudo pacman -S --needed ollama-cuda
 sudo pacman -S --needed qflipper
-sudo pacman -S --needed rclone
 sudo pacman -S --needed sbctl
 sudo pacman -S --needed sddm
 sudo pacman -S --needed vdirsyncer python-aiohttp-oauthlib
@@ -207,7 +206,6 @@ sudo systemctl enable --now tailscaled
 
 systemctl --user enable --now hypridle.service
 systemctl --user enable --now hyprpolkitagent.service
-systemctl --user enable --now rclone-google-drive.service
 
 {{- end }}
 

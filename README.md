@@ -171,7 +171,6 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 
 | Tool                                            | Key Files (chezmoi paths) |
 |-------------------------------------------------|---------------------------|
-| [nb](https://github.com/xwmx/nb)                | `dot_nbrc.tmpl`           |
 | [Toney](https://github.com/SourcewareLab/Toney) | `dot_config/toney`        |
 
 </details>

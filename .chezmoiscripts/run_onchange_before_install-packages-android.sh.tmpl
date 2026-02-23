@@ -5,7 +5,7 @@ pkg install aerc
 pkg install bat
 pkg install chezmoi
 pkg install cmatrix
-pkg install dirb
+# pkg install dirb
 pkg install entr
 pkg install eza
 pkg install fastfetch
@@ -17,14 +17,14 @@ pkg install git
 pkg install glow
 pkg install golang gopls delve
 pkg install helix lua-language-server marksman
-pkg install hugo
+# pkg install hugo
 pkg install ncdu
 pkg install newsboat
 pkg install nodejs-lts
-pkg install nmap
+# pkg install nmap
 pkg install pass
-pkg install proot-distro
-pkg install python uv
+# pkg install proot-distro
+# pkg install python uv
 pkg install termux-services
 pkg install speedtest-go
 pkg install tealdeer
@@ -42,19 +42,19 @@ go install github.com/theantichris/ghost/v3@latest
 go install golang.org/x/tools/cmd/goimports@latest
 
 # gh extensions
-gh extension install dlvhdr/gh-dash
+# gh extension install dlvhdr/gh-dash
 
 # python
-uv tool install sqlmap --upgrade
-uv tool install toot-tooi --upgrade
+# uv tool install sqlmap --upgrade
+# uv tool install toot-tooi --upgrade
 
 # rush
-cargo install outside
+# cargo install outside
 
 # metasploit (using Ruby 3.4.0 compatible installer)
-if ! command -v msfconsole &> /dev/null; then
-    bash -c "$(curl -fsSL https://raw.githubusercontent.com/qrt2/msf-termux-ruby34/main/msf_install.sh)"
-fi
+# if ! command -v msfconsole &> /dev/null; then
+#     bash -c "$(curl -fsSL https://raw.githubusercontent.com/qrt2/msf-termux-ruby34/main/msf_install.sh)"
+# fi
 
 # bat
 bat cache --build

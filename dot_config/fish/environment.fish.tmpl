@@ -2,7 +2,9 @@
 set -U __done_min_cmd_duration 10000
 set -U __done_notification_urgency_level_low
 
-# set -Ux BROWSER firefox
+{{- if eq .chezmoi.os "android" }}
+set -Ux BROWSER "/data/data/com.termux/files/usr/bin/open-in-firefox"
+{{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
 # macOS: Force XDG paths for CLI tools

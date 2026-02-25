@@ -144,7 +144,7 @@ function fish_prompt
     echo "$left_part $dots$right_part"
 
     # Line 2: Prompt arrows
-    echo -n "╰─"(set_color $cyberpunk_primary)"❯"(set_color $cyberpunk_secondary)"❯"(set_color $cyberpunk_tertiary)"❯ "(set_color normal)
+    echo -n (set_color $cyberpunk_secondary)"╰─"(set_color $cyberpunk_primary)"❯"(set_color $cyberpunk_secondary)"❯"(set_color $cyberpunk_tertiary)"❯ "(set_color normal)
 end
 
 function fish_right_prompt

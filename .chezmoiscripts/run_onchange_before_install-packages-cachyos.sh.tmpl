@@ -8,14 +8,8 @@ sudo pacman -Syu
 # Desktop Environment (Hyprland)
 sudo pacman -S --needed appmenu-gtk-module libdbusmenu-glib # global menu
 sudo pacman -S --needed breeze breeze-gtk nwg-look
-sudo pacman -S --needed hyprcursor
-sudo pacman -S --needed hypridle
-sudo pacman -S --needed hyprlauncher
-sudo pacman -S --needed hyprlock
-sudo pacman -S --needed hyprpaper
-sudo pacman -S --needed hyprpolkitagent
-sudo pacman -S --needed hyprpwcenter
-sudo pacman -S --needed hyprshot
+sudo pacman -S --needed hyprcursor hypridle hyprlauncher hyprlock hyprpaper hyprpolkitagent hyprpwcenter hyprshot
+sudo pacman -S --needed kitty kitty-shell-integration kitty-terminfo
 sudo pacman -S --needed qt5-wayland qt6-wayland
 sudo pacman -S --needed satty
 sudo pacman -S --needed swaync
@@ -28,14 +22,12 @@ sudo pacman -S --needed xdg-desktop-portal-hyprland
 # Development
 sudo pacman -S --needed claude-code
 sudo pacman -S --needed entr
-sudo pacman -S --needed git
-sudo pacman -S --needed git-delta
+sudo pacman -S --needed git git-delta github-cli lazygit
 sudo pacman -S --needed github-cli
 sudo pacman -S --needed go delve golangci-lint go-tools gopls goreleaser
 sudo pacman -S --needed helix bash-language-server lua-language-server marksman taplo-cli typos-lsp vscode-json-languageserver yaml-language-server
 sudo pacman -S --needed httpie
 sudo pacman -S --needed hugo
-sudo pacman -S --needed lazygit
 sudo pacman -S --needed markdownlint-cli2 pre-commit
 sudo pacman -S --needed npm
 sudo pacman -S --needed rustup

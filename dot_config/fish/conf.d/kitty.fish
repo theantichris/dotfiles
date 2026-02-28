@@ -1,0 +1,1 @@
+alias img='kitten icat'

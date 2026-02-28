@@ -181,14 +181,6 @@ bat cache --build
 
 tldr --update
 
-# wezterm
-
-if ! infocmp wezterm &>/dev/null; then
-  tempFile=$(mktemp)
-  curl -o "$tempFile" https://raw.githubusercontent.com/wez/wezterm/main/termwiz/data/wezterm.terminfo
-  tic -x -o "$HOME/.terminfo" "$tempFile"
-  rm $tempFile
-fi
 
 # daemons
 

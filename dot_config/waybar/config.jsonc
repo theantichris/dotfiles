@@ -35,12 +35,12 @@
     "return-type": "json",
     "interval": 60,
     "exec": "~/.config/waybar/modules/storage.sh",
-    "on-click": "wezterm start gdu /home"
+    "on-click": "kitty gdu /home"
   },
   "memory": {
     "interval": 30,
     "format": "  {}%",
-    "on-click": "wezterm start btop",
+    "on-click": "kitty btop",
     "states": {
       "warning": 70,
       "critical": 90
@@ -49,7 +49,7 @@
   "cpu": {
     "interval": 1,
     "format": "  {usage}%",
-    "on-click": "wezterm start btop",
+    "on-click": "kitty btop",
     "states": {
       "warning": 70,
       "critical": 90
@@ -67,7 +67,7 @@
     ],
     "max-length": 7,
     "min-length": 7,
-    "on-click": "wezterm start btop",
+    "on-click": "kitty btop",
     "states": {
       "warning": 70,
       "critical": 85
@@ -79,7 +79,7 @@
     "format": "󰢮  {}",
     "tooltip": false,
     "return-type": "json",
-    "on-click": "wezterm start nvtop"
+    "on-click": "kitty nvtop"
   },
   "custom/outside": {
     "exec": "~/.cargo/bin/outside -o waybar",
@@ -88,7 +88,7 @@
     "format": "{text}",
     "tooltip": true,
     "escape": true,
-    "on-click": "wezterm start ~/.cargo/bin/outside"
+    "on-click": "kitty ~/.cargo/bin/outside"
   },
   "custom/media": {
     "format": "󰝚  {0}",
@@ -137,8 +137,8 @@
     "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}\nUp: {bandwidthUpBytes} Down: {bandwidthDownBytes}",
     "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}\nUp: {bandwidthUpBytes} Down: {bandwidthDownBytes}",
     "tooltip-format-disconnected": "Disconnected",
-    "on-click": "wezterm start nmtui",
-    "on-click-right": "wezterm start bandwhich"
+    "on-click": "kitty nmtui",
+    "on-click-right": "kitty bandwhich"
   },
   "bluetooth": {
     "format": "󰂯",
@@ -149,12 +149,12 @@
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-    "on-click": "wezterm start bluetui"
+    "on-click": "kitty bluetui"
   },
   "clock#date": {
     "format": "󰥔  {:%H:%M   %a %e %b}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "on-click": "wezterm start ikhal",
+    "on-click": "kitty ikhal",
     "calendar": {
       "mode": "month",
       "on-scroll": 1,

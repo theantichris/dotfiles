@@ -1,7 +1,7 @@
 [general]
 editor = ["kitty", "-e", "helix"]
-start_script = ["cd ~/.toney && git pull --rebase"]
-stop_script = ["cd ~/.toney && git add -A && git diff --cached --quiet || (git commit -m 'update notes' && git push)"]
+# start_script = ["cd ~/.toney && git pull --rebase"]
+# stop_script = ["cd ~/.toney && git add -A && git diff --cached --quiet || (git commit -m 'update notes' && git push)"]
 
 [keybinds.global]
 up = "k"

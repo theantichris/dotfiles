@@ -63,6 +63,7 @@ brew install --cask font-hack-nerd-font
 brew install --cask "goreleaser/tap/goreleaser"
 brew install --cask granola
 brew install --cask karabiner-elements
+brew install --cask kitty
 brew install --cask "nikitabobko/tap/aerospace"
 brew install --cask notion
 brew install --cask ollama-app
@@ -74,7 +75,6 @@ brew install --cask steermouse
 brew install --cask surfshark
 brew install --cask tailscale-app
 brew install --cask uhk-agent
-brew install --cask wezterm
 
 # Go packages
 go install golang.org/x/tools/gopls@latest
@@ -116,13 +116,5 @@ bat cache --build
 # tldr
 
 tldr --update
-
-# Wezterm terminfo
-if ! infocmp wezterm &>/dev/null; then
-  tempfile=$(mktemp)
-  curl -o "$tempfile" https://raw.githubusercontent.com/wez/wezterm/main/termwiz/data/wezterm.terminfo
-  tic -x -o "$HOME/.terminfo" "$tempfile"
-  rm $tempfile
-fi
 
 {{ end -}}

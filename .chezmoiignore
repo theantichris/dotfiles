@@ -43,6 +43,9 @@ CLAUDE.md
 .config/xdg-terminal.list
 
 .chezmoiscripts/run_onchange_before_install-packages-cachyos.sh.tmpl
+
+.claude.json
+.config/crush
 {{ end }}
 
 # Debian
@@ -56,16 +59,15 @@ CLAUDE.md
 .chezmoiscripts/run_onchange_before_install-packages-android.sh.tmpl
 {{ end }}
 
-{{ if or (eq .chezmoi.os "android") (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian")) }}
-.claude.json
-.config/crush
-{{ end }}
 
 # MacOS
 {{ if ne .chezmoi.os "darwin" }}
 .config/aerospace
 .config/karabiner
 .config/raycast
+
+.claude.json
+.config/crush
 
 run_onchange_before_install-packages-darwin.sh.tmpl
 {{ end }}

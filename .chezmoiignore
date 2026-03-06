@@ -8,9 +8,6 @@ screenshots/
 # Palette
 color_palettes/
 
-# Deprecated configs
-.config/nom
-
 # Chezmoi
 chezmoi.toml
 

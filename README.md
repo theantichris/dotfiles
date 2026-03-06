@@ -158,7 +158,6 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 
 | Tool                                                | Key Files (chezmoi paths) |
 |-----------------------------------------------------|---------------------------|
-| [aerc](https://aerc-mail.org)                       | `dot_config/aerc`         |
 | [gurk](https://github.com/boxdot/gurk-rs)           | -                         |
 | [signal-desktop](https://signal.org)                | -                         |
 | [slack-desktop](https://slack.com)                  | -                         |
@@ -320,15 +319,6 @@ A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Key
 | [bandwhich](https://github.com/imsnif/bandwhich) | -                         |
 | [bluetui](https://github.com/pythops/bluetui)    | -                         |
 | [Tailscale](https://tailscale.com)               | -                         |
-
-</details>
-
-<details>
-<summary><strong>Email</strong></summary>
-
-| Tool                          | Key Files (chezmoi paths) |
-|-------------------------------|---------------------------|
-| [aerc](https://aerc-mail.org) | `dot_config/aerc`         |
 
 </details>
 

@@ -50,18 +50,15 @@ CLAUDE.md
 .chezmoiscripts/run_onchange_before_install-packages-debian.sh.tmpl
 {{ end }}
 
-{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian") }}
-.claude.json
-.config/crush
-{{ end }}
 
 # Android
 {{ if (ne .chezmoi.os "android") }}
 .chezmoiscripts/run_onchange_before_install-packages-android.sh.tmpl
 {{ end }}
 
-{{ if eq .chezmoi.os "android" }}
+{{ if or (eq .chezmoi.os "android") (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "debian")) }}
 .claude.json
+.config/crush
 {{ end }}
 
 # MacOS

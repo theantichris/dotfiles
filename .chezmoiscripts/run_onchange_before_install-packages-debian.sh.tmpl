@@ -1,11 +1,16 @@
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "ubuntu") -}}
+
 #!/bin/bash
 
 sudo apt update
 sudo apt upgrade
 
+sudo add-apt-repository -y ppa:zhangsongcui3371/fastfetch
+
 sudo apt install bat
+sudo apt install fastfetch
 sudo apt install fish
 sudo apt install gh
 sudo apt install zoxide
+
 {{- end }}

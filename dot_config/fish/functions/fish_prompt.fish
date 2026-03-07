@@ -126,9 +126,9 @@ function fish_prompt
     set -l clock_icon \uf017
     set -l right_part (printf "%s%s" (set_color $cyberpunk_comment) " $clock_icon  $time_str")(set_color normal)
 
-    # Calculate visible lengths (without ANSI codes)
-    set -l left_len (string length --visible -- "$left_part")
-    set -l right_len (string length --visible -- "$right_part")
+    # Calculate visible lengths (strip ANSI codes, then measure)
+    set -l left_len (string replace -ra '\e\[[^m]*m' '' -- "$left_part" | string length)
+    set -l right_len (string replace -ra '\e\[[^m]*m' '' -- "$right_part" | string length)
 
     # Calculate dot fill width (terminal width - left - right - padding)
     set -l term_width $COLUMNS

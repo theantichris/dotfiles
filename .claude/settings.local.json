@@ -53,8 +53,7 @@
       "Bash(hyprctl binds:*)",
       "WebFetch(domain:nikitabobko.github.io)",
       "Bash(xdg-settings get default-web-browser:*)",
-      "WebFetch(domain:sw.kovidgoyal.net)",
-      "Bash(git:*j)"
+      "WebFetch(domain:sw.kovidgoyal.net)"
     ]
   }
 }

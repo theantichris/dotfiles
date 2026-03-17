@@ -25,7 +25,7 @@ scripts/
 AGENTS.md
 CLAUDE.md
 
-# Linux GUI configs
+# CachyOS
 {{ if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "cachyos") }}
 .config/autostart
 .config/gtk-3.0
@@ -43,6 +43,11 @@ CLAUDE.md
 .config/xdg-terminal.list
 
 .chezmoiscripts/run_onchange_before_install-packages-cachyos.sh.tmpl
+
+.config/kitty
+.config/clipse
+.local/share/bemoji
+.jupyter
 
 .claude.json
 .config/crush

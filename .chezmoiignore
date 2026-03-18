@@ -56,6 +56,7 @@ CLAUDE.md
 # Ubuntu (DevTerm)
 {{ if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "ubuntu") }}
 .chezmoiscripts/run_onchange_before_install-packages-debian.sh.tmpl
+.bashrc
 {{ end }}
 
 

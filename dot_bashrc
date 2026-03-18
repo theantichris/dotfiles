@@ -1,0 +1,4 @@
+# If running inside yaft, switch to fish
+if [ "$TERM" = "yaft-256color" ]; then
+    exec /usr/bin/fish
+fi

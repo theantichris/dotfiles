@@ -12,3 +12,11 @@ abbr -a !! '$history[1]'
 function fish_greeting
 	fastfetch
 end
+
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "ubuntu") }}
+
+# Auto-start yaft on TTY login
+if status is-login; and test (tty) = /dev/tty1; and not set -q YAFT
+    exec yaft
+end
+{{- end }}

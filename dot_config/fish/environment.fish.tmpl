@@ -16,5 +16,9 @@ set -Ux SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
 ssh-add ~/.ssh/github_ed25519 &>/dev/null
 {{- end }}
 
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "ubuntu") }}
+set -x YAFT clockwise
+{{- end }}
+
 set -x MANROFFOPT -c
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"

@@ -1,0 +1,20 @@
+" Line numbers
+set number
+set relativenumber
+set colorcolumn=80
+
+" Soft wrap (for markdown notes)
+set wrap
+set linebreak
+
+" Indent guides via listchars
+set list
+set listchars=tab:│\ ,leadmultispace:╎\ \ \
+
+" Cursor shape: bar in insert, block in normal
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[2 q"
+
+" Sane defaults
+set nocompatible
+set backspace=indent,eol,start

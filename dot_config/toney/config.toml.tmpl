@@ -1,5 +1,12 @@
 [general]
-editor = ["kitty", "-e", "{{ if eq .chezmoi.os "darwin" }}hx{{ else }}helix{{ end }}"]
+{{- if eq .chezmoi.os "darwin" }}
+editor = ["kitty", "-e", "hx"]
+{{- else if eq .chezmoi.osRelease.id "ubuntu" }}
+editor = ["vim"]
+{{- else }}
+editor = ["kitty", "-e", "helix"]
+{{- end }}
+
 start_script = ["cd ~/.toney && git pull --rebase"]
 stop_script = ["cd ~/.toney && git add -A && git diff --cached --quiet || (git commit -m 'update notes' && git push)"]
 

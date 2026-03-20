@@ -13,6 +13,11 @@ function upgrade --description 'Package upgrades (homebrew, pacman/paru, npm -g,
     sudo pacman -Rns
     {{- end }}
 
+    {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "ubuntu") }}
+    sudo apt update
+    sudo apt upgrade
+    {{- end }}
+
     go-global-update
     uv tool upgrade --all
     cargo install-update -a

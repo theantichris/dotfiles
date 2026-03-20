@@ -9,7 +9,7 @@ function upgrade --description 'Package upgrades (homebrew, pacman/paru, npm -g,
     pkg upgrade
     {{- end }}
 
-    {{- if and eq (.chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") }}
+    {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") }}
     sudo pacman -Rns
     {{- end }}
 

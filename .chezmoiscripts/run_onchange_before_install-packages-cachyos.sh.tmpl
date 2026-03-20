@@ -17,7 +17,7 @@ sudo pacman -S --needed waybar
 sudo pacman -S --needed waypaper
 sudo pacman -S --needed wlogout
 sudo pacman -S --needed wtype
-sudo pacman -S --needed xdg-desktop-portal-hyprland
+sudo pacman -S --needed xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
 
 # Development
 sudo pacman -S --needed claude-code
@@ -199,6 +199,7 @@ sudo systemctl enable --now tailscaled
 
 systemctl --user enable --now hypridle.service
 systemctl --user enable --now hyprpolkitagent.service
+systemctl --user enable --now xdg-desktop-portal-gtk.service
 
 {{- end }}
 

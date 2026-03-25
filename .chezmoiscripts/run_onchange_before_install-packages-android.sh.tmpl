@@ -2,26 +2,17 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 pkg install bat
-pkg install chezmoi
 pkg install cmatrix
-pkg install dirb
-pkg install entr
 pkg install eza
 pkg install fastfetch
 pkg install fd
 pkg install fish
 pkg install fzf
-pkg install gh git-delta lazygit
-pkg install git
+pkg install gh
 pkg install glow
-pkg install golang gopls delve
+pkg install golang
 pkg install helix lua-language-server marksman
-pkg install hugo
-pkg install ncdu
 pkg install newsboat
-pkg install nodejs-lts
-pkg install nmap
-pkg install pass
 pkg install proot-distro
 pkg install python uv
 pkg install termux-services
@@ -31,12 +22,7 @@ pkg install w3m
 pkg install zoxide
 
 # go packages
-go install github.com/spf13/cobra-cli@latest
 go install github.com/Gelio/go-global-update@latest
-go install github.com/go-delve/delve/cmd/dlv@latest
-go install github.com/goreleaser/goreleaser/v2@latest
-go install github.com/orlangure/gocovsh@latest
-go install github.com/nametake/golangci-lint-langserver@latest
 go install github.com/SourcewareLab/Toney/v2@latest
 go install github.com/theantichris/ghost/v3@latest
 go install golang.org/x/tools/cmd/goimports@latest
@@ -45,7 +31,6 @@ go install golang.org/x/tools/cmd/goimports@latest
 gh extension install dlvhdr/gh-dash
 
 # python
-# uv tool install sqlmap --upgrade
 uv tool install toot-tooi --upgrade
 
 # rust

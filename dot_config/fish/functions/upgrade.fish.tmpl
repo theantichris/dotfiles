@@ -1,12 +1,16 @@
 function upgrade --description 'Package upgrades (homebrew, pacman/paru, npm -g, go-global-update, uv tools, rust)'
+    {{- if eq .chezmoi.os "android" }}
+    pkg update
+    pkg upgrade
+    {{- end }}
+
     {{- if eq .chezmoi.os "darwin" }}
     brew update
     brew upgrade
     {{- end }}
 
-    {{- if eq .chezmoi.os "android" }}
-    pkg update
-    pkg upgrade
+    {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") }}
+    cachy-update
     {{- end }}
 
     {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "ubuntu") }}

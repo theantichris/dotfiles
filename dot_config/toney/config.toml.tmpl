@@ -1,7 +1,9 @@
 [general]
 {{- if eq .chezmoi.os "darwin" }}
 editor = ["kitty", "-e", "hx"]
-{{- else if eq .chezmoi.osRelease.id "ubuntu" }}
+{{- else if eq .chezmoi.os "android" }}
+editor = ["hx"]
+{{- else if eq (dig "id" "" .chezmoi.osRelease) "ubuntu" }}
 editor = ["vim"]
 {{- else }}
 editor = ["kitty", "-e", "helix"]

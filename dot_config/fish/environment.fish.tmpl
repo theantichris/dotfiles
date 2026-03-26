@@ -4,6 +4,7 @@ set -U __done_notification_urgency_level_low
 
 {{- if eq .chezmoi.os "android" }}
 set -Ux BROWSER "/data/data/com.termux/files/usr/bin/open-in-firefox"
+set -Ux XDG_CONFIG_HOME ~/.config
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}

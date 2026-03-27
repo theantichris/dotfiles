@@ -94,6 +94,12 @@ sudo pacman -S --needed sbctl
 sudo pacman -S --needed sddm
 sudo pacman -S --needed vdirsyncer python-aiohttp-oauthlib
 
+# Virtualization
+sudo pacman -S --needed qemu-full libvirt virt-manager virt-viewer
+sudo pacman -S --needed dnsmasq edk2-ovmf swtpm bridge-utils
+sudo usermod -aG libvirt "$USER"
+sudo usermod -aG kvm "$USER"
+
 # paru
 
 paru -Syu
@@ -191,6 +197,8 @@ sudo systemctl enable --now OpenLinkHub.service
 sudo systemctl enable --now sddm.service
 sudo systemctl enable --now sshd
 sudo systemctl enable --now tailscaled
+sudo systemctl enable --now libvirtd.service
+sudo systemctl enable --now virtlogd.service
 
 systemctl --user enable --now hypridle.service
 systemctl --user enable --now hyprpolkitagent.service

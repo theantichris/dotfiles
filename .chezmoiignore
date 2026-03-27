@@ -61,6 +61,11 @@ CLAUDE.md
 {{ end }}
 
 
+# ParrotOS
+{{ if or (ne .chezmoi.os "linux") (not (hasKey .chezmoi.osRelease "versionCodename")) (ne .chezmoi.osRelease.versionCodename "echo") }}
+.chezmoiscripts/run_onchange_before_install-packages-parrot.sh.tmpl
+{{ end }}
+
 # Android
 {{ if (ne .chezmoi.os "android") }}
 .chezmoiscripts/run_onchange_before_install-packages-android.sh.tmpl

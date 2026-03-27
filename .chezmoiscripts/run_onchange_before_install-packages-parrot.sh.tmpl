@@ -1,0 +1,19 @@
+{{- if and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "versionCodename") (eq .chezmoi.osRelease.versionCodename "echo") -}}
+#!/bin/bash
+
+sudo apt update
+sudo apt upgrade -y
+
+# CLI Tools
+sudo apt install -y bat eza fzf gdu glow zoxide
+
+# Development
+sudo apt install -y git git-delta helix
+
+# Fish Shell
+sudo apt install -y fish
+
+# Communication
+sudo apt install -y newsboat
+
+{{- end -}}

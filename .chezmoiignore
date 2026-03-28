@@ -69,6 +69,7 @@ CLAUDE.md
 # Android
 {{ if (ne .chezmoi.os "android") }}
 .chezmoiscripts/run_onchange_before_install-packages-android.sh.tmpl
+.local/bin/open-in-firefox
 {{ end }}
 
 

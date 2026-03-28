@@ -6,6 +6,8 @@ set -U __done_notification_urgency_level_low
 set -Ux BROWSER "open-in-firefox"
 set -Ux XDG_CONFIG_HOME $HOME/.config
 set -Ux SSL_CERT_FILE $PREFIX/etc/tls/cert.pem
+set -Ux SSL_CERT_DIR $PREFIX/etc/tls/
+set -Ux CURL_CA_BUNDLE $PREFIX/etc/tls/cert.pem
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}

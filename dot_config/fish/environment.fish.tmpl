@@ -5,6 +5,7 @@ set -U __done_notification_urgency_level_low
 {{- if eq .chezmoi.os "android" }}
 set -Ux BROWSER "open-in-firefox"
 set -Ux XDG_CONFIG_HOME $HOME/.config
+set -Ux ANDROID_API_LEVEL (getprop ro.build.version.sdk)
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}

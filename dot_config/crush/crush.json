@@ -7,6 +7,13 @@
       "generated_with": false
     }
   },
+  "tools": {
+    "ls": {
+      "max_depth": 0,
+      "max_items": 1000
+    },
+    "grep": {}
+  },
   "lsp": {
     "go": {
       "command": "gopls",

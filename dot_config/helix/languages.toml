@@ -4,6 +4,9 @@ command = "typos-lsp"
 [language-server.typos.config]
 diagnosticSeverity = "Hint"
 
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
 [[language]]
 name = "go"
 auto-format = true

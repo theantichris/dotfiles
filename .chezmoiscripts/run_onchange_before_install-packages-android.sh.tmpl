@@ -27,22 +27,51 @@ pkg install w3m
 pkg install which
 pkg install zoxide
 
+# --- NEW: pkg packages ---
+# pkg install git-delta
+# pkg install jq
+# pkg install lazygit
+# pkg install nodejs-lts
+# pkg install entr
+# pkg install hugo
+
+# --- NEW: npm packages (requires nodejs-lts) ---
+# npm install -g bash-language-server
+# npm install -g vscode-langservers-extracted
+# npm install -g yaml-language-server
+# npm install -g markdownlint-cli2
+
 # go packages
 go install github.com/Gelio/go-global-update@latest
 go install github.com/SourcewareLab/Toney/v2@latest
 go install github.com/theantichris/ghost/v3@latest
 go install golang.org/x/tools/cmd/goimports@latest
 
+# --- NEW: go packages ---
+# go install golang.org/x/tools/gopls@latest
+# go install github.com/nametake/golangci-lint-langserver@latest
+# go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+# go install github.com/gotestyourself/gotestsum@latest
+# go install github.com/JohannesKaufmann/html-to-markdown/v2/cli/html2markdown@latest
+# go install github.com/spf13/cobra-cli@latest
+# go install github.com/orlangure/gocovsh@latest
+# go install honnef.co/go/tools/cmd/staticcheck@latest
+# go install github.com/go-delve/delve/cmd/dlv@latest  # may fail on Android
+
 # gh extensions
 gh extension install dlvhdr/gh-dash
 
-# python
-# uv tool install toot-tooi
-
 # rust
-# cargo install cargo-update
+cargo install cargo-update
 OPENSSL_NO_VENDOR=1 cargo install outside
-# cargo install siggy
+
+# --- NEW: cargo packages ---
+# cargo install taplo-cli
+# cargo install typos-cli
+
+# --- NEW: python tools ---
+# uv tool install pre-commit --upgrade
+# uv tool install httpie --upgrade
 
 # bat
 bat cache --build

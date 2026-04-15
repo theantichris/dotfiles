@@ -6,6 +6,12 @@ set -U __done_notification_urgency_level_low
 set -Ux BROWSER "open-in-firefox"
 set -Ux XDG_CONFIG_HOME $HOME/.config
 set -Ux ANDROID_API_LEVEL (getprop ro.build.version.sdk)
+
+# SSH agent (Termux has no systemd, so start manually)
+if not set -q SSH_AUTH_SOCK
+    eval (ssh-agent -c) &>/dev/null
+end
+ssh-add ~/.ssh/github_ed25519 &>/dev/null
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}

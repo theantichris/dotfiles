@@ -8,6 +8,16 @@ diagnosticSeverity = "Hint"
 command = "clippy"
 
 [[language]]
+name = "bash"
+scope = "source.sh"
+file-types = [
+  { glob = "**/*.sh.tmpl" },
+  { glob = "**/*.bash.tmpl" },
+]
+shebangs = ["sh", "bash"]
+language-servers = ["bash-language-server", "typos"]
+
+[[language]]
 name = "go"
 auto-format = true
 formatter = { command = "goimports" }
@@ -36,16 +46,11 @@ name = "markdown"
 language-servers = ["marksman", "typos"]
 
 [[language]]
+name = "rust"
+auto-format = true
+language-servers = ["rust-analyzer", "typos"]
+
+[[language]]
 name = "toml"
 roots = ["."]
 language-servers = ["taplo", "typos"]
-
-[[language]]
-name = "bash"
-scope = "source.sh"
-file-types = [
-  { glob = "**/*.sh.tmpl" },
-  { glob = "**/*.bash.tmpl" },
-]
-shebangs = ["sh", "bash"]
-language-servers = ["bash-language-server", "typos"]

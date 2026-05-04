@@ -20,6 +20,7 @@ set -Ux XDG_CONFIG_HOME ~/.config
 {{- end }}
 
 {{- if eq .chezmoi.os "linux" }}
+set -Ux BROWSER google-chrome-stable
 set -Ux SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
 ssh-add ~/.ssh/github_ed25519 &>/dev/null
 {{- end }}

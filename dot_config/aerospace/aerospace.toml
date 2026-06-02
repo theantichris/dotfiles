@@ -21,7 +21,7 @@ cmd-alt-ctrl-shift-x = 'exec-and-forget open -a "System Settings"'
 cmd-alt-ctrl-shift-e = 'exec-and-forget open -a "Finder"'
 cmd-alt-ctrl-shift-enter = 'exec-and-forget open -na kitty'
 cmd-alt-ctrl-shift-q = 'close'
-cmd-alt-ctrl-shift-b = 'exec-and-forget open -a "Firefox"'
+cmd-alt-ctrl-shift-b = 'exec-and-forget open -a "Google Chrome"'
 
 cmd-alt-ctrl-shift-semicolon = 'layout floating tiling'
 cmd-alt-ctrl-shift-f = 'macos-native-fullscreen'

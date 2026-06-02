@@ -24,7 +24,7 @@ cmd-alt-ctrl-shift-q = 'close'
 cmd-alt-ctrl-shift-b = 'exec-and-forget open -a "Firefox"'
 
 cmd-alt-ctrl-shift-semicolon = 'layout floating tiling'
-cmd-alt-ctrl-shift-f = 'fullscreen'
+cmd-alt-ctrl-shift-f = 'macos-native-fullscreen'
 cmd-alt-ctrl-shift-v = 'layout tiles vertical horizontal'
 cmd-alt-ctrl-shift-m = 'mode move'
 cmd-alt-ctrl-shift-r = 'mode resize'

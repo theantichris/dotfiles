@@ -54,7 +54,11 @@
       "WebFetch(domain:nikitabobko.github.io)",
       "Bash(xdg-settings get default-web-browser:*)",
       "WebFetch(domain:sw.kovidgoyal.net)",
-      "WebFetch(domain:forum.clockworkpi.com)"
+      "WebFetch(domain:forum.clockworkpi.com)",
+      "Read(//Applications/World of Warcraft/**)",
+      "Read(//Applications/**)",
+      "Bash(unzip -l /Users/christopher/Seafile/Vault/WOW/Interface.zip)",
+      "Bash(unzip -l /Users/christopher/Seafile/Vault/WOW/WTF.zip)"
     ]
   }
 }

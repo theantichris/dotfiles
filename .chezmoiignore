@@ -44,7 +44,6 @@ CLAUDE.md
 
 .chezmoiscripts/run_onchange_before_install-packages-cachyos.sh.tmpl
 
-.config/kitty
 .config/clipse
 .local/share/bemoji
 .jupyter

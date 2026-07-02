@@ -8,9 +8,6 @@ screenshots/
 # Chezmoi
 chezmoi.toml
 
-# Scripts
-scripts/
-
 # Lint files
 .markdownlint.yml
 

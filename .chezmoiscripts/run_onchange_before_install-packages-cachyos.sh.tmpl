@@ -5,109 +5,32 @@
 
 sudo pacman -Syu
 
-sudo pacman -S --needed appmenu-gtk-module libdbusmenu-glib # global menu
-sudo pacman -S --needed bandwhich
 sudo pacman -S --needed bitwarden
-sudo pacman -S --needed bluetui
-sudo pacman -S --needed breeze breeze-gtk nwg-look qt5-wayland qt6-wayland # desktop theme
-sudo pacman -S --needed cataclysm-dda dwarffortress faugus-launcher nethack prismlauncher
-sudo pacman -S --needed chawan
 sudo pacman -S --needed claude-code
 sudo pacman -S --needed cmatrix
-sudo pacman -S --needed crackmapexec
-sudo pacman -S --needed doctl
 sudo pacman -S --needed entr
 sudo pacman -S --needed eza
 sudo pacman -S --needed fzf
-sudo pacman -S --needed freerdp
-sudo pacman -S --needed gdu
-sudo pacman -S --needed git git-delta github-cli lazygit
+sudo pacman -S --needed git
 sudo pacman -S --needed glow
 sudo pacman -S --needed go delve golangci-lint go-tools gopls goreleaser
-sudo pacman -S --needed hashcat
 sudo pacman -S --needed helix bash-language-server lua-language-server marksman taplo-cli typos-lsp vscode-json-languageserver yaml-language-server
-sudo pacman -S --needed httpie
-sudo pacman -S --needed hugo
-sudo pacman -S --needed hyprcursor hypridle hyprlauncher hyprlock hyprpaper hyprpolkitagent hyprpwcenter hyprshot
-sudo pacman -S --needed john
 sudo pacman -S --needed kitty kitty-shell-integration kitty-terminfo
 sudo pacman -S --needed markdownlint-cli2 pre-commit
-sudo pacman -S --needed metasploit
 sudo pacman -S --needed newsboat
-sudo pacman -S --needed npm
-sudo pacman -S --needed nvtop
-sudo pacman -S --needed obs-studio-browser
 sudo pacman -S --needed ollama-cuda
 sudo pacman -S --needed pass
-sudo pacman -S --needed pipewire pwvucontrol wireplumber
-sudo pacman -S --needed protonmail-bridge
-sudo pacman -S --needed python-pillow python-term-image
-sudo pacman -S --needed qemu-full libvirt virt-manager virt-viewer dnsmasq edk2-ovmf swtpm bridge-utils
 sudo pacman -S --needed qflipper
 sudo pacman -S --needed rustup
-sudo pacman -S --needed satty
-sudo pacman -S --needed sbctl
-sudo pacman -S --needed sddm
 sudo pacman -S --needed signal-desktop
 sudo pacman -S --needed speedtest-cli
 sudo pacman -S --needed superfile
-sudo pacman -S --needed swaync
 sudo pacman -S --needed tailscale
-sudo pacman -S --needed tcpdump
-sudo pacman -S --needed termshark
-sudo pacman -S --needed tor
-sudo pacman -S --needed uv
-sudo pacman -S --needed vdirsyncer python-aiohttp-oauthlib
 sudo pacman -S --needed vhs
-sudo pacman -S --needed w3m
-sudo pacman -S --needed waybar waypaper wlogout wtype
-sudo pacman -S --needed whois
-sudo pacman -S --needed wpscan
-sudo pacman -S --needed xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
-sudo pacman -S --needed zip
-sudo pacman -S --needed zoxide
-
-# paru
-
-paru -Syu
-
-paru -S --needed 1password
-paru -S --needed adom-noteye
-paru -S --needed bemoji
-paru -S --needed clipse
-paru -S --needed crush
-paru -S --needed dirb
-paru -S --needed freeze
-paru -S --needed gotestsum
-paru -S --needed hyprqt6engine
-paru -S --needed json-log-viewer
-paru -S --needed hash-id
-paru -S --needed nerdfonts-installer-bin
-paru -S --needed oxicord
-paru -S --needed posting
-paru -S --needed quien
-paru -S --needed rose-pine-hyprcursor
-paru -S --needed sddm-astronaut-theme
-paru -S --needed seafile-client
-paru -S --needed signal-cli
-paru -S --needed slack-desktop-wayland
-paru -S --needed squiid
-paru -S --needed superseedr
-paru -S --needed surfshark-client
-paru -S --needed tray-tui
-paru -S --needed uhk-agent-appimage
-paru -S --needed wowup-cf-bin
-paru -S --needed xdg-terminal-exec
-
-# gh extensions
-
-gh extension install chmouel/gh-news
-gh extension install dlvhdr/gh-dash
 
 # Go
 
 go install github.com/floatpane/matcha@latest
-go install github.com/JohannesKaufmann/html-to-markdown/v2/cli/html2markdown@latest
 go install github.com/spf13/cobra-cli@latest
 go install github.com/Gelio/go-global-update@latest
 go install github.com/orlangure/gocovsh@latest
@@ -115,7 +38,6 @@ go install github.com/nametake/golangci-lint-langserver@latest
 go install github.com/SourcewareLab/Toney/v2@latest
 go install github.com/theantichris/ghost/v3@latest
 go install golang.org/x/tools/cmd/goimports@latest
-go install github.com/wallentx/jobscout/cmd/jobscout@latest
 
 # Python
 
@@ -124,11 +46,9 @@ uv tool install toot-tooi --upgrade
 # Rust
 
 rustup default stable
-rustup component add rust-analyzer
 
 cargo install cargo-update
 cargo install outside
-cargo install siggy
 
 # bat
 
@@ -137,24 +57,6 @@ bat cache --build
 # tldr
 
 tldr --update
-
-# Virtualization groups
-sudo usermod -aG libvirt "$USER"
-sudo usermod -aG kvm "$USER"
-
-# Daemons
-
-sudo systemctl enable --now ollama
-sudo systemctl enable --now OpenLinkHub.service
-sudo systemctl enable --now sddm.service
-sudo systemctl enable --now sshd
-sudo systemctl enable --now tailscaled
-sudo systemctl enable --now libvirtd.service
-sudo systemctl enable --now virtlogd.service
-
-systemctl --user enable --now hypridle.service
-systemctl --user enable --now hyprpolkitagent.service
-systemctl --user enable --now xdg-desktop-portal-gtk.service
 
 {{- end }}
 

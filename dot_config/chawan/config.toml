@@ -1,9 +1,0 @@
-[buffer]
-cookie = "save"
-history = true
-images = true
-scripting = true
-
-[search]
-ignore-case = "auto"
-wrap = true

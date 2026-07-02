@@ -1,5 +1,0 @@
-{{- if or (and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "ubuntu")) (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "versionCodename") (eq .chezmoi.osRelease.versionCodename "echo")) }}
-alias cat batcat
-{{- else }}
-alias cat bat
-{{- end }}

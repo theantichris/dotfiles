@@ -1,6 +1,0 @@
-alias cmad='chezmoi add'
-alias cmap='chezmoi apply'
-alias cme='chezmoi edit'
-alias cmf='chezmoi forget'
-alias cmm='chezmoi managed'
-alias cmu='chezmoi update'

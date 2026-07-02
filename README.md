@@ -1,16 +1,15 @@
 # dotfiles // netrunner loadout
 
-A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish. Keyboard driven workflow with vim style navigation and cross platform compatibility. Theme inspired by [sddm-astronaut](https://github.com/Keyitdev/sddm-astronaut-theme) Cyberpunk theme.
-
-![desktop](/screenshots/desktop.png)
+A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish.
+Keyboard driven workflow with VIM style navigation and cross platform compatibility.
+Theme inspired by [sddm-astronaut](https://github.com/Keyitdev/sddm-astronaut-theme)
+Cyberpunk theme.
 
 ## ✨ Highlights
 
-- **Cyberpunk Aesthetic** - Unified magenta/cyan color scheme across all tools
+- **Cyberpunk Aesthetic** - Unified color scheme across all tools
 - **Tiling Window Manager** - Hyprland with vim style navigation and smooth animations
 - **Modern Development Stack** - LSP powered editing with Helix, Fish shell with custom prompt
-- **Terminal Multiplexing** - WezTerm with built-in pane splitting and tab management
-- **Cross Platform** - Configurations for Linux, macOS, and Windows managed with chezmoi
 - **Comprehensive Tooling** - Preconfigured Git, Go, language servers, and formatters
 
 ## ⚡ Installation

@@ -1,11 +1,9 @@
 # Documentation
-documentation/
-README.md
-LICENSE
-screenshots/
-
-# Palette
 color_palettes/
+documentation/
+LICENSE
+README.md
+screenshots/
 
 # Chezmoi
 chezmoi.toml
@@ -29,13 +27,6 @@ CLAUDE.md
 .chezmoiscripts/run_onchange_before_install-packages-cachyos.sh.tmpl
 {{ end }}
 
-# Ubuntu (DevTerm)
-{{ if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "ubuntu") }}
-.chezmoiscripts/run_onchange_before_install-packages-debian.sh.tmpl
-.bashrc
-.vimrc
-{{ end }}
-
 # Android
 {{ if (ne .chezmoi.os "android") }}
 .chezmoiscripts/run_onchange_before_install-packages-android.sh.tmpl
@@ -47,9 +38,6 @@ CLAUDE.md
 .config/aerospace
 .config/karabiner
 .config/raycast
-
-.claude.json
-.config/crush
 
 run_onchange_before_install-packages-darwin.sh.tmpl
 {{ end }}

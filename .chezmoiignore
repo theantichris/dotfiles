@@ -3,7 +3,6 @@ documentation/
 README.md
 LICENSE
 screenshots/
-.harper-dictionary.txt
 
 # Palette
 color_palettes/
@@ -27,29 +26,7 @@ CLAUDE.md
 
 # CachyOS
 {{ if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "cachyos") }}
-.config/autostart
-.config/gtk-3.0
-.config/gtk-4.0
-.config/hypr
-.config/mako
-.config/rofi
-.config/swaync
-.config/systemd
-.config/waybar
-.config/wlogout
-
-.config/chrome-flags.conf
-.config/mimeapps.list
-.config/xdg-terminal.list
-
 .chezmoiscripts/run_onchange_before_install-packages-cachyos.sh.tmpl
-
-.config/clipse
-.local/share/bemoji
-.jupyter
-
-.claude.json
-.config/crush
 {{ end }}
 
 # Ubuntu (DevTerm)
@@ -59,16 +36,9 @@ CLAUDE.md
 .vimrc
 {{ end }}
 
-
-# ParrotOS
-{{ if or (ne .chezmoi.os "linux") (not (hasKey .chezmoi.osRelease "versionCodename")) (ne .chezmoi.osRelease.versionCodename "echo") }}
-.chezmoiscripts/run_onchange_before_install-packages-parrot.sh.tmpl
-{{ end }}
-
 # Android
 {{ if (ne .chezmoi.os "android") }}
 .chezmoiscripts/run_onchange_before_install-packages-android.sh.tmpl
-.local/bin/open-in-firefox
 {{ end }}
 
 

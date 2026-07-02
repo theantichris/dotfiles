@@ -1,33 +1,42 @@
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
 #!/bin/bash
 
-# pacman
+# PACMAN
 
 sudo pacman -Syu
 
-sudo pacman -S --needed bitwarden
+## CODE
 sudo pacman -S --needed claude-code
-sudo pacman -S --needed cmatrix
 sudo pacman -S --needed entr
-sudo pacman -S --needed eza
 sudo pacman -S --needed git
-sudo pacman -S --needed glow
 sudo pacman -S --needed go delve golangci-lint go-tools gopls goreleaser
 sudo pacman -S --needed helix bash-language-server lua-language-server marksman taplo-cli typos-lsp vscode-json-languageserver yaml-language-server
-sudo pacman -S --needed kitty kitty-shell-integration kitty-terminfo
 sudo pacman -S --needed markdownlint-cli2 pre-commit
-sudo pacman -S --needed newsboat
 sudo pacman -S --needed ollama-cuda
-sudo pacman -S --needed pass
-sudo pacman -S --needed qflipper
 sudo pacman -S --needed rustup
-sudo pacman -S --needed signal-desktop
-sudo pacman -S --needed speedtest-cli
-sudo pacman -S --needed superfile
-sudo pacman -S --needed tailscale
 sudo pacman -S --needed vhs
 
-# Go
+## COMMS
+sudo pacman -S --needed signal-desktop
+
+## ICE
+sudo pacman -S --needed bitwarden
+sudo pacman -S --needed pass
+sudo pacman -S --needed tailscale
+
+## SCREENSAVERS
+sudo pacman -S --needed cmatrix
+
+## UTILS
+sudo pacman -S --needed eza
+sudo pacman -S --needed glow
+sudo pacman -S --needed kitty kitty-shell-integration kitty-terminfo
+sudo pacman -S --needed newsboat
+sudo pacman -S --needed speedtest-cli
+sudo pacman -S --needed qflipper
+sudo pacman -S --needed superfile
+
+# GO
 
 go install github.com/floatpane/matcha@latest
 go install github.com/spf13/cobra-cli@latest
@@ -38,18 +47,18 @@ go install github.com/SourcewareLab/Toney/v2@latest
 go install github.com/theantichris/ghost/v3@latest
 go install golang.org/x/tools/cmd/goimports@latest
 
-# Rust
+# RUST
 
 rustup default stable
 
 cargo install cargo-update
 cargo install outside
 
-# bat
+# BAT
 
 bat cache --build
 
-# tldr
+# TLDR
 
 tldr --update
 

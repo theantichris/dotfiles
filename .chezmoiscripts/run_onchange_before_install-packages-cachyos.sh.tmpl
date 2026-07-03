@@ -12,7 +12,6 @@ sudo pacman -S --needed kitty-shell-integration kitty-terminfo
 sudo pacman -S --needed markdownlint-cli2 pre-commit
 sudo pacman -S --needed newsboat
 sudo pacman -S --needed ollama-cuda
-sudo pacman -S --needed openlinkhub
 sudo pacman -S --needed speedtest-cli
 sudo pacman -S --needed superfile
 sudo pacman -S --needed qflipper
@@ -37,7 +36,6 @@ bat cache --build
 tldr --update
 
 sudo systemctl enable --now ollama
-sudo systemctl enable --now OpenlinkHub.service
 
 {{- end }}
 

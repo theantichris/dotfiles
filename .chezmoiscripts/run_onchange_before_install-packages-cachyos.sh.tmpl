@@ -36,5 +36,8 @@ go install golang.org/x/tools/cmd/goimports@latest
 bat cache --build
 tldr --update
 
+sudo systemctl enable --now ollama
+sudo systemctl enable --now OpenlinkHub.service
+
 {{- end }}
 

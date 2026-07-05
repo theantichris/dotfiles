@@ -19,8 +19,9 @@ sudo pacman -S --needed tailscale
 sudo pacman -S --needed vhs
 
 # SHELLY
-shelly aur install matcha-client-bin
-shelly aur install nerdfonts-installer-bin
+shelly aur install --upgrade matcha-client-bin
+shelly aur install --upgrade nerdfonts-installer-bin
+shelly aur install --upgrade slack-desktop
 
 # GO
 go install github.com/spf13/cobra-cli@latest

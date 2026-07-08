@@ -21,6 +21,10 @@ CLAUDE.md
 
 # CachyOS
 {{ if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "cachyos") }}
+dot_config/btop
+dot_config/hypr
+dot_config/kitty
+
 .chezmoiscripts/run_onchange_before_install-packages-cachyos.sh.tmpl
 {{ end }}
 

@@ -19,6 +19,9 @@ chezmoi.toml
 AGENTS.md
 CLAUDE.md
 
+# Old Configs
+.toney/
+
 # CachyOS
 {{ if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "cachyos") }}
 dot_config/btop

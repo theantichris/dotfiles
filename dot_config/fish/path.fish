@@ -9,3 +9,5 @@ if test -d ~/.cargo/bin
         set -p PATH ~/.cargo/bin
     end
 end
+
+set -p PATH obsidian

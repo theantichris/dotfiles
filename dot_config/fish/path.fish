@@ -11,4 +11,3 @@ if test -d ~/.cargo/bin
 end
 
 set -p PATH ~/.local/bin
-set -p PATH obsidian

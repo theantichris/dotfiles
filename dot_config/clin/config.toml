@@ -57,7 +57,7 @@ backup_on_quit = true
 auto_push = true
 remote_url = "git@github.com:theantichris/notes.git"
 remote_name = "origin"
-auto_backup_interval = 30
+auto_backup_interval = 15
 
 [graf]
 preview_enabled = false

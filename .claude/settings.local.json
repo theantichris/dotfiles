@@ -8,7 +8,10 @@
       "Bash(pacman -Qi noctalia)",
       "Bash(pacman -Si noctalia-shell)",
       "Bash(pacman -Si noctalia-qs)",
-      "Bash(pacman -Si noctalia)"
+      "Bash(pacman -Si noctalia)",
+      "Bash(clin --version)",
+      "Bash(pacman -Qi clin-rs-bin)",
+      "Bash(gh api *)"
     ]
   }
 }

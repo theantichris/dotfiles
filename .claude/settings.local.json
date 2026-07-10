@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pacman -Ss noctalia)",
+      "Bash(pacman -Sl)",
+      "Bash(pacman -Si cachyos-hypr-noctalia)",
+      "Bash(pacman -Qip /var/cache/pacman/pkg/cachyos-hypr-noctalia-1.0-2-any.pkg.tar.zst)",
+      "Bash(pacman -Qi noctalia)",
+      "Bash(pacman -Si noctalia-shell)",
+      "Bash(pacman -Si noctalia-qs)",
+      "Bash(pacman -Si noctalia)"
+    ]
+  }
+}

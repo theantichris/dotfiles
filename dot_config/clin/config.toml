@@ -51,16 +51,13 @@ preview_enabled = false
 show_line_numbers = true
 
 [backup]
-enabled = false
-backup_on_save = false
-backup_on_quit = false
-auto_push = false
-# Remote URL for git push (e.g., "git@github.com:user/repo.git").
-# remote_url = ""
-# Remote name for git push (defaults to "origin").
-# remote_name = "origin"
-# Interval in minutes for automatic background backups.
-# auto_backup_interval = 30
+enabled = true
+backup_on_save = true
+backup_on_quit = true
+auto_push = true
+remote_url = "git@github.com:theantichris/notes.git"
+remote_name = "origin"
+auto_backup_interval = 30
 
 [graf]
 preview_enabled = false

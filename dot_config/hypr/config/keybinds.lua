@@ -59,6 +59,21 @@ hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(noctCall .. "volume decrease"), 
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd(noctCall .. "volume muteOutput"), { locked = true, repeating = true })
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd(noctCall .. "volume muteInput"),  { locked = true, repeating = true })
 
+-- Toggle default audio output between speakers/webcam and earbuds
+hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd(
+  "sh -c '" ..
+  "cur=$(pactl get-default-sink); " ..
+  "if [ \"$cur\" = \"alsa_output.usb-SteelSeries_Arctis_GameBuds_X-00.analog-stereo\" ]; then " ..
+    "new=alsa_output.pci-0000_00_1f.3.analog-stereo; label=Speakers; " ..
+  "else " ..
+    "new=alsa_output.usb-SteelSeries_Arctis_GameBuds_X-00.analog-stereo; label=Earbuds; " ..
+  "fi; " ..
+  "pactl set-default-sink \"$new\"; " ..
+  "pactl list short sink-inputs | cut -f1 | xargs -r -I{} pactl move-sink-input {} \"$new\"; " ..
+  "notify-send \"Audio Output\" \"Switched to $label\"" ..
+  "'"
+))
+
 -- Media
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd(noctCall .. "media playPause"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd(noctCall .. "media playPause"), { locked = true })

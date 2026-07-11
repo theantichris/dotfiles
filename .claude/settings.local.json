@@ -11,7 +11,11 @@
       "Bash(pacman -Si noctalia)",
       "Bash(clin --version)",
       "Bash(pacman -Qi clin-rs-bin)",
-      "Bash(gh api *)"
+      "Bash(gh api *)",
+      "Bash(clin config *)",
+      "Bash(glow config *)",
+      "Bash(env)",
+      "Read(//home/christopher/.config/glow/**)"
     ]
   }
 }

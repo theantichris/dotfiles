@@ -1,6 +1,5 @@
 # style name or JSON path (default "auto")
-#style: "~/AppData/Local/glow/Config/cyberpunk.json"
-style: "auto"
+style: "~/.config/glow/cyberpunk.json"
 # mouse support (TUI-mode only)
 mouse: false
 # use pager to display markdown

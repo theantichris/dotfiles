@@ -3,6 +3,8 @@ urls-source "miniflux"
 miniflux-url "https://rss.theantichris.com"
 miniflux-tokenfile "~/.config/newsboat/miniflux-token.txt"
 refresh-on-startup yes
+auto-reload yes
+reload-time 15
 
 browser "xdg-open %u"
 

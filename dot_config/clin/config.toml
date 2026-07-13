@@ -55,7 +55,7 @@ enabled = true
 backup_on_save = true
 backup_on_quit = true
 auto_push = true
-remote_url = "git@github.com:theantichris/notes.git"
+remote_url = "https://github.com/theantichris/notes.git"
 remote_name = "origin"
 auto_backup_interval = 15
 

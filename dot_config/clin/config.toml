@@ -6,7 +6,7 @@ auto_refresh = true
 code_line_numbers = true
 code_theme = "base16-ocean.dark"
 confirm_on_quit = true
-keybind_preset = "helix"
+keybind_preset = "default"
 link_url_max_length = 80
 preview_expand_mode = "external"
 preview_command = "glow"
@@ -46,8 +46,8 @@ week_start = "monday"
 
 [editor]
 external_command = "helix"
-external_enabled = false
-preview_enabled = false
+external_enabled = true
+preview_enabled = true
 show_line_numbers = true
 
 [backup]
@@ -55,7 +55,7 @@ enabled = true
 backup_on_save = true
 backup_on_quit = true
 auto_push = true
-remote_url = "https://github.com/theantichris/notes.git"
+remote_url = "git@github.com:theantichris/notes"
 remote_name = "origin"
 auto_backup_interval = 15
 

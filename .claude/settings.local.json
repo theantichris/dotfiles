@@ -15,7 +15,9 @@
       "Bash(clin config *)",
       "Bash(glow config *)",
       "Bash(env)",
-      "Read(//home/christopher/.config/glow/**)"
+      "Read(//home/christopher/.config/glow/**)",
+      "Read(//home/christopher/.claude/**)",
+      "Read(//home/christopher/**)"
     ]
   }
 }

@@ -1,0 +1,13 @@
+{
+  "model": "opus[1m]",
+  "enabledPlugins": {
+    "lua-lsp@claude-plugins-official": true
+  },
+  "promptSuggestionEnabled": false,
+  "tui": "fullscreen",
+  "theme": "auto",
+  "editorMode": "vim",
+  "autoScrollEnabled": false,
+  "remoteControlAtStartup": false,
+  "agentPushNotifEnabled": false
+}

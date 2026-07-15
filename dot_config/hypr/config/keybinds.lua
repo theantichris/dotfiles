@@ -30,6 +30,15 @@ hl.bind(mainMod .. " + SHIFT + J",  hl.dsp.window.move({ direction = "d" }))
 hl.bind(mainMod .. " + CONTROL + SHIFT + L", hl.dsp.window.move({ workspace = "r+1" }))
 hl.bind(mainMod .. " + CONTROL + SHIFT + H",  hl.dsp.window.move({ workspace = "r-1" }))
 
+-- Resize active window (hold to repeat)
+hl.bind(mainMod .. " + CONTROL + H", hl.dsp.window.resize({ x = -40, y = 0,  relative = true }), { repeating = true })
+hl.bind(mainMod .. " + CONTROL + L", hl.dsp.window.resize({ x = 40,  y = 0,  relative = true }), { repeating = true })
+hl.bind(mainMod .. " + CONTROL + K", hl.dsp.window.resize({ x = 0,   y = -40, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + CONTROL + J", hl.dsp.window.resize({ x = 0,   y = 40,  relative = true }), { repeating = true })
+
+-- Reset master split to 50/50
+hl.bind(mainMod .. " + CONTROL + R", hl.dsp.layout("mfact exact 0.5"))
+
 -- Move & Resize with mouse
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag())
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize())

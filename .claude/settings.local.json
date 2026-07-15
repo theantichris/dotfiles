@@ -17,7 +17,15 @@
       "Bash(env)",
       "Read(//home/christopher/.config/glow/**)",
       "Read(//home/christopher/.claude/**)",
-      "Read(//home/christopher/**)"
+      "Read(//home/christopher/**)",
+      "Bash(rg -rn -i \"resizeactive|resize|function.*resize|dsp\\\\b|^hl|global\" /home/christopher/.local/share/chezmoi/dot_config/hypr/)",
+      "Bash(rg -rn -i \"lua|LUA_PATH|package.path\" /home/christopher/.local/share/chezmoi/dot_config/hypr/)",
+      "Bash(hyprctl dispatch *)",
+      "Bash(chezmoi diff *)",
+      "Bash(chezmoi status *)",
+      "Bash(chezmoi managed *)",
+      "Bash(hyprctl getoption *)",
+      "Bash(rg -rn -i \"layout|split|dwindle|master|pseudo\" /home/christopher/.local/share/chezmoi/dot_config/hypr/config/)"
     ]
   }
 }

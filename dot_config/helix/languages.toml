@@ -54,3 +54,7 @@ language-servers = ["rust-analyzer", "typos"]
 name = "toml"
 roots = ["."]
 language-servers = ["taplo", "typos"]
+
+[[language]]
+name = "yaml"
+indent = { tab-width = 2, unit = "  " }

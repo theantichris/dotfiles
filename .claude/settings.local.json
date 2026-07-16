@@ -25,7 +25,20 @@
       "Bash(chezmoi status *)",
       "Bash(chezmoi managed *)",
       "Bash(hyprctl getoption *)",
-      "Bash(rg -rn -i \"layout|split|dwindle|master|pseudo\" /home/christopher/.local/share/chezmoi/dot_config/hypr/config/)"
+      "Bash(rg -rn -i \"layout|split|dwindle|master|pseudo\" /home/christopher/.local/share/chezmoi/dot_config/hypr/config/)",
+      "Bash(ollama list *)",
+      "Bash(crush --version)",
+      "Bash(curl -s http://localhost:11434/api/tags)",
+      "Bash(ollama show *)",
+      "Bash(crush schema *)",
+      "Bash(curl -sL https://raw.githubusercontent.com/charmbracelet/crush/main/schema.json -o /tmp/claude-1000/-home-christopher--local-share-chezmoi/05d1998a-f9c0-4109-95dd-e7cbc6e66ed6/scratchpad/crush-schema.json)",
+      "Bash(python3 -)",
+      "Bash(systemctl show *)",
+      "Bash(systemctl cat *)",
+      "Bash(python3 -c 'import json;d=json.load\\(open\\('\\\\''crush-schema-full.json'\\\\''\\)\\);print\\(list\\(d['\\\\''$defs'\\\\''].get\\('\\\\''TUIOptions'\\\\'',{}\\).get\\('\\\\''properties'\\\\'',{}\\).keys\\(\\)\\)\\)')",
+      "Bash(chezmoi apply *)",
+      "Bash(crush run *)",
+      "Bash(systemctl is-active *)"
     ]
   }
 }

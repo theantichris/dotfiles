@@ -1,9 +1,127 @@
 {
+  "$schema": "https://charm.land/crush.json",
   "providers": {
     "ollama": {
-      "name": "Ollama",
+      "name": "Ollama (local)",
+      "type": "ollama",
       "base_url": "http://localhost:11434/v1/",
-      "type": "ollama"
+      "api_key": "ollama",
+      "models": [
+        {
+          "id": "qwen3-coder:30b",
+          "name": "Qwen3 Coder 30B",
+          "context_window": 131072,
+          "default_max_tokens": 16384,
+          "can_reason": false,
+          "supports_attachments": false
+        },
+        {
+          "id": "qwen3.6:35b",
+          "name": "Qwen3.6 35B (reasoning+vision)",
+          "context_window": 131072,
+          "default_max_tokens": 16384,
+          "can_reason": true,
+          "supports_attachments": true
+        },
+        {
+          "id": "huihui_ai/qwen3-abliterated:8b",
+          "name": "Qwen3 8B (fast)",
+          "context_window": 32768,
+          "default_max_tokens": 8192,
+          "can_reason": false,
+          "supports_attachments": false
+        },
+        {
+          "id": "huihui_ai/qwen3-vl-abliterated:8b",
+          "name": "Qwen3 VL 8B (fast+vision)",
+          "context_window": 32768,
+          "default_max_tokens": 8192,
+          "can_reason": false,
+          "supports_attachments": true
+        }
+      ]
     }
+  },
+  "models": {
+    "large": {
+      "provider": "ollama",
+      "model": "qwen3-coder:30b"
+    },
+    "small": {
+      "provider": "ollama",
+      "model": "huihui_ai/qwen3-abliterated:8b"
+    }
+  },
+  "lsp": {
+    "go": {
+      "command": "gopls",
+      "filetypes": ["go"],
+      "root_markers": ["go.mod", "go.work"]
+    },
+    "rust": {
+      "command": "rust-analyzer",
+      "filetypes": ["rust"],
+      "root_markers": ["Cargo.toml", "Cargo.lock"]
+    },
+    "c": {
+      "command": "clangd",
+      "filetypes": ["c", "cpp", "cc", "h", "hpp"],
+      "root_markers": ["compile_commands.json", ".clangd", "Makefile"]
+    },
+    "lua": {
+      "command": "lua-language-server",
+      "filetypes": ["lua"],
+      "root_markers": [".luarc.json", ".git"]
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh", "bash"]
+    },
+    "json": {
+      "command": "vscode-json-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["json", "jsonc"]
+    },
+    "yaml": {
+      "command": "yaml-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["yaml", "yml"]
+    },
+    "toml": {
+      "command": "taplo",
+      "args": ["lsp", "stdio"],
+      "filetypes": ["toml"]
+    },
+    "markdown": {
+      "command": "marksman",
+      "args": ["server"],
+      "filetypes": ["markdown", "md"]
+    },
+    "typos": {
+      "command": "typos-lsp",
+      "filetypes": ["sh", "bash", "go", "rust", "lua", "json", "jsonc", "yaml", "yml", "toml", "markdown", "md", "c", "cpp"]
+    }
+  },
+  "options": {
+    "initialize_as": "CRUSH.md",
+    "context_paths": ["CRUSH.md", ".crush/CRUSH.md"],
+    "auto_lsp": true,
+    "disable_metrics": true,
+    "notification_style": "native",
+    "tui": {
+      "compact_mode": false
+    }
+  },
+  "permissions": {
+    "allowed_tools": [
+      "view",
+      "ls",
+      "grep",
+      "glob",
+      "diagnostics",
+      "sourcegraph",
+      "fetch"
+    ]
   }
 }

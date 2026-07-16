@@ -8,6 +8,30 @@
       "api_key": "ollama",
       "models": [
         {
+          "id": "devstral-crush:latest",
+          "name": "Devstral 24B (crush, 32k ctx)",
+          "context_window": 32768,
+          "default_max_tokens": 8192,
+          "can_reason": false,
+          "supports_attachments": false
+        },
+        {
+          "id": "devstral:24b",
+          "name": "Devstral 24B",
+          "context_window": 131072,
+          "default_max_tokens": 16384,
+          "can_reason": false,
+          "supports_attachments": false
+        },
+        {
+          "id": "qwen2.5-coder:32b",
+          "name": "Qwen2.5 Coder 32B",
+          "context_window": 32768,
+          "default_max_tokens": 16384,
+          "can_reason": false,
+          "supports_attachments": false
+        },
+        {
           "id": "qwen3-coder:30b",
           "name": "Qwen3 Coder 30B",
           "context_window": 131072,
@@ -39,7 +63,8 @@
           "can_reason": false,
           "supports_attachments": true
         }
-      ]
+      ],
+      "system_prompt_prefix": "You are an autonomous coding agent with real tools. You MUST use the provided tools to take actions. When asked to create, write, or modify a file, immediately call the write tool with the file_path and content. NEVER reply that you cannot create or execute files, and never just show code in your response \u2014 you act by calling tools. Do not ask for permission; call the tool directly."
     }
   },
   "models": {
@@ -55,57 +80,125 @@
   "lsp": {
     "go": {
       "command": "gopls",
-      "filetypes": ["go"],
-      "root_markers": ["go.mod", "go.work"]
+      "filetypes": [
+        "go"
+      ],
+      "root_markers": [
+        "go.mod",
+        "go.work"
+      ]
     },
     "rust": {
       "command": "rust-analyzer",
-      "filetypes": ["rust"],
-      "root_markers": ["Cargo.toml", "Cargo.lock"]
+      "filetypes": [
+        "rust"
+      ],
+      "root_markers": [
+        "Cargo.toml",
+        "Cargo.lock"
+      ]
     },
     "c": {
       "command": "clangd",
-      "filetypes": ["c", "cpp", "cc", "h", "hpp"],
-      "root_markers": ["compile_commands.json", ".clangd", "Makefile"]
+      "filetypes": [
+        "c",
+        "cpp",
+        "cc",
+        "h",
+        "hpp"
+      ],
+      "root_markers": [
+        "compile_commands.json",
+        ".clangd",
+        "Makefile"
+      ]
     },
     "lua": {
       "command": "lua-language-server",
-      "filetypes": ["lua"],
-      "root_markers": [".luarc.json", ".git"]
+      "filetypes": [
+        "lua"
+      ],
+      "root_markers": [
+        ".luarc.json",
+        ".git"
+      ]
     },
     "bash": {
       "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh", "bash"]
+      "args": [
+        "start"
+      ],
+      "filetypes": [
+        "sh",
+        "bash"
+      ]
     },
     "json": {
       "command": "vscode-json-language-server",
-      "args": ["--stdio"],
-      "filetypes": ["json", "jsonc"]
+      "args": [
+        "--stdio"
+      ],
+      "filetypes": [
+        "json",
+        "jsonc"
+      ]
     },
     "yaml": {
       "command": "yaml-language-server",
-      "args": ["--stdio"],
-      "filetypes": ["yaml", "yml"]
+      "args": [
+        "--stdio"
+      ],
+      "filetypes": [
+        "yaml",
+        "yml"
+      ]
     },
     "toml": {
       "command": "taplo",
-      "args": ["lsp", "stdio"],
-      "filetypes": ["toml"]
+      "args": [
+        "lsp",
+        "stdio"
+      ],
+      "filetypes": [
+        "toml"
+      ]
     },
     "markdown": {
       "command": "marksman",
-      "args": ["server"],
-      "filetypes": ["markdown", "md"]
+      "args": [
+        "server"
+      ],
+      "filetypes": [
+        "markdown",
+        "md"
+      ]
     },
     "typos": {
       "command": "typos-lsp",
-      "filetypes": ["sh", "bash", "go", "rust", "lua", "json", "jsonc", "yaml", "yml", "toml", "markdown", "md", "c", "cpp"]
+      "filetypes": [
+        "sh",
+        "bash",
+        "go",
+        "rust",
+        "lua",
+        "json",
+        "jsonc",
+        "yaml",
+        "yml",
+        "toml",
+        "markdown",
+        "md",
+        "c",
+        "cpp"
+      ]
     }
   },
   "options": {
     "initialize_as": "CRUSH.md",
-    "context_paths": ["CRUSH.md", ".crush/CRUSH.md"],
+    "context_paths": [
+      "CRUSH.md",
+      ".crush/CRUSH.md"
+    ],
     "auto_lsp": true,
     "disable_metrics": true,
     "notification_style": "native",

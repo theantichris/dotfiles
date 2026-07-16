@@ -111,6 +111,9 @@
     "notification_style": "native",
     "tui": {
       "compact_mode": false
+    },
+    "attribution": {
+      "generated_with": false
     }
   },
   "permissions": {

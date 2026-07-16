@@ -8,69 +8,28 @@
       "api_key": "ollama",
       "models": [
         {
-          "id": "devstral-crush:latest",
-          "name": "Devstral 24B (crush, 32k ctx)",
+          "id": "gpt-oss:20b",
+          "name": "gpt-oss 20B",
           "context_window": 32768,
           "default_max_tokens": 8192,
-          "can_reason": false,
-          "supports_attachments": false
-        },
-        {
-          "id": "devstral:24b",
-          "name": "Devstral 24B",
-          "context_window": 131072,
-          "default_max_tokens": 16384,
-          "can_reason": false,
-          "supports_attachments": false
-        },
-        {
-          "id": "qwen2.5-coder:32b",
-          "name": "Qwen2.5 Coder 32B",
-          "context_window": 32768,
-          "default_max_tokens": 16384,
-          "can_reason": false,
-          "supports_attachments": false
-        },
-        {
-          "id": "qwen3-coder:30b",
-          "name": "Qwen3 Coder 30B",
-          "context_window": 131072,
-          "default_max_tokens": 16384,
-          "can_reason": false,
-          "supports_attachments": false
-        },
-        {
-          "id": "qwen3.6:35b",
-          "name": "Qwen3.6 35B (reasoning+vision)",
-          "context_window": 131072,
-          "default_max_tokens": 16384,
           "can_reason": true,
-          "supports_attachments": true
+          "supports_attachments": false
         },
         {
           "id": "huihui_ai/qwen3-abliterated:8b",
           "name": "Qwen3 8B (fast)",
           "context_window": 32768,
-          "default_max_tokens": 8192,
+          "default_max_tokens": 4096,
           "can_reason": false,
           "supports_attachments": false
-        },
-        {
-          "id": "huihui_ai/qwen3-vl-abliterated:8b",
-          "name": "Qwen3 VL 8B (fast+vision)",
-          "context_window": 32768,
-          "default_max_tokens": 8192,
-          "can_reason": false,
-          "supports_attachments": true
         }
-      ],
-      "system_prompt_prefix": "You are an autonomous coding agent with real tools. You MUST use the provided tools to take actions. When asked to create, write, or modify a file, immediately call the write tool with the file_path and content. NEVER reply that you cannot create or execute files, and never just show code in your response \u2014 you act by calling tools. Do not ask for permission; call the tool directly."
+      ]
     }
   },
   "models": {
     "large": {
       "provider": "ollama",
-      "model": "qwen3-coder:30b"
+      "model": "gpt-oss:20b"
     },
     "small": {
       "provider": "ollama",

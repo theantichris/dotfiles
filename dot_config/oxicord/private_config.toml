@@ -1,0 +1,24 @@
+log_level = "info"
+mouse = true
+disable_user_colors = false
+quick_switcher_order = "recents"
+
+[keybindings]
+
+[ui]
+group_guilds = false
+use_display_name = true
+image_preview = true
+timestamp_format = "%H:%M"
+show_typing = true
+enable_animations = true
+notification_duration = 5
+hide_blocked_completely = false
+
+[notifications]
+desktop = false
+internal = false
+
+[theme]
+accent_color = "Yellow"
+mode = "dark"

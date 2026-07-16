@@ -38,7 +38,14 @@
       "Bash(python3 -c 'import json;d=json.load\\(open\\('\\\\''crush-schema-full.json'\\\\''\\)\\);print\\(list\\(d['\\\\''$defs'\\\\''].get\\('\\\\''TUIOptions'\\\\'',{}\\).get\\('\\\\''properties'\\\\'',{}\\).keys\\(\\)\\)\\)')",
       "Bash(chezmoi apply *)",
       "Bash(crush run *)",
-      "Bash(systemctl is-active *)"
+      "Bash(systemctl is-active *)",
+      "Bash(curl -s http://localhost:11434/api/chat -d '{ *)",
+      "Bash(python3 -c \"import sys,json;d=json.load\\(sys.stdin\\);m=d.get\\('message',{}\\);print\\('CONTENT:',repr\\(m.get\\('content',''\\)\\)[:300]\\);print\\('TOOL_CALLS:',json.dumps\\(m.get\\('tool_calls','NONE'\\)\\)[:500]\\)\")",
+      "Bash(curl -s http://localhost:11434/v1/chat/completions -H 'Content-Type: application/json' -d '{ *)",
+      "Bash(python3 -c \"import sys,json;d=json.load\\(sys.stdin\\);m=d['choices'][0]['message'];print\\('CONTENT:',repr\\(m.get\\('content',''\\)\\)[:300]\\);print\\('TOOL_CALLS:',json.dumps\\(m.get\\('tool_calls','NONE'\\)\\)[:500]\\)\")",
+      "Bash(python3 -c ' *)",
+      "Bash(mkdir -p ~/Code/test)",
+      "Bash(rm -f hello.go main.go)"
     ]
   }
 }

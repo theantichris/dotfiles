@@ -1,0 +1,13 @@
+[Unit]
+Description=Load SSH keys into the ssh-agent
+After=ssh-agent.socket
+Wants=ssh-agent.socket
+
+[Service]
+Type=oneshot
+Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
+# Passphrase-free key, so ssh-add runs non-interactively.
+ExecStart=/usr/bin/ssh-add %h/.ssh/id_ed25519
+
+[Install]
+WantedBy=default.target

@@ -68,18 +68,24 @@ hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(noctCall .. "volume decrease"), 
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd(noctCall .. "volume muteOutput"), { locked = true, repeating = true })
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd(noctCall .. "volume muteInput"),  { locked = true, repeating = true })
 
--- Toggle default audio output between speakers/webcam and earbuds
+-- Toggle default audio output+input between speakers/Brio webcam and earbuds
 hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd(
   "sh -c '" ..
   "cur=$(pactl get-default-sink); " ..
   "if [ \"$cur\" = \"alsa_output.usb-SteelSeries_Arctis_GameBuds_X-00.analog-stereo\" ]; then " ..
-    "new=alsa_output.pci-0000_00_1f.3.analog-stereo; label=Speakers; " ..
+    "newsink=alsa_output.pci-0000_00_1f.3.analog-stereo; " ..
+    "newsource=alsa_input.usb-046d_Brio_101_2433AP05NRY8-02.mono-fallback; " ..
+    "label=Speakers+Brio; " ..
   "else " ..
-    "new=alsa_output.usb-SteelSeries_Arctis_GameBuds_X-00.analog-stereo; label=Earbuds; " ..
+    "newsink=alsa_output.usb-SteelSeries_Arctis_GameBuds_X-00.analog-stereo; " ..
+    "newsource=alsa_input.usb-SteelSeries_Arctis_GameBuds_X-00.mono-fallback; " ..
+    "label=Earbuds; " ..
   "fi; " ..
-  "pactl set-default-sink \"$new\"; " ..
-  "pactl list short sink-inputs | cut -f1 | xargs -r -I{} pactl move-sink-input {} \"$new\"; " ..
-  "notify-send \"Audio Output\" \"Switched to $label\"" ..
+  "pactl set-default-sink \"$newsink\"; " ..
+  "pactl set-default-source \"$newsource\"; " ..
+  "pactl list short sink-inputs | cut -f1 | xargs -r -I{} pactl move-sink-input {} \"$newsink\"; " ..
+  "pactl list short source-outputs | cut -f1 | xargs -r -I{} pactl move-source-output {} \"$newsource\"; " ..
+  "notify-send \"Audio Device\" \"Switched to $label\"" ..
   "'"
 ))
 

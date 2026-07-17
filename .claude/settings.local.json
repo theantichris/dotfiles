@@ -53,7 +53,9 @@
       "Bash(echo \"---exit $?---\")",
       "Bash(clin --help)",
       "Bash(clin backup *)",
-      "Bash(systemctl --user cat ssh-agent.socket)"
+      "Bash(systemctl --user cat ssh-agent.socket)",
+      "Bash(chezmoi source-path *)",
+      "Bash(pactl list *)"
     ]
   }
 }

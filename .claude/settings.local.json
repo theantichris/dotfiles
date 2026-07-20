@@ -55,7 +55,8 @@
       "Bash(clin backup *)",
       "Bash(systemctl --user cat ssh-agent.socket)",
       "Bash(chezmoi source-path *)",
-      "Bash(pactl list *)"
+      "Bash(pactl list *)",
+      "WebFetch(domain:github.com)"
     ]
   }
 }

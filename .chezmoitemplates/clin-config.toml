@@ -1,0 +1,115 @@
+[core]
+mouse_enabled = true
+confirm_on_delete = true
+enable_key_sequences = false
+auto_refresh = true
+code_line_numbers = true
+code_theme = "base16-ocean.dark"
+confirm_on_quit = true
+keybind_preset = "default"
+link_url_max_length = 80
+preview_expand_mode = "external"
+preview_command = "glow"
+preview_wrap = true
+preview_wrap_indicator = false
+syntax_highlighting = true
+
+[ui]
+theme = "synthwave"
+background = "transparent"
+show_status_bar = true
+icon_mode = "nerd"
+tab_icons_only = false
+hint_bar_style = "accent"
+
+[list]
+preview_enabled = true
+preview_position = "right"
+preview_encryption = false
+show_date_in_list = true
+show_file_size = false
+date_format = "%Y-%m-%d"
+density = "compact"
+default_view = "tree"
+default_sort_field = "title"
+default_sort_order = "ascending"
+pinned_on_top = true
+show_hidden_files = true
+show_all_files = false
+calendar_enabled = true
+calendar_height = 9
+calendar_position = "bottom"
+folders_first = true
+preview_width_ratio = 0.43
+sections = ["calendar"]
+week_start = "monday"
+
+[editor]
+external_command = "{{ if eq .chezmoi.os "darwin" }}hx{{ else }}helix{{ end }}"
+external_enabled = true
+preview_enabled = true
+show_line_numbers = true
+
+[backup]
+enabled = true
+backup_on_save = true
+backup_on_quit = true
+auto_push = true
+remote_url = "git@github.com:theantichris/notes"
+remote_name = "origin"
+auto_backup_interval = 15
+
+[graf]
+preview_enabled = false
+
+[graf.visual]
+graph_background = "transparent"
+node_color_mode = "folder"
+edge_color_mode = "uniform"
+label_mode = "selected"
+label_max_length = 20
+node_size = 2.0
+node_size_mode = "fixed"
+edge_thickness = 1
+show_legend = true
+show_grid = false
+show_minimap = false
+minimap_position = "top_right"
+minimap_width = 24
+minimap_height = 12
+canvas_marker = "braille"
+node_shape = "circle"
+label_offset = 4.0
+grid_divisions = 10
+
+[graf.visual.colors]
+# node_color = "#ffffff"
+# edge_color = "#444444"
+# label_color = "#888888"
+# selection_ring_color = "#ff0000"
+# border_color = "#444444"
+# title_color = "#ffffff"
+# grid_color = "#222222"
+# legend_text_color = "#888888"
+# status_bar_color = "#000000"
+# background_color = "#000000"
+
+[graf.physics]
+ideal_distance = 80.0
+
+[graf.interaction]
+zoom_factor = 1.15
+drag_sensitivity = 1.0
+
+[graf.filter]
+exclude_tags = []
+min_links = 0
+
+[graf.search]
+max_results = 20
+max_visible = 10
+
+[goals]
+enabled = false
+word_goal = 500
+note_goal = 3

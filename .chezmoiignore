@@ -25,6 +25,7 @@ CLAUDE.md
 # CachyOS
 {{ if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "cachyos") }}
 dot_config/btop
+dot_config/clin
 dot_config/hypr
 dot_config/kitty
 
@@ -41,4 +42,5 @@ dot_config/kitty
 {{ if ne .chezmoi.os "darwin" }}
 .Brewfile
 .chezmoiscripts/run_onchange_after_install-packages-darwin.sh.tmpl
+Library
 {{ end }}

@@ -45,7 +45,7 @@ brew "goreleaser"
 brew "gotestsum"
 
 # Rust
-brew "rustup"
+brew "rust"
 
 # Other
 brew "ollama"

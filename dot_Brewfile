@@ -25,7 +25,6 @@ brew "speedtest-cli"
 brew "superfile"
 brew "tldr"
 brew "vhs"
-brew "hedhyw/main/jlv"
 
 # Editor + language servers
 brew "helix"

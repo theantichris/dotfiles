@@ -39,5 +39,6 @@ dot_config/kitty
 
 # MacOS
 {{ if ne .chezmoi.os "darwin" }}
-run_onchange_before_install-packages-darwin.sh.tmpl
+.Brewfile
+.chezmoiscripts/run_onchange_after_install-packages-darwin.sh.tmpl
 {{ end }}

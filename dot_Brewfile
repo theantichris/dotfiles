@@ -1,0 +1,65 @@
+# ~/.Brewfile — managed by chezmoi. Installed via `brew bundle --global`.
+# macOS package set, kept at parity with the CachyOS pacman list plus the
+# Mac-only GUI apps. Edit here; `chezmoi apply` reruns the install script.
+
+# Taps
+tap "hedhyw/main"
+
+# Shell / core CLI
+brew "fish"
+brew "bat"
+brew "cmatrix"
+brew "entr"
+brew "eza"
+brew "fastfetch"
+brew "fd"
+brew "gh"
+brew "git"
+brew "git-delta"
+brew "glow"
+brew "hugo"
+brew "markdownlint-cli2"
+brew "newsboat"
+brew "pre-commit"
+brew "speedtest-cli"
+brew "superfile"
+brew "tldr"
+brew "vhs"
+brew "hedhyw/main/jlv"
+
+# Editor + language servers
+brew "helix"
+brew "bash-language-server"
+brew "lua-language-server"
+brew "marksman"
+brew "taplo"
+brew "typos-lsp"
+brew "vscode-langservers-extracted"
+brew "yaml-language-server"
+
+# Go toolchain
+brew "go"
+brew "gopls"
+brew "delve"
+brew "golangci-lint"
+brew "goreleaser"
+brew "gotestsum"
+
+# Rust
+brew "rustup"
+
+# Other
+brew "ollama"
+brew "bitwarden-cli"
+
+# Casks — GUI apps
+cask "claude-code"
+cask "kitty"
+cask "font-hack-nerd-font"
+cask "bitwarden"
+cask "notion"
+cask "seafile-client"
+cask "surfshark"
+cask "tailscale-app"
+cask "uhk-agent"
+cask "qflipper"

@@ -1,0 +1,32 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# Reruns whenever the Brewfile changes.
+# Brewfile hash: {{ include "dot_Brewfile" | sha256sum }}
+
+brew update
+brew bundle --global
+
+# Go packages
+go install github.com/spf13/cobra-cli@latest
+go install github.com/Gelio/go-global-update@latest
+go install github.com/orlangure/gocovsh@latest
+go install github.com/nametake/golangci-lint-langserver@latest
+go install github.com/roeyazroel/linear-tui/cmd/linear-tui@latest
+go install github.com/theantichris/ghost/v3@latest
+go install golang.org/x/tools/cmd/goimports@latest
+
+go-global-update
+
+# Rust packages
+rustup default stable
+cargo install cargo-update
+cargo install outside
+cargo install-update -a
+
+# bat
+bat cache --build
+
+# tldr
+tldr --update
+{{ end -}}

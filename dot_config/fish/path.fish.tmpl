@@ -1,3 +1,9 @@
+{{ if eq .chezmoi.os "darwin" -}}
+if test -x /opt/homebrew/bin/brew
+    /opt/homebrew/bin/brew shellenv | source
+end
+
+{{ end -}}
 if test -d ~/go/bin
     if not contains -- ~/go/bin $PATH
         set -p PATH ~/go/bin

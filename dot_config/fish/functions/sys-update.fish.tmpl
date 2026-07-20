@@ -1,6 +1,11 @@
 function sys-update
+    {{- if eq .chezmoi.os "darwin" }}
+    brew update
+    brew upgrade
+    {{- else }}
     cachy-update
     shelly upgrade-all
+    {{- end }}
     go-global-update
     cargo install-update -a
     gh extension upgrade --all

@@ -5,7 +5,7 @@ ui = auto
 gpgsign = true
 
 [core]
-editor = helix
+editor = {{ if eq .chezmoi.os "darwin" }}hx{{ else }}helix{{ end }}
 excludesFile = .gitignore
 autocrlf = input
 eol = lf

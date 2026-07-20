@@ -45,7 +45,7 @@ sections = ["calendar"]
 week_start = "monday"
 
 [editor]
-external_command = "helix"
+external_command = "{{ if eq .chezmoi.os "darwin" }}hx{{ else }}helix{{ end }}"
 external_enabled = true
 preview_enabled = true
 show_line_numbers = true

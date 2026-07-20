@@ -13,7 +13,7 @@ preview_command = "glow"
 preview_wrap = true
 preview_wrap_indicator = false
 syntax_highlighting = true
-{{ if eq .chezmoi.os "darwin" }}storage_path = "{{ .chezmoi.homeDir }}/.local/share/clin/notes"
+{{ if eq .chezmoi.os "darwin" }}storage_path = "{{ .chezmoi.homeDir }}/.local/share/clin/"
 {{ end }}
 [ui]
 theme = "synthwave"

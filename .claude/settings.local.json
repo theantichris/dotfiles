@@ -65,7 +65,12 @@
       "Bash(chezmoi execute-template *)",
       "Bash(fish -n /tmp/claude-1000/-home-christopher--local-share-chezmoi/a6dba341-6087-4367-8acd-8c222ab739d9/scratchpad/su.fish)",
       "Bash(fish -c 'source /tmp/claude-1000/-home-christopher--local-share-chezmoi/a6dba341-6087-4367-8acd-8c222ab739d9/scratchpad/su.fish *)",
-      "Bash(fish -c 'source ~/.config/fish/functions/fish_prompt.fish 2>/dev/null *)"
+      "Bash(fish -c 'source ~/.config/fish/functions/fish_prompt.fish 2>/dev/null *)",
+      "Bash(delta --version)",
+      "Bash(command -v delta)",
+      "Bash(bat --list-themes)",
+      "Bash(delta --list-syntax-themes)",
+      "Bash(delta --syntax-theme=cyberpunk /tmp/claude-1000/-home-christopher--local-share-chezmoi/a6dba341-6087-4367-8acd-8c222ab739d9/scratchpad/f1 /tmp/claude-1000/-home-christopher--local-share-chezmoi/a6dba341-6087-4367-8acd-8c222ab739d9/scratchpad/f2)"
     ]
   }
 }

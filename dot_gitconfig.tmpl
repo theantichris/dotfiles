@@ -1,6 +1,41 @@
 [color]
 ui = auto
 
+[color "status"]
+header    = "#8A86A0"
+added     = "#00FFA2"
+changed   = "#FFD300"
+untracked = "#FF00FF"
+branch    = "#00F0FF bold"
+nobranch  = "#FF003C bold"
+unmerged  = "#FF003C"
+
+[color "branch"]
+current  = "#00F0FF bold"
+local    = "#EAEAF2"
+remote   = "#FF00FF"
+upstream = "#CA0174"
+plain    = "#EAEAF2"
+
+[color "decorate"]
+branch       = "#00F0FF bold"
+remoteBranch = "#FF00FF"
+tag          = "#FFD300"
+HEAD         = "#CA0174 bold"
+stash        = "#8A86A0"
+
+[color "interactive"]
+prompt = "#00F0FF"
+header = "#CA0174 bold"
+help   = "#8A86A0"
+error  = "#FF003C bold"
+
+[color "remote"]
+hint    = "#8A86A0"
+warning = "#FFD300"
+success = "#00FFA2"
+error   = "#FF003C bold"
+
 [commit]
 gpgsign = true
 
@@ -15,6 +50,32 @@ pager = delta
 [delta]
 navigate = true
 dark = true
+syntax-theme = cyberpunk
+line-numbers = true
+hyperlinks = true
+# diff body: keep syntax highlighting, tint line backgrounds
+plus-style = syntax "#0a2a1c"
+plus-emph-style = syntax "#12523a"
+minus-style = syntax "#2a0a12"
+minus-emph-style = syntax "#5c1522"
+zero-style = syntax
+whitespace-error-style = "#FF003C reverse"
+# gutter line numbers
+line-numbers-left-style = "#8A86A0"
+line-numbers-right-style = "#8A86A0"
+line-numbers-minus-style = "#FF003C"
+line-numbers-plus-style = "#00FFA2"
+line-numbers-zero-style = "#8A86A0"
+# file + hunk headers
+file-style = "#00F0FF bold"
+file-decoration-style = "#CA0174 ul"
+hunk-header-style = "#FF00FF bold"
+hunk-header-decoration-style = "#00F0FF box"
+hunk-header-line-number-style = "#FFD300"
+# commit + blame accents
+commit-style = "#FFD300 bold"
+commit-decoration-style = "#CA0174 ul"
+blame-palette = "#0a2a1c" "#12203a" "#2a0a1c" "#2a220a"
 
 [diff]
 tool = code

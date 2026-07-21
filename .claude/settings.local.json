@@ -70,7 +70,9 @@
       "Bash(command -v delta)",
       "Bash(bat --list-themes)",
       "Bash(delta --list-syntax-themes)",
-      "Bash(delta --syntax-theme=cyberpunk /tmp/claude-1000/-home-christopher--local-share-chezmoi/a6dba341-6087-4367-8acd-8c222ab739d9/scratchpad/f1 /tmp/claude-1000/-home-christopher--local-share-chezmoi/a6dba341-6087-4367-8acd-8c222ab739d9/scratchpad/f2)"
+      "Bash(delta --syntax-theme=cyberpunk /tmp/claude-1000/-home-christopher--local-share-chezmoi/a6dba341-6087-4367-8acd-8c222ab739d9/scratchpad/f1 /tmp/claude-1000/-home-christopher--local-share-chezmoi/a6dba341-6087-4367-8acd-8c222ab739d9/scratchpad/f2)",
+      "Bash(command -v rg fd fzf grep find)",
+      "Bash(fish -c 'source dot_config/fish/conf.d/modern-cli.fish; type grep; type find')"
     ]
   }
 }

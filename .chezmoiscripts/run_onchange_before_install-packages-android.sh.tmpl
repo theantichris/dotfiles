@@ -37,6 +37,8 @@ go install github.com/yorukot/superfile@latest
 cargo install cargo-update
 
 # NODE
+# npm blocks install scripts by default; Claude Code needs its postinstall.
+npm config set allow-scripts=@anthropic-ai/claude-code --location=user
 npm install -g @anthropic-ai/claude-code
 
 bat cache --build

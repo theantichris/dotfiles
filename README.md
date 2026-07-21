@@ -1,20 +1,32 @@
 # dotfiles // netrunner loadout
 
-A cyberpunk/netrunner themed desktop environment built on Hyprland and Fish.
-Keyboard driven workflow with VIM style navigation and cross platform compatibility.
-Theme inspired by [sddm-astronaut](https://github.com/Keyitdev/sddm-astronaut-theme)
-Cyberpunk theme.
+A cyberpunk/netrunner themed, keyboard-driven environment managed with
+[chezmoi](https://www.chezmoi.io). One source tree renders per-machine configs
+for three targets:
+
+- **CachyOS Linux** — Hyprland desktop
+- **macOS** — CLI stack + GUI apps via Homebrew
+- **Android** — Termux
 
 ## ✨ Highlights
 
-- **Cyberpunk Aesthetic** - Unified color scheme across all tools
-- **Tiling Window Manager** - Hyprland with vim style navigation and smooth animations
-- **Modern Development Stack** - LSP powered editing with Helix, Fish shell with custom prompt
-- **Comprehensive Tooling** - Preconfigured Git, Go, language servers, and formatters
+- **Unified cyberpunk palette** — the same hardcoded color scheme is carried
+  across the shell prompt, Git, the Claude Code statusline, and every TUI. The
+  canonical reference lives in [`color_palettes/cyberpunk/palette.html`](color_palettes/cyberpunk/palette.html).
+- **Hyprland desktop** — configured in Lua, driven by
+  [noctalia-shell](https://github.com/noctalia-dev/noctalia-shell) (a Quickshell
+  desktop shell that provides the bar, launcher, control center, notifications,
+  lock screen, wallpaper, and screenshot toolkit).
+- **Fish shell** with a custom cyberpunk prompt and per-OS branching.
+- **Helix + language servers** for LSP-powered editing.
+- **Cross-platform templating** — a single repo that renders correctly on Linux,
+  macOS, and Termux from `.chezmoi.os` / `.chezmoi.osRelease.id`.
 
 ## ⚡ Installation
 
-> **Note:** These are my personal dotfiles. You'll need to update user specific information in configs like Git (name/email), paths, and any API keys or tokens.
+> **Note:** These are my personal dotfiles. You'll need to update user-specific
+> information in configs like Git (name/email), backup remotes, paths, and any
+> API keys or tokens.
 
 ### Prerequisites
 
@@ -22,380 +34,211 @@ Cyberpunk theme.
 - `chezmoi`
 - SSH keys configured with GitHub (for forking)
 
-### Option 1: Fork and Use with Chezmoi (Recommended)
+### Fork and use with chezmoi
 
 1. Fork this repository to your GitHub account
 1. Install `git` and `chezmoi`
-1. Generate SSH key: `ssh-keygen -t ed25519 -C "your_email@example.com"`
-1. Add SSH key to GitHub
+1. Generate an SSH key: `ssh-keygen -t ed25519 -C "your_email@example.com"`
+1. Add the SSH key to GitHub
 1. Run `chezmoi init <YOUR_USERNAME> --ssh`
 1. Run `chezmoi apply`
 1. Customize configs to your preferences
 
-### Option 2: Manual Installation
+On first `apply`, the OS-specific install script
+(`.chezmoiscripts/run_onchange_*install-packages-<os>.sh.tmpl`) installs the
+matching toolchain for your platform.
 
-1. Clone or download this repository
-1. Copy desired config files to their destinations:
-   - `dot_config/` contents → `~/.config/`
-   - `dot_gitconfig` → `~/.gitconfig`
-   - Other `dot_*` files → `~/.*` (remove `dot_` prefix)
-1. Install tools from the Loadout section as needed
+## ⌨️ Managing configurations
 
-## ⌨️ Managing Configurations
-
-| Task                           | Command                                  |
-|--------------------------------|------------------------------------------|
-| Initialize & apply (SSH)       | `chezmoi init <GITHUB_REPO> --apply`     |
-| Pull updates                   | `chezmoi update`                         |
-| Inspect changes                | `chezmoi diff`                           |
-| Apply local changes            | `chezmoi apply`                          |
-| Edit a tracked file            | `chezmoi edit <FILE>`                    |
-| Start tracking a file          | `chezmoi add <FILE>`                     |
-| Jump to source repo            | `chezmoi cd`                             |
+| Task                     | Command                              |
+|--------------------------|--------------------------------------|
+| Initialize & apply (SSH) | `chezmoi init <GITHUB_REPO> --apply` |
+| Pull updates             | `chezmoi update`                     |
+| Inspect changes          | `chezmoi diff`                       |
+| Apply local changes      | `chezmoi apply`                      |
+| Render one file          | `chezmoi cat <FILE>`                 |
+| Edit a tracked file      | `chezmoi edit <FILE>`                |
+| Start tracking a file    | `chezmoi add <FILE>`                 |
+| Jump to source repo      | `chezmoi cd`                         |
 
 ## 🧰 Loadout
 
-<details>
-<summary><strong>Linux WM</strong></summary>
+<details open>
+<summary><strong>Desktop — Linux / CachyOS</strong></summary>
 
-| Tool                                                               | Key Files (chezmoi paths) |
-|--------------------------------------------------------------------|---------------------------|
-| [Hyprland](https://hypr.land)                                      | `dot_config/hypr`         |
-| [hyprcursor](https://github.com/hyprwm/hyprcursor)                 | -                         |
-| [hypridle](https://github.com/hyprwm/hypridle)                     | -                         |
-| [hyprlock](https://github.com/hyprwm/hyprlock)                     | -                         |
-| [hyprpaper](https://github.com/hyprwm/hyprpaper)                   | -                         |
-| [hyprpolkitagent](https://github.com/hyprwm/hyprpolkitagent)       | -                         |
-| [hyprshot](https://github.com/Gustash/hyprshot)                    | -                         |
-| [hyprshutdown](https://github.com/4lguna/hyprshutdown)             | -                         |
-| [Waybar](https://github.com/Alexays/Waybar)                        | `dot_config/waybar`       |
-| [SwayNC](https://github.com/ErikReider/SwayNotificationCenter)     | `dot_config/swaync`       |
-| [hyprlauncher](https://github.com/blacwulf/hyprlauncher)           | `dot_config/hypr`         |
-| [wlogout](https://github.com/ArtsyMacaw/wlogout)                   | `dot_config/wlogout`      |
-| [waypaper](https://github.com/anufrievroman/waypaper)              | -                         |
-| [pwvucontrol](https://github.com/saivert/pwvucontrol)              | -                         |
-| [sddm-astronaut](https://github.com/Keyitdev/sddm-astronaut-theme) | -                         |
+| Tool                                                              | Key Files (chezmoi paths) |
+|-------------------------------------------------------------------|---------------------------|
+| [Hyprland](https://hypr.land)                                     | `dot_config/hypr`         |
+| [noctalia-shell](https://github.com/noctalia-dev/noctalia-shell)  | `dot_config/hypr/noctalia`|
+| [cliphist](https://github.com/sentriz/cliphist)                   | -                         |
+
+Hyprland is configured in Lua — `hyprland.lua` loads the modules under
+`dot_config/hypr/config/*.lua` (keybinds, animations, window rules, monitors,
+autostart, …). Default apps: `kitty`, `dolphin`, `google-chrome`, `helix`,
+`gnome-calculator`.
 
 </details>
 
 <details>
-<summary><strong>macOS WM</strong></summary>
+<summary><strong>Shell &amp; Terminal</strong></summary>
 
-| Tool                                                      | Key Files (chezmoi paths)      |
-|-----------------------------------------------------------|--------------------------------|
-| [AeroSpace](https://github.com/nikitabobko/AeroSpace)     | `dot_config/aerospace`         |
-| [Karabiner](https://karabiner-elements.pqrs.org)          | `dot_config/private_karabiner` |
-| [Raycast](https://www.raycast.com)                        | `dot_config/raycast`           |
+| Tool                                    | Key Files (chezmoi paths) |
+|-----------------------------------------|---------------------------|
+| [fish](https://fishshell.com)           | `dot_config/fish`         |
+| [kitty](https://sw.kovidgoyal.net/kitty)| `dot_config/kitty`        |
 
-</details>
-
-<details>
-<summary><strong>Shells</strong></summary>
-
-| Tool                          | Key Files (chezmoi paths) |
-|-------------------------------|---------------------------|
-| [fish](https://fishshell.com) | `dot_config/fish`         |
+Termux ships its own terminal config under `dot_termux`.
 
 </details>
 
 <details>
-<summary><strong>Terminals</strong></summary>
-
-| Tool                                      | Key Files (chezmoi paths) |
-|-------------------------------------------|---------------------------|
-| [WezTerm](https://wezfurlong.org/wezterm) | `dot_config/wezterm`      |
-
-</details>
-
-<details>
-<summary><strong>Editors</strong></summary>
-
-| Tool                              | Key Files (chezmoi paths) |
-|-----------------------------------|---------------------------|
-| [Helix](https://helix-editor.com) | `dot_config/helix`        |
-
-</details>
-
-<details>
-<summary><strong>File Management</strong></summary>
-
-| Tool                                              | Key Files (chezmoi paths) |
-|---------------------------------------------------|---------------------------|
-| [Superfile](https://github.com/yorukot/superfile) | `dot_config/superfile`    |
-| [eza](https://github.com/eza-community/eza)       | `dot_config/eza`          |
-| [fd](https://github.com/sharkdp/fd)               | -                         |
-| [fzf](https://github.com/junegunn/fzf)            | -                         |
-| [gdu](https://github.com/dundee/gdu)              | -                         |
-| [zoxide](https://github.com/ajeetdsouza/zoxide)   | -                         |
-
-</details>
-
-<details>
-<summary><strong>Viewers</strong></summary>
-
-| Tool                                          | Key Files (chezmoi paths) |
-|-----------------------------------------------|---------------------------|
-| [bat](https://github.com/sharkdp/bat)         | `dot_config/bat`          |
-| [Glow](https://github.com/charmbracelet/glow) | `dot_config/glow`         |
-| [jlv](https://github.com/hedhyw/jlv)          | -                         |
-| [tldr](https://tldr.sh/)                      | -                         |
-
-</details>
-
-<details>
-<summary><strong>System Monitor</strong></summary>
-
-| Tool                                         | Key Files (chezmoi paths) |
-|----------------------------------------------|---------------------------|
-| [btop](https://github.com/aristocratos/btop) | -                         |
-| [nvtop](https://github.com/Syllo/nvtop)      | -                         |
-
-</details>
-
-<details>
-<summary><strong>Communication</strong></summary>
-
-| Tool                                                | Key Files (chezmoi paths) |
-|-----------------------------------------------------|---------------------------|
-| [gurk](https://github.com/boxdot/gurk-rs)           | -                         |
-| [signal-desktop](https://signal.org)                | -                         |
-| [slack-desktop](https://slack.com)                  | -                         |
-| [Toot](https://github.com/ihabunek/toot)            | -                         |
-
-</details>
-
-<details>
-<summary><strong>Notes/Tasks</strong></summary>
-
-| Tool                                            | Key Files (chezmoi paths) |
-|-------------------------------------------------|---------------------------|
-| [Toney](https://github.com/SourcewareLab/Toney) | `dot_config/toney`        |
-
-</details>
-
-<details>
-<summary><strong>Calendar</strong></summary>
-
-| Tool                                     | Key Files (chezmoi paths) |
-|------------------------------------------|-------------------------- |
-| [khal](https://github.com/pimutils/khal) | `dot_config/khal`         |
-
-</details>
-
-<details>
-<summary><strong>RSS</strong></summary>
-
-| Tool                                      | Key Files (chezmoi paths) |
-|-------------------------------------------|---------------------------|
-| [newsboat](https://newsboat.org)          | `dot_config/newsboat`     |
-
-</details>
-
-<details>
-<summary><strong>Dev Tools</strong></summary>
-
-| Tool                                                    | Key Files (chezmoi paths)        |
-|---------------------------------------------------------|----------------------------------|
-| [Crush](https://github.com/charmbracelet/crush)         | `dot_config/crush`               |
-| [doctl](https://docs.digitalocean.com/reference/doctl/) | -                                |
-| [entr](https://github.com/eradman/entr)                 | -                                |
-| [gh](https://cli.github.com)                            | `dot_config/gh`                  |
-| [gh-dash](https://github.com/dlvhdr/gh-dash)            | `dot_config/gh-dash`             |
-| [Git](https://git-scm.com)                              | `dot_gitconfig`, `dot_gitignore` |
-| [git-delta](https://github.com/dandavison/delta)        | -                                |
-| [GoReleaser](https://goreleaser.com)                    | -                                |
-| [hugo](https://gohugo.io)                               | -                                |
-| [lazygit](https://github.com/jesseduffield/lazygit)     | -                                |
-| [Posting](https://github.com/darrenburns/posting)       | `dot_config/posting`             |
-| [pre-commit](https://pre-commit.com)                    | -                                |
-
-</details>
-
-<details>
-<summary><strong>Go Tools</strong></summary>
+<summary><strong>Editor &amp; Language Servers</strong></summary>
 
 | Tool                                                                             | Key Files (chezmoi paths) |
 |----------------------------------------------------------------------------------|---------------------------|
-| [delve](https://github.com/go-delve/delve)                                       | -                         |
-| [go-global-update](https://github.com/Gelio/go-global-update)                    | -                         |
-| [gocovsh](https://github.com/orlangure/gocovsh)                                  | -                         |
-| [goimports](https://pkg.go.dev/golang.org/x/tools/cmd/goimports)                 | -                         |
-| [golangci-lint](https://golangci-lint.run)                                       | -                         |
-| [golangci-lint-langserver](https://github.com/nametake/golangci-lint-langserver) | -                         |
-| [gopls](https://pkg.go.dev/golang.org/x/tools/gopls)                             | -                         |
-| [gotestsum](https://github.com/gotestyourself/gotestsum)                         | -                         |
-
-</details>
-
-<details>
-<summary><strong>Python Tools</strong></summary>
-
-| Tool                                      | Key Files (chezmoi paths) |
-|-------------------------------------------|---------------------------|
-| [uv](https://github.com/astral-sh/uv)     | -                         |
-
-</details>
-
-<details>
-<summary><strong>Rust Tools</strong></summary>
-
-| Tool                                                  | Key Files (chezmoi paths) |
-|-------------------------------------------------------|---------------------------|
-| [cargo-update](https://github.com/nabijaczleweli/cargo-update) | -                         |
-| [rustup](https://rustup.rs)                           | -                         |
-
-</details>
-
-<details>
-<summary><strong>LSP/Formatters</strong></summary>
-
-| Tool                                                                             | Key Files (chezmoi paths) |
-|----------------------------------------------------------------------------------|---------------------------|
+| [Helix](https://helix-editor.com)                                                | `dot_config/helix`        |
 | [bash-language-server](https://github.com/bash-lsp/bash-language-server)         | -                         |
-| [codespell](https://github.com/codespell-project/codespell)                      | `dot_config/codespell`    |
-| [harper](https://github.com/elijah-potter/harper)                                | `dot_config/harper`       |
-| [jedi-language-server](https://github.com/pappasam/jedi-language-server)         | -                         |
 | [lua-language-server](https://github.com/LuaLS/lua-language-server)              | -                         |
-| [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)             | -                         |
 | [marksman](https://github.com/artempyanykh/marksman)                             | -                         |
 | [taplo](https://taplo.tamasfe.dev)                                               | -                         |
+| [typos-lsp](https://github.com/tekumara/typos-lsp)                               | -                         |
 | [vscode-langservers](https://github.com/hrsh7th/vscode-langservers-extracted)    | -                         |
 | [yaml-language-server](https://github.com/redhat-developer/yaml-language-server) | -                         |
 
 </details>
 
 <details>
-<summary><strong>Utilities</strong></summary>
+<summary><strong>Files, Viewers &amp; Monitoring</strong></summary>
 
-| Tool                                                    | Key Files (chezmoi paths) |
-|---------------------------------------------------------|---------------------------|
-| [bemoji](https://github.com/marty-oehme/bemoji)         | -                         |
-| [chezmoi](https://www.chezmoi.io)                       | `dot_config/chezmoi`      |
-| [clipse](https://github.com/savedra1/clipse)            | `dot_config/clipse`       |
-| [cmatrix](https://github.com/abishekvashok/cmatrix)     | -                         |
-| [fastfetch](https://github.com/fastfetch-cli/fastfetch) | `dot_config/fastfetch`    |
-| [ffmpeg](https://ffmpeg.org)                            | -                         |
-| [freeze](https://github.com/charmbracelet/freeze)       | -                         |
-| [HTTPie](https://httpie.io)                             | -                         |
-| [jq](https://jqlang.github.io/jq)                       | -                         |
-| [jqp](https://github.com/noahgorstein/jqp)              | -                         |
-| [pass](https://www.passwordstore.org)                   | -                         |
-| [rbonsai](https://gitlab.com/jallbrit/cbonsai)          | -                         |
-| [speedtest-cli](https://github.com/sivel/speedtest-cli) | -                         |
-| [squiid](https://github.com/pythops/squiid)             | -                         |
-| [superseedr](https://github.com/dertuxmalwieder/superseedr) | -                     |
-| [traytui](https://github.com/pythops/traytui)           | -                         |
-| [ttyd](https://github.com/tsl0922/ttyd)                 | -                         |
-| [vdirsyncer](https://github.com/pimutils/vdirsyncer)    | `dot_config/vdirsyncer`   |
-| [vhs](https://github.com/charmbracelet/vhs)             | -                         |
-| [xdg-terminal-exec](https://github.com/Vladimir-csp/xdg-terminal-exec) | -          |
+| Tool                                                    | Key Files (chezmoi paths)      |
+|---------------------------------------------------------|--------------------------------|
+| [Superfile](https://github.com/yorukot/superfile)       | `dot_config/private_superfile` |
+| [eza](https://github.com/eza-community/eza)             | `dot_config/eza`               |
+| [fd](https://github.com/sharkdp/fd)                     | -                              |
+| [entr](https://github.com/eradman/entr)                 | -                              |
+| [bat](https://github.com/sharkdp/bat)                   | `dot_config/bat`               |
+| [glow](https://github.com/charmbracelet/glow)           | `dot_config/private_glow`      |
+| [tldr](https://tldr.sh/)                                | -                              |
+| [btop](https://github.com/aristocratos/btop)            | `dot_config/btop`              |
+| [fastfetch](https://github.com/fastfetch-cli/fastfetch) | `dot_config/fastfetch`         |
 
 </details>
 
 <details>
-<summary><strong>Weather</strong></summary>
+<summary><strong>Git &amp; Dev</strong></summary>
 
-| Tool                                              | Key Files (chezmoi paths) |
-|---------------------------------------------------|---------------------------|
-| [outside](https://github.com/BaconIsAVeg/outside) | `dot_config/outside`      |
-
-</details>
-
-<details>
-<summary><strong>AI Tools</strong></summary>
-
-| Tool                         | Key Files (chezmoi paths) |
-|------------------------------|---------------------------|
-| [Ollama](https://ollama.com) | -                         |
-
-</details>
-
-<details>
-<summary><strong>Network</strong></summary>
-
-| Tool                                             | Key Files (chezmoi paths) |
-|--------------------------------------------------|---------------------------|
-| [bandwhich](https://github.com/imsnif/bandwhich) | -                         |
-| [bluetui](https://github.com/pythops/bluetui)    | -                         |
-| [Tailscale](https://tailscale.com)               | -                         |
+| Tool                                                                 | Key Files (chezmoi paths)             |
+|----------------------------------------------------------------------|---------------------------------------|
+| [Git](https://git-scm.com)                                           | `dot_gitconfig.tmpl`, `dot_gitignore` |
+| [git-delta](https://github.com/dandavison/delta)                     | -                                     |
+| [gh](https://cli.github.com)                                         | - (macOS)                             |
+| [pre-commit](https://pre-commit.com)                                 | -                                     |
+| [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2) | -                                     |
+| [GoReleaser](https://goreleaser.com)                                 | -                                     |
+| [vhs](https://github.com/charmbracelet/vhs)                          | -                                     |
+| [hugo](https://gohugo.io)                                            | - (macOS)                             |
+| [Crush](https://github.com/charmbracelet/crush)                      | `dot_config/crush`                    |
+| [Claude Code](https://claude.com/claude-code)                        | `dot_claude`                          |
 
 </details>
 
 <details>
-<summary><strong>Font</strong></summary>
+<summary><strong>Go Toolchain</strong></summary>
 
-| Tool                                    | Key Files (chezmoi paths) |
-|-----------------------------------------|---------------------------|
-| [Nerd Fonts](https://www.nerdfonts.com) | -                         |
-
-</details>
-
-<details>
-<summary><strong>Browsers</strong></summary>
-
-| Tool                                               | Key Files (chezmoi paths)      |
-|----------------------------------------------------|--------------------------------|
-| [Chrome](https://www.google.com/chrome/)           | `dot_config/chrome-flags.conf` |
-| [chawan](https://chawan.net/index.html) | `dot_config/chawan`            |
+| Tool                                                                             | Key Files (chezmoi paths) |
+|----------------------------------------------------------------------------------|---------------------------|
+| [go](https://go.dev) / [gopls](https://pkg.go.dev/golang.org/x/tools/gopls)      | -                         |
+| [delve](https://github.com/go-delve/delve)                                       | -                         |
+| [golangci-lint](https://golangci-lint.run)                                       | -                         |
+| [golangci-lint-langserver](https://github.com/nametake/golangci-lint-langserver) | -                         |
+| [goimports](https://pkg.go.dev/golang.org/x/tools/cmd/goimports)                 | -                         |
+| [gocovsh](https://github.com/orlangure/gocovsh)                                  | -                         |
+| [go-global-update](https://github.com/Gelio/go-global-update)                    | -                         |
+| [cobra-cli](https://github.com/spf13/cobra-cli)                                  | -                         |
+| [ghost](https://github.com/theantichris/ghost)                                   | -                         |
 
 </details>
 
 <details>
-<summary><strong>Social</strong></summary>
+<summary><strong>Rust Tools</strong></summary>
 
-| Tool                                     | Key Files (chezmoi paths) |
-|------------------------------------------|---------------------------|
-| [Toot](https://github.com/ihabunek/toot) | -                         |
-
-</details>
-
-<details>
-<summary><strong>Security</strong></summary>
-
-| Tool                                     | Key Files (chezmoi paths) |
-|------------------------------------------|---------------------------|
-| [Bitwarden](https://bitwarden.com/)      | -                         |
-| [bitwarden-cli](https://bitwarden.com/help/cli/) | -                 |
-| [pass](https://www.passwordstore.org)    | -                         |
+| Tool                                                           | Key Files (chezmoi paths) |
+|----------------------------------------------------------------|---------------------------|
+| [rustup](https://rustup.rs)                                    | -                         |
+| [cargo-update](https://github.com/nabijaczleweli/cargo-update) | -                         |
+| [outside](https://github.com/BaconIsAVeg/outside)              | `dot_config/outside`      |
 
 </details>
 
 <details>
-<summary><strong>Themes</strong></summary>
+<summary><strong>Notes, News &amp; Productivity</strong></summary>
 
-| Tool                                                      | Key Files (chezmoi paths) |
-|-----------------------------------------------------------|---------------------------|
-| [breeze](https://github.com/KDE/breeze)                   | -                         |
-| [breeze-gtk](https://github.com/KDE/breeze-gtk)           | -                         |
-| [nwg-look](https://github.com/nwg-piotr/nwg-look)         | -                         |
-| [rose-pine-hyprcursor](https://github.com/rose-pine/hyprcursor) | -                  |
+| Tool                                                    | Key Files (chezmoi paths)    |
+|---------------------------------------------------------|------------------------------|
+| [clin](https://github.com/reekta92/clin-rs)             | `dot_config/clin`            |
+| [Toney](https://github.com/SourcewareLab/Toney)         | `dot_config/toney` (Android) |
+| [linear-tui](https://github.com/roeyazroel/linear-tui)  | `dot_linear-tui`             |
+| [golazo](https://github.com/0xjuanma/golazo)            | `dot_config/golazo`          |
+| [newsboat](https://newsboat.org)                        | `dot_config/newsboat`        |
 
 </details>
 
 <details>
-<summary><strong>Audio/Video</strong></summary>
+<summary><strong>Communication</strong></summary>
 
-| Tool                                             | Key Files (chezmoi paths) |
-|--------------------------------------------------|---------------------------|
-| [pipewire](https://pipewire.org)                 | -                         |
-| [wireplumber](https://pipewire.pages.freedesktop.org/wireplumber/) | -           |
+| Tool                                            | Key Files (chezmoi paths) |
+|-------------------------------------------------|---------------------------|
+| [oxicord](https://github.com/linuxmobile/oxicord) | `dot_config/oxicord`    |
+| [matcha](https://github.com/floatpane/matcha)   | -                         |
+| [slack-desktop](https://slack.com)              | -                         |
 
 </details>
 
-## 📚 Documentation
+<details>
+<summary><strong>Utilities &amp; System</strong></summary>
 
-### Linux
+| Tool                                                                                  | Key Files (chezmoi paths) |
+|---------------------------------------------------------------------------------------|---------------------------|
+| [chezmoi](https://www.chezmoi.io)                                                     | -                         |
+| [Tailscale](https://tailscale.com)                                                    | -                         |
+| [Bitwarden](https://bitwarden.com) / [bitwarden-cli](https://bitwarden.com/help/cli/) | -                         |
+| [Ollama](https://ollama.com)                                                          | -                         |
+| [speedtest-cli](https://github.com/sivel/speedtest-cli)                               | -                         |
+| [cmatrix](https://github.com/abishekvashok/cmatrix)                                   | -                         |
+| [Nerd Fonts](https://www.nerdfonts.com)                                               | -                         |
+| [qFlipper](https://flipperzero.one)                                                   | -                         |
 
-- [Hyprland](/documentation/HYPRLAND.md) - Window manager configuration (themes, animations, keybinds)
-- [Waybar](/documentation/WAYBAR.md) - Status bar configuration (modules, styling, scripts)
-- [Fish](/documentation/FISH.md) - Shell configuration (prompt, aliases, functions)
-- [WezTerm](/documentation/WEZTERM.md) - Terminal configuration (colors, keybindings, multiplexing)
-- [Helix](/documentation/HELIX.md) - Editor configuration (LSP, themes, keybindings)
+</details>
 
-### macOS
+<details>
+<summary><strong>macOS GUI (Homebrew casks)</strong></summary>
 
-- [Aerospace](/documentation/AEROSPACE.md) - Window manager configuration
-- [Karabiner](/documentation/KARABINER.md) - Keyboard customization
+| App                                              | Cask                  |
+|--------------------------------------------------|-----------------------|
+| [Bitwarden](https://bitwarden.com)               | `bitwarden`           |
+| [Notion](https://www.notion.so)                  | `notion`              |
+| [Seafile](https://www.seafile.com)               | `seafile-client`      |
+| [Surfshark](https://surfshark.com)               | `surfshark`           |
+| [Battle.net](https://www.blizzard.com)           | `battle-net`          |
+| [UHK Agent](https://ultimatehackingkeyboard.com) | `uhk-agent`           |
+| [qFlipper](https://flipperzero.one)              | `qflipper`            |
+| [Hack Nerd Font](https://www.nerdfonts.com)      | `font-hack-nerd-font` |
+
+The full macOS package set lives in [`dot_Brewfile`](dot_Brewfile).
+
+</details>
+
+## 🎨 Color system
+
+The whole environment shares one hardcoded cyberpunk palette. The canonical
+reference — backgrounds, text, accents, semantic, syntax, and terminal colors
+with hex values — is [`color_palettes/cyberpunk/palette.html`](color_palettes/cyberpunk/palette.html).
+
+The values are **duplicated** (not shared) across the Fish prompt
+(`dot_config/fish/functions/fish_prompt.fish`), the Claude Code statusline
+(`dot_claude/executable_statusline-cyberpunk.sh`), the Git config
+(`dot_gitconfig.tmpl`), and the clin theme (`dot_config/clin/themes`). Change
+one, change all.
 
 ## 🪪 License
 

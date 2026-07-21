@@ -1,0 +1,15 @@
+{
+  "api_endpoint": "https://api.linear.app/graphql",
+  "timeout": "30s",
+  "page_size": 50,
+  "cache_ttl": "5m0s",
+  "search_debounce": "300ms",
+  "log_file": "/home/christopher/.linear-tui/app.log",
+  "log_level": "warning",
+  "theme": "linear",
+  "density": "comfortable",
+  "agent_provider": "claude",
+  "agent_sandbox": "enabled",
+  "agent_model": "",
+  "agent_workspace": ""
+}

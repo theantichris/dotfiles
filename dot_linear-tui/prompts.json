@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Create a plan",
+    "prompt": "Create a plan for the selected Linear issue. Outline approach, steps, risks, and tests."
+  },
+  {
+    "name": "Explore and research",
+    "prompt": "Explore the codebase for the selected Linear issue. Summarize relevant files, behaviors, and open questions."
+  },
+  {
+    "name": "Implement",
+    "prompt": "Implement the selected Linear issue. Make focused changes and outline any tests to run."
+  }
+]

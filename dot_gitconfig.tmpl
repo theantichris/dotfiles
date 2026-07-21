@@ -54,16 +54,17 @@ syntax-theme = cyberpunk
 line-numbers = true
 hyperlinks = true
 # diff body: keep syntax highlighting, tint line backgrounds
-plus-style = syntax "#0a2a1c"
-plus-emph-style = syntax "#12523a"
-minus-style = syntax "#2a0a12"
-minus-emph-style = syntax "#5c1522"
+# added = palette green (#00FFA2), removed = palette magenta (#FF00FF), blended over base #16161E
+plus-style = syntax "#133932"
+plus-emph-style = syntax "#0F5C46"
+minus-style = syntax "#391340"
+minus-emph-style = syntax "#5C0F62"
 zero-style = syntax
 whitespace-error-style = "#FF003C reverse"
 # gutter line numbers
 line-numbers-left-style = "#8A86A0"
 line-numbers-right-style = "#8A86A0"
-line-numbers-minus-style = "#FF003C"
+line-numbers-minus-style = "#FF00FF"
 line-numbers-plus-style = "#00FFA2"
 line-numbers-zero-style = "#8A86A0"
 # file + hunk headers
@@ -75,7 +76,7 @@ hunk-header-line-number-style = "#FFD300"
 # commit + blame accents
 commit-style = "#FFD300 bold"
 commit-decoration-style = "#CA0174 ul"
-blame-palette = "#0a2a1c" "#12203a" "#2a0a1c" "#2a220a"
+blame-palette = "#133039" "#321339" "#13302E" "#132639"
 
 [diff]
 tool = code

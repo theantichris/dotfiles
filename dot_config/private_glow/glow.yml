@@ -1,6 +1,4 @@
-# style name or JSON path (default "auto")
-# style: "~/.config/glow/cyberpunk.json"
-style: auto
+style: "~/.config/glow/cyberpunk.json"
 mouse: false
 pager: false
 width: 80

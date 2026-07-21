@@ -83,7 +83,13 @@
       "Bash(awk '/# Clin Configuration File/{f=1} f{print} /^\\\\[goals\\\\]/{if\\(f\\)c++} f&&c>0&&/^enabled/{print; exit}')",
       "Bash(grep -oE '[a-z_]{2,}')",
       "Bash(grep -oE '.{0,200}highlight_fg.{0,60}')",
-      "Bash(echo \"exit=$?\")"
+      "Bash(echo \"exit=$?\")",
+      "Bash(chezmoi cat *)",
+      "Bash(python3 -c 'import sys,json; json.load\\(sys.stdin\\); print\\(\"valid JSON\"\\)')",
+      "Bash(CLICOLOR_FORCE=1 glow -s ~/.config/glow/cyberpunk.json sample.md)",
+      "Bash(bat --version)",
+      "Bash(bat --config-file)",
+      "Bash(bat --config-dir)"
     ]
   }
 }

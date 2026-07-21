@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# {{ include "dot_config/bat/themes/cyberpunk.tmTheme" | sha256sum }}
+# {{ include "dot_config/bat/themes/cyberwave.tmTheme" | sha256sum }}
+
+command -v bat >/dev/null 2>&1 && bat cache --build

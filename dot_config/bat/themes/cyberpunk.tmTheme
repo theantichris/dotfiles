@@ -7,13 +7,12 @@
     <key>uuid</key>
     <string>cyberpunk-theme</string>
     <key>author</key>
-    <string>Based on Cyberpunk Universal Palette</string>
+    <string>Based on Cyberpunk Universal Palette (aligned to Helix cyberpunk syntax)</string>
     <key>semanticClass</key>
     <string>theme.dark.cyberpunk</string>
-    
+
     <key>settings</key>
     <array>
-        <!-- Editor globals -->
         <dict>
             <key>settings</key>
             <dict>
@@ -31,8 +30,7 @@
                 <string>#1F1F28</string>
             </dict>
         </dict>
-        
-        <!-- Comments -->
+
         <dict>
             <key>name</key>
             <string>Comment</string>
@@ -42,12 +40,9 @@
             <dict>
                 <key>foreground</key>
                 <string>#8A86A0</string>
-                <key>fontStyle</key>
-                <string>italic</string>
             </dict>
         </dict>
-        
-        <!-- Strings -->
+
         <dict>
             <key>name</key>
             <string>String</string>
@@ -59,8 +54,31 @@
                 <string>#00FFA2</string>
             </dict>
         </dict>
-        
-        <!-- Numbers -->
+
+        <dict>
+            <key>name</key>
+            <string>Regular expression</string>
+            <key>scope</key>
+            <string>string.regexp, string.regex</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#FF00FF</string>
+            </dict>
+        </dict>
+
+        <dict>
+            <key>name</key>
+            <string>String escape</string>
+            <key>scope</key>
+            <string>constant.character.escape</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#00FFA2</string>
+            </dict>
+        </dict>
+
         <dict>
             <key>name</key>
             <string>Number</string>
@@ -69,11 +87,10 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#00FFA2</string>
+                <string>#FF7B00</string>
             </dict>
         </dict>
-        
-        <!-- Built-in constants -->
+
         <dict>
             <key>name</key>
             <string>Built-in constant</string>
@@ -82,11 +99,10 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#FF00FF</string>
+                <string>#00FFA2</string>
             </dict>
         </dict>
-        
-        <!-- User-defined constant -->
+
         <dict>
             <key>name</key>
             <string>User-defined constant</string>
@@ -98,8 +114,7 @@
                 <string>#00FFA2</string>
             </dict>
         </dict>
-        
-        <!-- Variables -->
+
         <dict>
             <key>name</key>
             <string>Variable</string>
@@ -108,11 +123,10 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#00F0FF</string>
+                <string>#EAEAF2</string>
             </dict>
         </dict>
-        
-        <!-- Keyword -->
+
         <dict>
             <key>name</key>
             <string>Keyword</string>
@@ -121,11 +135,10 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#EAEAF2</string>
+                <string>#CA0174</string>
             </dict>
         </dict>
-        
-        <!-- Control keywords -->
+
         <dict>
             <key>name</key>
             <string>Control</string>
@@ -134,11 +147,10 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#FF00FF</string>
+                <string>#CA0174</string>
             </dict>
         </dict>
-        
-        <!-- Operators -->
+
         <dict>
             <key>name</key>
             <string>Operator</string>
@@ -147,11 +159,22 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#FF00FF</string>
+                <string>#FFD300</string>
             </dict>
         </dict>
-        
-        <!-- Storage -->
+
+        <dict>
+            <key>name</key>
+            <string>Punctuation</string>
+            <key>scope</key>
+            <string>punctuation.separator, punctuation.terminator, punctuation.accessor, punctuation.section, meta.brace</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#FFD300</string>
+            </dict>
+        </dict>
+
         <dict>
             <key>name</key>
             <string>Storage</string>
@@ -160,11 +183,10 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#EAEAF2</string>
+                <string>#CA0174</string>
             </dict>
         </dict>
-        
-        <!-- Storage type -->
+
         <dict>
             <key>name</key>
             <string>Storage type</string>
@@ -173,11 +195,10 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#00FFA2</string>
+                <string>#FF00FF</string>
             </dict>
         </dict>
-        
-        <!-- Class name -->
+
         <dict>
             <key>name</key>
             <string>Class name</string>
@@ -186,11 +207,22 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#00FFA2</string>
+                <string>#FF00FF</string>
             </dict>
         </dict>
-        
-        <!-- Function name -->
+
+        <dict>
+            <key>name</key>
+            <string>Namespace</string>
+            <key>scope</key>
+            <string>entity.name.namespace, meta.namespace</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#FF00FF</string>
+            </dict>
+        </dict>
+
         <dict>
             <key>name</key>
             <string>Function name</string>
@@ -199,11 +231,10 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#CA0174e3</string>
+                <string>#00F0FF</string>
             </dict>
         </dict>
-        
-        <!-- Function argument -->
+
         <dict>
             <key>name</key>
             <string>Function argument</string>
@@ -212,11 +243,10 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#00F0FF</string>
+                <string>#EAEAF2</string>
             </dict>
         </dict>
-        
-        <!-- Tag name -->
+
         <dict>
             <key>name</key>
             <string>Tag name</string>
@@ -225,11 +255,10 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#00F0FF</string>
+                <string>#FF00FF</string>
             </dict>
         </dict>
-        
-        <!-- Tag attribute -->
+
         <dict>
             <key>name</key>
             <string>Tag attribute</string>
@@ -238,11 +267,10 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#00FFA2</string>
+                <string>#EAEAF2</string>
             </dict>
         </dict>
-        
-        <!-- Library function -->
+
         <dict>
             <key>name</key>
             <string>Library function</string>
@@ -251,11 +279,10 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#CA0174e3</string>
+                <string>#00F0FF</string>
             </dict>
         </dict>
-        
-        <!-- Library constant -->
+
         <dict>
             <key>name</key>
             <string>Library constant</string>
@@ -267,8 +294,7 @@
                 <string>#00FFA2</string>
             </dict>
         </dict>
-        
-        <!-- Library class/type -->
+
         <dict>
             <key>name</key>
             <string>Library class/type</string>
@@ -277,11 +303,10 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#00FFA2</string>
+                <string>#FF00FF</string>
             </dict>
         </dict>
-        
-        <!-- Library variable -->
+
         <dict>
             <key>name</key>
             <string>Library variable</string>
@@ -290,11 +315,10 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#00F0FF</string>
+                <string>#EAEAF2</string>
             </dict>
         </dict>
-        
-        <!-- Invalid -->
+
         <dict>
             <key>name</key>
             <string>Invalid</string>
@@ -308,8 +332,7 @@
                 <string>#EAEAF2</string>
             </dict>
         </dict>
-        
-        <!-- Invalid deprecated -->
+
         <dict>
             <key>name</key>
             <string>Invalid deprecated</string>
@@ -320,11 +343,10 @@
                 <key>background</key>
                 <string>#FFD300</string>
                 <key>foreground</key>
-                <string>#EAEAF2</string>
+                <string>#16161E</string>
             </dict>
         </dict>
-        
-        <!-- JSON Key -->
+
         <dict>
             <key>name</key>
             <string>JSON Key</string>
@@ -333,11 +355,10 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#00F0FF</string>
+                <string>#EAEAF2</string>
             </dict>
         </dict>
-        
-        <!-- Markup Bold -->
+
         <dict>
             <key>name</key>
             <string>Markup Bold</string>
@@ -351,8 +372,7 @@
                 <string>bold</string>
             </dict>
         </dict>
-        
-        <!-- Markup Italic -->
+
         <dict>
             <key>name</key>
             <string>Markup Italic</string>
@@ -361,13 +381,12 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#CA0174e3</string>
+                <string>#EAEAF2</string>
                 <key>fontStyle</key>
                 <string>italic</string>
             </dict>
         </dict>
-        
-        <!-- Markup Heading -->
+
         <dict>
             <key>name</key>
             <string>Markup Heading</string>
@@ -376,13 +395,12 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#00FFA2</string>
+                <string>#CA0174</string>
                 <key>fontStyle</key>
                 <string>bold</string>
             </dict>
         </dict>
-        
-        <!-- Markup Link -->
+
         <dict>
             <key>name</key>
             <string>Markup Link</string>
@@ -391,11 +409,10 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#119c82</string>
+                <string>#00FFFF</string>
             </dict>
         </dict>
-        
-        <!-- Markup Code -->
+
         <dict>
             <key>name</key>
             <string>Markup Code</string>
@@ -407,8 +424,7 @@
                 <string>#00FFA2</string>
             </dict>
         </dict>
-        
-        <!-- Diff Added -->
+
         <dict>
             <key>name</key>
             <string>Diff Added</string>
@@ -420,8 +436,7 @@
                 <string>#00FF9C</string>
             </dict>
         </dict>
-        
-        <!-- Diff Deleted -->
+
         <dict>
             <key>name</key>
             <string>Diff Deleted</string>
@@ -433,8 +448,7 @@
                 <string>#FF003C</string>
             </dict>
         </dict>
-        
-        <!-- Diff Changed -->
+
         <dict>
             <key>name</key>
             <string>Diff Changed</string>

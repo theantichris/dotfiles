@@ -74,7 +74,11 @@
       "Bash(command -v rg fd fzf grep find)",
       "Bash(fish -c 'source dot_config/fish/conf.d/modern-cli.fish; type grep; type find')",
       "Bash(flatpak list *)",
-      "Bash(pacman -Qqe)"
+      "Bash(pacman -Qqe)",
+      "Bash(git log *)",
+      "WebFetch(domain:charm.land)",
+      "Bash(crush --help)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
   }
 }

@@ -1,0 +1,57 @@
+{
+  "name": "Cyberpunk",
+  "base": "dark",
+  "overrides": {
+    "claude": "#CA0174",
+    "claudeShimmer": "#FF00FF",
+    "text": "#EAEAF2",
+    "inverseText": "#16161E",
+    "inactive": "#8A86A0",
+    "subtle": "#565566",
+    "suggestion": "#8A86A0",
+    "permission": "#00F0FF",
+    "permissionShimmer": "#66F5FF",
+    "remember": "#FF00FF",
+
+    "success": "#00FF9C",
+    "error": "#FF003C",
+    "warning": "#FFD300",
+    "warningShimmer": "#FFE766",
+    "merged": "#FF00FF",
+
+    "promptBorder": "#CA0174",
+    "promptBorderShimmer": "#FF66FF",
+    "planMode": "#00F0FF",
+    "autoAccept": "#00FFA2",
+    "bashBorder": "#FF00FF",
+    "ide": "#009CFF",
+    "fastMode": "#FF7B00",
+
+    "diffAdded": "#0A2A1C",
+    "diffAddedDimmed": "#06180F",
+    "diffAddedWord": "#12523A",
+    "diffRemoved": "#2A0A12",
+    "diffRemovedDimmed": "#18060A",
+    "diffRemovedWord": "#5C1522",
+
+    "userMessageBackground": "#1F1F28",
+    "userMessageBackgroundHover": "#2A2A33",
+    "bashMessageBackgroundColor": "#21222C",
+    "memoryBackgroundColor": "#21222C",
+    "selectionBg": "#2A2A33",
+
+    "rate_limit_fill": "#00F0FF",
+    "rate_limit_empty": "#2A2A33",
+    "briefLabelYou": "#00F0FF",
+    "briefLabelClaude": "#CA0174",
+
+    "red_FOR_SUBAGENTS_ONLY": "#FF003C",
+    "blue_FOR_SUBAGENTS_ONLY": "#009CFF",
+    "green_FOR_SUBAGENTS_ONLY": "#00FFA2",
+    "yellow_FOR_SUBAGENTS_ONLY": "#FFD300",
+    "purple_FOR_SUBAGENTS_ONLY": "#FF00FF",
+    "orange_FOR_SUBAGENTS_ONLY": "#FF7B00",
+    "pink_FOR_SUBAGENTS_ONLY": "#CA0174",
+    "cyan_FOR_SUBAGENTS_ONLY": "#00F0FF"
+  }
+}

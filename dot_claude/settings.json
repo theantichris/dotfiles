@@ -5,7 +5,7 @@
   },
   "promptSuggestionEnabled": false,
   "tui": "fullscreen",
-  "theme": "auto",
+  "theme": "custom:cyberpunk",
   "editorMode": "vim",
   "autoScrollEnabled": false,
   "remoteControlAtStartup": false,

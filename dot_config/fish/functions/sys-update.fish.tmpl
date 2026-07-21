@@ -5,6 +5,7 @@ function sys-update
     {{- else if eq .chezmoi.os "android" }}
     pkg update
     pkg upgrade
+    pkg autoclean
     {{- else }}
     cachy-update
     shelly upgrade-all

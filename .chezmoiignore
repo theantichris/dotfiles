@@ -34,7 +34,6 @@ CLAUDE.md
 .config/btop
 .config/clin
 .config/hypr
-.config/kitty
 
 .chezmoiscripts/run_onchange_before_install-packages-cachyos.sh.tmpl
 {{ end }}
@@ -43,10 +42,14 @@ CLAUDE.md
 {{ if ne .chezmoi.os "darwin" }}
 .Brewfile
 .config/clin
-.config/kitty
 
 .chezmoiscripts/run_onchange_after_install-packages-darwin.sh.tmpl
 Library
+{{ end }}
+
+# Kitty — manage only on CachyOS and MacOS
+{{ if and (or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "cachyos")) (ne .chezmoi.os "darwin") }}
+.config/kitty
 {{ end }}
 
 

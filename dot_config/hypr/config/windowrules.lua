@@ -45,6 +45,17 @@ hl.window_rule({
     fullscreen       = false,
     fullscreen_state = 0,
 })
+hl.window_rule({
+    match = {
+        class         = gamingApps,
+        initial_title = "^(Battle\\.net)$",
+    },
+    float            = true,
+    center           = true,
+    fullscreen       = false,
+    fullscreen_state = 0,
+    size             = "1280 760",
+})
 
 -- Apps
 local primaryWorkspace = 1

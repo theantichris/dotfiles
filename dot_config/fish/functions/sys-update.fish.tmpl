@@ -1,16 +1,54 @@
+function __su_banner
+    echo '  ╔══════════════════════════════════════════════════╗'
+    echo '  ║  System Update                                   ║'
+    echo '  ╚══════════════════════════════════════════════════╝'
+end
+
+# __su_step <label> <cmd...> — prints a styled header, runs cmd, reports status
+function __su_step
+    set -l label $argv[1]
+    set -l cmd $argv[2..-1]
+
+    set -g __su_n (math $__su_n + 1)
+    set -l tag (printf '%02d' $__su_n)
+
+    echo ''
+    echo "  ▓▒░ [$tag] $label ░▒▓  \$ $cmd"
+
+    set -l t0 (date +%s)
+    $cmd
+    set -l code $status
+    set -l dt (math (date +%s) - $t0)
+
+    if test $code -eq 0
+        echo "  ✔ done  ·  $label  ·  "$dt"s"
+    else
+        echo "  ✘ failed (exit $code)  ·  $label  ·  "$dt"s"
+    end
+    return $code
+end
+
 function sys-update
+    set -g __su_n 0
+    set -l __su_start (date +%s)
+    __su_banner
+
     {{- if eq .chezmoi.os "darwin" }}
-    brew update
-    brew upgrade
+    __su_step 'Homebrew sync' brew update
+    __su_step 'Homebrew upgrade' brew upgrade
     {{- else if eq .chezmoi.os "android" }}
-    pkg update
-    pkg upgrade
-    pkg autoclean
+    __su_step 'Termux sync' pkg update
+    __su_step 'Termux upgrade' pkg upgrade
+    __su_step 'Termux autoclean' pkg autoclean
     {{- else }}
-    cachy-update
-    shelly upgrade-all
+    __su_step 'CachyOS system' cachy-update
+    __su_step 'Shell plugins' shelly upgrade-all
     {{- end }}
-    go-global-update
-    cargo install-update -a
-    gh extension upgrade --all
+    __su_step 'Go binaries' go-global-update
+    __su_step 'Rust crates' cargo install-update -a
+    __su_step 'gh extensions' gh extension upgrade --all
+
+    set -l __su_total (math (date +%s) - $__su_start)
+    echo ''
+    echo "  ◆ ALL SYSTEMS PATCHED  //  $__su_n tasks  ·  "$__su_total"s elapsed"
 end

@@ -61,6 +61,7 @@ function sys-update
     __su_step 'Termux sync' pkg update
     __su_step 'Termux upgrade' pkg upgrade
     __su_step 'Termux autoclean' pkg autoclean
+    __su_step 'Claude Code' npm install -g @anthropic-ai/claude-code
     {{- else }}
     __su_step 'CachyOS system' cachy-update
     __su_step 'Shelly packages' shelly upgrade-all

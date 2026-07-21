@@ -54,7 +54,6 @@ hl.window_rule({
     center           = true,
     fullscreen       = false,
     fullscreen_state = 0,
-    size             = "1280 760",
 })
 
 -- Apps

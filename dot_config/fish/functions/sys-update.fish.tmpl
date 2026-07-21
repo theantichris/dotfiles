@@ -1,7 +1,14 @@
 function __su_banner
+    set_color $cyberpunk_primary
     echo '  ╔══════════════════════════════════════════════════╗'
-    echo '  ║  System Update                                   ║'
+    echo -n '  ║  '
+    set_color -o $cyberpunk_secondary
+    echo -n 'System Update'
+    set_color normal
+    set_color $cyberpunk_primary
+    echo '                                   ║'
     echo '  ╚══════════════════════════════════════════════════╝'
+    set_color normal
 end
 
 # __su_step <label> <cmd...> — prints a styled header, runs cmd, reports status
@@ -13,7 +20,18 @@ function __su_step
     set -l tag (printf '%02d' $__su_n)
 
     echo ''
-    echo "  ▓▒░ [$tag] $label ░▒▓  \$ $cmd"
+    set_color $cyberpunk_comment
+    echo -n '  ▓▒░ '
+    set_color -o $cyberpunk_tertiary
+    echo -n "[$tag] "
+    set_color -o $cyberpunk_secondary
+    echo -n "$label"
+    set_color normal
+    set_color $cyberpunk_comment
+    echo ' ░▒▓'
+    set_color $cyberpunk_warning
+    echo "  \$ $cmd"
+    set_color normal
 
     set -l t0 (date +%s)
     $cmd
@@ -21,10 +39,13 @@ function __su_step
     set -l dt (math (date +%s) - $t0)
 
     if test $code -eq 0
-        echo "  ✔ done  ·  $label  ·  "$dt"s"
+        set_color -o $cyberpunk_success
+        echo "  ✔ done"(set_color normal)(set_color $cyberpunk_comment)"  ·  "$label"  ·  "$dt"s"
     else
-        echo "  ✘ failed (exit $code)  ·  $label  ·  "$dt"s"
+        set_color -o $cyberpunk_error
+        echo "  ✘ failed (exit $code)"(set_color normal)(set_color $cyberpunk_comment)"  ·  "$label"  ·  "$dt"s"
     end
+    set_color normal
     return $code
 end
 
@@ -50,5 +71,10 @@ function sys-update
 
     set -l __su_total (math (date +%s) - $__su_start)
     echo ''
-    echo "  ◆ ALL SYSTEMS PATCHED  //  $__su_n tasks  ·  "$__su_total"s elapsed"
+    set_color -o $cyberpunk_success
+    echo -n '  ◆ ALL SYSTEMS PATCHED'
+    set_color normal
+    set_color $cyberpunk_comment
+    echo "  //  $__su_n tasks  ·  "$__su_total"s elapsed"
+    set_color normal
 end

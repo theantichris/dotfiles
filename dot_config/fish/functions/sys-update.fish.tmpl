@@ -2,11 +2,16 @@ function sys-update
     {{- if eq .chezmoi.os "darwin" }}
     brew update
     brew upgrade
+    {{- else if eq .chezmoi.os "android" }}
+    pkg update
+    pkg upgrade
     {{- else }}
     cachy-update
     shelly upgrade-all
     {{- end }}
     go-global-update
+    {{- if ne .chezmoi.os "android" }}
     cargo install-update -a
+    {{- end }}
     gh extension upgrade --all
 end

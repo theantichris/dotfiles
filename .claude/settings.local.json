@@ -79,7 +79,11 @@
       "WebFetch(domain:charm.land)",
       "Bash(crush --help)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "Bash(chezmoi data *)"
+      "Bash(chezmoi data *)",
+      "Bash(awk '/# Clin Configuration File/{f=1} f{print} /^\\\\[goals\\\\]/{if\\(f\\)c++} f&&c>0&&/^enabled/{print; exit}')",
+      "Bash(grep -oE '[a-z_]{2,}')",
+      "Bash(grep -oE '.{0,200}highlight_fg.{0,60}')",
+      "Bash(echo \"exit=$?\")"
     ]
   }
 }

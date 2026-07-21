@@ -1,0 +1,22 @@
+[chrome]
+accent       = "#CA0174" # Accent 0 - selections, primary accent
+heading      = "#00F0FF" # Accent 1 - section headings
+success      = "#00FF9C" # Semantic success
+warning      = "#FFD300" # Semantic warning
+destructive  = "#FF003C" # Semantic error - deletions
+muted        = "#8A86A0" # Muted / secondary text
+text         = "#EAEAF2" # Body text
+fg           = "#FFFFFF" # Bright foreground
+border       = "#FF00FF" # Accent 2 - borders and dividers
+tag          = "#00FFA2" # Accent 3 - tag labels
+folder       = "#009CFF" # Info blue - folder names
+highlight_fg = "#16161E" # Text on highlighted background (base bg for contrast)
+highlight_bg = "#CA0174" # Selection highlight background
+
+[graph]
+nodes  = ["#CA0174", "#00F0FF", "#FF00FF", "#00FFA2", "#FFD300", "#FF003C", "#009CFF", "#FF7B00"]
+chrome = "#8A86A0" # Chrome / label color
+title  = "#00F0FF" # Graph title
+text   = "#EAEAF2" # Graph text
+fg     = "#FFFFFF" # Bright foreground
+grid   = "#21222C" # Grid lines (surface)

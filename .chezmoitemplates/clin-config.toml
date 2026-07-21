@@ -16,7 +16,7 @@ syntax_highlighting = true
 {{ if eq .chezmoi.os "darwin" }}storage_path = "{{ .chezmoi.homeDir }}/.local/share/clin/"
 {{ end }}
 [ui]
-theme = "synthwave"
+theme = "cyberpunk"
 background = "transparent"
 show_status_bar = true
 icon_mode = "nerd"

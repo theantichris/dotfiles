@@ -11,8 +11,6 @@ function sys-update
     shelly upgrade-all
     {{- end }}
     go-global-update
-    {{- if ne .chezmoi.os "android" }}
     cargo install-update -a
-    {{- end }}
     gh extension upgrade --all
 end

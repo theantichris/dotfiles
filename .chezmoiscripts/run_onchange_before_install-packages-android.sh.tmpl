@@ -7,12 +7,18 @@ pkg install bat
 pkg install cmatrix
 pkg install eza
 pkg install fastfetch
+pkg install fd
 pkg install fish
+pkg install fzf
 pkg install gh
+pkg install git
+pkg install git-delta
 pkg install glow
 pkg install golang
 pkg install helix lua-language-server marksman
 pkg install newsboat
+pkg install openssh
+pkg install ripgrep
 pkg install termux-api
 pkg install termux-services
 pkg install speedtest-go
@@ -24,9 +30,12 @@ go install github.com/Gelio/go-global-update@latest
 go install github.com/SourcewareLab/Toney/v2@latest
 go install github.com/theantichris/ghost/v3@latest
 go install golang.org/x/tools/cmd/goimports@latest
+go install github.com/yorukot/superfile@latest
 
 bat cache --build
 tldr --update
+
+command -v termux-reload-settings >/dev/null && termux-reload-settings
 
 {{- end }}
 

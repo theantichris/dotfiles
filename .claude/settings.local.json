@@ -56,7 +56,13 @@
       "Bash(systemctl --user cat ssh-agent.socket)",
       "Bash(chezmoi source-path *)",
       "Bash(pactl list *)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(fish -n /home/christopher/.local/share/chezmoi/dot_config/fish/functions/fish_prompt.fish)",
+      "Bash(sed '/{{-* *if/d; /{{-* *end/d' /home/christopher/.local/share/chezmoi/.chezmoiscripts/run_onchange_before_install-packages-android.sh.tmpl)",
+      "Bash(bash -n)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(chezmoi ignored *)",
+      "Bash(chezmoi execute-template *)"
     ]
   }
 }

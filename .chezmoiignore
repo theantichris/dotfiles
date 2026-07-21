@@ -22,25 +22,31 @@ CLAUDE.md
 # Old Configs
 .toney/
 
+# Android
+{{ if (ne .chezmoi.os "android") }}
+.termux
+
+.chezmoiscripts/run_onchange_before_install-packages-android.sh.tmpl
+{{ end }}
+
 # CachyOS
 {{ if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "cachyos") }}
-dot_config/btop
-dot_config/clin
-dot_config/hypr
-dot_config/kitty
+.config/btop
+.config/clin
+.config/hypr
+.config/kitty
 
 .chezmoiscripts/run_onchange_before_install-packages-cachyos.sh.tmpl
 {{ end }}
 
-# Android
-{{ if (ne .chezmoi.os "android") }}
-.chezmoiscripts/run_onchange_before_install-packages-android.sh.tmpl
-{{ end }}
-
-
 # MacOS
 {{ if ne .chezmoi.os "darwin" }}
 .Brewfile
+.config/clin
+.config/kitty
+
 .chezmoiscripts/run_onchange_after_install-packages-darwin.sh.tmpl
 Library
 {{ end }}
+
+

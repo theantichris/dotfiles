@@ -5,6 +5,7 @@
 
 pkg install bat
 pkg install cmatrix
+pkg install curl
 pkg install eza
 pkg install fastfetch
 pkg install fd
@@ -16,8 +17,8 @@ pkg install git-delta
 pkg install glow
 pkg install golang
 pkg install helix lua-language-server marksman
+pkg install jq
 pkg install newsboat
-pkg install nodejs
 pkg install openssh
 pkg install ripgrep
 pkg install termux-api
@@ -36,10 +37,13 @@ go install github.com/yorukot/superfile@latest
 # RUST
 cargo install cargo-update
 
-# NODE
-# npm blocks install scripts by default; Claude Code needs its postinstall.
-npm config set allow-scripts=@anthropic-ai/claude-code --location=user
-npm install -g @anthropic-ai/claude-code
+# CLAUDE CODE
+if ! command -v claude >/dev/null 2>&1; then
+    ferrum_ref=617d8a45bacbe3c44441ce3cd3ec40f7b978cce0
+    curl -fsSL "https://raw.githubusercontent.com/ferrumclaudepilgrim/claude-code-android/$ferrum_ref/install.sh" -o "$TMPDIR/ferrum-claude-install.sh"
+    bash "$TMPDIR/ferrum-claude-install.sh"
+    rm -f "$TMPDIR/ferrum-claude-install.sh"
+fi
 
 bat cache --build
 tldr --update

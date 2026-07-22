@@ -21,6 +21,7 @@ CLAUDE.md
 
 # Android
 {{ if (ne .chezmoi.os "android") }}
+.hushlogin
 .termux
 .config/toney
 .config/fish/conf.d/toney.fish

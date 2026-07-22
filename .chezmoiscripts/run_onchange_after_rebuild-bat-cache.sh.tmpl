@@ -1,4 +1,8 @@
+{{ if eq .chezmoi.os "android" -}}
+#!/data/data/com.termux/files/usr/bin/bash
+{{- else -}}
 #!/bin/bash
+{{- end }}
 
 # {{ include "dot_config/bat/themes/cyberpunk.tmTheme" | sha256sum }}
 # {{ include "dot_config/bat/themes/cyberwave.tmTheme" | sha256sum }}

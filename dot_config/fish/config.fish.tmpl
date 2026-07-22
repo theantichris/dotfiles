@@ -1,6 +1,7 @@
 {{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
 source /usr/share/cachyos-fish-config/cachyos-config.fish
 {{ else -}}
+set -g fish_greeting
 fastfetch
 {{ end -}}
 source ~/.config/fish/conf.d/eza.fish

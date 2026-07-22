@@ -101,11 +101,13 @@
       "key": "󰻠 CPU",
       "keyColor": "#00FF9C"
     },
+{{- if ne .chezmoi.os "android" }}
     {
       "type": "gpu",
       "key": "󰢮 GPU",
       "keyColor": "#00FF9C"
     },
+{{- end }}
     {
       "type": "memory",
       "key": "󰍛 Memory",

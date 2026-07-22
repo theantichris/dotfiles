@@ -52,7 +52,6 @@ brew "ollama"
 brew "bitwarden-cli"
 
 # Casks — GUI apps
-cask "battle-net"
 cask "claude-code"
 cask "kitty"
 cask "font-hack-nerd-font"

@@ -10,3 +10,8 @@ else if command -q fdfind # Debian/Ubuntu package name
     alias find='fdfind'
     alias fd='fdfind'
 end
+
+# Termux/macOS ship helix as `hx`; Arch names the binary `helix`.
+if not command -q helix; and command -q hx
+    alias helix='hx'
+end

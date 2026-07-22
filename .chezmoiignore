@@ -25,6 +25,7 @@ CLAUDE.md
 .termux
 .config/toney
 .config/fish/conf.d/toney.fish
+.config/fish/functions/gpg-unlock.fish
 
 .chezmoiscripts/run_onchange_before_install-packages-android.sh.tmpl
 {{ end }}

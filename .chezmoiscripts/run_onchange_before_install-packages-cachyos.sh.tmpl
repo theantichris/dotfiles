@@ -35,6 +35,7 @@ go install github.com/Gelio/go-global-update@latest
 go install github.com/orlangure/gocovsh@latest
 go install github.com/nametake/golangci-lint-langserver@latest
 go install github.com/roeyazroel/linear-tui/cmd/linear-tui@latest
+go install github.com/Securiteru/linear-cli@latest
 go install github.com/theantichris/ghost/v3@latest
 go install golang.org/x/tools/cmd/goimports@latest
 
@@ -45,6 +46,12 @@ cargo install cargo-update
 cargo install outside
 
 cargo install-update -a
+
+# NOTION
+# Official Notion CLI; authenticate separately with `ntn login`
+if ! command -v ntn >/dev/null 2>&1; then
+	curl -fsSL https://ntn.dev | bash
+fi
 
 bat cache --build
 tldr --update

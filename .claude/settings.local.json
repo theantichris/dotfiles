@@ -91,7 +91,13 @@
       "Bash(bat --config-file)",
       "Bash(bat --config-dir)",
       "Bash(hyprctl reload *)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(gh issue *)",
+      "Bash(nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader)",
+      "WebFetch(domain:ollama.com)",
+      "Bash(curl -s \"https://ollama.com/search?q=gpt-oss+abliterated\")",
+      "Bash(ollama ps *)",
+      "Bash(curl -s https://charm.land/crush.json)"
     ]
   }
 }

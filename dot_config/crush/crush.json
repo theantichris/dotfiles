@@ -22,6 +22,14 @@
           "default_max_tokens": 4096,
           "can_reason": false,
           "supports_attachments": false
+        },
+        {
+          "id": "huihui_ai/gpt-oss-abliterated:20b",
+          "name": "gpt-oss 20B uncensored (writing, tool-capable)",
+          "context_window": 32768,
+          "default_max_tokens": 8192,
+          "can_reason": true,
+          "supports_attachments": false
         }
       ]
     }
@@ -29,7 +37,9 @@
   "models": {
     "large": {
       "provider": "ollama",
-      "model": "gpt-oss:20b"
+      "model": "huihui_ai/gpt-oss-abliterated:20b",
+      "temperature": 0.4,
+      "reasoning_effort": "medium"
     },
     "small": {
       "provider": "ollama",

@@ -97,7 +97,14 @@
       "WebFetch(domain:ollama.com)",
       "Bash(curl -s \"https://ollama.com/search?q=gpt-oss+abliterated\")",
       "Bash(ollama ps *)",
-      "Bash(curl -s https://charm.land/crush.json)"
+      "Bash(curl -s https://charm.land/crush.json)",
+      "Bash(git -C /Users/christopherlamm/.local/share/clin remote -v)",
+      "Bash(git -C '/Users/christopherlamm/Library/Application Support/com.clin.clin' remote -v)",
+      "Bash(clin storage *)",
+      "Bash(clin notes *)",
+      "Bash(find /Users/christopherlamm/.local/share/clin -iname *paranoid* -o -iname *gallows* -o -iname *infirmary*)",
+      "Bash(find /Users/christopherlamm/.local/share/clin -iname *daily* -type d)",
+      "Bash(find /Users/christopherlamm/.local/share/clin -name *.md -not -path */.git/*)"
     ]
   }
 }

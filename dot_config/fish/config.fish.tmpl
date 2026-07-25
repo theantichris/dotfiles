@@ -8,6 +8,15 @@ source ~/.config/fish/conf.d/eza.fish
 source ~/.config/fish/environment.fish
 source ~/.config/fish/path.fish
 
+{{ if eq .chezmoi.os "darwin" -}}
+# Load the git SSH key into the agent so libgit2 apps (e.g. clin's backup) can
+# authenticate to GitHub. The key has no passphrase, so macOS won't restore it
+# to the agent after a reboot on its own; add it once per session if missing.
+if not ssh-add -l 2>/dev/null | string match -q "*id_ed25519*"
+    ssh-add --apple-use-keychain ~/.ssh/id_ed25519 2>/dev/null
+end
+{{ end -}}
+
 # overwrite greeting
 # potentially disabling fastfetch
 #function fish_greeting

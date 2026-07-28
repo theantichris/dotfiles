@@ -53,6 +53,7 @@ brew "bitwarden-cli"
 
 # Casks — GUI apps
 cask "claude-code"
+cask "charmbracelet/tap/crush"
 cask "kitty"
 cask "font-hack-nerd-font"
 cask "notion"

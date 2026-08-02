@@ -64,7 +64,7 @@ function sys-update
     # __su_step 'Claude Code' claude --update-now
     {{- else }}
     __su_step 'CachyOS system' cachy-update
-    __su_step 'Shelly packages' shelly upgrade-all
+    __su_step 'Shelly packages' shelly
     {{- end }}
     __su_step 'Go binaries' go-global-update
     __su_step 'Rust crates' cargo install-update -a

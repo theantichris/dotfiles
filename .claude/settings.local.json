@@ -104,7 +104,8 @@
       "Bash(clin notes *)",
       "Bash(find /Users/christopherlamm/.local/share/clin -iname *paranoid* -o -iname *gallows* -o -iname *infirmary*)",
       "Bash(find /Users/christopherlamm/.local/share/clin -iname *daily* -type d)",
-      "Bash(find /Users/christopherlamm/.local/share/clin -name *.md -not -path */.git/*)"
+      "Bash(find /Users/christopherlamm/.local/share/clin -name *.md -not -path */.git/*)",
+      "Bash(gh release *)"
     ]
   }
 }

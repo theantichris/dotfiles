@@ -1,0 +1,106 @@
+# Crush configuration (bash `.crushrc` format, Crush >= 0.88.0)
+# Converted from the legacy crush.json. Command reference:
+#   https://github.com/charmbracelet/crush/tree/main/docs/config
+
+# --- Providers --------------------------------------------------------------
+
+# Local Ollama, exposed over its OpenAI-compatible endpoint.
+provider add ollama \
+  --name "Ollama (local)" \
+  --type openai \
+  --base-url "http://localhost:11434/v1/" \
+  --api-key "ollama"
+
+# --- Custom models on Ollama ------------------------------------------------
+
+model add ollama/gpt-oss:20b \
+  --name "gpt-oss 20B" \
+  --context-window 32768 \
+  --default-max-tokens 8192 \
+  --can-reason true \
+  --supports-images false
+
+model add ollama/huihui_ai/qwen3-abliterated:8b \
+  --name "Qwen3 8B (fast)" \
+  --context-window 32768 \
+  --default-max-tokens 4096 \
+  --can-reason false \
+  --supports-images false
+
+model add ollama/huihui_ai/gpt-oss-abliterated:20b \
+  --name "gpt-oss 20B uncensored (writing, tool-capable)" \
+  --context-window 32768 \
+  --default-max-tokens 8192 \
+  --can-reason true \
+  --supports-images false
+
+# --- Model slots ------------------------------------------------------------
+
+model large ollama/huihui_ai/gpt-oss-abliterated:20b \
+  --temperature 0.4 \
+  --reasoning-effort medium
+
+model small ollama/huihui_ai/qwen3-abliterated:8b
+
+# --- Language servers -------------------------------------------------------
+
+lsp add go --command gopls \
+  --filetypes go \
+  --root-markers go.mod --root-markers go.work
+
+lsp add rust --command rust-analyzer \
+  --filetypes rust \
+  --root-markers Cargo.toml --root-markers Cargo.lock
+
+lsp add c --command clangd \
+  --filetypes c --filetypes cpp --filetypes cc --filetypes h --filetypes hpp \
+  --root-markers compile_commands.json --root-markers .clangd --root-markers Makefile
+
+lsp add lua --command lua-language-server \
+  --filetypes lua \
+  --root-markers .luarc.json --root-markers .git
+
+lsp add bash --command bash-language-server \
+  --args start \
+  --filetypes sh --filetypes bash
+
+lsp add json --command vscode-json-language-server \
+  --args --stdio \
+  --filetypes json --filetypes jsonc
+
+lsp add yaml --command yaml-language-server \
+  --args --stdio \
+  --filetypes yaml --filetypes yml
+
+lsp add toml --command taplo \
+  --args lsp --args stdio \
+  --filetypes toml
+
+lsp add markdown --command marksman \
+  --args server \
+  --filetypes markdown --filetypes md
+
+lsp add typos --command typos-lsp \
+  --filetypes sh --filetypes bash --filetypes go --filetypes rust --filetypes lua \
+  --filetypes json --filetypes jsonc --filetypes yaml --filetypes yml --filetypes toml \
+  --filetypes markdown --filetypes md --filetypes c --filetypes cpp
+
+# --- Options ----------------------------------------------------------------
+
+option initialize-as CRUSH.md
+
+option context-path CRUSH.md
+option context-path .crush/CRUSH.md
+
+option auto-lsp true
+option metrics false                 # was "disable_metrics": true
+option notifications native
+
+option ui compact false              # was tui.compact_mode: false
+
+# was attribution.generated_with: false
+option attribution-generated-with false
+
+# --- Permissions ------------------------------------------------------------
+
+permissions allow view ls grep glob diagnostics sourcegraph fetch

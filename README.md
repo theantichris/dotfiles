@@ -11,8 +11,8 @@ for three targets:
 ## ✨ Highlights
 
 - **Unified cyberpunk palette** — the same hardcoded color scheme is carried
-  across the shell prompt, Git, the Claude Code statusline, and every TUI. The
-  canonical reference lives in [`color_palettes/cyberpunk/palette.html`](color_palettes/cyberpunk/palette.html).
+  across the shell prompt, Git, and every TUI. The canonical reference lives in
+  [`color_palettes/cyberpunk/palette.html`](color_palettes/cyberpunk/palette.html).
 - **Hyprland desktop** — configured in Lua, driven by
   [noctalia-shell](https://github.com/noctalia-dev/noctalia-shell) (a Quickshell
   desktop shell that provides the bar, launcher, control center, notifications,
@@ -138,7 +138,6 @@ Termux ships its own terminal config under `dot_termux`.
 | [vhs](https://github.com/charmbracelet/vhs)                          | -                                     |
 | [hugo](https://gohugo.io)                                            | - (macOS)                             |
 | [Crush](https://github.com/charmbracelet/crush)                      | `dot_config/crush`                    |
-| [Claude Code](https://claude.com/claude-code)                        | `dot_claude`                          |
 
 </details>
 
@@ -235,8 +234,7 @@ reference — backgrounds, text, accents, semantic, syntax, and terminal colors
 with hex values — is [`color_palettes/cyberpunk/palette.html`](color_palettes/cyberpunk/palette.html).
 
 The values are **duplicated** (not shared) across the Fish prompt
-(`dot_config/fish/functions/fish_prompt.fish`), the Claude Code statusline
-(`dot_claude/executable_statusline-cyberpunk.sh`), the Git config
+(`dot_config/fish/functions/fish_prompt.fish`), the Git config
 (`dot_gitconfig.tmpl`), and the clin theme (`dot_config/clin/themes`). Change
 one, change all.
 

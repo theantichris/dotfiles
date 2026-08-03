@@ -19,6 +19,7 @@ chezmoi.toml
 AGENTS.md
 CLAUDE.md
 CRUSH.md
+.claude
 
 # Android
 {{ if (ne .chezmoi.os "android") }}

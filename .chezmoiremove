@@ -1,2 +1,8 @@
 .config/crush/crush.json
 .config/AGENTS.md
+.claude/CLAUDE.md
+.claude/settings.json
+.claude/commands/reflect.md
+.claude/skills/document
+.claude/statusline-cyberpunk.sh
+.claude/themes/cyberpunk.json

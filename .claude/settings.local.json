@@ -105,7 +105,12 @@
       "Bash(find /Users/christopherlamm/.local/share/clin -iname *paranoid* -o -iname *gallows* -o -iname *infirmary*)",
       "Bash(find /Users/christopherlamm/.local/share/clin -iname *daily* -type d)",
       "Bash(find /Users/christopherlamm/.local/share/clin -name *.md -not -path */.git/*)",
-      "Bash(gh release *)"
+      "Bash(gh release *)",
+      "Bash(crush login *)",
+      "Bash(crush models *)",
+      "Read(//etc/systemd/system/ollama.service.d/**)",
+      "Bash(sed -n '/COMMANDS/,/FLAGS/p')",
+      "Bash(crush dirs *)"
     ]
   }
 }

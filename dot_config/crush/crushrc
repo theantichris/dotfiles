@@ -1,48 +1,35 @@
-# Crush configuration (bash `.crushrc` format, Crush >= 0.88.0)
-# Converted from the legacy crush.json. Command reference:
-#   https://github.com/charmbracelet/crush/tree/main/docs/config
-
-# --- Providers --------------------------------------------------------------
-
-# Local Ollama, exposed over its OpenAI-compatible endpoint.
 provider add ollama \
   --name "Ollama (local)" \
   --type openai \
   --base-url "http://localhost:11434/v1/" \
   --api-key "ollama"
 
-# --- Custom models on Ollama ------------------------------------------------
-
 model add ollama/gpt-oss:20b \
   --name "gpt-oss 20B" \
-  --context-window 32768 \
-  --default-max-tokens 8192 \
+  --context-window 65536 \
+  --default-max-tokens 16384 \
   --can-reason true \
-  --supports-images false
-
-model add ollama/huihui_ai/qwen3-abliterated:8b \
-  --name "Qwen3 8B (fast)" \
-  --context-window 32768 \
-  --default-max-tokens 4096 \
-  --can-reason false \
   --supports-images false
 
 model add ollama/huihui_ai/gpt-oss-abliterated:20b \
   --name "gpt-oss 20B uncensored (writing, tool-capable)" \
-  --context-window 32768 \
-  --default-max-tokens 8192 \
+  --context-window 65536 \
+  --default-max-tokens 16384 \
   --can-reason true \
   --supports-images false
 
-# --- Model slots ------------------------------------------------------------
+model add ollama/huihui_ai/qwen3-vl-abliterated:8b \
+  --name "Qwen3-VL 8B (vision)" \
+  --context-window 65536 \
+  --default-max-tokens 8192 \
+  --can-reason true \
+  --supports-images true
 
 model large ollama/huihui_ai/gpt-oss-abliterated:20b \
   --temperature 0.4 \
   --reasoning-effort medium
 
-model small ollama/huihui_ai/qwen3-abliterated:8b
-
-# --- Language servers -------------------------------------------------------
+model small ollama/huihui_ai/gpt-oss-abliterated:20b
 
 lsp add go --command gopls \
   --filetypes go \
@@ -85,22 +72,13 @@ lsp add typos --command typos-lsp \
   --filetypes json --filetypes jsonc --filetypes yaml --filetypes yml --filetypes toml \
   --filetypes markdown --filetypes md --filetypes c --filetypes cpp
 
-# --- Options ----------------------------------------------------------------
-
 option initialize-as CRUSH.md
-
 option context-path CRUSH.md
 option context-path .crush/CRUSH.md
-
 option auto-lsp true
-option metrics false                 # was "disable_metrics": true
+option metrics false
 option notifications native
-
-option ui compact false              # was tui.compact_mode: false
-
-# was attribution.generated_with: false
+option ui compact false
 option attribution-generated-with false
-
-# --- Permissions ------------------------------------------------------------
 
 permissions allow view ls grep glob diagnostics sourcegraph fetch

@@ -18,7 +18,7 @@ chezmoi.toml
 .crush
 AGENTS.md
 CLAUDE.md
-/CRUSH.md
+CRUSH.md
 
 # Android
 {{ if (ne .chezmoi.os "android") }}

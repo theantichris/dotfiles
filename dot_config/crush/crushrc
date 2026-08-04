@@ -1,10 +1,13 @@
 provider add ollama --name "Ollama" --type openai --base-url "http://localhost:11434/v1/" --api-key "ollama"
 
+model add ollama/north-mini-code-1.0 --name "North Mini Code 30B" --context-window 65536 --default-max-tokens 32768 --can-reason true --supports-images false
+model add ollama/gpt-oss:120b --name "gpt-oss 120B" --context-window 65536 --default-max-tokens 32768 --can-reason true --supports-images false
 model add ollama/gpt-oss:20b --name "gpt-oss 20B" --context-window 65536 --default-max-tokens 16384 --can-reason true --supports-images false
+model add ollama/qwen3.5:27b --name "Qwen3.5 27B" --context-window 65536 --default-max-tokens 16384 --can-reason true --supports-images true
 model add ollama/huihui_ai/gpt-oss-abliterated:20b --name "gpt-oss 20B u" --context-window 65536 --default-max-tokens 16384 --can-reason true --supports-images false
-model add ollama/huihui_ai/qwen3-vl-abliterated:8b --name "Qwen3-VL 8B" --context-window 65536 --default-max-tokens 8192 --can-reason true --supports-images true
-model large ollama/huihui_ai/gpt-oss-abliterated:20b --temperature 0.4 --reasoning-effort medium
-model small ollama/huihui_ai/gpt-oss-abliterated:20b
+model add ollama/huihui_ai/qwen3-vl-abliterated:8b --name "Qwen3-VL 8B u" --context-window 65536 --default-max-tokens 8192 --can-reason true --supports-images true
+model large ollama/north-mini-code-1.0 --temperature 0.4
+model small ollama/north-mini-code-1.0
 
 lsp add go --command gopls --filetypes go --root-markers go.mod --root-markers go.work
 lsp add rust --command rust-analyzer --filetypes rust --root-markers Cargo.toml --root-markers Cargo.lock

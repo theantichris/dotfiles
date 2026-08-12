@@ -14,6 +14,9 @@ preview_wrap = true
 preview_wrap_indicator = false
 syntax_highlighting = true
 
+[image]
+enabled = true
+
 [ui]
 theme = "cyberpunk"
 background = "transparent"

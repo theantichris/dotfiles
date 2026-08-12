@@ -46,7 +46,7 @@ week_start = "monday"
 
 [editor]
 external_command = "{{ if eq .chezmoi.os "darwin" }}hx{{ else }}helix{{ end }}"
-external_enabled = true
+external_enabled = false
 preview_enabled = true
 show_line_numbers = true
 

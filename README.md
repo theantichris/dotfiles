@@ -14,9 +14,9 @@ for three targets:
   across the shell prompt, Git, and every TUI. The canonical reference lives in
   [`color_palettes/cyberpunk/palette.html`](color_palettes/cyberpunk/palette.html).
 - **Hyprland desktop** — configured in Lua, driven by
-  [noctalia-shell](https://github.com/noctalia-dev/noctalia-shell) (a Quickshell
-  desktop shell that provides the bar, launcher, control center, notifications,
-  lock screen, wallpaper, and screenshot toolkit).
+  [Noctalia](https://github.com/noctalia-dev/noctalia) (a native Wayland desktop
+  shell that provides the bar, launcher, control center, notifications, lock
+  screen, wallpaper, and screenshot toolkit).
 - **Fish shell** with a custom cyberpunk prompt and per-OS branching.
 - **Helix + language servers** for LSP-powered editing.
 - **Cross-platform templating** — a single repo that renders correctly on Linux,
@@ -69,13 +69,18 @@ matching toolchain for your platform.
 | Tool                                                              | Key Files (chezmoi paths) |
 |-------------------------------------------------------------------|---------------------------|
 | [Hyprland](https://hypr.land)                                     | `dot_config/hypr`         |
-| [noctalia-shell](https://github.com/noctalia-dev/noctalia-shell)  | `dot_config/hypr/noctalia`|
+| [Noctalia](https://github.com/noctalia-dev/noctalia)              | -                         |
 | [cliphist](https://github.com/sentriz/cliphist)                   | -                         |
 
 Hyprland is configured in Lua — `hyprland.lua` loads the modules under
-`dot_config/hypr/config/*.lua` (keybinds, animations, window rules, monitors,
-autostart, …). Default apps: `kitty`, `dolphin`, `google-chrome`, `helix`,
-`gnome-calculator`.
+`dot_config/hypr/config/*.lua` (binds, animations, window rules, monitors,
+workspaces, autostart, …). Default apps: `kitty`, `dolphin`, `google-chrome`,
+`helix`, `gnome-calculator`.
+
+Noctalia's own config (`~/.config/noctalia/config.toml`) is not tracked here —
+it's managed through the shell's settings UI. `hyprland.lua` ends with
+`require("noctalia").apply_theme()` so the generated palette reaches Hyprland;
+leave that line in place.
 
 </details>
 

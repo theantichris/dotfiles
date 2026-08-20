@@ -6,3 +6,10 @@
 .claude/skills/document
 .claude/statusline-cyberpunk.sh
 .claude/themes/cyberpunk.json
+
+# Noctalia v4 -> v5: renamed modules and the old color-include path
+.config/hypr/config/defaults.lua
+.config/hypr/config/input.lua
+.config/hypr/config/keybinds.lua
+.config/hypr/hyprland.conf
+.config/hypr/noctalia

@@ -8,6 +8,7 @@ tap "hedhyw/main"
 # Shell / core CLI
 brew "fish"
 brew "bat"
+brew "chatgpt"
 brew "cmatrix"
 brew "charmbracelet/tap/crush"
 brew "entr"

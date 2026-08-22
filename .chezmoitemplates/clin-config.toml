@@ -13,10 +13,16 @@ preview_command = "glow"
 preview_wrap = true
 preview_wrap_indicator = false
 syntax_highlighting = true
-{{ if ne .chezmoi.os "darwin" }}storage_path = "{{ .chezmoi.homeDir }}/.local/share/clin/notes"
+{{ if ne .chezmoi.os "darwin" }}# The vault must be the git repo root: clin's backup opens the repo at this
+# exact path and does not search parent directories.
+storage_path = "{{ .chezmoi.homeDir }}/.local/share/clin"
 {{ end }}
 [image]
 enabled = true
+attachments_subdir = "attachments"
+cache_size = 32
+max_dimension = 2048
+preview_rows = 8
 
 [ui]
 theme = "cyberpunk"
@@ -24,13 +30,14 @@ background = "transparent"
 show_status_bar = true
 icon_mode = "nerd"
 tab_icons_only = false
-hint_bar_style = "accent"
+hint_bar_style = "classic"
+scrollbar_pan_mode = false
+scrollbars = true
 
 [list]
 preview_enabled = true
 preview_position = "right"
 preview_encryption = false
-show_date_in_list = true
 show_file_size = false
 date_format = "%Y-%m-%d"
 density = "compact"
@@ -38,7 +45,9 @@ default_view = "tree"
 default_sort_field = "modified"
 default_sort_order = "descending"
 pinned_on_top = true
-show_hidden_files = true
+# Keeps .agents/, .crush/, .clin/ and .git/ out of the list now that the vault
+# is the repo root.
+show_hidden_files = false
 show_all_files = false
 calendar_enabled = false
 calendar_height = 9
@@ -47,12 +56,22 @@ folders_first = true
 preview_width_ratio = 0.43
 sections = ["calendar"]
 week_start = "monday"
+folder_graph_preview = false
+inline_info = true
+pinned_folders = []
+skip_dirs = []
+smart_folders_enabled = false
 
 [editor]
 external_command = "{{ if eq .chezmoi.os "darwin" }}hx{{ else }}helix{{ end }}"
 external_enabled = true
 preview_enabled = true
 show_line_numbers = true
+date_format = "%Y-%m-%d %H:%M"
+edit_mode_highlight = true
+extended_markdown_features = true
+ghost_syntax = true
+soft_wrap = false
 
 [backup]
 enabled = true
@@ -65,6 +84,7 @@ auto_backup_interval = 15
 
 [graf]
 preview_enabled = false
+max_node = 500
 
 [graf.visual]
 graph_background = "transparent"
@@ -76,7 +96,6 @@ node_size = 2.0
 node_size_mode = "fixed"
 edge_thickness = 1
 show_legend = true
-show_grid = false
 show_minimap = false
 minimap_position = "top_right"
 minimap_width = 24
@@ -84,7 +103,9 @@ minimap_height = 12
 canvas_marker = "braille"
 node_shape = "circle"
 label_offset = 4.0
-grid_divisions = 10
+looking_glass_height = 12
+looking_glass_width = 24
+show_looking_glass = true
 
 [graf.visual.colors]
 # node_color = "#ffffff"
@@ -100,6 +121,7 @@ grid_divisions = 10
 
 [graf.physics]
 ideal_distance = 80.0
+tick_rate = "auto"
 
 [graf.interaction]
 zoom_factor = 1.15
@@ -107,7 +129,7 @@ drag_sensitivity = 1.0
 
 [graf.filter]
 exclude_tags = []
-min_links = 0
+show_orphan = false
 
 [graf.search]
 max_results = 20
@@ -117,3 +139,5 @@ max_visible = 10
 enabled = false
 word_goal = 500
 note_goal = 3
+
+[statusline]

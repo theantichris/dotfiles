@@ -21,6 +21,10 @@ CLAUDE.md
 CRUSH.md
 .claude
 
+# App-managed: Noctalia's settings UI rewrites config.toml, so chezmoi would
+# revert UI changes on the next apply. Left unmanaged on every OS.
+.config/noctalia
+
 # Android
 {{ if (ne .chezmoi.os "android") }}
 .hushlogin

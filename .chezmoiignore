@@ -49,12 +49,9 @@ CRUSH.md
 .Brewfile
 
 .chezmoiscripts/run_onchange_after_install-packages-darwin.sh.tmpl
-Library
 {{ end }}
 
 {{ if and (or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "cachyos")) (ne .chezmoi.os "darwin") }}
 .config/kitty
 .config/clin
 {{ end }}
-
-

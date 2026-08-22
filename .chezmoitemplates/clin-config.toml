@@ -13,10 +13,12 @@ preview_command = "glow"
 preview_wrap = true
 preview_wrap_indicator = false
 syntax_highlighting = true
-{{ if ne .chezmoi.os "darwin" }}# The vault must be the git repo root: clin's backup opens the repo at this
-# exact path and does not search parent directories.
+# The vault must be the git repo root: clin's backup opens the repo at this exact
+# path and does not search parent directories. Set on every OS so the notes
+# clone, `ai`'s --cwd, and the vault all agree — without it clin 0.11.2 falls
+# back to its new default, ~/Documents/clin Vault, which is not the clone.
 storage_path = "{{ .chezmoi.homeDir }}/.local/share/clin"
-{{ end }}
+
 [image]
 enabled = true
 attachments_subdir = "attachments"

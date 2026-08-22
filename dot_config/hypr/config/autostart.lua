@@ -3,7 +3,7 @@
 
 hl.on("hyprland.start", function ()
     hl.exec_cmd("dbus-update-activation-environment --systemd --all")
-    hl.exec_cmd("noctalia")
+    -- Noctalia runs as a systemd user unit (noctalia.service) so journald keeps its logs.
     hl.exec_cmd("xhost +SI:localuser:root")
     hl.exec_cmd("seafile-applet")
     hl.exec_cmd("tsm-app")

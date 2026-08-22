@@ -1,0 +1,16 @@
+[Unit]
+Description=Noctalia shell (bar, notifications, idle management)
+# Started here rather than from hypr/config/autostart.lua so stdout reaches
+# journald -- Hyprland's exec_cmd discards it, which makes idle bugs undebuggable.
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/noctalia
+ExecReload=/usr/bin/noctalia msg config-reload
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=graphical-session.target

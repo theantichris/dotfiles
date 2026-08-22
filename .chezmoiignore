@@ -40,6 +40,7 @@ CRUSH.md
 {{ if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "cachyos") }}
 .config/btop
 .config/hypr
+.config/systemd/user/noctalia.service
 
 .chezmoiscripts/run_onchange_before_install-packages-cachyos.sh.tmpl
 {{ end }}

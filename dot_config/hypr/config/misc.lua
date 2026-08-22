@@ -22,6 +22,10 @@ hl.config({
         },
         disable_hyprland_logo = true,
         font_family = "Fira Sans",
+        -- Fallback wake path: Noctalia normally un-blanks on idle-resume, but if it
+        -- dies while DPMS is off there is otherwise nothing to turn the screen back on.
+        key_press_enables_dpms = true,
+        mouse_move_enables_dpms = true,
         swallow_regex = "(kitty|ghostty|[Kk]onsole|Alacritty|gnome-terminal|xfce[0-9]?-terminal)",
         vrr = 3,
     },

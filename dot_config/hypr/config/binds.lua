@@ -43,10 +43,13 @@ hl.bind(mainMod .. " + CONTROL + SHIFT + mouse_down", hl.dsp.window.move({ works
 -- hl.bind(mainMod .. " + SHIFT + mouse_down", hl.dsp.window.move({ monitor = "+1" }))
 
 -- Resize active window (hold to repeat)
+-- Vertical only redistributes height inside a column, so it is a no-op on the
+-- lone master window, and K cannot grow the bottom stack window (nothing below
+-- it to take height from).
 hl.bind(mainMod .. " + CONTROL + H", hl.dsp.window.resize({ x = -40, y = 0,  relative = true }), { repeating = true })
 hl.bind(mainMod .. " + CONTROL + L", hl.dsp.window.resize({ x = 40,  y = 0,  relative = true }), { repeating = true })
-hl.bind(mainMod .. " + CONTROL + K", hl.dsp.window.resize({ x = 0,   y = -40, relative = true }), { repeating = true })
-hl.bind(mainMod .. " + CONTROL + J", hl.dsp.window.resize({ x = 0,   y = 40,  relative = true }), { repeating = true })
+hl.bind(mainMod .. " + CONTROL + K", hl.dsp.window.resize({ x = 0,   y = 40,  relative = true }), { repeating = true })
+hl.bind(mainMod .. " + CONTROL + J", hl.dsp.window.resize({ x = 0,   y = -40, relative = true }), { repeating = true })
 
 -- Reset master split to 50/50
 hl.bind(mainMod .. " + CONTROL + R", hl.dsp.layout("mfact exact 0.5"))

@@ -223,7 +223,6 @@ Termux ships its own terminal config under `dot_termux`.
 | [Notion](https://www.notion.so)                  | `notion`              |
 | [Seafile](https://www.seafile.com)               | `seafile-client`      |
 | [Surfshark](https://surfshark.com)               | `surfshark`           |
-| [Battle.net](https://www.blizzard.com)           | `battle-net`          |
 | [UHK Agent](https://ultimatehackingkeyboard.com) | `uhk-agent`           |
 | [qFlipper](https://flipperzero.one)              | `qflipper`            |
 | [Hack Nerd Font](https://www.nerdfonts.com)      | `font-hack-nerd-font` |

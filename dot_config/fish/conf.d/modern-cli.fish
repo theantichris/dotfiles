@@ -14,4 +14,6 @@ end
 # Termux/macOS ship helix as `hx`; Arch names the binary `helix`.
 if not command -q helix; and command -q hx
     alias helix='hx'
+else if not command -q hx; and command -q helix
+    alias hx='helix'
 end

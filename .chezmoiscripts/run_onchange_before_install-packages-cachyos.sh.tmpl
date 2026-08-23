@@ -44,13 +44,12 @@ go-global-update
 
 # RUST
 cargo install cargo-update
-cargo install concord --locked
+cargo install concord
 cargo install outside
+cargo install superseedr
 
 cargo install-update -a
 
-# NOTION
-# Official Notion CLI; authenticate separately with `ntn login`
 if ! command -v ntn >/dev/null 2>&1; then
 	curl -fsSL https://ntn.dev | bash
 fi

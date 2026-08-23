@@ -74,7 +74,7 @@ matching toolchain for your platform.
 
 Hyprland is configured in Lua — `hyprland.lua` loads the modules under
 `dot_config/hypr/config/*.lua` (binds, animations, window rules, monitors,
-workspaces, autostart, …). Default apps: `kitty`, `dolphin`, `google-chrome`,
+workspaces, autostart, …). Default apps: `kitty`, `dolphin`, `zen-browser`,
 `helix`, `gnome-calculator`.
 
 Noctalia's own config (`~/.config/noctalia/config.toml`) is not tracked here —

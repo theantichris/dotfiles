@@ -1,6 +1,6 @@
 {{ if eq .chezmoi.os "darwin" -}}
 set -Ux EDITOR hx
 {{ else -}}
-set -Ux BROWSER zen-browser
+set -gx BROWSER zen-browser
 set -Ux EDITOR helix
 {{ end -}}

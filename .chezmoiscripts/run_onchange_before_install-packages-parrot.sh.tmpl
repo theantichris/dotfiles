@@ -7,53 +7,14 @@ set -euo pipefail
 sudo apt update
 sudo apt upgrade -y
 
-# APT
-# Debian binary names differ from Arch: bat -> batcat, fd-find -> fdfind,
-# helix -> hx. conf.d/modern-cli.fish papers over that for interactive use.
-sudo apt install -y bat eza fd-find fzf ripgrep zoxide
-sudo apt install -y git git-delta helix
+sudo apt install -y bat eza fd-find fzf ripgrep
 sudo apt install -y fish
 sudo apt install -y fastfetch jq
-sudo apt install -y build-essential curl wget unzip entr
-
-# GH — not in the Debian archive, so pull GitHub's own apt source.
-if ! command -v gh >/dev/null 2>&1; then
-	sudo mkdir -p -m 755 /etc/apt/keyrings
-	out=$(mktemp)
-	wget -nv -O"$out" https://cli.github.com/packages/githubcli-archive-keyring.gpg
-	sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg <"$out" >/dev/null
-	sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg
-	echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" |
-		sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null
-	sudo apt update
-	sudo apt install -y gh
-fi
-
-# GO
-sudo apt install -y golang-go
-go install github.com/Gelio/go-global-update@latest
-go install golang.org/x/tools/cmd/goimports@latest
-go install golang.org/x/tools/gopls@latest
-
-# RUST
-if ! command -v rustup >/dev/null 2>&1; then
-	sudo apt install -y rustup || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-fi
-# The upstream installer drops rustup/cargo in ~/.cargo/bin, which isn't on PATH
-# in this non-login shell yet.
-if [ -f "$HOME/.cargo/env" ]; then
-	. "$HOME/.cargo/env"
-fi
-# Debian's rustup package ships no toolchain; component/cargo need one first.
-rustup default stable
-rustup component add rust-analyzer
-cargo install cargo-update
 
 if command -v batcat >/dev/null 2>&1; then
 	batcat cache --build
 fi
 
-# Fish is only useful as the login shell; Parrot ships zsh.
 if [ "$(getent passwd "$USER" | cut -d: -f7)" != "$(command -v fish)" ]; then
 	sudo chsh -s "$(command -v fish)" "$USER"
 fi

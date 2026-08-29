@@ -1,0 +1,2 @@
+{{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
+SSH_AUTH_SOCK=${XDG_RUNTIME_DIR}/{{ if $parrot }}openssh_agent{{ else }}ssh-agent.socket{{ end }}

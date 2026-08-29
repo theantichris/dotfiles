@@ -1,0 +1,16 @@
+{{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
+{{- if $parrot -}}
+#!/bin/bash
+
+set -euo pipefail
+
+# Runs `after` so the unit this enables has already been written by chezmoi.
+# Re-fires when the unit changes:
+# {{ include "dot_config/systemd/user/ssh-add.service" | sha256sum }}
+
+# No user bus during a non-interactive/chroot apply — skip rather than fail.
+if command -v systemctl >/dev/null 2>&1 && systemctl --user show-environment >/dev/null 2>&1; then
+	systemctl --user enable --now ssh-agent.socket
+	systemctl --user enable --now ssh-add.service
+fi
+{{- end }}

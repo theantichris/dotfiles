@@ -1,3 +1,4 @@
+{{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
 function __su_banner
     set_color $cyberpunk_primary
     echo '  ╔══════════════════════════════════════════════════╗'
@@ -62,13 +63,23 @@ function sys-update
     __su_step 'Termux upgrade' pkg upgrade
     __su_step 'Termux autoclean' pkg autoclean
     # __su_step 'Claude Code' claude --update-now
+    {{- else if $parrot }}
+    __su_step 'APT sync' sudo apt update
+    __su_step 'APT upgrade' sudo apt upgrade -y
+    __su_step 'APT autoremove' sudo apt autoremove -y
     {{- else }}
     __su_step 'CachyOS system' cachy-update
     __su_step 'Shelly packages' shelly
     {{- end }}
-    __su_step 'Go binaries' go-global-update
-    __su_step 'Rust crates' cargo install-update -a
-    __su_step 'gh extensions' gh extension upgrade --all
+    if command -q go-global-update
+        __su_step 'Go binaries' go-global-update
+    end
+    if command -q cargo
+        __su_step 'Rust crates' cargo install-update -a
+    end
+    if command -q gh
+        __su_step 'gh extensions' gh extension upgrade --all
+    end
 
     set -l __su_total (math (date +%s) - $__su_start)
     echo ''

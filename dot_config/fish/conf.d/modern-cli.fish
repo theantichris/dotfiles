@@ -17,3 +17,8 @@ if not command -q helix; and command -q hx
 else if not command -q hx; and command -q helix
     alias hx='helix'
 end
+
+# Debian ships bat as `batcat` to avoid a name clash with bacula-console.
+if not command -q bat; and command -q batcat
+    alias bat='batcat'
+end

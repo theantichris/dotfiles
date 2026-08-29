@@ -1,3 +1,4 @@
+{{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
 [color]
 ui = auto
 
@@ -40,7 +41,7 @@ error   = "#FF003C bold"
 gpgsign = true
 
 [core]
-editor = {{ if eq .chezmoi.os "darwin" }}hx{{ else }}helix{{ end }}
+editor = {{ if or (eq .chezmoi.os "darwin") $parrot }}hx{{ else }}helix{{ end }}
 excludesFile = .gitignore
 autocrlf = input
 eol = lf
@@ -102,4 +103,4 @@ default = simple
 [user]
 email = christopherlamm81@gmail.com
 name = Christopher Lamm
-signingkey = 49B695A93F0EE46A
+signingkey = {{ if $parrot }}3CB48D4CB0EDB097{{ else }}49B695A93F0EE46A{{ end }}

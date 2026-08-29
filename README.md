@@ -2,11 +2,12 @@
 
 A cyberpunk/netrunner themed, keyboard-driven environment managed with
 [chezmoi](https://www.chezmoi.io). One source tree renders per-machine configs
-for three targets:
+for four targets:
 
 - **CachyOS Linux** — Hyprland desktop
 - **macOS** — CLI stack + GUI apps via Homebrew
 - **Android** — Termux
+- **Parrot OS (HTB edition)** — lean CLI stack on a Debian VM
 
 ## ✨ Highlights
 
@@ -19,8 +20,9 @@ for three targets:
   screen, wallpaper, and screenshot toolkit).
 - **Fish shell** with a custom cyberpunk prompt and per-OS branching.
 - **Helix + language servers** for LSP-powered editing.
-- **Cross-platform templating** — a single repo that renders correctly on Linux,
-  macOS, and Termux from `.chezmoi.os` / `.chezmoi.osRelease.id`.
+- **Cross-platform templating** — a single repo that renders correctly on Arch
+  and Debian Linux, macOS, and Termux from `.chezmoi.os` /
+  `.chezmoi.osRelease.id`.
 
 ## ⚡ Installation
 
@@ -81,6 +83,37 @@ Noctalia's own config (`~/.config/noctalia/config.toml`) is not tracked here —
 it's managed through the shell's settings UI. `hyprland.lua` ends with
 `require("noctalia").apply_theme()` so the generated palette reaches Hyprland;
 leave that line in place.
+
+</details>
+
+<details>
+<summary><strong>Parrot OS (HTB edition)</strong></summary>
+
+A deliberately lean target: shell, editor, git, core CLI, and the Go/Rust/gh
+toolchains — no desktop, and none of the TUI apps that need a personal account
+or secret to be useful.
+
+| Tool                                 | Key Files (chezmoi paths) |
+|--------------------------------------|---------------------------|
+| [fish](https://fishshell.com)        | `dot_config/fish`         |
+| [Helix](https://helix-editor.com)    | `dot_config/helix`        |
+| [bat](https://github.com/sharkdp/bat)| `dot_config/bat`          |
+| [eza](https://eza.rocks)             | `dot_config/eza`          |
+| [fastfetch](https://github.com/fastfetch-cli/fastfetch) | `dot_config/fastfetch` |
+
+Debian renames several binaries: `bat` → `batcat`, `fd-find` → `fdfind`, and
+`helix` → `hx`. `dot_config/fish/conf.d/modern-cli.fish` aliases around all
+three for interactive use, while `$EDITOR` and `git core.editor` are templated
+to the real `hx` binary — an alias is a fish function and can't serve either.
+
+`gh` is not in the Debian archive, so
+[`.chezmoiscripts/run_onchange_before_install-packages-parrot.sh.tmpl`](.chezmoiscripts/run_onchange_before_install-packages-parrot.sh.tmpl)
+adds GitHub's own apt source. That script also switches the login shell to fish,
+since Parrot ships zsh.
+
+Configs for tools outside this set (`crush`, `glow`, `golazo`, `newsboat`,
+`outside`, `oxicord`, `superfile`, `linear-tui`) are gated off in
+`.chezmoiignore`.
 
 </details>
 

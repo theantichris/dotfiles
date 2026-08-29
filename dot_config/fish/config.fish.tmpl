@@ -2,7 +2,9 @@
 source /usr/share/cachyos-fish-config/cachyos-config.fish
 {{ else -}}
 set -g fish_greeting
-fastfetch
+if command -q fastfetch
+    fastfetch
+end
 {{ end -}}
 source ~/.config/fish/conf.d/eza.fish
 source ~/.config/fish/environment.fish

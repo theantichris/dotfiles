@@ -1,3 +1,4 @@
+{{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
 # Documentation
 color_palettes/
 documentation/
@@ -34,7 +35,7 @@ CRUSH.md
 .config/fish/conf.d/toney.fish
 .config/fish/functions/gpg-unlock.fish
 
-.chezmoiscripts/run_onchange_before_install-packages-android.sh.tmpl
+.chezmoiscripts/install-packages-android.sh
 {{ end }}
 
 # CachyOS
@@ -44,14 +45,34 @@ CRUSH.md
 .config/uwsm
 .config/systemd/user/noctalia.service
 
-.chezmoiscripts/run_onchange_before_install-packages-cachyos.sh.tmpl
+.chezmoiscripts/install-packages-cachyos.sh
 {{ end }}
 
 # MacOS
 {{ if ne .chezmoi.os "darwin" }}
 .Brewfile
 
-.chezmoiscripts/run_onchange_after_install-packages-darwin.sh.tmpl
+.chezmoiscripts/install-packages-darwin.sh
+{{ end }}
+
+# Parrot (HTB)
+{{ if $parrot }}
+# Not in the lean Parrot package set. newsboat and linear-tui would also fail on
+# a clean box: a missing miniflux token file, and a hardcoded /home/christopher
+# log path respectively.
+.config/crush
+.config/glow
+.config/golazo
+.config/newsboat
+.config/outside
+.config/oxicord
+.config/superfile
+.linear-tui
+{{ end }}
+
+{{ if not $parrot }}
+.chezmoiscripts/install-packages-parrot.sh
+.chezmoiscripts/enable-services-parrot.sh
 {{ end }}
 
 {{ if and (or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "cachyos")) (ne .chezmoi.os "darwin") }}

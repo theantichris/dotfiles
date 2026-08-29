@@ -92,7 +92,7 @@ function __cyberpunk_exit_status
 end
 
 function __cyberpunk_user_host
-    set -l default_user chris
+    set -l default_user {{ .chezmoi.username }}
 
     if test -n "$SSH_CONNECTION"
         echo -n (set_color $cyberpunk_highlight)"$USER"(set_color $cyberpunk_comment)"@"(set_color $cyberpunk_quaternary)"$hostname "(set_color normal)

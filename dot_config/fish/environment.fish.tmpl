@@ -1,4 +1,8 @@
+{{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
 {{ if eq .chezmoi.os "darwin" -}}
+set -Ux EDITOR hx
+{{ else if $parrot -}}
+set -gx BROWSER firefox-esr
 set -Ux EDITOR hx
 {{ else -}}
 set -gx BROWSER zen-browser

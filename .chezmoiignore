@@ -57,9 +57,6 @@ CRUSH.md
 
 # Parrot (HTB)
 {{ if $parrot }}
-# Not in the lean Parrot package set. newsboat and linear-tui would also fail on
-# a clean box: a missing miniflux token file, and a hardcoded /home/christopher
-# log path respectively.
 .config/crush
 .config/glow
 .config/golazo

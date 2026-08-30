@@ -1,3 +1,4 @@
+{{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
 {{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
 source /usr/share/cachyos-fish-config/cachyos-config.fish
 {{ else -}}
@@ -17,6 +18,9 @@ source ~/.config/fish/path.fish
 if not ssh-add -l 2>/dev/null | string match -q "*id_ed25519*"
     ssh-add --apple-use-keychain ~/.ssh/id_ed25519 2>/dev/null
 end
+{{ end -}}
+{{ if $parrot -}}
+source ~/.config/fish/functions/fish_prompt.fish
 {{ end -}}
 
 # overwrite greeting

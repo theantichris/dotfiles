@@ -9,7 +9,23 @@ sudo apt upgrade -y
 
 sudo apt install -y bat eza fd-find fzf ripgrep
 sudo apt install -y fish
-sudo apt install -y fastfetch jq
+sudo apt install -y jq
+
+ff_tag=$(curl -fsSL https://api.github.com/repos/fastfetch-cli/fastfetch/releases/latest | jq -r .tag_name)
+ff_have=$(fastfetch --version 2>/dev/null | awk '{print $2}' | cut -d- -f1 || true)
+if [ "$ff_have" != "$ff_tag" ]; then
+	case "$(dpkg --print-architecture)" in
+	amd64) ff_arch=amd64 ;;
+	arm64) ff_arch=aarch64 ;;
+	armhf) ff_arch=armv7l ;;
+	*) ff_arch=$(dpkg --print-architecture) ;;
+	esac
+	ff_tmp=$(mktemp -d)
+	curl -fsSL -o "$ff_tmp/fastfetch.deb" \
+		"https://github.com/fastfetch-cli/fastfetch/releases/download/${ff_tag}/fastfetch-linux-${ff_arch}.deb"
+	sudo apt install -y "$ff_tmp/fastfetch.deb"
+	rm -rf "$ff_tmp"
+fi
 
 if command -v batcat >/dev/null 2>&1; then
 	batcat cache --build

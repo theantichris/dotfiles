@@ -4,18 +4,12 @@
 
 set -euo pipefail
 
-# Runs `after` so the unit this enables has already been written by chezmoi.
-# Re-fires when the unit changes:
 # {{ include "dot_config/systemd/user/ssh-add.service.tmpl" | sha256sum }}
 
-# No user bus during a non-interactive/chroot apply — skip rather than fail.
 if command -v systemctl >/dev/null 2>&1 && systemctl --user show-environment >/dev/null 2>&1; then
-	# The unit file may have just been rewritten by this same apply.
 	systemctl --user daemon-reload
 	systemctl --user enable --now ssh-agent.socket
 	systemctl --user enable ssh-add.service
-	# restart, not `enable --now`: that's a no-op on an already-enabled unit,
-	# which would leave a previously failed one failed.
 	if ! systemctl --user restart ssh-add.service; then
 		echo "warning: ssh-add.service failed; check: systemctl --user status ssh-add.service" >&2
 	fi

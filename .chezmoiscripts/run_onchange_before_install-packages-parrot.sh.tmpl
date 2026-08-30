@@ -10,6 +10,7 @@ sudo apt upgrade -y
 sudo apt install -y bat eza fd-find fzf ripgrep
 sudo apt install -y fish
 sudo apt install -y jq
+sudo apt install -y kitty kitty-shell-integration kitty-terminfo
 
 ff_tag=$(curl -fsSL https://api.github.com/repos/fastfetch-cli/fastfetch/releases/latest | jq -r .tag_name)
 ff_have=$(fastfetch --version 2>/dev/null | awk '{print $2}' | cut -d- -f1 || true)

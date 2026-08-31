@@ -1,7 +1,8 @@
-# Miniflux backend
-urls-source "miniflux"
-miniflux-url "https://rss.theantichris.com"
-miniflux-tokenfile "~/.config/newsboat/miniflux-token.txt"
+# NewsBlur backend
+urls-source "newsblur"
+newsblur-login "theantichris"
+newsblur-passwordfile "~/.config/newsboat/newsblur-password.txt"
+cookie-cache "~/.config/newsboat/cookies.txt"
 refresh-on-startup yes
 auto-reload yes
 reload-time 15

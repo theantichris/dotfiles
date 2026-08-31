@@ -254,7 +254,6 @@ Termux ships its own terminal config under `dot_termux`.
 |--------------------------------------------------|-----------------------|
 | [Bitwarden](https://bitwarden.com)               | `bitwarden`           |
 | [Notion](https://www.notion.so)                  | `notion`              |
-| [Seafile](https://www.seafile.com)               | `seafile-client`      |
 | [Surfshark](https://surfshark.com)               | `surfshark`           |
 | [UHK Agent](https://ultimatehackingkeyboard.com) | `uhk-agent`           |
 | [qFlipper](https://flipperzero.one)              | `qflipper`            |

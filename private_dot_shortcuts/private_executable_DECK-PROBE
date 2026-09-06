@@ -1,0 +1,44 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+MAGENTA='\033[38;2;202;1;116m'
+CYAN='\033[38;2;0;240;255m'
+GREEN='\033[38;2;0;255;156m'
+YELLOW='\033[38;2;255;211;0m'
+RESET='\033[0m'
+
+clear
+printf '%bDECK // TARGET PROBE%b\n\n' "$MAGENTA" "$RESET"
+
+read -r -p 'Target IP or host: ' target
+
+if [[ -z "$target" ]]; then
+  printf '\n%bNo target supplied.%b\n' "$YELLOW" "$RESET"
+else
+  printf '\n%bTarget%b  %s\n' "$CYAN" "$RESET" "$target"
+  printf '%bMode%b    top 20 TCP ports\n\n' "$CYAN" "$RESET"
+
+  output=$(nmap -sT -Pn -n --top-ports 20 --open "$target" 2>&1)
+  status=$?
+
+  if (( status != 0 )); then
+    printf '%bProbe failed%b\n\n' "$YELLOW" "$RESET"
+    printf '%s\n' "$output"
+  else
+    ports=$(awk '/^PORT[[:space:]]+STATE[[:space:]]+SERVICE/{show=1; next} show && /^[0-9]+\/tcp[[:space:]]+open[[:space:]]+/{print}' <<<"$output")
+
+    if [[ -n "$ports" ]]; then
+      printf '%bOPEN PORTS%b\n' "$GREEN" "$RESET"
+      printf '%-10s %-8s %s\n' 'PORT' 'STATE' 'SERVICE'
+      printf '%s\n' "$ports"
+    else
+      printf '%bNo open ports found in the top 20 TCP ports.%b\n' "$YELLOW" "$RESET"
+    fi
+  fi
+fi
+
+printf '\n'
+read -r -p 'Press Enter to return home...'
+
+am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1

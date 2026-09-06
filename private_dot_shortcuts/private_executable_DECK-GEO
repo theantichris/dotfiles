@@ -10,19 +10,19 @@ RESET='\033[0m'
 
 clear
 printf '%bDECK // GEO%b\n\n' "$MAGENTA" "$RESET"
-printf '%bAcquiring location fix...%b\n\n' "$CYAN" "$RESET"
+printf '%bReading last known location...%b\n\n' "$CYAN" "$RESET"
 
-location=$(timeout 20 termux-location -p gps -r once 2>/dev/null)
+location=$(termux-location -p gps -r last 2>/dev/null)
 status=$?
 
-if (( status != 0 )) || ! jq -e '.latitude and .longitude and (.API_ERROR? == null)' >/dev/null 2>&1 <<<"$location"; then
-  printf '%bGPS fix unavailable. Trying network provider...%b\n\n' "$YELLOW" "$RESET"
-  location=$(timeout 10 termux-location -p network -r once 2>/dev/null)
+if (( status != 0 )) || ! jq -e '(.latitude != null) and (.longitude != null) and (.API_ERROR? == null)' >/dev/null 2>&1 <<<"$location"; then
+  printf '%bNo cached GPS fix. Trying network provider...%b\n\n' "$YELLOW" "$RESET"
+  location=$(termux-location -p network -r last 2>/dev/null)
   status=$?
 fi
 
-if (( status != 0 )) || ! jq -e '.latitude and .longitude and (.API_ERROR? == null)' >/dev/null 2>&1 <<<"$location"; then
-  printf '%bCould not obtain a location fix.%b\n' "$YELLOW" "$RESET"
+if (( status != 0 )) || ! jq -e '(.latitude != null) and (.longitude != null) and (.API_ERROR? == null)' >/dev/null 2>&1 <<<"$location"; then
+  printf '%bCould not obtain a cached location fix.%b\n' "$YELLOW" "$RESET"
   if jq -e '.API_ERROR' >/dev/null 2>&1 <<<"$location"; then
     printf '%s\n' "$(jq -r '.API_ERROR' <<<"$location")"
   fi

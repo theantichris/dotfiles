@@ -118,12 +118,14 @@
       "key": "󰋊 Disk",
       "keyColor": "#00FF9C"
     },
+{{- if or (eq .chezmoi.os "android") (eq .chezmoi.os "darwin") }}
     {
       "type": "battery",
       "key": "󰁹 Battery",
       "keyColor": "#00FF9C",
       "temp": true
     },
+{{- end }}
     "break",
     {
       "type": "localip",

@@ -112,7 +112,7 @@
       "shell": "fish",
       "param": "-c",
       "parallel": false,
-      "text": "set values (printf '%s\\n' '{\\\"logo\\\":{\\\"type\\\":\\\"none\\\"},\\\"modules\\\":[{\\\"type\\\":\\\"cpu\\\",\\\"key\\\":\\\" \\\"},{\\\"type\\\":\\\"cpuusage\\\",\\\"key\\\":\\\" \\\",\\\"format\\\":\\\"{avg}\\\"}]}' | fastfetch --config - --pipe); printf '%s (%s)' \\\"$values[1]\\\" \\\"$values[2]\\\""
+      "text": "set values (printf '%s\\n' '{\"logo\":{\"type\":\"none\"},\"modules\":[{\"type\":\"cpu\",\"key\":\" \"},{\"type\":\"cpuusage\",\"key\":\" \",\"format\":\"{avg}\"}]}' | fastfetch --config - --pipe); printf '%s (%s)' \"$values[1]\" \"$values[2]\""
     },
 {{- else }}
     {

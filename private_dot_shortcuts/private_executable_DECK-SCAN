@@ -1,0 +1,56 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+MAGENTA='\033[38;2;202;1;116m'
+CYAN='\033[38;2;0;240;255m'
+GREEN='\033[38;2;0;255;156m'
+YELLOW='\033[38;2;255;211;0m'
+RESET='\033[0m'
+
+clear
+printf '%bDECK // LOCAL DISCOVERY%b\n\n' "$MAGENTA" "$RESET"
+
+wifi_json=$(termux-wifi-connectioninfo 2>/dev/null || printf '{}')
+ssid=$(jq -r '.ssid // "unknown"' <<<"$wifi_json")
+local_ip=$(jq -r '.ip // "unknown"' <<<"$wifi_json")
+
+if [[ ! "$local_ip" =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+  printf '%b%-12s%b %s\n' "$YELLOW" 'WiFi' "$RESET" 'No usable IPv4 address found'
+  printf '\n'
+  read -r -p 'Press Enter to return home...'
+  am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1
+  exit 1
+fi
+
+subnet="${local_ip%.*}.0/24"
+
+printf '%b%-12s%b %s\n' "$CYAN" 'SSID' "$RESET" "$ssid"
+printf '%b%-12s%b %s\n' "$CYAN" 'This Device' "$RESET" "$local_ip"
+printf '%b%-12s%b %s\n\n' "$CYAN" 'Scan' "$RESET" "$subnet"
+printf '%bScanning...%b\n\n' "$YELLOW" "$RESET"
+
+scan_output=$(nmap -sn -n -T4 "$subnet" -oG - 2>/dev/null || true)
+hosts=$(awk '/Status: Up/{print $2}' <<<"$scan_output")
+
+if [[ -z "$hosts" ]]; then
+  printf '%bNo live hosts found.%b\n' "$YELLOW" "$RESET"
+else
+  count=$(printf '%s\n' "$hosts" | sed '/^$/d' | wc -l | tr -d ' ')
+  printf '%bLIVE HOSTS%b  %s\n\n' "$GREEN" "$RESET" "$count"
+
+  while IFS= read -r host; do
+    [[ -z "$host" ]] && continue
+    if [[ "$host" == "$local_ip" ]]; then
+      printf '%b%-15s%b  %bTHIS DEVICE%b\n' "$GREEN" "$host" "$RESET" "$CYAN" "$RESET"
+    else
+      printf '%b%-15s%b\n' "$GREEN" "$host" "$RESET"
+    fi
+  done <<<"$hosts"
+fi
+
+printf '\n%bQuick discovery may miss sleeping or slow hosts.%b\n' "$YELLOW" "$RESET"
+printf '\n'
+read -r -p 'Press Enter to return home...'
+
+am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1

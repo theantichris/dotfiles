@@ -20,7 +20,6 @@ elif [[ -z "$clip" ]]; then
   printf '%bClipboard is empty.%b\n' "$YELLOW" "$RESET"
 else
   trimmed=$(printf '%s' "$clip" | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
-  first_line=$(printf '%s\n' "$trimmed" | head -n 1)
 
   network_target=''
   url_target=''
@@ -41,11 +40,7 @@ else
       fi
       ;;
     *)
-      if [[ "$trimmed" != *[[:space:]]* ]] && [[ "$trimmed" =~ ^([A-Za-z0-9_-]+\.)*[A-Za-z0-9_-]+$ || "$trimmed" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ || "$trimmed" =~ ^[0-9A-Fa-f:]+$ ]]; then
-        kind='HOST / IP'
-        network_target="$trimmed"
-        url_target="$trimmed"
-      elif [[ "$trimmed" =~ ^[0-9A-Fa-f]{32}$ ]]; then
+      if [[ "$trimmed" =~ ^[0-9A-Fa-f]{32}$ ]]; then
         kind='MD5 HASH'
       elif [[ "$trimmed" =~ ^[0-9A-Fa-f]{40}$ ]]; then
         kind='SHA-1 HASH'
@@ -53,6 +48,10 @@ else
         kind='SHA-256 HASH'
       elif [[ "$trimmed" =~ ^[0-9A-Fa-f]{128}$ ]]; then
         kind='SHA-512 HASH'
+      elif [[ "$trimmed" != *[[:space:]]* ]] && [[ "$trimmed" =~ ^([A-Za-z0-9_-]+\.)*[A-Za-z0-9_-]+$ || "$trimmed" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ || ( "$trimmed" == *:* && "$trimmed" =~ ^[0-9A-Fa-f:]+$ ) ]]; then
+        kind='HOST / IP'
+        network_target="$trimmed"
+        url_target="$trimmed"
       fi
       ;;
   esac

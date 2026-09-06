@@ -1,0 +1,57 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+MAGENTA='\033[38;2;202;1;116m'
+CYAN='\033[38;2;0;240;255m'
+GREEN='\033[38;2;0;255;156m'
+YELLOW='\033[38;2;255;211;0m'
+RESET='\033[0m'
+
+clear
+printf '%bDECK // SENSOR ARRAY%b\n\n' "$MAGENTA" "$RESET"
+printf '%bSampling hardware sensors...%b\n\n' "$CYAN" "$RESET"
+
+output=$(termux-sensor \
+  -s 'Hinge Angle (wake-up),Virtual Ambient Light,SPL07003 Barometer,Step Counter' \
+  -d 2000 \
+  -n 1 2>/dev/null)
+status=$?
+
+if (( status != 0 )) || ! jq -e . >/dev/null 2>&1 <<<"$output"; then
+  printf '%bSensor read failed.%b\n' "$YELLOW" "$RESET"
+else
+  hinge=$(jq -r '."Hinge Angle (wake-up)".values[0] // empty' <<<"$output")
+  light=$(jq -r '."Virtual Ambient Light".values[0] // empty' <<<"$output")
+  pressure=$(jq -r '."SPL07003 Barometer".values[0] // empty' <<<"$output")
+  steps=$(jq -r '."Step Counter".values[0] // empty' <<<"$output")
+
+  if [[ -n "$hinge" ]]; then
+    printf '%b%-12s%b %.1f°\n' "$GREEN" 'Hinge' "$RESET" "$hinge"
+  else
+    printf '%b%-12s%b --\n' "$YELLOW" 'Hinge' "$RESET"
+  fi
+
+  if [[ -n "$light" ]]; then
+    printf '%b%-12s%b %.1f lx\n' "$GREEN" 'Light' "$RESET" "$light"
+  else
+    printf '%b%-12s%b --\n' "$YELLOW" 'Light' "$RESET"
+  fi
+
+  if [[ -n "$pressure" ]]; then
+    printf '%b%-12s%b %.1f hPa\n' "$GREEN" 'Pressure' "$RESET" "$pressure"
+  else
+    printf '%b%-12s%b --\n' "$YELLOW" 'Pressure' "$RESET"
+  fi
+
+  if [[ -n "$steps" ]]; then
+    printf '%b%-12s%b %.0f\n' "$GREEN" 'Step Counter' "$RESET" "$steps"
+  else
+    printf '%b%-12s%b --\n' "$YELLOW" 'Step Counter' "$RESET"
+  fi
+fi
+
+printf '\n'
+read -r -p 'Press Enter to return home...'
+
+am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1

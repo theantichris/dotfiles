@@ -37,6 +37,13 @@
       "key": "󰌽 OS",
       "keyColor": "#CA0174"
     },
+{{- if or (eq .chezmoi.os "android") (eq .chezmoi.os "darwin") }}
+    {
+      "type": "host",
+      "key": "󰌢 Host",
+      "keyColor": "#CA0174"
+    },
+{{- end }}
 
     {
       "type": "kernel",

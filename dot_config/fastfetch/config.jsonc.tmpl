@@ -104,18 +104,15 @@
       "key": "󰍹 Display",
       "keyColor": "#00FF9C"
     },
-{{- if or (eq .chezmoi.os "darwin") $cachyos }}
-    {
-      "type": "command",
-      "key": "󰻠 CPU",
-      "keyColor": "#00FF9C",
-      "parallel": false,
-      "text": "fastfetch --config none --logo none --pipe --structure cpu:cpuusage --cpuusage-format \"{avg}\" | awk 'NR == 1 { cpu=$0; sub(/^[^:]+:[[:space:]]*/, \"\", cpu) } NR == 2 { usage=$0; sub(/^[^:]+:[[:space:]]*/, \"\", usage); printf \"%s (%s)\", cpu, usage }'"
-    },
-{{- else }}
     {
       "type": "cpu",
       "key": "󰻠 CPU",
+      "keyColor": "#00FF9C"
+    },
+{{- if or (eq .chezmoi.os "darwin") $cachyos }}
+    {
+      "type": "cpuusage",
+      "key": "󰻠 CPU Usage",
       "keyColor": "#00FF9C"
     },
 {{- end }}

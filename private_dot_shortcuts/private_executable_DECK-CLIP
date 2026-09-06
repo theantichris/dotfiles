@@ -1,0 +1,125 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+MAGENTA='\033[38;2;202;1;116m'
+CYAN='\033[38;2;0;240;255m'
+GREEN='\033[38;2;0;255;156m'
+YELLOW='\033[38;2;255;211;0m'
+RESET='\033[0m'
+
+clear
+printf '%bDECK // CLIPBOARD%b\n\n' "$MAGENTA" "$RESET"
+
+clip=$(termux-clipboard-get 2>/dev/null)
+status=$?
+
+if (( status != 0 )); then
+  printf '%bCould not read the clipboard.%b\n' "$YELLOW" "$RESET"
+elif [[ -z "$clip" ]]; then
+  printf '%bClipboard is empty.%b\n' "$YELLOW" "$RESET"
+else
+  trimmed=$(printf '%s' "$clip" | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')
+  first_line=$(printf '%s\n' "$trimmed" | head -n 1)
+
+  network_target=''
+  url_target=''
+  kind='TEXT'
+
+  case "$trimmed" in
+    http://*|https://*)
+      kind='URL'
+      url_target="$trimmed"
+      authority="${trimmed#*://}"
+      authority="${authority%%/*}"
+      authority="${authority##*@}"
+      if [[ "$authority" == \[*\]* ]]; then
+        network_target="${authority#\[}"
+        network_target="${network_target%%\]*}"
+      else
+        network_target="${authority%%:*}"
+      fi
+      ;;
+    *)
+      if [[ "$trimmed" != *[[:space:]]* ]] && [[ "$trimmed" =~ ^([A-Za-z0-9_-]+\.)*[A-Za-z0-9_-]+$ || "$trimmed" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ || "$trimmed" =~ ^[0-9A-Fa-f:]+$ ]]; then
+        kind='HOST / IP'
+        network_target="$trimmed"
+        url_target="$trimmed"
+      elif [[ "$trimmed" =~ ^[0-9A-Fa-f]{32}$ ]]; then
+        kind='MD5 HASH'
+      elif [[ "$trimmed" =~ ^[0-9A-Fa-f]{40}$ ]]; then
+        kind='SHA-1 HASH'
+      elif [[ "$trimmed" =~ ^[0-9A-Fa-f]{64}$ ]]; then
+        kind='SHA-256 HASH'
+      elif [[ "$trimmed" =~ ^[0-9A-Fa-f]{128}$ ]]; then
+        kind='SHA-512 HASH'
+      fi
+      ;;
+  esac
+
+  printf '%b%-10s%b %s\n' "$CYAN" 'Type' "$RESET" "$kind"
+
+  if [[ -n "$network_target" ]]; then
+    printf '%b%-10s%b %s\n' "$CYAN" 'Target' "$RESET" "$network_target"
+    if [[ "$kind" == 'URL' ]]; then
+      printf '%b%-10s%b %s\n' "$CYAN" 'URL' "$RESET" "$url_target"
+    fi
+
+    printf '\n'
+    printf '%b[1]%b HTTP   status, redirects, timings\n' "$GREEN" "$RESET"
+    printf '%b[2]%b DNS    records and resolver\n' "$GREEN" "$RESET"
+    printf '%b[3]%b CERT   TLS certificate\n' "$GREEN" "$RESET"
+    printf '%b[4]%b PING   reachability and RTT\n' "$GREEN" "$RESET"
+    printf '%b[5]%b TRACE  network route\n' "$GREEN" "$RESET"
+    printf '%b[q]%b Cancel\n\n' "$YELLOW" "$RESET"
+
+    read -r -p 'Action: ' choice
+
+    case "${choice,,}" in
+      1|http|h)
+        exec "$HOME/.shortcuts/DECK-HTTP" "$url_target"
+        ;;
+      2|dns|d)
+        exec "$HOME/.shortcuts/DECK-DNS" "$network_target"
+        ;;
+      3|cert|c)
+        exec "$HOME/.shortcuts/DECK-CERT" "$network_target"
+        ;;
+      4|ping|p)
+        exec "$HOME/.shortcuts/DECK-PING" "$network_target"
+        ;;
+      5|trace|t)
+        exec "$HOME/.shortcuts/DECK-TRACE" "$network_target"
+        ;;
+      q|quit|cancel|'')
+        ;;
+      *)
+        printf '\n%bUnknown action.%b\n' "$YELLOW" "$RESET"
+        ;;
+    esac
+  elif [[ "$kind" == *'HASH' ]]; then
+    printf '%b%-10s%b %s\n' "$GREEN" 'Value' "$RESET" "$trimmed"
+  else
+    lines=$(printf '%s' "$clip" | awk 'END {print NR}')
+    words=$(printf '%s' "$clip" | wc -w | tr -d ' ')
+    bytes=$(printf '%s' "$clip" | wc -c | tr -d ' ')
+    chars=$(printf '%s' "$clip" | wc -m | tr -d ' ')
+    digest=$(printf '%s' "$clip" | sha256sum | awk '{print $1}')
+    preview=$(printf '%s' "$clip" | head -c 500)
+
+    printf '%b%-10s%b %s\n' "$CYAN" 'Lines' "$RESET" "$lines"
+    printf '%b%-10s%b %s\n' "$CYAN" 'Words' "$RESET" "$words"
+    printf '%b%-10s%b %s\n' "$CYAN" 'Chars' "$RESET" "$chars"
+    printf '%b%-10s%b %s\n' "$CYAN" 'Bytes' "$RESET" "$bytes"
+    printf '\n%bPreview%b\n%s\n' "$GREEN" "$RESET" "$preview"
+    if (( bytes > 500 )); then
+      printf '%b... clipped at 500 bytes ...%b\n' "$YELLOW" "$RESET"
+    fi
+    printf '\n%bSHA-256%b\n%s\n' "$YELLOW" "$RESET" "$digest"
+  fi
+fi
+
+printf '\n'
+read -r -p 'Press Enter to return home...'
+
+am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1

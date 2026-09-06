@@ -1,3 +1,4 @@
+{{- $cachyos := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
   "logo": {
@@ -108,6 +109,13 @@
       "key": "󰻠 CPU",
       "keyColor": "#00FF9C"
     },
+{{- if or (eq .chezmoi.os "darwin") $cachyos }}
+    {
+      "type": "cpuusage",
+      "key": "󰻠 CPU Usage",
+      "keyColor": "#00FF9C"
+    },
+{{- end }}
 {{- if ne .chezmoi.os "android" }}
     {
       "type": "gpu",

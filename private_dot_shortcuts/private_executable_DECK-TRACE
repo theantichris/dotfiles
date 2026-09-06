@@ -1,0 +1,34 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+MAGENTA='\033[38;2;202;1;116m'
+CYAN='\033[38;2;0;240;255m'
+YELLOW='\033[38;2;255;211;0m'
+RESET='\033[0m'
+
+clear
+printf '%bDECK // ROUTE TRACE%b\n\n' "$MAGENTA" "$RESET"
+
+read -r -p 'Target IP or host: ' target
+
+if [[ -z "$target" ]]; then
+  target='1.1.1.1'
+fi
+
+printf '\n%bTarget%b  %s\n' "$CYAN" "$RESET" "$target"
+printf '%bMode%b    max 12 hops, 1s timeout\n\n' "$CYAN" "$RESET"
+
+output=$(traceroute -n -m 12 -w 1 "$target" 2>&1)
+status=$?
+
+if (( status != 0 )); then
+  printf '%bTrace failed%b\n\n' "$YELLOW" "$RESET"
+fi
+
+printf '%s\n' "$output"
+
+printf '\n'
+read -r -p 'Press Enter to return home...'
+
+am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1

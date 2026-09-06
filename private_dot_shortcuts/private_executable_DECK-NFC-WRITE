@@ -1,0 +1,48 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+MAGENTA='\033[38;2;202;1;116m'
+CYAN='\033[38;2;0;240;255m'
+GREEN='\033[38;2;0;255;156m'
+YELLOW='\033[38;2;255;211;0m'
+RESET='\033[0m'
+
+clear
+printf '%bDECK // NFC WRITE%b\n\n' "$MAGENTA" "$RESET"
+
+read -r -p 'Text to write: ' text
+
+if [[ -z "$text" ]]; then
+  printf '\n%bNo text supplied.%b\n' "$YELLOW" "$RESET"
+else
+  printf '\n%bPayload%b  %s\n' "$CYAN" "$RESET" "$text"
+  printf '%bAction%b   write NDEF text record\n\n' "$CYAN" "$RESET"
+  printf '%bWaiting for a writable NDEF tag...%b\n' "$YELLOW" "$RESET"
+  printf 'Hold the tag near the phone.\n\n'
+
+  output=$(termux-nfc -w -t "$text" 2>&1)
+  status=$?
+
+  if (( status != 0 )); then
+    printf '%bNFC write failed.%b\n\n' "$YELLOW" "$RESET"
+    printf '%s\n' "$output"
+  elif jq -e '.error? // empty' >/dev/null 2>&1 <<<"$output"; then
+    printf '%bNFC write failed.%b\n\n' "$YELLOW" "$RESET"
+    jq . <<<"$output"
+  else
+    printf '%bWRITE COMPLETE%b\n' "$GREEN" "$RESET"
+    if [[ -n "$output" ]]; then
+      if jq -e . >/dev/null 2>&1 <<<"$output"; then
+        jq . <<<"$output"
+      else
+        printf '%s\n' "$output"
+      fi
+    fi
+  fi
+fi
+
+printf '\n'
+read -r -p 'Press Enter to return home...'
+
+am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1

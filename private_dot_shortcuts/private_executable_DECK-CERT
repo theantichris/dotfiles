@@ -13,23 +13,56 @@ printf '%bDECK // TLS CERT%b\n\n' "$MAGENTA" "$RESET"
 
 read -r -p 'Host [cloudflare.com]: ' target
 target=${target:-cloudflare.com}
+read -r -p 'Port [443]: ' port
+port=${port:-443}
 
 host="${target#*://}"
 host="${host%%/*}"
 host="${host%%:*}"
 
-printf '\n%bHost%b  %s:443\n\n' "$CYAN" "$RESET" "$host"
+printf '\n%bTarget%b  %s:%s\n\n' "$CYAN" "$RESET" "$host" "$port"
 
 if ! command -v openssl >/dev/null 2>&1; then
   printf '%bopenssl is not installed.%b\n' "$YELLOW" "$RESET"
 else
-  cert=$(openssl s_client -servername "$host" -connect "$host:443" </dev/null 2>/dev/null \
-    | openssl x509 -noout -subject -issuer -dates -fingerprint -sha256 2>/dev/null)
+  connection=$(timeout 12 openssl s_client -servername "$host" -connect "$host:$port" -showcerts </dev/null 2>&1)
+  status=$?
+  pem=$(printf '%s\n' "$connection" | awk '/-----BEGIN CERTIFICATE-----/{capture=1} capture{print} /-----END CERTIFICATE-----/{exit}')
 
-  if [[ -z "$cert" ]]; then
-    printf '%bCould not retrieve a TLS certificate.%b\n' "$YELLOW" "$RESET"
+  if (( status != 0 )) || [[ -z "$pem" ]]; then
+    printf '%bCould not retrieve a TLS certificate.%b\n\n' "$YELLOW" "$RESET"
+    printf '%s\n' "$connection" | tail -n 8
   else
-    printf '%b%s%b\n' "$GREEN" "$cert" "$RESET"
+    subject=$(openssl x509 -noout -subject -nameopt RFC2253 <<<"$pem" 2>/dev/null | sed 's/^subject=//')
+    issuer=$(openssl x509 -noout -issuer -nameopt RFC2253 <<<"$pem" 2>/dev/null | sed 's/^issuer=//')
+    serial=$(openssl x509 -noout -serial <<<"$pem" 2>/dev/null | sed 's/^serial=//')
+    not_before=$(openssl x509 -noout -startdate <<<"$pem" 2>/dev/null | sed 's/^notBefore=//')
+    not_after=$(openssl x509 -noout -enddate <<<"$pem" 2>/dev/null | sed 's/^notAfter=//')
+    fingerprint=$(openssl x509 -noout -fingerprint -sha256 <<<"$pem" 2>/dev/null | sed 's/^sha256 Fingerprint=//; s/^SHA256 Fingerprint=//')
+    sans=$(openssl x509 -noout -ext subjectAltName <<<"$pem" 2>/dev/null | tail -n +2 | tr '\n' ' ' | sed 's/^[[:space:]]*//; s/[[:space:]][[:space:]]*/ /g')
+
+    verify=$(printf '%s\n' "$connection" | sed -n 's/^Verify return code: //p' | tail -n 1)
+    if [[ -z "$verify" ]]; then
+      verify=$(printf '%s\n' "$connection" | sed -n 's/^Verification: //p' | tail -n 1)
+    fi
+
+    if openssl x509 -checkend 0 -noout <<<"$pem" >/dev/null 2>&1; then
+      validity='VALID'
+      VALIDITY_COLOR="$GREEN"
+    else
+      validity='EXPIRED'
+      VALIDITY_COLOR="$YELLOW"
+    fi
+
+    printf '%b%-12s%b %b%s%b\n' "$CYAN" 'Validity' "$RESET" "$VALIDITY_COLOR" "$validity" "$RESET"
+    printf '%b%-12s%b %s\n' "$CYAN" 'Verify' "$RESET" "${verify:-unknown}"
+    printf '%b%-12s%b %s\n' "$CYAN" 'Subject' "$RESET" "${subject:-unknown}"
+    printf '%b%-12s%b %s\n' "$CYAN" 'Issuer' "$RESET" "${issuer:-unknown}"
+    printf '%b%-12s%b %s\n' "$CYAN" 'Serial' "$RESET" "${serial:-unknown}"
+    printf '%b%-12s%b %s\n' "$CYAN" 'Not Before' "$RESET" "${not_before:-unknown}"
+    printf '%b%-12s%b %s\n' "$CYAN" 'Not After' "$RESET" "${not_after:-unknown}"
+    printf '%b%-12s%b %s\n' "$CYAN" 'SHA-256' "$RESET" "${fingerprint:-unknown}"
+    printf '%b%-12s%b %s\n' "$GREEN" 'SANs' "$RESET" "${sans:---}"
   fi
 fi
 

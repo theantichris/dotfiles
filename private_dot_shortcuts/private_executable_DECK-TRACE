@@ -10,16 +10,27 @@ RESET='\033[0m'
 clear
 printf '%bDECK // ROUTE TRACE%b\n\n' "$MAGENTA" "$RESET"
 
-read -r -p 'Target IP or host: ' target
-
-if [[ -z "$target" ]]; then
-  target='1.1.1.1'
+if (( $# > 0 )); then
+  target="$1"
+else
+  read -r -p 'Target IP or host: ' target
+  target=${target:-1.1.1.1}
 fi
 
-printf '\n%bTarget%b  %s\n' "$CYAN" "$RESET" "$target"
+host="${target#*://}"
+host="${host%%/*}"
+host="${host##*@}"
+if [[ "$host" == \[*\]* ]]; then
+  host="${host#\[}"
+  host="${host%%\]*}"
+else
+  host="${host%%:*}"
+fi
+
+printf '\n%bTarget%b  %s\n' "$CYAN" "$RESET" "$host"
 printf '%bMode%b    max 12 hops, 1s timeout\n\n' "$CYAN" "$RESET"
 
-output=$(traceroute -n -m 12 -w 1 "$target" 2>&1)
+output=$(traceroute -n -m 12 -w 1 "$host" 2>&1)
 status=$?
 
 if (( status != 0 )); then

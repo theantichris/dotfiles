@@ -11,13 +11,27 @@ RESET='\033[0m'
 clear
 printf '%bDECK // PING%b\n\n' "$MAGENTA" "$RESET"
 
-read -r -p 'Target [1.1.1.1]: ' target
-target=${target:-1.1.1.1}
+if (( $# > 0 )); then
+  target="$1"
+else
+  read -r -p 'Target [1.1.1.1]: ' target
+  target=${target:-1.1.1.1}
+fi
 
-printf '\n%bTarget%b  %s\n' "$CYAN" "$RESET" "$target"
+host="${target#*://}"
+host="${host%%/*}"
+host="${host##*@}"
+if [[ "$host" == \[*\]* ]]; then
+  host="${host#\[}"
+  host="${host%%\]*}"
+else
+  host="${host%%:*}"
+fi
+
+printf '\n%bTarget%b  %s\n' "$CYAN" "$RESET" "$host"
 printf '%bMode%b    4 probes\n\n' "$CYAN" "$RESET"
 
-output=$(ping -c 4 "$target" 2>&1)
+output=$(ping -c 4 "$host" 2>&1)
 status=$?
 
 printf '%s\n' "$output"

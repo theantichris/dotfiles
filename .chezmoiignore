@@ -32,6 +32,7 @@ CRUSH.md
 .hushlogin
 .termux
 .shortcuts
+bin/termux-url-opener
 .config/toney
 .config/fish/conf.d/toney.fish
 .config/fish/functions/gpg-unlock.fish

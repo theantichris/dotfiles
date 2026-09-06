@@ -11,8 +11,12 @@ RESET='\033[0m'
 clear
 printf '%bDECK // HTTP PROBE%b\n\n' "$MAGENTA" "$RESET"
 
-read -r -p 'URL or host [cloudflare.com]: ' target
-target=${target:-cloudflare.com}
+if (( $# > 0 )); then
+  target="$1"
+else
+  read -r -p 'URL or host [cloudflare.com]: ' target
+  target=${target:-cloudflare.com}
+fi
 
 case "$target" in
   http://*|https://*) url="$target" ;;

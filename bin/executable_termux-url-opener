@@ -1,0 +1,66 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+MAGENTA='\033[38;2;202;1;116m'
+CYAN='\033[38;2;0;240;255m'
+GREEN='\033[38;2;0;255;156m'
+YELLOW='\033[38;2;255;211;0m'
+RESET='\033[0m'
+
+url="${1:-}"
+
+if [[ -z "$url" ]]; then
+  exit 0
+fi
+
+authority="${url#*://}"
+authority="${authority%%/*}"
+authority="${authority##*@}"
+
+if [[ "$authority" == \[*\]* ]]; then
+  host="${authority#\[}"
+  host="${host%%\]*}"
+else
+  host="${authority%%:*}"
+fi
+
+clear
+printf '%bDECK // SHARED TARGET%b\n\n' "$MAGENTA" "$RESET"
+printf '%bURL%b   %s\n' "$CYAN" "$RESET" "$url"
+printf '%bHost%b  %s\n\n' "$CYAN" "$RESET" "$host"
+
+printf '%b[1]%b HTTP   status, redirects, timings\n' "$GREEN" "$RESET"
+printf '%b[2]%b DNS    records and resolver\n' "$GREEN" "$RESET"
+printf '%b[3]%b CERT   TLS certificate\n' "$GREEN" "$RESET"
+printf '%b[4]%b PING   reachability and RTT\n' "$GREEN" "$RESET"
+printf '%b[5]%b TRACE  network route\n' "$GREEN" "$RESET"
+printf '%b[q]%b Cancel\n\n' "$YELLOW" "$RESET"
+
+read -r -p 'Action: ' choice
+
+case "${choice,,}" in
+  1|http|h)
+    exec "$HOME/.shortcuts/DECK-HTTP" "$url"
+    ;;
+  2|dns|d)
+    exec "$HOME/.shortcuts/DECK-DNS" "$url"
+    ;;
+  3|cert|c)
+    exec "$HOME/.shortcuts/DECK-CERT" "$url"
+    ;;
+  4|ping|p)
+    exec "$HOME/.shortcuts/DECK-PING" "$url"
+    ;;
+  5|trace|t)
+    exec "$HOME/.shortcuts/DECK-TRACE" "$url"
+    ;;
+  q|quit|cancel|'')
+    exit 0
+    ;;
+  *)
+    printf '\n%bUnknown action.%b\n' "$YELLOW" "$RESET"
+    sleep 1
+    exit 1
+    ;;
+esac

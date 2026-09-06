@@ -11,14 +11,39 @@ RESET='\033[0m'
 clear
 printf '%bDECK // TLS CERT%b\n\n' "$MAGENTA" "$RESET"
 
-read -r -p 'Host [cloudflare.com]: ' target
-target=${target:-cloudflare.com}
-read -r -p 'Port [443]: ' port
-port=${port:-443}
+if (( $# > 0 )); then
+  target="$1"
+  shared_target=1
+else
+  read -r -p 'Host [cloudflare.com]: ' target
+  target=${target:-cloudflare.com}
+  shared_target=0
+fi
 
-host="${target#*://}"
-host="${host%%/*}"
-host="${host%%:*}"
+authority="${target#*://}"
+authority="${authority%%/*}"
+authority="${authority##*@}"
+parsed_port=''
+
+if [[ "$authority" =~ ^\[(.*)\](:([0-9]+))?$ ]]; then
+  host="${BASH_REMATCH[1]}"
+  parsed_port="${BASH_REMATCH[3]:-}"
+else
+  host="${authority%%:*}"
+  if [[ "$authority" == *:* ]]; then
+    candidate_port="${authority##*:}"
+    if [[ "$candidate_port" =~ ^[0-9]+$ ]]; then
+      parsed_port="$candidate_port"
+    fi
+  fi
+fi
+
+if (( shared_target )); then
+  port="${parsed_port:-443}"
+else
+  read -r -p "Port [${parsed_port:-443}]: " port
+  port=${port:-${parsed_port:-443}}
+fi
 
 printf '\n%bTarget%b  %s:%s\n\n' "$CYAN" "$RESET" "$host" "$port"
 

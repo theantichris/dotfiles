@@ -1,0 +1,93 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+MAGENTA='\033[38;2;202;1;116m'
+CYAN='\033[38;2;0;240;255m'
+GREEN='\033[38;2;0;255;156m'
+YELLOW='\033[38;2;255;211;0m'
+RESET='\033[0m'
+
+clear
+printf '%bDECK // WIFI RECON%b\n\n' "$MAGENTA" "$RESET"
+
+scan_json=$(termux-wifi-scaninfo 2>/dev/null || printf '[]')
+if ! jq -e 'type == "array"' >/dev/null 2>&1 <<<"$scan_json"; then
+  scan_json='[]'
+fi
+
+connection_json=$(termux-wifi-connectioninfo 2>/dev/null || printf '{}')
+connected_bssid=$(jq -r '.bssid // ""' <<<"$connection_json")
+count=$(jq 'length' <<<"$scan_json")
+
+if (( count == 0 )); then
+  printf '%bNo Wi-Fi scan results available.%b\n' "$YELLOW" "$RESET"
+else
+  printf '%b%-8s%b %s\n\n' "$CYAN" 'RADIOS' "$RESET" "$count"
+  printf '%b* = current BSSID%b\n\n' "$GREEN" "$RESET"
+
+  while IFS=$'\t' read -r marker rssi frequency width ssid bssid capabilities; do
+    if [[ -z "$ssid" ]]; then
+      ssid='<hidden>'
+    fi
+
+    case "$frequency" in
+      ''|*[!0-9]*) band='?' ;;
+      *)
+        if (( frequency >= 5925 )); then
+          band='6G'
+        elif (( frequency >= 4900 )); then
+          band='5G'
+        elif (( frequency >= 2400 )); then
+          band='2.4G'
+        else
+          band='?'
+        fi
+        ;;
+    esac
+
+    if [[ "$capabilities" == *SAE* || "$capabilities" == *WPA3* ]]; then
+      security='WPA3'
+    elif [[ "$capabilities" == *WPA2* || "$capabilities" == *RSN* ]]; then
+      security='WPA2'
+    elif [[ "$capabilities" == *WPA* ]]; then
+      security='WPA'
+    elif [[ "$capabilities" == *WEP* ]]; then
+      security='WEP'
+    else
+      security='OPEN'
+    fi
+
+    if [[ "$rssi" == '0' ]]; then
+      signal=' ? '
+    else
+      signal=$(printf '%3s' "$rssi")
+    fi
+
+    printf '%b%s %s dBm  %-4s  %-4s  %s%b\n' "$GREEN" "$marker" "$signal" "$band" "$security" "$ssid" "$RESET"
+    printf '  %s  %s MHz / %s MHz\n' "$bssid" "$frequency" "$width"
+  done < <(
+    jq -r --arg connected "$connected_bssid" '
+      map(. + {sort_rssi: (if ((.rssi // 0) == 0) then -999 else (.rssi // -999) end)})
+      | sort_by(.sort_rssi)
+      | reverse
+      | .[:12]
+      | .[]
+      | [
+          (if (.bssid // "") == $connected then "*" else " " end),
+          ((.rssi // 0) | tostring),
+          ((.frequency_mhz // 0) | tostring),
+          ((.channel_bandwidth_mhz // "?") | tostring),
+          (.ssid // ""),
+          (.bssid // "unknown"),
+          (.capabilities // "")
+        ]
+      | @tsv
+    ' <<<"$scan_json"
+  )
+fi
+
+printf '\n'
+read -r -p 'Press Enter to return home...'
+
+am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1

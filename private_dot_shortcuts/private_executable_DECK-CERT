@@ -1,0 +1,39 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+MAGENTA='\033[38;2;202;1;116m'
+CYAN='\033[38;2;0;240;255m'
+GREEN='\033[38;2;0;255;156m'
+YELLOW='\033[38;2;255;211;0m'
+RESET='\033[0m'
+
+clear
+printf '%bDECK // TLS CERT%b\n\n' "$MAGENTA" "$RESET"
+
+read -r -p 'Host [cloudflare.com]: ' target
+target=${target:-cloudflare.com}
+
+host="${target#*://}"
+host="${host%%/*}"
+host="${host%%:*}"
+
+printf '\n%bHost%b  %s:443\n\n' "$CYAN" "$RESET" "$host"
+
+if ! command -v openssl >/dev/null 2>&1; then
+  printf '%bopenssl is not installed.%b\n' "$YELLOW" "$RESET"
+else
+  cert=$(openssl s_client -servername "$host" -connect "$host:443" </dev/null 2>/dev/null \
+    | openssl x509 -noout -subject -issuer -dates -fingerprint -sha256 2>/dev/null)
+
+  if [[ -z "$cert" ]]; then
+    printf '%bCould not retrieve a TLS certificate.%b\n' "$YELLOW" "$RESET"
+  else
+    printf '%b%s%b\n' "$GREEN" "$cert" "$RESET"
+  fi
+fi
+
+printf '\n'
+read -r -p 'Press Enter to return home...'
+
+am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1

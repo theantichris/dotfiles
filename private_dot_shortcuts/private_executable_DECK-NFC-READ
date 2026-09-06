@@ -1,0 +1,38 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+MAGENTA='\033[38;2;202;1;116m'
+CYAN='\033[38;2;0;240;255m'
+GREEN='\033[38;2;0;255;156m'
+YELLOW='\033[38;2;255;211;0m'
+RESET='\033[0m'
+
+clear
+printf '%bDECK // NFC READ%b\n\n' "$MAGENTA" "$RESET"
+printf '%bWaiting for an NDEF tag...%b\n' "$CYAN" "$RESET"
+printf 'Hold the tag near the phone.\n\n'
+
+output=$(termux-nfc -r full 2>&1)
+status=$?
+
+if (( status != 0 )); then
+  printf '%bNFC read failed.%b\n\n' "$YELLOW" "$RESET"
+  printf '%s\n' "$output"
+else
+  if jq -e . >/dev/null 2>&1 <<<"$output"; then
+    if jq -e '.error? // empty' >/dev/null 2>&1 <<<"$output"; then
+      printf '%bTAG ERROR%b\n' "$YELLOW" "$RESET"
+    else
+      printf '%bTAG DATA%b\n' "$GREEN" "$RESET"
+    fi
+    jq . <<<"$output"
+  else
+    printf '%bTAG DATA%b\n%s\n' "$GREEN" "$RESET" "$output"
+  fi
+fi
+
+printf '\n'
+read -r -p 'Press Enter to return home...'
+
+am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1

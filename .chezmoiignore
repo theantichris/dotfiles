@@ -31,6 +31,7 @@ CRUSH.md
 {{ if (ne .chezmoi.os "android") }}
 .hushlogin
 .termux
+.shortcuts
 .config/toney
 .config/fish/conf.d/toney.fish
 .config/fish/functions/gpg-unlock.fish

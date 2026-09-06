@@ -1,0 +1,57 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+MAGENTA='\033[38;2;202;1;116m'
+CYAN='\033[38;2;0;240;255m'
+GREEN='\033[38;2;0;255;156m'
+YELLOW='\033[38;2;255;211;0m'
+RESET='\033[0m'
+
+path="${1:-}"
+
+clear
+printf '%bDECK // FILE INSPECT%b\n\n' "$MAGENTA" "$RESET"
+
+if [[ -z "$path" || ! -f "$path" ]]; then
+  printf '%bNo readable file was supplied.%b\n' "$YELLOW" "$RESET"
+else
+  name=$(basename -- "$path")
+  directory=$(dirname -- "$path")
+  size_bytes=$(stat -c '%s' -- "$path" 2>/dev/null || printf '?')
+  if [[ "$size_bytes" =~ ^[0-9]+$ ]] && command -v numfmt >/dev/null 2>&1; then
+    size_human=$(numfmt --to=iec --suffix=B "$size_bytes" 2>/dev/null || printf '%s B' "$size_bytes")
+  else
+    size_human="${size_bytes} B"
+  fi
+  modified=$(stat -c '%y' -- "$path" 2>/dev/null | sed 's/\.[0-9]* [+-][0-9]*$//' || true)
+  permissions=$(stat -c '%A' -- "$path" 2>/dev/null || printf '?')
+
+  if command -v file >/dev/null 2>&1; then
+    mime=$(file -b --mime-type -- "$path" 2>/dev/null || printf 'unknown')
+    description=$(file -b -- "$path" 2>/dev/null || printf 'unknown')
+  else
+    mime='unavailable (libmagic not installed)'
+    description='unavailable (libmagic not installed)'
+  fi
+
+  sha256=$(sha256sum -- "$path" 2>/dev/null | awk '{print $1}')
+  header=$(od -An -tx1 -N16 "$path" 2>/dev/null | tr '\n' ' ' | sed 's/^[[:space:]]*//; s/[[:space:]][[:space:]]*/ /g; s/[[:space:]]*$//')
+
+  printf '%b%-12s%b %s\n' "$CYAN" 'Name' "$RESET" "$name"
+  printf '%b%-12s%b %s\n' "$CYAN" 'Stored' "$RESET" "$directory"
+  printf '%b%-12s%b %s (%s bytes)\n' "$CYAN" 'Size' "$RESET" "$size_human" "$size_bytes"
+  printf '%b%-12s%b %s\n' "$CYAN" 'Modified' "$RESET" "${modified:-unknown}"
+  printf '%b%-12s%b %s\n' "$CYAN" 'Permissions' "$RESET" "$permissions"
+  printf '\n'
+  printf '%b%-12s%b %s\n' "$GREEN" 'MIME' "$RESET" "$mime"
+  printf '%b%-12s%b %s\n' "$GREEN" 'Type' "$RESET" "$description"
+  printf '%b%-12s%b %s\n' "$GREEN" 'Header' "$RESET" "${header:---}"
+  printf '\n'
+  printf '%bSHA-256%b\n%s\n' "$YELLOW" "$RESET" "${sha256:---}"
+fi
+
+printf '\n'
+read -r -p 'Press Enter to return home...'
+
+am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1

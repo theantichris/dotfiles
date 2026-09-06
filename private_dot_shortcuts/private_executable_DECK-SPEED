@@ -1,0 +1,51 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+MAGENTA='\033[38;2;202;1;116m'
+CYAN='\033[38;2;0;240;255m'
+GREEN='\033[38;2;0;255;156m'
+YELLOW='\033[38;2;255;211;0m'
+RESET='\033[0m'
+
+clear
+printf '%bDECK // SPEED TEST%b\n\n' "$MAGENTA" "$RESET"
+printf '%bRunning internet speed test...%b\n\n' "$CYAN" "$RESET"
+
+output=$(speedtest-go --json 2>/dev/null)
+status=$?
+
+if (( status != 0 )) || ! jq -e '.servers[0]' >/dev/null 2>&1 <<<"$output"; then
+  printf '%bSpeed test failed.%b\n' "$YELLOW" "$RESET"
+else
+  isp=$(jq -r '.user_info.Isp // "unknown"' <<<"$output")
+  server=$(jq -r '.servers[0] | "\(.name // \"unknown\") / \(.sponsor // \"unknown\")"' <<<"$output")
+  distance=$(jq -r '(.servers[0].distance // 0)' <<<"$output")
+  latency=$(jq -r '(.servers[0].latency // 0) / 1000000' <<<"$output")
+  jitter=$(jq -r '(.servers[0].jitter // 0) / 1000000' <<<"$output")
+  download=$(jq -r '(.servers[0].dl_speed // 0) * 8 / 1000000' <<<"$output")
+  upload=$(jq -r '(.servers[0].ul_speed // 0) * 8 / 1000000' <<<"$output")
+  loss=$(jq -r '
+    (.servers[0].packet_loss // {}) as $p
+    | (($p.max // -1) + 1) as $total
+    | if $total > 0
+      then (1 - (((($p.sent // 0) - ($p.dup // 0)) / $total))) * 100
+      else 0
+      end
+  ' <<<"$output")
+
+  printf '%b%-12s%b %s\n' "$CYAN" 'ISP' "$RESET" "$isp"
+  printf '%b%-12s%b %s\n' "$CYAN" 'Server' "$RESET" "$server"
+  printf '%b%-12s%b %.1f km\n' "$CYAN" 'Distance' "$RESET" "$distance"
+  printf '\n'
+  printf '%b%-12s%b %.2f ms\n' "$GREEN" 'Latency' "$RESET" "$latency"
+  printf '%b%-12s%b %.2f ms\n' "$GREEN" 'Jitter' "$RESET" "$jitter"
+  printf '%b%-12s%b %.2f Mbps\n' "$GREEN" 'Download' "$RESET" "$download"
+  printf '%b%-12s%b %.2f Mbps\n' "$GREEN" 'Upload' "$RESET" "$upload"
+  printf '%b%-12s%b %.2f%%\n' "$YELLOW" 'Packet Loss' "$RESET" "$loss"
+fi
+
+printf '\n'
+read -r -p 'Press Enter to return home...'
+
+am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1

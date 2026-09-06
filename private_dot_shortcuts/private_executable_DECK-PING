@@ -14,12 +14,29 @@ printf '%bDECK // PING%b\n\n' "$MAGENTA" "$RESET"
 read -r -p 'Target [1.1.1.1]: ' target
 target=${target:-1.1.1.1}
 
-printf '\n%bTarget%b  %s\n\n' "$CYAN" "$RESET" "$target"
+printf '\n%bTarget%b  %s\n' "$CYAN" "$RESET" "$target"
+printf '%bMode%b    4 probes\n\n' "$CYAN" "$RESET"
 
-if ping -c 4 "$target"; then
-  printf '\n%bReachable%b\n' "$GREEN" "$RESET"
+output=$(ping -c 4 "$target" 2>&1)
+status=$?
+
+printf '%s\n' "$output"
+
+printf '\n'
+if (( status == 0 )); then
+  printf '%bSTATUS%b  REACHABLE\n' "$GREEN" "$RESET"
 else
-  printf '\n%bNo response.%b\n' "$YELLOW" "$RESET"
+  printf '%bSTATUS%b  NO RESPONSE / UNREACHABLE\n' "$YELLOW" "$RESET"
+fi
+
+packet_line=$(printf '%s\n' "$output" | grep -E '[0-9]+ packets transmitted' | tail -n 1 || true)
+rtt_line=$(printf '%s\n' "$output" | grep -E '(^|[[:space:]])(rtt|round-trip)[[:space:]]' | tail -n 1 || true)
+
+if [[ -n "$packet_line" ]]; then
+  printf '%bPackets%b %s\n' "$CYAN" "$RESET" "$packet_line"
+fi
+if [[ -n "$rtt_line" ]]; then
+  printf '%bRTT%b     %s\n' "$CYAN" "$RESET" "$rtt_line"
 fi
 
 printf '\n'

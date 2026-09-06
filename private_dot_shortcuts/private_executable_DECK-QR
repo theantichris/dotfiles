@@ -1,0 +1,44 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+MAGENTA='\033[38;2;202;1;116m'
+CYAN='\033[38;2;0;240;255m'
+GREEN='\033[38;2;0;255;156m'
+YELLOW='\033[38;2;255;211;0m'
+RESET='\033[0m'
+
+clear
+printf '%bDECK // QR%b\n\n' "$MAGENTA" "$RESET"
+
+clip=$(termux-clipboard-get 2>/dev/null)
+status=$?
+
+if (( status != 0 )); then
+  printf '%bCould not read the clipboard.%b\n' "$YELLOW" "$RESET"
+elif [[ -z "$clip" ]]; then
+  printf '%bClipboard is empty.%b\n' "$YELLOW" "$RESET"
+elif ! command -v qrencode >/dev/null 2>&1; then
+  printf '%bqrencode is not installed.%b\n' "$YELLOW" "$RESET"
+else
+  kind='TEXT'
+  case "$clip" in
+    http://*|https://*) kind='URL' ;;
+  esac
+
+  bytes=$(printf '%s' "$clip" | wc -c | tr -d ' ')
+
+  printf '%b%-8s%b %s\n' "$CYAN" 'Type' "$RESET" "$kind"
+  printf '%b%-8s%b %s bytes\n\n' "$CYAN" 'Size' "$RESET" "$bytes"
+
+  if printf '%s' "$clip" | qrencode -t ANSIUTF8 -m 2 -o - 2>/dev/null; then
+    printf '\n%bScan from another device.%b\n' "$GREEN" "$RESET"
+  else
+    printf '%bCould not encode clipboard contents as a QR code.%b\n' "$YELLOW" "$RESET"
+  fi
+fi
+
+printf '\n'
+read -r -p 'Press Enter to return home...'
+
+am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1

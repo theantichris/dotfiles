@@ -22,7 +22,7 @@ esac
 printf '\n%bTarget%b  %s\n\n' "$CYAN" "$RESET" "$url"
 
 metrics=$(curl -sS -L --max-time 20 -o /dev/null \
-  -w 'HTTP        %{http_code}\nEffective   %{url_effective}\nRemote IP   %{remote_ip}\nRedirects   %{num_redirects}\nDNS         %{time_namelookup} s\nConnect     %{time_connect} s\nTLS         %{time_appconnect} s\nTTFB        %{time_starttransfer} s\nTotal       %{time_total} s\n' \
+  -w '%{http_code}\t%{url_effective}\t%{remote_ip}\t%{remote_port}\t%{http_version}\t%{num_redirects}\t%{content_type}\t%{size_download}\t%{time_namelookup}\t%{time_connect}\t%{time_appconnect}\t%{time_starttransfer}\t%{time_total}' \
   "$url" 2>&1)
 status=$?
 
@@ -30,7 +30,27 @@ if (( status != 0 )); then
   printf '%bHTTP probe failed.%b\n\n' "$YELLOW" "$RESET"
   printf '%s\n' "$metrics"
 else
-  printf '%b%s%b\n' "$GREEN" "$metrics" "$RESET"
+  IFS=$'\t' read -r http_code effective remote_ip remote_port http_version redirects content_type size_download dns_time connect_time tls_time ttfb_time total_time <<<"$metrics"
+
+  if [[ "$http_code" =~ ^[23] ]]; then
+    STATUS_COLOR="$GREEN"
+  else
+    STATUS_COLOR="$YELLOW"
+  fi
+
+  printf '%b%-12s%b %b%s%b\n' "$CYAN" 'HTTP' "$RESET" "$STATUS_COLOR" "$http_code" "$RESET"
+  printf '%b%-12s%b %s\n' "$CYAN" 'Effective' "$RESET" "$effective"
+  printf '%b%-12s%b %s:%s\n' "$CYAN" 'Remote' "$RESET" "${remote_ip:-unknown}" "${remote_port:-?}"
+  printf '%b%-12s%b HTTP/%s\n' "$CYAN" 'Protocol' "$RESET" "${http_version:-?}"
+  printf '%b%-12s%b %s\n' "$CYAN" 'Redirects' "$RESET" "$redirects"
+  printf '%b%-12s%b %s\n' "$CYAN" 'Content-Type' "$RESET" "${content_type:-unknown}"
+  printf '%b%-12s%b %s bytes\n' "$CYAN" 'Downloaded' "$RESET" "$size_download"
+  printf '\n'
+  printf '%b%-12s%b %.0f ms\n' "$GREEN" 'DNS' "$RESET" "$(awk -v v="$dns_time" 'BEGIN {print v*1000}')"
+  printf '%b%-12s%b %.0f ms\n' "$GREEN" 'Connect' "$RESET" "$(awk -v v="$connect_time" 'BEGIN {print v*1000}')"
+  printf '%b%-12s%b %.0f ms\n' "$GREEN" 'TLS' "$RESET" "$(awk -v v="$tls_time" 'BEGIN {print v*1000}')"
+  printf '%b%-12s%b %.0f ms\n' "$GREEN" 'TTFB' "$RESET" "$(awk -v v="$ttfb_time" 'BEGIN {print v*1000}')"
+  printf '%b%-12s%b %.0f ms\n' "$GREEN" 'Total' "$RESET" "$(awk -v v="$total_time" 'BEGIN {print v*1000}')"
 fi
 
 printf '\n'

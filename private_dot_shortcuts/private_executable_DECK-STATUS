@@ -1,0 +1,50 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+clear
+
+printf 'DECK STATUS\n'
+printf '%s\n' '-----------'
+printf 'TIME // %s\n' "$(date '+%Y-%m-%d // %H:%M:%S')"
+printf 'DEVICE // %s\n' "$(getprop ro.product.model)"
+printf 'ANDROID // %s\n' "$(getprop ro.build.version.release)"
+
+if [[ -r /proc/uptime ]]; then
+    uptime_seconds=${$(cut -d. -f1 /proc/uptime):-0}
+    uptime_days=$((uptime_seconds / 86400))
+    uptime_hours=$(((uptime_seconds % 86400) / 3600))
+    uptime_minutes=$(((uptime_seconds % 3600) / 60))
+    printf 'UPTIME // %dd %02dh %02dm\n' "$uptime_days" "$uptime_hours" "$uptime_minutes"
+fi
+
+printf '\nLINK\n'
+if command -v termux-wifi-connectioninfo >/dev/null 2>&1 && command -v jq >/dev/null 2>&1; then
+    wifi_json=$(timeout 4s termux-wifi-connectioninfo 2>/dev/null || true)
+    if [[ -n "$wifi_json" ]]; then
+        printf 'SSID // %s\n' "$(jq -r '.ssid // "unknown"' <<<"$wifi_json")"
+        printf 'IP // %s\n' "$(jq -r '.ip // "unknown"' <<<"$wifi_json")"
+        printf 'RSSI // %s dBm\n' "$(jq -r '.rssi // "unknown"' <<<"$wifi_json")"
+    else
+        printf 'WIFI // unavailable\n'
+    fi
+else
+    printf 'WIFI // Termux:API unavailable\n'
+fi
+
+printf '\nPOWER\n'
+if command -v termux-battery-status >/dev/null 2>&1 && command -v jq >/dev/null 2>&1; then
+    battery_json=$(timeout 4s termux-battery-status 2>/dev/null || true)
+    if [[ -n "$battery_json" ]]; then
+        printf 'BATTERY // %s%%\n' "$(jq -r '.percentage // "unknown"' <<<"$battery_json")"
+        printf 'STATE // %s\n' "$(jq -r '.status // "unknown"' <<<"$battery_json")"
+        printf 'TEMP // %s°C\n' "$(jq -r '.temperature // "unknown"' <<<"$battery_json")"
+    else
+        printf 'BATTERY // unavailable\n'
+    fi
+else
+    printf 'BATTERY // Termux:API unavailable\n'
+fi
+
+printf '\n'
+read -r -p 'Press Enter to close...'

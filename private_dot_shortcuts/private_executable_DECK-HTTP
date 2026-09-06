@@ -1,0 +1,39 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+MAGENTA='\033[38;2;202;1;116m'
+CYAN='\033[38;2;0;240;255m'
+GREEN='\033[38;2;0;255;156m'
+YELLOW='\033[38;2;255;211;0m'
+RESET='\033[0m'
+
+clear
+printf '%bDECK // HTTP PROBE%b\n\n' "$MAGENTA" "$RESET"
+
+read -r -p 'URL or host [cloudflare.com]: ' target
+target=${target:-cloudflare.com}
+
+case "$target" in
+  http://*|https://*) url="$target" ;;
+  *) url="https://$target" ;;
+esac
+
+printf '\n%bTarget%b  %s\n\n' "$CYAN" "$RESET" "$url"
+
+metrics=$(curl -sS -L --max-time 20 -o /dev/null \
+  -w 'HTTP        %{http_code}\nEffective   %{url_effective}\nRemote IP   %{remote_ip}\nRedirects   %{num_redirects}\nDNS         %{time_namelookup} s\nConnect     %{time_connect} s\nTLS         %{time_appconnect} s\nTTFB        %{time_starttransfer} s\nTotal       %{time_total} s\n' \
+  "$url" 2>&1)
+status=$?
+
+if (( status != 0 )); then
+  printf '%bHTTP probe failed.%b\n\n' "$YELLOW" "$RESET"
+  printf '%s\n' "$metrics"
+else
+  printf '%b%s%b\n' "$GREEN" "$metrics" "$RESET"
+fi
+
+printf '\n'
+read -r -p 'Press Enter to return home...'
+
+am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1

@@ -1,0 +1,50 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+MAGENTA='\033[38;2;202;1;116m'
+CYAN='\033[38;2;0;240;255m'
+GREEN='\033[38;2;0;255;156m'
+YELLOW='\033[38;2;255;211;0m'
+RESET='\033[0m'
+
+clear
+printf '%bDECK // DNS LOOKUP%b\n\n' "$MAGENTA" "$RESET"
+
+read -r -p 'Domain [cloudflare.com]: ' target
+target=${target:-cloudflare.com}
+
+host="${target#*://}"
+host="${host%%/*}"
+host="${host%%:*}"
+
+printf '\n%bHost%b  %s\n\n' "$CYAN" "$RESET" "$host"
+
+if ! command -v dig >/dev/null 2>&1; then
+  printf '%bdig is not installed.%b\n' "$YELLOW" "$RESET"
+else
+  show_record() {
+    local label="$1"
+    local type="$2"
+    local values
+    values=$(dig +time=2 +tries=1 +short "$host" "$type" 2>/dev/null)
+
+    printf '%b%-8s%b ' "$GREEN" "$label" "$RESET"
+    if [[ -n "$values" ]]; then
+      printf '%s\n' "$values"
+    else
+      printf '%s\n' '--'
+    fi
+  }
+
+  show_record 'A' A
+  show_record 'AAAA' AAAA
+  show_record 'CNAME' CNAME
+  show_record 'MX' MX
+  show_record 'NS' NS
+fi
+
+printf '\n'
+read -r -p 'Press Enter to return home...'
+
+am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1

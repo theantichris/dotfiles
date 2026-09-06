@@ -1,0 +1,80 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+MAGENTA='\033[38;2;202;1;116m'
+CYAN='\033[38;2;0;240;255m'
+GREEN='\033[38;2;0;255;156m'
+YELLOW='\033[38;2;255;211;0m'
+RESET='\033[0m'
+
+clear
+printf '%bDECK // GEO%b\n\n' "$MAGENTA" "$RESET"
+printf '%bAcquiring location fix...%b\n\n' "$CYAN" "$RESET"
+
+location=$(timeout 20 termux-location -p gps -r once 2>/dev/null)
+status=$?
+
+if (( status != 0 )) || ! jq -e '.latitude and .longitude and (.API_ERROR? == null)' >/dev/null 2>&1 <<<"$location"; then
+  printf '%bGPS fix unavailable. Trying network provider...%b\n\n' "$YELLOW" "$RESET"
+  location=$(timeout 10 termux-location -p network -r once 2>/dev/null)
+  status=$?
+fi
+
+if (( status != 0 )) || ! jq -e '.latitude and .longitude and (.API_ERROR? == null)' >/dev/null 2>&1 <<<"$location"; then
+  printf '%bCould not obtain a location fix.%b\n' "$YELLOW" "$RESET"
+  if jq -e '.API_ERROR' >/dev/null 2>&1 <<<"$location"; then
+    printf '%s\n' "$(jq -r '.API_ERROR' <<<"$location")"
+  fi
+else
+  latitude=$(jq -r '.latitude' <<<"$location")
+  longitude=$(jq -r '.longitude' <<<"$location")
+  altitude=$(jq -r '.altitude // 0' <<<"$location")
+  accuracy=$(jq -r '.accuracy // 0' <<<"$location")
+  vertical_accuracy=$(jq -r '.vertical_accuracy // empty' <<<"$location")
+  bearing=$(jq -r '.bearing // 0' <<<"$location")
+  speed=$(jq -r '.speed // 0' <<<"$location")
+  elapsed_ms=$(jq -r '.elapsedMs // 0' <<<"$location")
+  provider=$(jq -r '.provider // "unknown"' <<<"$location")
+  fix_age=$(awk -v ms="$elapsed_ms" 'BEGIN {printf "%.1f", ms / 1000}')
+  coords="$latitude,$longitude"
+
+  printf '%b%-12s%b %s\n' "$GREEN" 'Latitude' "$RESET" "$latitude"
+  printf '%b%-12s%b %s\n' "$GREEN" 'Longitude' "$RESET" "$longitude"
+  printf '%b%-12s%b %.1f m\n' "$CYAN" 'Accuracy' "$RESET" "$accuracy"
+  printf '%b%-12s%b %.1f m\n' "$CYAN" 'Altitude' "$RESET" "$altitude"
+  if [[ -n "$vertical_accuracy" ]]; then
+    printf '%b%-12s%b %.1f m\n' "$CYAN" 'Vert Acc.' "$RESET" "$vertical_accuracy"
+  fi
+  printf '%b%-12s%b %.1f°\n' "$CYAN" 'Bearing' "$RESET" "$bearing"
+  printf '%b%-12s%b %.2f m/s\n' "$CYAN" 'Speed' "$RESET" "$speed"
+  printf '%b%-12s%b %s\n' "$CYAN" 'Provider' "$RESET" "$provider"
+  printf '%b%-12s%b %s s\n' "$CYAN" 'Fix Age' "$RESET" "$fix_age"
+
+  printf '\n'
+  printf '%b[c]%b Copy coordinates\n' "$GREEN" "$RESET"
+  printf '%b[m]%b Open in Maps\n' "$GREEN" "$RESET"
+  printf '%b[Enter]%b Return home\n\n' "$YELLOW" "$RESET"
+
+  read -r -p 'Action: ' choice
+
+  case "${choice,,}" in
+    c|copy)
+      termux-clipboard-set "$coords" >/dev/null 2>&1
+      printf '\n%bCopied:%b %s\n' "$GREEN" "$RESET" "$coords"
+      printf '\n'
+      read -r -p 'Press Enter to return home...'
+      ;;
+    m|map|maps)
+      termux-open-url "geo:$latitude,$longitude?q=$latitude,$longitude" >/dev/null 2>&1
+      exit 0
+      ;;
+    *)
+      ;;
+  esac
+fi
+
+printf '\n'
+read -r -p 'Press Enter to return home...'
+
+am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1

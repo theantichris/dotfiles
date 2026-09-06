@@ -19,7 +19,7 @@ if (( status != 0 )) || ! jq -e '.servers[0]' >/dev/null 2>&1 <<<"$output"; then
   printf '%bSpeed test failed.%b\n' "$YELLOW" "$RESET"
 else
   isp=$(jq -r '.user_info.Isp // "unknown"' <<<"$output")
-  server=$(jq -r '.servers[0] | "\(.name // \"unknown\") / \(.sponsor // \"unknown\")"' <<<"$output")
+  server=$(jq -r '[.servers[0].name // "unknown", .servers[0].sponsor // "unknown"] | join(" / ")' <<<"$output")
   distance=$(jq -r '(.servers[0].distance // 0)' <<<"$output")
   latency=$(jq -r '(.servers[0].latency // 0) / 1000000' <<<"$output")
   jitter=$(jq -r '(.servers[0].jitter // 0) / 1000000' <<<"$output")

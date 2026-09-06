@@ -1,0 +1,78 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+MAGENTA='\033[38;2;202;1;116m'
+CYAN='\033[38;2;0;240;255m'
+GREEN='\033[38;2;0;255;156m'
+YELLOW='\033[38;2;255;211;0m'
+RESET='\033[0m'
+
+clear
+printf '%bDECK // NETWORK STATUS%b\n\n' "$MAGENTA" "$RESET"
+
+wifi_json=$(termux-wifi-connectioninfo 2>/dev/null || printf '{}')
+
+ssid=$(jq -r '.ssid // "unknown"' <<<"$wifi_json")
+local_ip=$(jq -r '.ip // "unknown"' <<<"$wifi_json")
+bssid=$(jq -r '.bssid // "unknown"' <<<"$wifi_json")
+frequency=$(jq -r '.frequency_mhz // 0' <<<"$wifi_json")
+link_speed=$(jq -r '.link_speed_mbps // 0' <<<"$wifi_json")
+rssi=$(jq -r '.rssi // 0' <<<"$wifi_json")
+
+case "$frequency" in
+  ''|*[!0-9]*) band='unknown' ;;
+  *)
+    if (( frequency >= 5925 )); then
+      band='6 GHz'
+    elif (( frequency >= 4900 )); then
+      band='5 GHz'
+    elif (( frequency >= 2400 )); then
+      band='2.4 GHz'
+    else
+      band='unknown'
+    fi
+    ;;
+esac
+
+internet='OFFLINE'
+latency='--'
+ping_output=$(ping -c 1 1.1.1.1 2>/dev/null || true)
+if [[ "$ping_output" == *'1 received'* || "$ping_output" == *'1 packets received'* ]]; then
+  internet='ONLINE'
+  if [[ "$ping_output" =~ time[=<]([0-9.]+)[[:space:]]*ms ]]; then
+    latency="${BASH_REMATCH[1]} ms"
+  fi
+fi
+
+dns='FAIL'
+if ping -c 1 cloudflare.com >/dev/null 2>&1; then
+  dns='OK'
+fi
+
+public_ip='unavailable'
+trace=$(curl -fsS --max-time 4 https://cloudflare.com/cdn-cgi/trace 2>/dev/null || true)
+while IFS='=' read -r key value; do
+  if [[ "$key" == 'ip' ]]; then
+    public_ip="$value"
+    break
+  fi
+done <<<"$trace"
+
+printf '%b%-12s%b %s\n' "$CYAN" 'SSID' "$RESET" "$ssid"
+printf '%b%-12s%b %s\n' "$CYAN" 'Local IP' "$RESET" "$local_ip"
+printf '%b%-12s%b %s\n' "$CYAN" 'Public IP' "$RESET" "$public_ip"
+printf '%b%-12s%b %s\n' "$CYAN" 'BSSID' "$RESET" "$bssid"
+printf '\n'
+printf '%b%-12s%b %s (%s MHz)\n' "$GREEN" 'Band' "$RESET" "$band" "$frequency"
+printf '%b%-12s%b %s Mbps\n' "$GREEN" 'Link' "$RESET" "$link_speed"
+printf '%b%-12s%b %s dBm\n' "$GREEN" 'Signal' "$RESET" "$rssi"
+printf '\n'
+printf '%b%-12s%b %s\n' "$YELLOW" 'Internet' "$RESET" "$internet"
+printf '%b%-12s%b %s\n' "$YELLOW" 'Latency' "$RESET" "$latency"
+printf '%b%-12s%b %s\n' "$YELLOW" 'DNS' "$RESET" "$dns"
+
+printf '\n'
+read -r -p 'Press Enter to return home...'
+
+am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1

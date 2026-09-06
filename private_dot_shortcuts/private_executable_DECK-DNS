@@ -23,25 +23,57 @@ printf '\n%bHost%b  %s\n\n' "$CYAN" "$RESET" "$host"
 if ! command -v dig >/dev/null 2>&1; then
   printf '%bdig is not installed.%b\n' "$YELLOW" "$RESET"
 else
-  show_record() {
-    local label="$1"
-    local type="$2"
-    local values
-    values=$(dig +time=2 +tries=1 +short "$host" "$type" 2>/dev/null)
+  probe=$(dig +time=2 +tries=1 "$host" A 2>&1)
+  probe_status=$?
 
-    printf '%b%-8s%b ' "$GREEN" "$label" "$RESET"
-    if [[ -n "$values" ]]; then
-      printf '%s\n' "$values"
-    else
-      printf '%s\n' '--'
-    fi
-  }
+  if (( probe_status != 0 )); then
+    printf '%bDNS query failed.%b\n\n' "$YELLOW" "$RESET"
+    printf '%s\n' "$probe"
+  else
+    dns_status=$(printf '%s\n' "$probe" | awk -F'status: ' '/HEADER/{split($2,a,","); print a[1]; exit}')
+    resolver=$(printf '%s\n' "$probe" | awk '/^;; SERVER:/{print $3; exit}')
+    query_ms=$(printf '%s\n' "$probe" | awk '/^;; Query time:/{print $4; exit}')
 
-  show_record 'A' A
-  show_record 'AAAA' AAAA
-  show_record 'CNAME' CNAME
-  show_record 'MX' MX
-  show_record 'NS' NS
+    printf '%b%-10s%b %s\n' "$CYAN" 'Status' "$RESET" "${dns_status:-unknown}"
+    printf '%b%-10s%b %s\n' "$CYAN" 'Resolver' "$RESET" "${resolver:-unknown}"
+    printf '%b%-10s%b %s ms\n' "$CYAN" 'Query' "$RESET" "${query_ms:-?}"
+    printf '\n'
+
+    show_record() {
+      local label="$1"
+      local type="$2"
+      local limit="${3:-0}"
+      local values
+      local first=1
+
+      values=$(dig +time=2 +tries=1 +short "$host" "$type" 2>/dev/null)
+      if (( limit > 0 )); then
+        values=$(printf '%s\n' "$values" | head -n "$limit")
+      fi
+
+      if [[ -z "$values" ]]; then
+        printf '%b%-10s%b --\n' "$GREEN" "$label" "$RESET"
+        return
+      fi
+
+      while IFS= read -r line; do
+        if (( first )); then
+          printf '%b%-10s%b %s\n' "$GREEN" "$label" "$RESET" "$line"
+          first=0
+        else
+          printf '%-11s%s\n' '' "$line"
+        fi
+      done <<<"$values"
+    }
+
+    show_record 'A' A
+    show_record 'AAAA' AAAA
+    show_record 'CNAME' CNAME
+    show_record 'MX' MX
+    show_record 'NS' NS
+    show_record 'TXT' TXT 5
+    show_record 'SOA' SOA
+  fi
 fi
 
 printf '\n'

@@ -54,4 +54,12 @@ fi
 printf '\n'
 read -r -p 'Press Enter to return home...'
 
+# Termux's file-share receiver stores temporary shared files in ~/downloads.
+# Remove only those receiver-created copies, never arbitrary paths passed here.
+case "$path" in
+  "$HOME/downloads/"*)
+    rm -f -- "$path"
+    ;;
+esac
+
 am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1

@@ -3,6 +3,9 @@ function parrot --description 'Start Parrot if needed and open its desktop'
     set -l state (env LC_ALL=C virsh --connect $uri domstate htb-parrot)
     or return 1
 
+    # Normalize trailing whitespace and empty lines before comparing the state.
+    set state (string trim -- "$state")
+
     if test "$state" = 'shut off'
         command virsh --connect $uri start htb-parrot
         or return 1

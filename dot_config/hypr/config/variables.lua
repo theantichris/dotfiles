@@ -1,7 +1,7 @@
 -- Hyprland default apps
 
 TERMINAL     = "kitty"
-FILE_MANAGER = "kitty -e spf"
+FILE_MANAGER = TERMINAL .. " -e spf"
 BROWSER      = "zen-browser"
 EDITOR       = "helix"
 --EDITOR       = "gnome-text-editor --new-window"

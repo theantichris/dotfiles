@@ -5,7 +5,7 @@ FILE_MANAGER = TERMINAL .. " -e spf"
 BROWSER      = "zen-browser"
 EDITOR       = "helix"
 --EDITOR       = "gnome-text-editor --new-window"
-CALCULATOR   = "gnome-calculator"
+CALCULATOR   = TERMINAL .. " -e qalc"
 
 -- Monitors
 MONITOR1 = "DP-1"

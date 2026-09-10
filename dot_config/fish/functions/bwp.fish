@@ -1,8 +1,8 @@
 function bwp --description 'Fuzzy-pick a Bitwarden login and copy its password'
-    set -l status (bw status | jq -r '.status')
+    set -l vault_status (bw status | jq -r '.status')
     or return 1
 
-    switch $status
+    switch $vault_status
         case unauthenticated
             set -gx BW_SESSION (bw login --raw)
             or return 1
@@ -11,7 +11,7 @@ function bwp --description 'Fuzzy-pick a Bitwarden login and copy its password'
             or return 1
         case unlocked
         case '*'
-            printf 'Unknown Bitwarden status: %s\n' "$status" >&2
+            printf 'Unknown Bitwarden status: %s\n' "$vault_status" >&2
             return 1
     end
 

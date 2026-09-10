@@ -44,6 +44,7 @@ bin/termux-url-opener
 # CachyOS
 {{ if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "cachyos") }}
 .config/btop
+.config/fish/functions/parrot.fish
 .config/hypr
 .config/uwsm
 .config/systemd/user/noctalia.service

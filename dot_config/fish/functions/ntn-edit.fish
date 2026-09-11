@@ -30,12 +30,6 @@ function ntn-edit --description 'Search Notion pages by title and edit the selec
 
     test -n "$selected"; or return 0
 
-    set -l parts (string split \t -- "$selected")
-    set -l id $parts[1]
-    set -l title $parts[2]
-
-    env VISUAL=helix EDITOR=helix ntn pages edit "$id" >/dev/null
-    or return 1
-
-    printf 'Updated Notion page: %s\n' "$title"
+    set -l id (string split \t -- "$selected")[1]
+    env VISUAL=helix EDITOR=helix ntn pages edit "$id"
 end

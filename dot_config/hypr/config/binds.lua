@@ -167,6 +167,16 @@ hl.bind(mainMod .. " + mouse_up",             hl.dsp.focus({ workspace = "e-1" }
 hl.bind(mainMod .. " + CONTROL + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + CONTROL + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 
--- Special workspace (scratchpad)
+-- Dedicated scratchpad terminal
+local scratchpadWorkspace = "terminal"
+local scratchpadClass = "kitty-scratchpad"
+hl.bind(mainMod .. " + grave", function()
+    if not hl.get_window("class:^" .. scratchpadClass .. "$") then
+        hl.dispatch(hl.dsp.exec_cmd(launchPrefix .. TERMINAL .. " --class " .. scratchpadClass))
+    end
+    hl.dispatch(hl.dsp.workspace.toggle_special(scratchpadWorkspace))
+end)
+
+-- General special workspace (scratchpad)
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special" }))
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special())

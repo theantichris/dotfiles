@@ -13,15 +13,12 @@ require("config.monitors")
 require("config.windowrules")
 require("config.workspaces")
 
--- Apply Noctalia's generated Hyprland theme when template generation is enabled.
--- Keep this optional so disabling Noctalia templates cannot break Hyprland.
-local noctalia_ok, noctalia = pcall(require, "noctalia")
-if noctalia_ok and type(noctalia.apply_theme) == "function" then
-    noctalia.apply_theme()
-end
+-- For Noctalia Color templates
+-- Kept here deliberately: Noctalia's hyprland template post-hook appends this
+-- line itself, which chezmoi would then revert on the next apply.
+require("noctalia").apply_theme()
 
--- Keep the focused window visually distinct from inactive windows even when
--- Noctalia's primary role is mapped to a dark surface for shell UI.
+-- Keep the focused window visually distinct from inactive windows.
 hl.config({
     general = {
         col = {

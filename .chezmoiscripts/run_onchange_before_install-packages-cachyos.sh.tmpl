@@ -31,6 +31,16 @@ sudo pacman -S --needed vhs
 sudo pacman -S --needed virt-viewer
 sudo pacman -S --needed zen-browser-bin
 
+# AUR
+# Shelly does not need a --needed equivalent here: AUR packages are registered
+# with pacman, so only invoke Shelly when the package is actually absent.
+if ! pacman -Q sddm-astronaut-theme >/dev/null 2>&1; then
+	if ! command -v shelly >/dev/null 2>&1; then
+		sudo pacman -S --needed shelly
+	fi
+	shelly install --upgrade sddm-astronaut-theme
+fi
+
 # VMs
 sudo pacman -S --needed qemu-full virt-manager swtpm dnsmasq edk2-ovmf
 

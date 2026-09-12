@@ -1,0 +1,26 @@
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
+#!/bin/bash
+set -euo pipefail
+
+THEME_DIR="/usr/share/sddm/themes/sddm-astronaut-theme"
+THEMES_DIR="$THEME_DIR/Themes"
+CYBERPUNK_CONF="$THEMES_DIR/cyberpunk.conf"
+USER_OVERRIDE="$THEMES_DIR/astronaut.conf.user"
+SDDM_THEME_CONF="/etc/sddm.conf.d/theme.conf"
+
+if [[ ! -f "$CYBERPUNK_CONF" ]]; then
+    exit 0
+fi
+
+if [[ ! -f "$SDDM_THEME_CONF" ]] || ! grep -qx 'Current=sddm-astronaut-theme' "$SDDM_THEME_CONF"; then
+    tmp="$(mktemp)"
+    trap 'rm -f "$tmp"' EXIT
+    printf '%s\n' '[Theme]' 'Current=sddm-astronaut-theme' > "$tmp"
+    sudo install -d -m 0755 /etc/sddm.conf.d
+    sudo install -m 0644 "$tmp" "$SDDM_THEME_CONF"
+fi
+
+if [[ ! -f "$USER_OVERRIDE" ]] || ! cmp -s "$CYBERPUNK_CONF" "$USER_OVERRIDE"; then
+    sudo install -m 0644 "$CYBERPUNK_CONF" "$USER_OVERRIDE"
+fi
+{{- end }}

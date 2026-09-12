@@ -45,6 +45,7 @@ bin/termux-url-opener
 {{ if or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "cachyos") }}
 .config/btop
 .config/fish/functions/bwp.fish
+.config/fish/functions/comfyui.fish
 .config/fish/functions/ntn-edit.fish
 .config/fish/functions/ntn-find.fish
 .config/fish/functions/onetrainer.fish

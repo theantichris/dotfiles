@@ -25,6 +25,7 @@ CRUSH.md
 # App-managed: these apps rewrite their own config at runtime, so chezmoi would
 # revert live changes on the next apply. Left unmanaged on every OS.
 .config/noctalia
+!.config/noctalia/palettes/Cyberpunk.json
 .config/jagalite.superseedr
 
 # Android

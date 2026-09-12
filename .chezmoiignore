@@ -47,6 +47,7 @@ bin/termux-url-opener
 .config/fish/functions/bwp.fish
 .config/fish/functions/ntn-edit.fish
 .config/fish/functions/ntn-find.fish
+.config/fish/functions/onetrainer.fish
 .config/fish/functions/parrot.fish
 .config/fish/functions/parrot-stop.fish
 .config/hypr

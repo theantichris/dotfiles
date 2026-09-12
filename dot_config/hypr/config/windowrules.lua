@@ -54,6 +54,7 @@ hl.window_rule({ match = { class = "^(org\\.kde\\.keditfiletype)$" }, float = tr
 hl.window_rule({ match = { class = "^(org\\.kde\\.ark)$" }, size = { "max(monitor_w, monitor_h)*0.40", "min(monitor_w, monitor_h)*0.40" } })
 hl.window_rule({ match = { class = "^(.*satty.*)$", title = "^(Satty)$" }, min_size = { "max(monitor_w, monitor_h)*0.35", "min(monitor_w, monitor_h)*0.35" }, float = true })
 hl.window_rule({ match = { class = "^(dev\\.)?(noctalia\\.Noctalia(\\.Settings)?)$" }, float = true, size = { "monitor_w*0.70", "monitor_h*0.70" } })
+hl.window_rule({ match = { class = "^(kitty-scratchpad)$" }, workspace = "special:terminal" })
 hl.window_rule({
     match = {
         class = "^(org\\.kde\\.dolphin)$",
@@ -68,7 +69,7 @@ hl.window_rule({
 })
 
 -- Opacity Overrides
-local terminals = "^(kitty|ghostty|[Kk]onsole|Alacritty|gnome-terminal|xfce[0-9]?-terminal)$"
+local terminals = "^(kitty|kitty-scratchpad|ghostty|[Kk]onsole|Alacritty|gnome-terminal|xfce[0-9]?-terminal)$"
 
 hl.window_rule({ match = { class = "^(firefox|zen)$" }, opacity = "1.0 override" })
 hl.window_rule({ match = { class = terminals }, opacity = "1.0 override" }) -- Override opacity in favor of terminal settings for opacity. If your terminal doesn't support transparency, you can remove this rule.

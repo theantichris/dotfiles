@@ -22,10 +22,10 @@ CLAUDE.md
 CRUSH.md
 .claude
 
-# App-managed: these apps rewrite their own config at runtime, so chezmoi would
-# revert live changes on the next apply. Left unmanaged on every OS.
-.config/noctalia
-!.config/noctalia/palettes/Cyberpunk.json
+# App-managed: these apps rewrite their own config at runtime. Keep Noctalia's
+# mutable config unmanaged, while allowing explicitly tracked files such as
+# .config/noctalia/palettes/Cyberpunk.json.
+.config/noctalia/config.toml
 .config/jagalite.superseedr
 
 # Android

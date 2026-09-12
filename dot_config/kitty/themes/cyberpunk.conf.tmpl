@@ -1,0 +1,43 @@
+# Cyberpunk Terminal Theme
+# Rendered by chezmoi from .chezmoidata.yaml
+
+# Background and foreground
+background            {{ .cyberpunk.background.base }}
+foreground            {{ .cyberpunk.text.primary }}
+selection_background  {{ .cyberpunk.background.active }}
+selection_foreground  {{ .cyberpunk.text.primary }}
+cursor                {{ .cyberpunk.accent.pink }}
+cursor_text_color     {{ .cyberpunk.background.base }}
+url_color             {{ .cyberpunk.semantic.link }}
+
+# Black
+color0  {{ .cyberpunk.background.base }}
+color8  {{ .cyberpunk.background.active }}
+
+# Red
+color1  {{ .cyberpunk.semantic.error }}
+color9  {{ .cyberpunk.semantic.error }}
+
+# Green
+color2  {{ .cyberpunk.semantic.success }}
+color10 {{ .cyberpunk.accent.green }}
+
+# Yellow / orange
+color3  {{ .cyberpunk.semantic.warning }}
+color11 {{ .cyberpunk.syntax.number }}
+
+# Blue
+color4  {{ .cyberpunk.semantic.info }}
+color12 {{ .cyberpunk.semantic.info }}
+
+# Magenta
+color5  {{ .cyberpunk.accent.magenta }}
+color13 {{ .cyberpunk.accent.magenta }}
+
+# Cyan
+color6  {{ .cyberpunk.accent.cyan }}
+color14 {{ .cyberpunk.semantic.link }}
+
+# White
+color7  {{ .cyberpunk.text.muted }}
+color15 {{ .cyberpunk.text.primary }}

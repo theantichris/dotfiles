@@ -1,0 +1,11 @@
+# Curated Noctalia screenshot workflow. GUI overrides live in
+# ~/.local/state/noctalia/settings.toml and should be reset when these values
+# are intentionally managed here.
+
+[shell.screenshot]
+freeze_screen = true
+annotate = false
+save_to_file = false
+copy_to_clipboard = true
+pipe_to_command = true
+pipe_command = '''tmp=$(mktemp --suffix=.png); trap 'rm -f "$tmp"' EXIT; cat > "$tmp"; wl-copy --type image/png < "$tmp"; satty -f "$tmp" --copy-command wl-copy --auto-copy'''

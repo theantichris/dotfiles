@@ -1,0 +1,86 @@
+# Cyberpunk theme for btop
+# Rendered by chezmoi from .chezmoidata.yaml
+
+# Main background
+theme[main_bg]="{{ .cyberpunk.background.base }}"
+
+# Main text color
+theme[main_fg]="{{ .cyberpunk.text.primary }}"
+
+# Title color for boxes
+theme[title]="{{ .cyberpunk.accent.cyan }}"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="{{ .cyberpunk.accent.pink }}"
+
+# Background color of selected item in processes box
+theme[selected_bg]="{{ .cyberpunk.accent.pink }}"
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="{{ .cyberpunk.text.primary }}"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="{{ .cyberpunk.text.muted }}"
+
+# Color of text appearing on top of graphs
+theme[graph_text]="{{ .cyberpunk.text.primary }}"
+
+# Background color of the percentage meters
+theme[meter_bg]="{{ .cyberpunk.background.panel }}"
+
+# Misc colors for processes box
+theme[proc_misc]="{{ .cyberpunk.accent.magenta }}"
+
+# Box outlines
+theme[cpu_box]="{{ .cyberpunk.accent.pink }}"
+theme[mem_box]="{{ .cyberpunk.accent.green }}"
+theme[net_box]="{{ .cyberpunk.accent.cyan }}"
+theme[proc_box]="{{ .cyberpunk.accent.magenta }}"
+
+# Box divider line and small boxes line color
+theme[div_line]="{{ .cyberpunk.background.active }}"
+
+# Temperature graph colors
+theme[temp_start]="{{ .cyberpunk.accent.cyan }}"
+theme[temp_mid]="{{ .cyberpunk.semantic.warning }}"
+theme[temp_end]="{{ .cyberpunk.semantic.error }}"
+
+# CPU graph colors
+theme[cpu_start]="{{ .cyberpunk.accent.pink }}"
+theme[cpu_mid]="{{ .cyberpunk.accent.magenta }}"
+theme[cpu_end]="{{ .cyberpunk.accent.cyan }}"
+
+# Mem/Disk free meter
+theme[free_start]="{{ .cyberpunk.accent.green }}"
+theme[free_mid]="{{ .cyberpunk.semantic.success }}"
+theme[free_end]="{{ .cyberpunk.terminal.bright.green }}"
+
+# Mem/Disk cached meter
+theme[cached_start]="{{ .cyberpunk.semantic.info }}"
+theme[cached_mid]="{{ .cyberpunk.terminal.bright.blue }}"
+theme[cached_end]="{{ .cyberpunk.terminal.bright.cyan }}"
+
+# Mem/Disk available meter
+theme[available_start]="{{ .cyberpunk.semantic.warning }}"
+theme[available_mid]="{{ .cyberpunk.terminal.bright.yellow }}"
+theme[available_end]="{{ .cyberpunk.accent.green }}"
+
+# Mem/Disk used meter
+theme[used_start]="{{ .cyberpunk.accent.pink }}"
+theme[used_mid]="{{ .cyberpunk.accent.magenta }}"
+theme[used_end]="{{ .cyberpunk.terminal.bright.magenta }}"
+
+# Download graph colors
+theme[download_start]="{{ .cyberpunk.accent.cyan }}"
+theme[download_mid]="{{ .cyberpunk.terminal.bright.cyan }}"
+theme[download_end]="{{ .cyberpunk.accent.green }}"
+
+# Upload graph colors
+theme[upload_start]="{{ .cyberpunk.accent.pink }}"
+theme[upload_mid]="{{ .cyberpunk.accent.magenta }}"
+theme[upload_end]="{{ .cyberpunk.terminal.bright.magenta }}"
+
+# Process box color gradient for threads, mem and cpu usage
+theme[process_start]="{{ .cyberpunk.accent.green }}"
+theme[process_mid]="{{ .cyberpunk.accent.cyan }}"
+theme[process_end]="{{ .cyberpunk.accent.pink }}"

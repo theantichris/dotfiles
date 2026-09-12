@@ -1,15 +1,16 @@
 # Cyberpunk Fish Theme
+# Colors come from the shared chezmoi palette.
 
-set -g cyberpunk_primary CA0174 # Pink (Accent 0)
-set -g cyberpunk_secondary 00F0FF # Bright cyan (Accent 1)
-set -g cyberpunk_tertiary FF00FF # Magenta
-set -g cyberpunk_quaternary 00FFA2 # Neon green
-set -g cyberpunk_success 00FF9C # Green
-set -g cyberpunk_warning FFD300 # Yellow
-set -g cyberpunk_error FF003C # Red
-set -g cyberpunk_text EAEAF2 # Main text
-set -g cyberpunk_comment 8A86A0 # Muted text
-set -g cyberpunk_highlight CA0174 # Pink
+set -g cyberpunk_primary {{ trimPrefix "#" .cyberpunk.accent.pink }} # Pink (Accent 0)
+set -g cyberpunk_secondary {{ trimPrefix "#" .cyberpunk.accent.cyan }} # Bright cyan (Accent 1)
+set -g cyberpunk_tertiary {{ trimPrefix "#" .cyberpunk.accent.magenta }} # Magenta
+set -g cyberpunk_quaternary {{ trimPrefix "#" .cyberpunk.accent.green }} # Neon green
+set -g cyberpunk_success {{ trimPrefix "#" .cyberpunk.semantic.success }} # Green
+set -g cyberpunk_warning {{ trimPrefix "#" .cyberpunk.semantic.warning }} # Yellow
+set -g cyberpunk_error {{ trimPrefix "#" .cyberpunk.semantic.error }} # Red
+set -g cyberpunk_text {{ trimPrefix "#" .cyberpunk.text.primary }} # Main text
+set -g cyberpunk_comment {{ trimPrefix "#" .cyberpunk.text.muted }} # Muted text
+set -g cyberpunk_highlight {{ trimPrefix "#" .cyberpunk.accent.pink }} # Pink
 
 function __cyberpunk_git_status
     if not git rev-parse --is-inside-work-tree >/dev/null 2>&1

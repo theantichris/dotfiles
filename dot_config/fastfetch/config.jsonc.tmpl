@@ -10,8 +10,8 @@
       "right": 4
     },
     "color": {
-      "1": "#CA0174",
-      "2": "#00F0FF"
+      "1": "{{ .cyberpunk.accent.pink }}",
+      "2": "{{ .cyberpunk.accent.cyan }}"
     }
   },
   "display": {
@@ -36,79 +36,79 @@
     {
       "type": "os",
       "key": "󰌽 OS",
-      "keyColor": "#CA0174"
+      "keyColor": "{{ .cyberpunk.accent.pink }}"
     },
 {{- if or (eq .chezmoi.os "android") (eq .chezmoi.os "darwin") }}
     {
       "type": "host",
       "key": "󰌢 Host",
-      "keyColor": "#CA0174"
+      "keyColor": "{{ .cyberpunk.accent.pink }}"
     },
 {{- end }}
 
     {
       "type": "kernel",
       "key": "󰒔 Kernel",
-      "keyColor": "#CA0174"
+      "keyColor": "{{ .cyberpunk.accent.pink }}"
     },
     {
       "type": "uptime",
       "key": "󰔚 Uptime",
-      "keyColor": "#CA0174"
+      "keyColor": "{{ .cyberpunk.accent.pink }}"
     },
 
     {
       "type": "shell",
       "key": "󰞷 Shell",
-      "keyColor": "#CA0174"
+      "keyColor": "{{ .cyberpunk.accent.pink }}"
     },
     "break",
     {
       "type": "wm",
       "key": "󰨇 WM",
-      "keyColor": "#00F0FF"
+      "keyColor": "{{ .cyberpunk.accent.cyan }}"
     },
     {
       "type": "wmtheme",
       "key": "󰸌 WM Theme",
-      "keyColor": "#00F0FF"
+      "keyColor": "{{ .cyberpunk.accent.cyan }}"
     },
     {
       "type": "theme",
       "key": "󰉼 Theme",
-      "keyColor": "#00F0FF"
+      "keyColor": "{{ .cyberpunk.accent.cyan }}"
     },
     {
       "type": "icons",
       "key": "󰀻 Icons",
-      "keyColor": "#00F0FF"
+      "keyColor": "{{ .cyberpunk.accent.cyan }}"
     },
     {
       "type": "cursor",
       "key": "󰇀 Cursor",
-      "keyColor": "#00F0FF"
+      "keyColor": "{{ .cyberpunk.accent.cyan }}"
     },
     {
       "type": "terminal",
       "key": "󰆍 Terminal",
-      "keyColor": "#00F0FF"
+      "keyColor": "{{ .cyberpunk.accent.cyan }}"
     },
     {
       "type": "terminalfont",
       "key": "󰛖 Font",
-      "keyColor": "#00F0FF"
+      "keyColor": "{{ .cyberpunk.accent.cyan }}"
     },
     "break",
     {
       "type": "display",
       "key": "󰍹 Display",
-      "keyColor": "#00FF9C"
+      "keyColor": "{{ .cyberpunk.semantic.success }}"
     },
 {{- if or (eq .chezmoi.os "darwin") $cachyos }}
     {
       "type": "command",
       "key": "󰻠 CPU",
-      "keyColor": "#00FF9C",
+      "keyColor": "{{ .cyberpunk.semantic.success }}",
       "shell": "fish",
       "param": "-c",
       "parallel": false,
@@ -118,31 +118,31 @@
     {
       "type": "cpu",
       "key": "󰻠 CPU",
-      "keyColor": "#00FF9C"
+      "keyColor": "{{ .cyberpunk.semantic.success }}"
     },
 {{- end }}
 {{- if ne .chezmoi.os "android" }}
     {
       "type": "gpu",
       "key": "󰢮 GPU",
-      "keyColor": "#00FF9C"
+      "keyColor": "{{ .cyberpunk.semantic.success }}"
     },
 {{- end }}
     {
       "type": "memory",
       "key": "󰍛 Memory",
-      "keyColor": "#00FF9C"
+      "keyColor": "{{ .cyberpunk.semantic.success }}"
     },
     {
       "type": "disk",
       "key": "󰋊 Disk",
-      "keyColor": "#00FF9C"
+      "keyColor": "{{ .cyberpunk.semantic.success }}"
     },
 {{- if or (eq .chezmoi.os "android") (eq .chezmoi.os "darwin") }}
     {
       "type": "battery",
       "key": "󰁹 Battery",
-      "keyColor": "#00FF9C",
+      "keyColor": "{{ .cyberpunk.semantic.success }}",
       "temp": true
     },
 {{- end }}
@@ -150,19 +150,19 @@
     {
       "type": "localip",
       "key": "󰩟 Local IP",
-      "keyColor": "#FFD300",
+      "keyColor": "{{ .cyberpunk.semantic.warning }}",
       "format": "{ipv4} ({ifname})"
     },
     {
       "type": "wifi",
       "key": "󰖩 WiFi",
-      "keyColor": "#FFD300"
+      "keyColor": "{{ .cyberpunk.semantic.warning }}"
     },
     "break",
     {
       "type": "datetime",
       "key": "󰥔 Date/Time",
-      "keyColor": "#009CFF"
+      "keyColor": "{{ .cyberpunk.semantic.info }}"
     },
     "break",
     {

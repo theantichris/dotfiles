@@ -20,3 +20,29 @@ cyberpunk:
     link: "#00FFFF"
   syntax:
     number: "#FF7B00"
+  terminal:
+    bright:
+      black: "#2A2A33"
+      red: "#FF3369"
+      green: "#66FFBF"
+      yellow: "#FFE766"
+      blue: "#33CFFF"
+      magenta: "#FF66FF"
+      cyan: "#66F5FF"
+      white: "#FFFFFF"
+    xterm256:
+      background: 234
+      text: 255
+      muted: 103
+      pink: 162
+      cyan: 51
+      magenta: 201
+      green: 49
+      yellow: 220
+  diff:
+    added_line: "#133932"
+    added_word: "#0F5C46"
+    added_dim: "#142627"
+    removed_line: "#391340"
+    removed_word: "#5C0F62"
+    removed_dim: "#26142E"

@@ -3,39 +3,39 @@
 ui = auto
 
 [color "status"]
-header    = "#8A86A0"
-added     = "#00FFA2"
-changed   = "#FFD300"
-untracked = "#FF00FF"
-branch    = "#00F0FF bold"
-nobranch  = "#FF003C bold"
-unmerged  = "#FF003C"
+header    = "{{ .cyberpunk.text.muted }}"
+added     = "{{ .cyberpunk.accent.green }}"
+changed   = "{{ .cyberpunk.semantic.warning }}"
+untracked = "{{ .cyberpunk.accent.magenta }}"
+branch    = "{{ .cyberpunk.accent.cyan }} bold"
+nobranch  = "{{ .cyberpunk.semantic.error }} bold"
+unmerged  = "{{ .cyberpunk.semantic.error }}"
 
 [color "branch"]
-current  = "#00F0FF bold"
-local    = "#EAEAF2"
-remote   = "#FF00FF"
-upstream = "#CA0174"
-plain    = "#EAEAF2"
+current  = "{{ .cyberpunk.accent.cyan }} bold"
+local    = "{{ .cyberpunk.text.primary }}"
+remote   = "{{ .cyberpunk.accent.magenta }}"
+upstream = "{{ .cyberpunk.accent.pink }}"
+plain    = "{{ .cyberpunk.text.primary }}"
 
 [color "decorate"]
-branch       = "#00F0FF bold"
-remoteBranch = "#FF00FF"
-tag          = "#FFD300"
-HEAD         = "#CA0174 bold"
-stash        = "#8A86A0"
+branch       = "{{ .cyberpunk.accent.cyan }} bold"
+remoteBranch = "{{ .cyberpunk.accent.magenta }}"
+tag          = "{{ .cyberpunk.semantic.warning }}"
+HEAD         = "{{ .cyberpunk.accent.pink }} bold"
+stash        = "{{ .cyberpunk.text.muted }}"
 
 [color "interactive"]
-prompt = "#00F0FF"
-header = "#CA0174 bold"
-help   = "#8A86A0"
-error  = "#FF003C bold"
+prompt = "{{ .cyberpunk.accent.cyan }}"
+header = "{{ .cyberpunk.accent.pink }} bold"
+help   = "{{ .cyberpunk.text.muted }}"
+error  = "{{ .cyberpunk.semantic.error }} bold"
 
 [color "remote"]
-hint    = "#8A86A0"
-warning = "#FFD300"
-success = "#00FFA2"
-error   = "#FF003C bold"
+hint    = "{{ .cyberpunk.text.muted }}"
+warning = "{{ .cyberpunk.semantic.warning }}"
+success = "{{ .cyberpunk.accent.green }}"
+error   = "{{ .cyberpunk.semantic.error }} bold"
 
 [commit]
 gpgsign = true
@@ -54,29 +54,28 @@ dark = true
 syntax-theme = cyberpunk
 line-numbers = true
 hyperlinks = true
-# diff body: keep syntax highlighting, tint line backgrounds
-# added = palette green (#00FFA2), removed = palette magenta (#FF00FF), blended over base #16161E
-plus-style = syntax "#133932"
-plus-emph-style = syntax "#0F5C46"
-minus-style = syntax "#391340"
-minus-emph-style = syntax "#5C0F62"
+# diff body: keep syntax highlighting, tint line backgrounds with palette-derived colors
+plus-style = syntax "{{ .cyberpunk.diff.added_line }}"
+plus-emph-style = syntax "{{ .cyberpunk.diff.added_word }}"
+minus-style = syntax "{{ .cyberpunk.diff.removed_line }}"
+minus-emph-style = syntax "{{ .cyberpunk.diff.removed_word }}"
 zero-style = syntax
-whitespace-error-style = "#FF003C reverse"
+whitespace-error-style = "{{ .cyberpunk.semantic.error }} reverse"
 # gutter line numbers
-line-numbers-left-style = "#8A86A0"
-line-numbers-right-style = "#8A86A0"
-line-numbers-minus-style = "#FF00FF"
-line-numbers-plus-style = "#00FFA2"
-line-numbers-zero-style = "#8A86A0"
+line-numbers-left-style = "{{ .cyberpunk.text.muted }}"
+line-numbers-right-style = "{{ .cyberpunk.text.muted }}"
+line-numbers-minus-style = "{{ .cyberpunk.accent.magenta }}"
+line-numbers-plus-style = "{{ .cyberpunk.accent.green }}"
+line-numbers-zero-style = "{{ .cyberpunk.text.muted }}"
 # file + hunk headers
-file-style = "#00F0FF bold"
-file-decoration-style = "#CA0174 ul"
-hunk-header-style = "#FF00FF bold"
-hunk-header-decoration-style = "#00F0FF box"
-hunk-header-line-number-style = "#FFD300"
+file-style = "{{ .cyberpunk.accent.cyan }} bold"
+file-decoration-style = "{{ .cyberpunk.accent.pink }} ul"
+hunk-header-style = "{{ .cyberpunk.accent.magenta }} bold"
+hunk-header-decoration-style = "{{ .cyberpunk.accent.cyan }} box"
+hunk-header-line-number-style = "{{ .cyberpunk.semantic.warning }}"
 # commit + blame accents
-commit-style = "#FFD300 bold"
-commit-decoration-style = "#CA0174 ul"
+commit-style = "{{ .cyberpunk.semantic.warning }} bold"
+commit-decoration-style = "{{ .cyberpunk.accent.pink }} ul"
 blame-palette = "#133039" "#321339" "#13302E" "#132639"
 
 [diff]

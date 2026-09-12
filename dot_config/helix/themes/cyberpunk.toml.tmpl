@@ -1,14 +1,15 @@
 # Cyberpunk theme for Helix
+# Palette values are rendered by chezmoi from .chezmoidata.yaml.
 
 rainbow = [
-  { fg = "accent-cyan" },     # cyan
-  { fg = "warning" },         # yellow
-  { fg = "accent-magenta" },  # magenta
-  { fg = "success" },         # green
-  { fg = "accent-pink" },     # pink
-  { fg = "info" },            # blue
-  { fg = "accent-green" },    # neon green
-  { fg = "error" }            # red
+  { fg = "accent-cyan" },
+  { fg = "warning" },
+  { fg = "accent-magenta" },
+  { fg = "success" },
+  { fg = "accent-pink" },
+  { fg = "info" },
+  { fg = "accent-green" },
+  { fg = "error" }
 ]
 
 "ui.background" = { bg = "background" }
@@ -131,37 +132,28 @@ rainbow = [
 "variable.parameter" = "text"
 
 [palette]
-# Base colors
-background = "#16161E"
-surface-1 = "#1F1F28"
-surface-2 = "#21222C"
-surface-3 = "#2A2A33"
-text = "#EAEAF2"
-text-muted = "#8A86A0"
-comment = "#8A86A0"
-
-# Accent colors
-accent-pink = "#CA0174"
-accent-cyan = "#00F0FF"
-accent-magenta = "#FF00FF"
-accent-green = "#00FFA2"
-
-# Semantic colors
-success = "#00FF9C"
-warning = "#FFD300"
-error = "#FF003C"
-info = "#009CFF"
-link = "#00FFFF"
-
-# UI colors
-border = "#CA0174"
-selection = "#2A2A33"
-
-# Syntax highlighting colors (mapped from palette)
-keyword-color = "#CA0174"
-string-color = "#00FFA2"
-function-color = "#00F0FF"
-variable-color = "#EAEAF2"
-type-color = "#FF00FF"
-operator-color = "#FFD300"
-number-color = "#FF7B00"
+background = "{{ .cyberpunk.background.base }}"
+surface-1 = "{{ .cyberpunk.background.panel }}"
+surface-2 = "{{ .cyberpunk.background.surface }}"
+surface-3 = "{{ .cyberpunk.background.active }}"
+text = "{{ .cyberpunk.text.primary }}"
+text-muted = "{{ .cyberpunk.text.muted }}"
+comment = "{{ .cyberpunk.text.muted }}"
+accent-pink = "{{ .cyberpunk.accent.pink }}"
+accent-cyan = "{{ .cyberpunk.accent.cyan }}"
+accent-magenta = "{{ .cyberpunk.accent.magenta }}"
+accent-green = "{{ .cyberpunk.accent.green }}"
+success = "{{ .cyberpunk.semantic.success }}"
+warning = "{{ .cyberpunk.semantic.warning }}"
+error = "{{ .cyberpunk.semantic.error }}"
+info = "{{ .cyberpunk.semantic.info }}"
+link = "{{ .cyberpunk.semantic.link }}"
+border = "{{ .cyberpunk.accent.pink }}"
+selection = "{{ .cyberpunk.background.active }}"
+keyword-color = "{{ .cyberpunk.accent.pink }}"
+string-color = "{{ .cyberpunk.accent.green }}"
+function-color = "{{ .cyberpunk.accent.cyan }}"
+variable-color = "{{ .cyberpunk.text.primary }}"
+type-color = "{{ .cyberpunk.accent.magenta }}"
+operator-color = "{{ .cyberpunk.semantic.warning }}"
+number-color = "{{ .cyberpunk.syntax.number }}"

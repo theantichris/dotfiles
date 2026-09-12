@@ -11,8 +11,9 @@ for four targets:
 
 ## ✨ Highlights
 
-- **Unified cyberpunk palette** — the same hardcoded color scheme is carried
-  across the shell prompt, Git, and every TUI. The canonical reference lives in
+- **Unified cyberpunk palette** — shared color data lives in
+  [`.chezmoidata.yaml`](.chezmoidata.yaml) and feeds the shell prompt, Git,
+  terminal, editor, and TUIs. The visual reference lives in
   [`color_palettes/cyberpunk/palette.html`](color_palettes/cyberpunk/palette.html).
 - **Hyprland desktop** — configured in Lua, driven by
   [Noctalia](https://github.com/noctalia-dev/noctalia) (a native Wayland desktop
@@ -265,14 +266,14 @@ The full macOS package set lives in [`dot_Brewfile`](dot_Brewfile).
 
 ## 🎨 Color system
 
-The whole environment shares one hardcoded cyberpunk palette. The canonical
-reference — backgrounds, text, accents, semantic, syntax, and terminal colors
-with hex values — is [`color_palettes/cyberpunk/palette.html`](color_palettes/cyberpunk/palette.html).
+The canonical machine-readable cyberpunk palette lives in
+[`.chezmoidata.yaml`](.chezmoidata.yaml). Chezmoi templates consume it across
+Fish, Git/delta, Kitty, Helix, bat, btop, Glow, Superfile, Fastfetch, Newsboat,
+Termux, Toney, and clin.
 
-The values are **duplicated** (not shared) across the Fish prompt
-(`dot_config/fish/functions/fish_prompt.fish`), the Git config
-(`dot_gitconfig.tmpl`), and the clin theme (`dot_config/clin/themes`). Change
-one, change all.
+[`color_palettes/cyberpunk/palette.html`](color_palettes/cyberpunk/palette.html)
+is the human-friendly visual reference. It is repo documentation, not the
+runtime source of truth. Shared color changes belong in `.chezmoidata.yaml`.
 
 ## 🪪 License
 

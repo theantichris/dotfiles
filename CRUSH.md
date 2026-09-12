@@ -86,13 +86,17 @@ includers.
 
 ## The cyberpunk color system
 
-The whole environment shares one hardcoded palette — the canonical reference is
-[`color_palettes/cyberpunk/palette.html`](color_palettes/cyberpunk/palette.html).
+The canonical machine-readable palette lives in `.chezmoidata.yaml` under the
+`cyberpunk` key. Managed cyberpunk themes and palette-aware configs render their
+shared colors from that data, including Fish, Git/delta, Kitty, Helix, bat,
+btop, Glow, Superfile, Fastfetch, Newsboat, Termux, Toney, and clin.
 
-The values are **duplicated, not shared**, across
-`dot_config/fish/functions/fish_prompt.fish` (`cyberpunk_*` vars, also consumed
-by `sys-update`), the `[color …]`/`[delta]` sections of `dot_gitconfig.tmpl`, and
-the clin theme partial. Change one, change all.
+`color_palettes/cyberpunk/palette.html` is the human-friendly visual reference.
+It is repo documentation and is ignored by chezmoi, so it is not the runtime
+source of truth. App-specific colors that are not part of the shared palette
+may remain local to that app.
+
+When changing a shared color, edit `.chezmoidata.yaml`, not each consumer.
 
 ## Fish shell layout
 

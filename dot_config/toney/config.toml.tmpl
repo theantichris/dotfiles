@@ -22,31 +22,31 @@ scroll_up = "k"
 scroll_down = "j"
 
 [styles]
-text = "#EAEAF2"
-background = "#16161E"
-border = "#CA0174"
-focused_border = "#00F0FF"
-menu_selected_bg = "#00F0FF"
-menu_selected_text = "#16161E"
+text = "{{ .cyberpunk.text.primary }}"
+background = "{{ .cyberpunk.background.base }}"
+border = "{{ .cyberpunk.accent.pink }}"
+focused_border = "{{ .cyberpunk.accent.cyan }}"
+menu_selected_bg = "{{ .cyberpunk.accent.cyan }}"
+menu_selected_text = "{{ .cyberpunk.background.base }}"
 
 [styles.task_styles]
-focused_bar = "#00F0FF"
-unfocused_bar = "#2A2A33"
+focused_bar = "{{ .cyberpunk.accent.cyan }}"
+unfocused_bar = "{{ .cyberpunk.background.active }}"
 
 [styles.task_styles.completed_style]
-title = "#00FF9C"
+title = "{{ .cyberpunk.semantic.success }}"
 desc = "#007A4D"
 
 [styles.task_styles.pending_style]
-title = "#8A86A0"
-desc = "#2A2A33"
+title = "{{ .cyberpunk.text.muted }}"
+desc = "{{ .cyberpunk.background.active }}"
 
 [styles.task_styles.started_style]
-title = "#FFD300"
+title = "{{ .cyberpunk.semantic.warning }}"
 desc = "#997E00"
 
 [styles.task_styles.abandoned_style]
-title = "#FF003C"
+title = "{{ .cyberpunk.semantic.error }}"
 desc = "#7A001D"
 
 [styles.renderer]
@@ -56,56 +56,56 @@ enumeration_prefix = "• "
 [styles.renderer.document]
 block_prefix = "\n"
 block_suffix = "\n"
-color = "#EAEAF2"
+color = "{{ .cyberpunk.text.primary }}"
 margin = 1
 
 [styles.renderer.block_quote]
 indent = 1
 indent_token = "│ "
-color = "#8A86A0"
+color = "{{ .cyberpunk.text.muted }}"
 
 [styles.renderer.heading.base]
 block_suffix = "\n"
-color = "#00F0FF"
+color = "{{ .cyberpunk.accent.cyan }}"
 bold = true
 
 [[styles.renderer.heading.levels]]
 prefix = " "
 suffix = " "
-color = "#00F0FF"
-background = "#16161E"
+color = "{{ .cyberpunk.accent.cyan }}"
+background = "{{ .cyberpunk.background.base }}"
 bold = true
 
 [[styles.renderer.heading.levels]]
 prefix = "## "
-color = "#00F0FF"
+color = "{{ .cyberpunk.accent.cyan }}"
 
 [[styles.renderer.heading.levels]]
 prefix = "### "
-color = "#00F0FF"
+color = "{{ .cyberpunk.accent.cyan }}"
 
 [[styles.renderer.heading.levels]]
 prefix = "#### "
-color = "#00F0FF"
+color = "{{ .cyberpunk.accent.cyan }}"
 
 [[styles.renderer.heading.levels]]
 prefix = "##### "
-color = "#00F0FF"
+color = "{{ .cyberpunk.accent.cyan }}"
 
 [[styles.renderer.heading.levels]]
 prefix = "###### "
-color = "#00F0FF"
+color = "{{ .cyberpunk.accent.cyan }}"
 bold = false
 
 [styles.renderer.code]
 prefix = " "
 suffix = " "
-color = "#CA0174"
+color = "{{ .cyberpunk.accent.pink }}"
 background = "#001a24"
 
 [styles.renderer.code_block.text]
-color = "#EAEAF2"
-background = "#16161E"
+color = "{{ .cyberpunk.text.primary }}"
+background = "{{ .cyberpunk.background.base }}"
 
 [styles.renderer.table]
 center_separator = "┼"
@@ -113,21 +113,21 @@ column_separator = "│"
 row_separator = "─"
 
 [styles.renderer.link]
-color = "#00FFFF"
+color = "{{ .cyberpunk.semantic.link }}"
 underline = true
 
 [styles.renderer.image]
-color = "#FF00FF"
+color = "{{ .cyberpunk.accent.magenta }}"
 underline = true
 
 [styles.renderer.emph]
 italic = true
-color = "#FF00FF"
+color = "{{ .cyberpunk.accent.magenta }}"
 
 [styles.renderer.strong]
 bold = true
-color = "#EAEAF2"
+color = "{{ .cyberpunk.text.primary }}"
 
 [styles.renderer.strikethrough]
 strikethrough = true
-color = "#8A86A0"
+color = "{{ .cyberpunk.text.muted }}"

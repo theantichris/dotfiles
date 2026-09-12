@@ -171,8 +171,9 @@ hl.bind(mainMod .. " + CONTROL + mouse_down", hl.dsp.focus({ workspace = "e+1" }
 local scratchpadWorkspace = "terminal"
 local scratchpadClass = "kitty-scratchpad"
 hl.bind(mainMod .. " + grave", function()
-    if not hl.get_window("class:^" .. scratchpadClass .. "$") then
-        hl.dispatch(hl.dsp.exec_cmd(launchPrefix .. TERMINAL .. " --class " .. scratchpadClass))
+    local scratchpads = hl.get_windows({ class = scratchpadClass })
+    if #scratchpads == 0 then
+        hl.exec_cmd(launchPrefix .. TERMINAL .. " --class " .. scratchpadClass)
     end
     hl.dispatch(hl.dsp.workspace.toggle_special(scratchpadWorkspace))
 end)

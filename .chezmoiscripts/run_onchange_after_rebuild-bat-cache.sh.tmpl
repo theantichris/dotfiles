@@ -4,7 +4,8 @@
 #!/bin/bash
 {{- end }}
 
-# {{ include "dot_config/bat/themes/cyberpunk.tmTheme" | sha256sum }}
+# {{ include "dot_config/bat/themes/cyberpunk.tmTheme.tmpl" | sha256sum }}
+# {{ include ".chezmoidata.yaml" | sha256sum }}
 # {{ include "dot_config/bat/themes/cyberwave.tmTheme" | sha256sum }}
 
 if command -v bat >/dev/null 2>&1; then

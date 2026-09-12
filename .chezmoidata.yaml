@@ -1,0 +1,22 @@
+cyberpunk:
+  background:
+    base: "#16161E"
+    panel: "#1F1F28"
+    surface: "#21222C"
+    active: "#2A2A33"
+  text:
+    primary: "#EAEAF2"
+    muted: "#8A86A0"
+  accent:
+    pink: "#CA0174"
+    cyan: "#00F0FF"
+    magenta: "#FF00FF"
+    green: "#00FFA2"
+  semantic:
+    success: "#00FF9C"
+    warning: "#FFD300"
+    error: "#FF003C"
+    info: "#009CFF"
+    link: "#00FFFF"
+  syntax:
+    number: "#FF7B00"

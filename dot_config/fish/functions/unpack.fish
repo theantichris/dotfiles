@@ -15,8 +15,9 @@ function unpack --description 'Extract an archive into its own directory'
         return 1
     end
 
+    set -l destination
     if test (count $argv) -eq 2
-        set -l destination $argv[2]
+        set destination $argv[2]
     else
         set -l archive_dir (path dirname -- $archive)
         set -l archive_name (path basename -- $archive)
@@ -26,7 +27,7 @@ function unpack --description 'Extract an archive into its own directory'
             set folder_name (string replace -r '\.[^.]+$' '' -- $archive_name)
         end
 
-        set -l destination "$archive_dir/$folder_name"
+        set destination "$archive_dir/$folder_name"
     end
 
     mkdir -p -- $destination

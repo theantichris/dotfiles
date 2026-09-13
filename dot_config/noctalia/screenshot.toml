@@ -8,4 +8,4 @@ annotate = false
 save_to_file = false
 copy_to_clipboard = true
 pipe_to_command = true
-pipe_command = '''tmp=$(mktemp --suffix=.png); trap 'rm -f "$tmp"' EXIT; cat > "$tmp"; wl-copy --type image/png < "$tmp"; satty -f "$tmp" --copy-command wl-copy --auto-copy'''
+pipe_command = '''swash --stdin --name "swash-$(date +'%Y-%m-%d_%H:%M:%S').png"'''

@@ -1,0 +1,19 @@
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
+#!/bin/bash
+set -euo pipefail
+
+CONFIG="$HOME/.config/swash/settings.ini"
+mkdir -p "$(dirname "$CONFIG")"
+
+if [[ ! -f "$CONFIG" ]]; then
+    printf '%s\n' '[preferences]' 'auto_copy_latest_change=true' > "$CONFIG"
+elif grep -q '^auto_copy_latest_change=' "$CONFIG"; then
+    if ! grep -qx 'auto_copy_latest_change=true' "$CONFIG"; then
+        sed -i 's/^auto_copy_latest_change=.*/auto_copy_latest_change=true/' "$CONFIG"
+    fi
+elif grep -q '^\[preferences\]$' "$CONFIG"; then
+    sed -i '/^\[preferences\]$/a auto_copy_latest_change=true' "$CONFIG"
+else
+    printf '\n%s\n' '[preferences]' 'auto_copy_latest_change=true' >> "$CONFIG"
+fi
+{{- end }}

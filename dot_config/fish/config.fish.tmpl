@@ -11,6 +11,9 @@ source ~/.config/fish/conf.d/eza.fish
 source ~/.config/fish/environment.fish
 source ~/.config/fish/path.fish
 
+# Keep autosuggestions subdued but readable against the dark terminal background.
+set -g fish_color_autosuggestion {{ trimPrefix "#" .cyberpunk.text.muted }}
+
 {{ if eq .chezmoi.os "darwin" -}}
 # Load the git SSH key into the agent so libgit2 apps (e.g. clin's backup) can
 # authenticate to GitHub. The key has no passphrase, so macOS won't restore it

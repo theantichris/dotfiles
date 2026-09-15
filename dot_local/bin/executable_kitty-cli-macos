@@ -1,0 +1,24 @@
+#!/bin/bash
+set -euo pipefail
+
+KITTY="/Applications/kitty.app/Contents/MacOS/kitty"
+
+if [[ ! -x "$KITTY" ]]; then
+    exit 1
+fi
+
+if [[ $# -eq 0 ]]; then
+    exec "$KITTY"
+fi
+
+command_name="$1"
+shift
+
+for prefix in /opt/homebrew /usr/local; do
+    candidate="$prefix/bin/$command_name"
+    if [[ -x "$candidate" ]]; then
+        exec "$KITTY" "$candidate" "$@"
+    fi
+done
+
+exec "$KITTY" "$command_name" "$@"

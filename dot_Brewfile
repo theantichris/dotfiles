@@ -10,6 +10,7 @@ tap "nikitabobko/tap", trusted: true
 brew "fish"
 brew "bat"
 brew "bitwarden-cli"
+brew "btop"
 brew "cmatrix"
 brew "charmbracelet/tap/crush"
 brew "entr"

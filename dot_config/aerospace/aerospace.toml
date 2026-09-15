@@ -2,6 +2,8 @@ config-version = 2
 start-at-login = true
 auto-reload-config = true
 
+persistent-workspaces = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+
 # Caps Lock is remapped by Karabiner to Control + Option + Command.
 # Keep Shift free so Caps + Shift retains the same meaning as Super + Shift on Hyprland.
 [mode.main.binding]
@@ -14,3 +16,26 @@ ctrl-alt-cmd-shift-h = 'move left'
 ctrl-alt-cmd-shift-j = 'move down'
 ctrl-alt-cmd-shift-k = 'move up'
 ctrl-alt-cmd-shift-l = 'move right'
+
+# Workspaces 1-0, matching the CachyOS setup.
+ctrl-alt-cmd-1 = 'workspace 1'
+ctrl-alt-cmd-2 = 'workspace 2'
+ctrl-alt-cmd-3 = 'workspace 3'
+ctrl-alt-cmd-4 = 'workspace 4'
+ctrl-alt-cmd-5 = 'workspace 5'
+ctrl-alt-cmd-6 = 'workspace 6'
+ctrl-alt-cmd-7 = 'workspace 7'
+ctrl-alt-cmd-8 = 'workspace 8'
+ctrl-alt-cmd-9 = 'workspace 9'
+ctrl-alt-cmd-0 = 'workspace 0'
+
+ctrl-alt-cmd-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
+ctrl-alt-cmd-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
+ctrl-alt-cmd-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
+ctrl-alt-cmd-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
+ctrl-alt-cmd-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
+ctrl-alt-cmd-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
+ctrl-alt-cmd-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
+ctrl-alt-cmd-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
+ctrl-alt-cmd-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
+ctrl-alt-cmd-shift-0 = ['move-node-to-workspace 0', 'workspace 0']

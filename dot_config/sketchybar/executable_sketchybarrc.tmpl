@@ -2,7 +2,7 @@
 
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 
-BASE=0xe6{{ trimPrefix "#" .cyberpunk.background.base }}
+BASE=0xff{{ trimPrefix "#" .cyberpunk.background.base }}
 PANEL=0xff{{ trimPrefix "#" .cyberpunk.background.panel }}
 TEXT=0xff{{ trimPrefix "#" .cyberpunk.text.primary }}
 MUTED=0xff{{ trimPrefix "#" .cyberpunk.text.muted }}
@@ -10,8 +10,8 @@ PINK=0xff{{ trimPrefix "#" .cyberpunk.accent.pink }}
 CYAN=0xff{{ trimPrefix "#" .cyberpunk.accent.cyan }}
 
 # Dark, quiet shell with restrained neon accents, matching the CachyOS palette.
-# topmost=window keeps SketchyBar visible while macOS transitions its native menu bar away.
-sketchybar --bar position=top height=34 blur_radius=20 color="$BASE" topmost=window
+# Keep the shell opaque so the native menu bar and windows underneath cannot bleed through.
+sketchybar --bar position=top height=34 blur_radius=0 color="$BASE" topmost=window
 
 default=(
   padding_left=6

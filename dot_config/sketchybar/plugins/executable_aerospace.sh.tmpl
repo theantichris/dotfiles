@@ -3,7 +3,12 @@
 PINK=0xff{{ trimPrefix "#" .cyberpunk.accent.pink }}
 MUTED=0xff{{ trimPrefix "#" .cyberpunk.text.muted }}
 
-if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
+focused_workspace="$FOCUSED_WORKSPACE"
+if [ -z "$focused_workspace" ] && command -v aerospace >/dev/null 2>&1; then
+  focused_workspace="$(aerospace list-workspaces --focused 2>/dev/null)"
+fi
+
+if [ "$1" = "$focused_workspace" ]; then
   sketchybar --set "$NAME" label.color="$PINK" background.drawing=on
 else
   sketchybar --set "$NAME" label.color="$MUTED" background.drawing=off

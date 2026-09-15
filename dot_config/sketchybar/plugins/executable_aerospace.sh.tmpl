@@ -1,0 +1,10 @@
+#!/bin/bash
+
+PINK=0xff{{ trimPrefix "#" .cyberpunk.accent.pink }}
+MUTED=0xff{{ trimPrefix "#" .cyberpunk.text.muted }}
+
+if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
+  sketchybar --set "$NAME" label.color="$PINK" background.drawing=on
+else
+  sketchybar --set "$NAME" label.color="$MUTED" background.drawing=off
+fi

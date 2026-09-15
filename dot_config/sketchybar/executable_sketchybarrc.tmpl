@@ -65,15 +65,16 @@ sketchybar --add item front_app left \
                            script="$PLUGIN_DIR/front_app.sh" \
            --subscribe front_app front_app_switched
 
-# Right-side status items stay in this left-to-right order: Wi-Fi, volume, battery.
-sketchybar --add item wifi right \
-           --set wifi background.color="$PANEL" \
-                      background.corner_radius=6 \
-                      background.height=24 \
-                      icon.color="$MUTED" \
-                      label.color="$MUTED" \
-                      update_freq=30 \
-                      script="$PLUGIN_DIR/wifi.sh"
+# Right-side items are added in reverse because SketchyBar lays them out from the edge inward.
+# Battery stays compact and changes accent based on charging/low state.
+sketchybar --add item battery right \
+           --set battery background.color="$PANEL" \
+                         background.corner_radius=6 \
+                         background.height=24 \
+                         icon.color="$MUTED" \
+                         label.color="$TEXT" \
+                         update_freq=60 \
+                         script="$PLUGIN_DIR/battery.sh"
 
 # Volume updates immediately when macOS reports an output-volume change.
 sketchybar --add item volume right \
@@ -85,15 +86,15 @@ sketchybar --add item volume right \
                         script="$PLUGIN_DIR/volume.sh" \
            --subscribe volume volume_change
 
-# Battery stays compact and changes accent based on charging/low state.
-sketchybar --add item battery right \
-           --set battery background.color="$PANEL" \
-                         background.corner_radius=6 \
-                         background.height=24 \
-                         icon.color="$MUTED" \
-                         label.color="$TEXT" \
-                         update_freq=60 \
-                         script="$PLUGIN_DIR/battery.sh"
+# Wi-Fi is the leftmost status item on the right side.
+sketchybar --add item wifi right \
+           --set wifi background.color="$PANEL" \
+                      background.corner_radius=6 \
+                      background.height=24 \
+                      icon.color="$MUTED" \
+                      label.color="$MUTED" \
+                      update_freq=30 \
+                      script="$PLUGIN_DIR/wifi.sh"
 
 # Seed workspace state immediately instead of waiting for the first switch.
 if command -v aerospace >/dev/null 2>&1; then

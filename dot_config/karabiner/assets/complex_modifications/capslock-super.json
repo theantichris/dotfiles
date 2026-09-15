@@ -9,20 +9,13 @@
           "from": {
             "key_code": "escape",
             "modifiers": {
-              "mandatory": ["shift"],
-              "optional": ["any"]
+              "mandatory": ["shift", "control", "option", "command"]
             }
           },
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "caps_super_down",
-              "value": true
-            }
-          ],
           "to": [
             {
-              "shell_command": "$HOME/.local/bin/kitty-cli-macos btop"
+              "key_code": "f20",
+              "modifiers": []
             }
           ]
         },
@@ -35,13 +28,6 @@
             }
           },
           "to": [
-            {
-              "set_variable": {
-                "name": "caps_super_down",
-                "value": true,
-                "key_up_value": false
-              }
-            },
             {
               "key_code": "left_command",
               "modifiers": [

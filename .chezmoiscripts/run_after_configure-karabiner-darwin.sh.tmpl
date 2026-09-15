@@ -1,0 +1,62 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+set -euo pipefail
+
+CONFIG="$HOME/.config/karabiner/karabiner.json"
+RULE_FILE="$HOME/.config/karabiner/assets/complex_modifications/capslock-super.json"
+
+if [[ ! -f "$CONFIG" || ! -f "$RULE_FILE" ]]; then
+    exit 0
+fi
+
+/usr/bin/osascript -l JavaScript - "$CONFIG" "$RULE_FILE" <<'JXA'
+ObjC.import('Foundation')
+
+function readText(path) {
+    const value = $.NSString.stringWithContentsOfFileEncodingError(
+        $(path),
+        $.NSUTF8StringEncoding,
+        null
+    )
+    return ObjC.unwrap(value)
+}
+
+function writeText(path, text) {
+    $(text).writeToFileAtomicallyEncodingError(
+        $(path),
+        true,
+        $.NSUTF8StringEncoding,
+        null
+    )
+}
+
+function run(argv) {
+    const configPath = argv[0]
+    const rulePath = argv[1]
+
+    const config = JSON.parse(readText(configPath))
+    const ruleFile = JSON.parse(readText(rulePath))
+    const rule = ruleFile.rules[0]
+
+    const profile = config.profiles.find(profile => profile.selected === true)
+    if (!profile) {
+        throw new Error('No selected Karabiner profile found')
+    }
+
+    if (!profile.complex_modifications) {
+        profile.complex_modifications = {}
+    }
+    if (!Array.isArray(profile.complex_modifications.rules)) {
+        profile.complex_modifications.rules = []
+    }
+
+    profile.complex_modifications.rules = profile.complex_modifications.rules.filter(existing => {
+        const description = existing.description || ''
+        return !description.startsWith('Caps Lock → Super')
+    })
+
+    profile.complex_modifications.rules.push(rule)
+    writeText(configPath, JSON.stringify(config, null, 4) + '\n')
+}
+JXA
+{{- end }}

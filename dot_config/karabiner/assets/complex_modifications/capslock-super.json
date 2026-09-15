@@ -7,6 +7,21 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": ["control", "option", "command"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": ["left_command"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "escape",
             "modifiers": {
               "mandatory": ["shift", "control", "option", "command"]

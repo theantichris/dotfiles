@@ -11,18 +11,22 @@ label="offline"
 color="$PINK"
 
 if [ -n "$device" ]; then
-  status="$(networksetup -getairportnetwork "$device" 2>/dev/null)"
+  ssid="$(ipconfig getsummary "$device" 2>/dev/null | awk -F ' SSID : ' '/ SSID : / { print $2; exit }')"
 
-  case "$status" in
-    "Current Wi-Fi Network: "*)
-      ssid="${status#Current Wi-Fi Network: }"
-      if [ -n "$ssid" ]; then
-        icon="󰖩"
-        label="$ssid"
-        color="$MUTED"
-      fi
-      ;;
-  esac
+  if [ -z "$ssid" ]; then
+    status="$(networksetup -getairportnetwork "$device" 2>/dev/null)"
+    case "$status" in
+      "Current Wi-Fi Network: "*)
+        ssid="${status#Current Wi-Fi Network: }"
+        ;;
+    esac
+  fi
+
+  if [ -n "$ssid" ]; then
+    icon="󰖩"
+    label="$ssid"
+    color="$MUTED"
+  fi
 fi
 
 sketchybar --set "$NAME" \

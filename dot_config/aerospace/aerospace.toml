@@ -36,6 +36,7 @@ ctrl-alt-cmd-enter = 'exec-and-forget ~/.local/bin/kitty-cli-macos'
 ctrl-alt-cmd-e = 'exec-and-forget ~/.local/bin/kitty-cli-macos spf'
 ctrl-alt-cmd-t = 'exec-and-forget ~/.local/bin/kitty-cli-macos hx'
 ctrl-alt-cmd-c = 'exec-and-forget ~/.local/bin/kitty-cli-macos qalc'
+ctrl-alt-cmd-x = 'exec-and-forget /usr/bin/open -b com.apple.systempreferences'
 # Karabiner intercepts Caps + Shift + Escape before macOS sees its reserved
 # Option + Command + Escape chord and converts it to an otherwise-unused F20.
 f20 = 'exec-and-forget ~/.local/bin/kitty-cli-macos btop'

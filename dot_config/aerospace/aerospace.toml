@@ -17,6 +17,11 @@ ctrl-alt-cmd-shift-j = 'move down'
 ctrl-alt-cmd-shift-k = 'move up'
 ctrl-alt-cmd-shift-l = 'move right'
 
+# Match the everyday Hyprland window actions.
+ctrl-alt-cmd-shift-space = 'layout floating tiling'
+ctrl-alt-cmd-d = 'fullscreen'
+ctrl-alt-cmd-f = 'macos-native-fullscreen'
+
 # Workspaces 1-0, matching the CachyOS setup.
 ctrl-alt-cmd-1 = 'workspace 1'
 ctrl-alt-cmd-2 = 'workspace 2'

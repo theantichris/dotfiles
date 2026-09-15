@@ -1,0 +1,37 @@
+#!/bin/bash
+
+TEXT=0xff{{ trimPrefix "#" .cyberpunk.text.primary }}
+MUTED=0xff{{ trimPrefix "#" .cyberpunk.text.muted }}
+PINK=0xff{{ trimPrefix "#" .cyberpunk.accent.pink }}
+CYAN=0xff{{ trimPrefix "#" .cyberpunk.accent.cyan }}
+
+battery="$(pmset -g batt | tail -1)"
+percentage="$(printf '%s\n' "$battery" | grep -oE '[0-9]+%' | head -1)"
+state="$(printf '%s\n' "$battery" | awk -F';' '{ gsub(/^[ \t]+|[ \t]+$/, "", $2); print $2 }')"
+level="${percentage%%%}"
+
+icon="󰁹"
+icon_color="$MUTED"
+
+case "$state" in
+  charging)
+    icon="󰂄"
+    icon_color="$CYAN"
+    ;;
+  charged)
+    icon="󰁹"
+    icon_color="$CYAN"
+    ;;
+  *)
+    if [ -n "$level" ] && [ "$level" -le 20 ]; then
+      icon="󰁺"
+      icon_color="$PINK"
+    fi
+    ;;
+esac
+
+sketchybar --set "$NAME" \
+  icon="$icon" \
+  icon.color="$icon_color" \
+  label="$percentage" \
+  label.color="$TEXT"

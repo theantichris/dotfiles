@@ -22,10 +22,10 @@ CLAUDE.md
 CRUSH.md
 .claude
 
-# App-managed: these apps rewrite their own config at runtime. Keep Noctalia's
-# mutable config unmanaged, while allowing explicitly tracked files such as
-# .config/noctalia/palettes/Cyberpunk.json.
+# App-managed: these apps rewrite their own config at runtime. Keep mutable
+# config unmanaged, while allowing explicitly tracked declarative fragments.
 .config/noctalia/config.toml
+.config/karabiner/karabiner.json
 .config/jagalite.superseedr
 
 # Android
@@ -63,6 +63,7 @@ bin/termux-url-opener
 # MacOS
 {{ if ne .chezmoi.os "darwin" }}
 .Brewfile
+.config/karabiner
 
 .chezmoiscripts/install-packages-darwin.sh
 {{ end }}

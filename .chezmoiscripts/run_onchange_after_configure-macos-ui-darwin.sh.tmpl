@@ -1,0 +1,17 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+set -euo pipefail
+
+# Let SketchyBar own the top edge instead of competing with the native menu bar.
+defaults write NSGlobalDomain _HIHideMenuBar -bool true
+
+# Refresh the macOS UI services that own the menu bar state.
+killall SystemUIServer 2>/dev/null || true
+killall Dock 2>/dev/null || true
+
+# Reload SketchyBar if it is installed already.
+PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+if command -v sketchybar >/dev/null 2>&1; then
+    sketchybar --reload || true
+fi
+{{- end }}

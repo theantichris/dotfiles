@@ -110,10 +110,11 @@
       "key": "󰻠 CPU",
       "keyColor": "{{ .cyberpunk.semantic.success }}",
       "shell": "fish",
-      "param": "-c",
 {{- if eq .chezmoi.os "darwin" }}
+      "param": "-Nc",
       "parallel": true,
 {{- else }}
+      "param": "-c",
       "parallel": false,
 {{- end }}
       "text": "set values (printf '%s\\n' '{\"logo\":{\"type\":\"none\"},\"modules\":[{\"type\":\"cpu\",\"key\":\" \"},{\"type\":\"cpuusage\",\"key\":\" \",\"format\":\"{avg}\"}]}' | fastfetch --config - --pipe); printf '%s (%s)' \"$values[1]\" \"$values[2]\""

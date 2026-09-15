@@ -66,6 +66,7 @@ bin/termux-url-opener
 .config/aerospace
 .config/karabiner
 .config/kitty/quick-access-terminal.conf
+.local/bin/kitty-cli-macos
 
 .chezmoiscripts/install-packages-darwin.sh
 {{ end }}

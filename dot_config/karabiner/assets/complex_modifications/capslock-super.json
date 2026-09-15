@@ -7,12 +7,41 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": ["shift"],
+              "optional": ["any"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "caps_super_down",
+              "value": true
+            }
+          ],
+          "to": [
+            {
+              "shell_command": "$HOME/.local/bin/kitty-cli-macos btop"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "caps_lock",
             "modifiers": {
               "optional": ["any"]
             }
           },
           "to": [
+            {
+              "set_variable": {
+                "name": "caps_super_down",
+                "value": true,
+                "key_up_value": false
+              }
+            },
             {
               "key_code": "left_command",
               "modifiers": [

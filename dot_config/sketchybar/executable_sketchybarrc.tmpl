@@ -66,6 +66,16 @@ sketchybar --add item front_app left \
                            script="$PLUGIN_DIR/front_app.sh" \
            --subscribe front_app front_app_switched
 
+# Volume updates immediately when macOS reports an output-volume change.
+sketchybar --add item volume right \
+           --set volume background.color="$PANEL" \
+                        background.corner_radius=6 \
+                        background.height=24 \
+                        icon.color="$MUTED" \
+                        label.color="$MUTED" \
+                        script="$PLUGIN_DIR/volume.sh" \
+           --subscribe volume volume_change
+
 # Wi-Fi shows the active SSID and turns pink when disconnected.
 sketchybar --add item wifi right \
            --set wifi background.color="$PANEL" \

@@ -10,7 +10,8 @@ PINK=0xff{{ trimPrefix "#" .cyberpunk.accent.pink }}
 CYAN=0xff{{ trimPrefix "#" .cyberpunk.accent.cyan }}
 
 # Dark, quiet shell with restrained neon accents, matching the CachyOS palette.
-sketchybar --bar position=top height=34 blur_radius=20 color="$BASE"
+# topmost=window keeps SketchyBar visible while macOS transitions its native menu bar away.
+sketchybar --bar position=top height=34 blur_radius=20 color="$BASE" topmost=window
 
 default=(
   padding_left=6

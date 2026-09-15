@@ -4,6 +4,14 @@ auto-reload-config = true
 
 persistent-workspaces = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
 
+# Keep small system utilities floating instead of letting them disrupt the tiled layout.
+on-window-detected = [
+    {
+        if = 'test %{app-bundle-id} = com.apple.systempreferences || test %{app-bundle-id} = com.apple.calculator || test %{app-bundle-id} = com.apple.ActivityMonitor',
+        run = 'layout floating',
+    },
+]
+
 # Caps Lock is remapped by Karabiner to Control + Option + Command.
 # Keep Shift free so Caps + Shift retains the same meaning as Super + Shift on Hyprland.
 [mode.main.binding]

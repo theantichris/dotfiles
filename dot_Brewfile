@@ -3,6 +3,7 @@
 # Mac-only GUI apps. Edit here; `chezmoi apply` reruns the install script.
 
 # Taps
+tap "FelixKratz/formulae", trusted: true
 tap "hedhyw/main"
 tap "nikitabobko/tap", trusted: true
 
@@ -27,6 +28,7 @@ brew "markdownlint-cli2"
 brew "newsboat"
 brew "ollama"
 brew "pre-commit"
+brew "sketchybar"
 brew "speedtest-cli"
 brew "superfile"
 brew "tldr"

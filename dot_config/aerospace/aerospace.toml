@@ -1,0 +1,16 @@
+config-version = 2
+start-at-login = true
+auto-reload-config = true
+
+# Caps Lock is remapped by Karabiner to Control + Option + Command.
+# Keep Shift free so Caps + Shift retains the same meaning as Super + Shift on Hyprland.
+[mode.main.binding]
+ctrl-alt-cmd-h = 'focus left'
+ctrl-alt-cmd-j = 'focus down'
+ctrl-alt-cmd-k = 'focus up'
+ctrl-alt-cmd-l = 'focus right'
+
+ctrl-alt-cmd-shift-h = 'move left'
+ctrl-alt-cmd-shift-j = 'move down'
+ctrl-alt-cmd-shift-k = 'move up'
+ctrl-alt-cmd-shift-l = 'move right'

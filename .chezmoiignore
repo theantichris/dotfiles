@@ -65,6 +65,7 @@ bin/termux-url-opener
 .Brewfile
 .config/aerospace
 .config/karabiner
+.config/kitty/quick-access-terminal.conf
 
 .chezmoiscripts/install-packages-darwin.sh
 {{ end }}

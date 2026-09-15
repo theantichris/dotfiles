@@ -36,8 +36,9 @@ ctrl-alt-cmd-enter = 'exec-and-forget ~/.local/bin/kitty-cli-macos'
 ctrl-alt-cmd-e = 'exec-and-forget ~/.local/bin/kitty-cli-macos spf'
 ctrl-alt-cmd-t = 'exec-and-forget ~/.local/bin/kitty-cli-macos hx'
 ctrl-alt-cmd-c = 'exec-and-forget ~/.local/bin/kitty-cli-macos qalc'
-# Caps + Shift + Escape is handled directly by Karabiner because macOS reserves
-# Option + Command + Escape, which is part of our synthetic Super chord.
+# Karabiner intercepts Caps + Shift + Escape before macOS sees its reserved
+# Option + Command + Escape chord and converts it to an otherwise-unused F20.
+f20 = 'exec-and-forget ~/.local/bin/kitty-cli-macos btop'
 # Caps emits Option as part of Super. Zen/Firefox treats Option held at startup as
 # a request for Troubleshoot Mode, so wait briefly for the key chord to release.
 ctrl-alt-cmd-w = 'exec-and-forget sleep 0.35; open -a Zen'

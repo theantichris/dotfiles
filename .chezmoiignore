@@ -70,6 +70,7 @@ bin/termux-url-opener
 .local/bin/kitty-cli-macos
 Library/Application Support/superfile
 
+.chezmoiscripts/configure-macos-ui-darwin.sh
 .chezmoiscripts/configure-superfile-darwin.sh
 .chezmoiscripts/install-packages-darwin.sh
 {{ end }}

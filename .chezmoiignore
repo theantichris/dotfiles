@@ -67,7 +67,9 @@ bin/termux-url-opener
 .config/karabiner
 .config/kitty/quick-access-terminal.conf
 .local/bin/kitty-cli-macos
+Library/Application Support/superfile
 
+.chezmoiscripts/configure-superfile-darwin.sh
 .chezmoiscripts/install-packages-darwin.sh
 {{ end }}
 

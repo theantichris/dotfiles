@@ -7,25 +7,19 @@ PINK=0xff{{ trimPrefix "#" .cyberpunk.accent.pink }}
 device="$(networksetup -listallhardwareports | awk '/Hardware Port: (Wi-Fi|AirPort)/ { getline; print $2; exit }')"
 
 icon="󰖪"
-label="offline"
 color="$PINK"
+label="offline"
+label_drawing="on"
 
 if [ -n "$device" ]; then
-  ssid="$(ipconfig getsummary "$device" 2>/dev/null | awk -F ' SSID : ' '/ SSID : / { print $2; exit }')"
+  status="$(ifconfig "$device" 2>/dev/null | awk '$1 == "status:" { print $2; exit }')"
+  address="$(ipconfig getifaddr "$device" 2>/dev/null)"
 
-  if [ -z "$ssid" ]; then
-    status="$(networksetup -getairportnetwork "$device" 2>/dev/null)"
-    case "$status" in
-      "Current Wi-Fi Network: "*)
-        ssid="${status#Current Wi-Fi Network: }"
-        ;;
-    esac
-  fi
-
-  if [ -n "$ssid" ]; then
+  if [ "$status" = "active" ] && [ -n "$address" ]; then
     icon="󰖩"
-    label="$ssid"
     color="$MUTED"
+    label=""
+    label_drawing="off"
   fi
 fi
 
@@ -33,4 +27,5 @@ sketchybar --set "$NAME" \
   icon="$icon" \
   icon.color="$color" \
   label="$label" \
-  label.color="$color"
+  label.color="$color" \
+  label.drawing="$label_drawing"

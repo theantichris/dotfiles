@@ -29,16 +29,15 @@ default=(
 )
 sketchybar --default "${default[@]}"
 
-# Small machine marker so the left side reads like a console, not a stock menu bar.
-sketchybar --add item host left \
-           --set host icon.drawing=off \
-                      label="MAC" \
-                      label.color="$PINK" \
-                      background.color="$PANEL" \
-                      background.corner_radius=6 \
-                      background.height=24 \
-                      label.padding_left=8 \
-                      label.padding_right=8
+# Date/time anchors the far-left edge.
+sketchybar --add item clock left \
+           --set clock icon.drawing=off \
+                       label.color="$CYAN" \
+                       background.color="$PANEL" \
+                       background.corner_radius=6 \
+                       background.height=24 \
+                       update_freq=10 \
+                       script="$PLUGIN_DIR/clock.sh"
 
 # AeroSpace workspaces use the same 1-0 ordering as the keyboard shortcuts.
 sketchybar --add event aerospace_workspace_change
@@ -59,12 +58,22 @@ for sid in "${WORKSPACES[@]}"; do
              --subscribe "space.$sid" aerospace_workspace_change
 done
 
-# Current foreground application.
+# Current foreground application follows the workspace indicators.
 sketchybar --add item front_app left \
            --set front_app icon.drawing=off \
                            label.color="$MUTED" \
                            script="$PLUGIN_DIR/front_app.sh" \
            --subscribe front_app front_app_switched
+
+# Right-side status items stay in this left-to-right order: Wi-Fi, volume, battery.
+sketchybar --add item wifi right \
+           --set wifi background.color="$PANEL" \
+                      background.corner_radius=6 \
+                      background.height=24 \
+                      icon.color="$MUTED" \
+                      label.color="$MUTED" \
+                      update_freq=30 \
+                      script="$PLUGIN_DIR/wifi.sh"
 
 # Volume updates immediately when macOS reports an output-volume change.
 sketchybar --add item volume right \
@@ -76,16 +85,6 @@ sketchybar --add item volume right \
                         script="$PLUGIN_DIR/volume.sh" \
            --subscribe volume volume_change
 
-# Wi-Fi shows the active SSID and turns pink when disconnected.
-sketchybar --add item wifi right \
-           --set wifi background.color="$PANEL" \
-                      background.corner_radius=6 \
-                      background.height=24 \
-                      icon.color="$MUTED" \
-                      label.color="$MUTED" \
-                      update_freq=30 \
-                      script="$PLUGIN_DIR/wifi.sh"
-
 # Battery stays compact and changes accent based on charging/low state.
 sketchybar --add item battery right \
            --set battery background.color="$PANEL" \
@@ -95,16 +94,6 @@ sketchybar --add item battery right \
                          label.color="$TEXT" \
                          update_freq=60 \
                          script="$PLUGIN_DIR/battery.sh"
-
-# Clock lives on the right and carries the cyan secondary accent.
-sketchybar --add item clock right \
-           --set clock icon.drawing=off \
-                       label.color="$CYAN" \
-                       background.color="$PANEL" \
-                       background.corner_radius=6 \
-                       background.height=24 \
-                       update_freq=10 \
-                       script="$PLUGIN_DIR/clock.sh"
 
 # Seed workspace state immediately instead of waiting for the first switch.
 if command -v aerospace >/dev/null 2>&1; then

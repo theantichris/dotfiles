@@ -23,7 +23,8 @@ ctrl-alt-cmd-d = 'fullscreen'
 ctrl-alt-cmd-f = 'macos-native-fullscreen'
 
 # Kitty's native quick-access terminal is the macOS scratchpad.
-ctrl-alt-cmd-backtick = 'exec-and-forget /Applications/kitty.app/Contents/MacOS/kitten quick-access-terminal --detach'
+# AeroSpace's exec-and-forget is already asynchronous, so kitty does not need --detach here.
+ctrl-alt-cmd-backtick = 'exec-and-forget /Applications/kitty.app/Contents/MacOS/kitten quick-access-terminal'
 
 # Workspaces 1-0, matching the CachyOS setup.
 ctrl-alt-cmd-1 = 'workspace 1'

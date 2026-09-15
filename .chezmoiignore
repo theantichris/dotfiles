@@ -63,6 +63,7 @@ bin/termux-url-opener
 # MacOS
 {{ if ne .chezmoi.os "darwin" }}
 .Brewfile
+.config/aerospace
 .config/karabiner
 
 .chezmoiscripts/install-packages-darwin.sh

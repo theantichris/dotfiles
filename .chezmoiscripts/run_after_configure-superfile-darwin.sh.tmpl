@@ -1,0 +1,10 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+set -euo pipefail
+
+CONFIG="$HOME/Library/Application Support/superfile/config.toml"
+
+if [[ -f "$CONFIG" ]]; then
+    /usr/bin/sed -i '' 's/^theme = .*/theme = "cyberpunk"/' "$CONFIG"
+fi
+{{- end }}

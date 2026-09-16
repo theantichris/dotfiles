@@ -1,0 +1,43 @@
+#!/bin/bash
+
+CYAN=0xff{{ trimPrefix "#" .cyberpunk.accent.cyan }}
+SUCCESS=0xff{{ trimPrefix "#" .cyberpunk.semantic.success }}
+WARNING=0xff{{ trimPrefix "#" .cyberpunk.semantic.warning }}
+ERROR=0xff{{ trimPrefix "#" .cyberpunk.semantic.error }}
+
+if ! command -v macmon >/dev/null 2>&1 || ! command -v jq >/dev/null 2>&1; then
+  sketchybar --set monitor.cpu label="--%" icon.color="$CYAN" label.color="$CYAN" \
+             --set monitor.temp label="--°C" icon.color="$WARNING" label.color="$WARNING" \
+             --set monitor.ram label="--%" icon.color="$CYAN" label.color="$CYAN"
+  exit 0
+fi
+
+metrics="$(macmon pipe -s 1 -i 500 2>/dev/null | tail -1)"
+
+if [ -z "$metrics" ]; then
+  exit 0
+fi
+
+cpu="$(printf '%s\n' "$metrics" | jq -r '((.cpu_active_ratio // .cpu_scaled_ratio // 0) * 100) | round')"
+temp="$(printf '%s\n' "$metrics" | jq -r '(.temp.cpu_temp_avg // 0) | round')"
+ram="$(printf '%s\n' "$metrics" | jq -r 'if (.memory.ram_total // 0) > 0 then ((.memory.ram_usage / .memory.ram_total) * 100) | round else 0 end')"
+
+temp_color="$SUCCESS"
+if [ "$temp" -ge 85 ]; then
+  temp_color="$ERROR"
+elif [ "$temp" -ge 70 ]; then
+  temp_color="$WARNING"
+fi
+
+sketchybar --set monitor.cpu \
+  label="${cpu}%" \
+  icon.color="$CYAN" \
+  label.color="$CYAN" \
+  --set monitor.temp \
+  label="${temp}°C" \
+  icon.color="$temp_color" \
+  label.color="$temp_color" \
+  --set monitor.ram \
+  label="${ram}%" \
+  icon.color="$CYAN" \
+  label.color="$CYAN"

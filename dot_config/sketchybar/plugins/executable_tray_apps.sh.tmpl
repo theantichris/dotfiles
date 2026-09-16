@@ -10,6 +10,41 @@ CURRENT_FILE="${TMPDIR:-/tmp}/sketchybar_tray_apps_${UID}.current"
 apps="$($PLUGIN_DIR/get_tray_apps.applescript 2>/dev/null)"
 last_tray="wifi"
 
+# Slack has no native macOS tray item, so mirror its Dock badge into a
+# SketchyBar tray icon. Keep updates running while hidden so it appears as
+# soon as Slack launches.
+if ! sketchybar --query tray.slack >/dev/null 2>&1; then
+  sketchybar --add item tray.slack right \
+    --set tray.slack \
+      width=28 \
+      padding_left=2 \
+      padding_right=2 \
+      icon.drawing=off \
+      label.drawing=off \
+      label.font="Hack Nerd Font:Bold:9.0" \
+      label.align=right \
+      label.y_offset=5 \
+      label.padding_left=0 \
+      label.padding_right=1 \
+      background.drawing=on \
+      background.color="$PANEL" \
+      background.corner_radius=6 \
+      background.height=24 \
+      background.border_width=0 \
+      background.image="app.Slack" \
+      background.image.drawing=on \
+      background.image.scale=0.55 \
+      background.image.padding_left=5 \
+      background.image.corner_radius=4 \
+      updates=on \
+      update_freq=5 \
+      script="$PLUGIN_DIR/slack_badge.sh" \
+      click_script="$PLUGIN_DIR/tray_focus.sh Slack"
+fi
+
+sketchybar --move tray.slack after "$last_tray" >/dev/null 2>&1 || true
+last_tray="tray.slack"
+
 while IFS=$'\t' read -r app bundle_id; do
   [ -z "$app" ] && continue
 

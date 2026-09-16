@@ -1,7 +1,5 @@
 #!/bin/bash
 
-TEXT=0xff{{ trimPrefix "#" .cyberpunk.text.primary }}
-PINK=0xff{{ trimPrefix "#" .cyberpunk.accent.pink }}
 CYAN=0xff{{ trimPrefix "#" .cyberpunk.accent.cyan }}
 
 if [ "$SENDER" = "mouse.clicked" ] && [ "$BUTTON" = "left" ]; then
@@ -35,11 +33,9 @@ if [ -z "$volume" ]; then
 fi
 
 icon="󰕾"
-label_color="$TEXT"
 
 if [ "$muted" = "true" ] || [ "$volume" -eq 0 ]; then
   icon="󰖁"
-  label_color="$PINK"
 elif [ "$volume" -lt 34 ]; then
   icon="󰕿"
 elif [ "$volume" -lt 67 ]; then
@@ -50,4 +46,4 @@ sketchybar --set "$NAME" \
   icon="$icon" \
   icon.color="$CYAN" \
   label="${volume}%" \
-  label.color="$label_color"
+  label.color="$CYAN"

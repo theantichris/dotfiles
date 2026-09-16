@@ -41,10 +41,13 @@ while IFS=$'\t' read -r app bundle_id; do
         background.image="$image_ref" \
         background.image.drawing=on \
         background.image.scale=0.55 \
+        background.image.padding_left=5 \
         background.image.corner_radius=4 \
         click_script="$PLUGIN_DIR/tray_focus.sh $quoted_app"
   else
-    sketchybar --set "$item" background.image="$image_ref"
+    sketchybar --set "$item" \
+      background.image="$image_ref" \
+      background.image.padding_left=5
   fi
 
   sketchybar --move "$item" after "$last_tray" >/dev/null 2>&1 || true
@@ -85,7 +88,20 @@ if ! sketchybar --query monitor.cpu >/dev/null 2>&1; then
                         background.height=24 background.drawing=on
 fi
 
-sketchybar --move monitor.ram after "$last_tray" >/dev/null 2>&1 || true
+# Match the visual gap between the tray and Wi-Fi without extending the
+# monitor bracket background into that space.
+if ! sketchybar --query gap.monitor_tray >/dev/null 2>&1; then
+  sketchybar --add item gap.monitor_tray right \
+    --set gap.monitor_tray width=7 \
+                           padding_left=0 \
+                           padding_right=0 \
+                           icon.drawing=off \
+                           label.drawing=off \
+                           background.drawing=off
+fi
+
+sketchybar --move gap.monitor_tray after "$last_tray" >/dev/null 2>&1 || true
+sketchybar --move monitor.ram after gap.monitor_tray >/dev/null 2>&1 || true
 sketchybar --move monitor.temp after monitor.ram >/dev/null 2>&1 || true
 sketchybar --move monitor.cpu after monitor.temp >/dev/null 2>&1 || true
 

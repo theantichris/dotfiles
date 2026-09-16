@@ -1,6 +1,7 @@
 # ~/.Brewfile — managed by chezmoi. Installed via `brew bundle --global`.
-# macOS package set, kept at parity with the CachyOS pacman list plus the
-# Mac-only GUI apps. Edit here; `chezmoi apply` reruns the install script.
+# macOS package set, kept in practical parity with CachyOS where tools are
+# cross-platform. Platform-specific tools and App Store apps stay intentional.
+# Edit here; `chezmoi apply` reruns the install script.
 
 # Taps
 tap "FelixKratz/formulae", trusted: true

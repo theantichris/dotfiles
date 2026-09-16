@@ -22,6 +22,13 @@ cpu="$(printf '%s\n' "$metrics" | jq -r '((.cpu_active_ratio // .cpu_scaled_rati
 temp="$(printf '%s\n' "$metrics" | jq -r '(.temp.cpu_temp_avg // 0) | round')"
 ram="$(printf '%s\n' "$metrics" | jq -r 'if (.memory.ram_total // 0) > 0 then ((.memory.ram_usage / .memory.ram_total) * 100) | round else 0 end')"
 
+cpu_color="$SUCCESS"
+if [ "$cpu" -ge 85 ]; then
+  cpu_color="$ERROR"
+elif [ "$cpu" -ge 60 ]; then
+  cpu_color="$WARNING"
+fi
+
 temp_color="$SUCCESS"
 if [ "$temp" -ge 85 ]; then
   temp_color="$ERROR"
@@ -29,15 +36,22 @@ elif [ "$temp" -ge 70 ]; then
   temp_color="$WARNING"
 fi
 
+ram_color="$SUCCESS"
+if [ "$ram" -ge 85 ]; then
+  ram_color="$ERROR"
+elif [ "$ram" -ge 70 ]; then
+  ram_color="$WARNING"
+fi
+
 sketchybar --set monitor.cpu \
   label="${cpu}%" \
-  icon.color="$CYAN" \
-  label.color="$CYAN" \
+  icon.color="$cpu_color" \
+  label.color="$cpu_color" \
   --set monitor.temp \
   label="${temp}°C" \
   icon.color="$temp_color" \
   label.color="$temp_color" \
   --set monitor.ram \
   label="${ram}%" \
-  icon.color="$CYAN" \
-  label.color="$CYAN"
+  icon.color="$ram_color" \
+  label.color="$ram_color"

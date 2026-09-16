@@ -1,13 +1,14 @@
 #!/bin/bash
 
 PANEL=0xff{{ trimPrefix "#" .cyberpunk.background.panel }}
+CYAN=0xff{{ trimPrefix "#" .cyberpunk.accent.cyan }}
 PLUGIN_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}/plugins"
 STATE_FILE="${TMPDIR:-/tmp}/sketchybar_tray_apps_${UID}.state"
 CURRENT_FILE="${TMPDIR:-/tmp}/sketchybar_tray_apps_${UID}.current"
 
 : > "$CURRENT_FILE"
-
 apps="$($PLUGIN_DIR/get_tray_apps.applescript 2>/dev/null)"
+last_tray="wifi"
 
 while IFS=$'\t' read -r app bundle_id; do
   [ -z "$app" ] && continue
@@ -20,11 +21,9 @@ while IFS=$'\t' read -r app bundle_id; do
   fi
 
   printf '%s\n' "$app_id" >> "$CURRENT_FILE"
-
   item="tray.$app_id"
   image_ref="app.$app"
   [ -n "$bundle_id" ] && image_ref="app.$bundle_id"
-
   printf -v quoted_app '%q' "$app"
 
   if ! sketchybar --query "$item" >/dev/null 2>&1; then
@@ -48,9 +47,8 @@ while IFS=$'\t' read -r app bundle_id; do
     sketchybar --set "$item" background.image="$image_ref"
   fi
 
-  # Right-side item order is visually reversed, so placing the tray item
-  # after Wi-Fi internally renders it immediately to Wi-Fi's left.
-  sketchybar --move "$item" after wifi >/dev/null 2>&1 || true
+  sketchybar --move "$item" after "$last_tray" >/dev/null 2>&1 || true
+  last_tray="$item"
 done <<< "$apps"
 
 if [ -f "$STATE_FILE" ]; then
@@ -63,3 +61,32 @@ if [ -f "$STATE_FILE" ]; then
 fi
 
 mv "$CURRENT_FILE" "$STATE_FILE"
+
+# Create the system monitor once. Right-side ordering is reversed, so RAM,
+# temp, CPU internally renders as CPU, temp, RAM immediately left of the tray.
+if ! sketchybar --query monitor.cpu >/dev/null 2>&1; then
+  MONITOR_CLICK="$HOME/.local/bin/kitty-cli-macos btop"
+
+  sketchybar --add item monitor.ram right \
+    --set monitor.ram icon="󰍛" label="--%" icon.color="$CYAN" label.color="$CYAN" \
+                      padding_left=2 padding_right=4 click_script="$MONITOR_CLICK"
+
+  sketchybar --add item monitor.temp right \
+    --set monitor.temp icon="󰔏" label="--°C" \
+                       padding_left=2 padding_right=2 click_script="$MONITOR_CLICK"
+
+  sketchybar --add item monitor.cpu right \
+    --set monitor.cpu icon="" label="--%" icon.color="$CYAN" label.color="$CYAN" \
+                      padding_left=4 padding_right=2 update_freq=5 \
+                      script="$PLUGIN_DIR/system_monitor.sh" click_script="$MONITOR_CLICK"
+
+  sketchybar --add bracket monitor.group '/monitor\..*/' \
+    --set monitor.group background.color="$PANEL" background.corner_radius=6 \
+                        background.height=24 background.drawing=on
+fi
+
+sketchybar --move monitor.ram after "$last_tray" >/dev/null 2>&1 || true
+sketchybar --move monitor.temp after monitor.ram >/dev/null 2>&1 || true
+sketchybar --move monitor.cpu after monitor.temp >/dev/null 2>&1 || true
+
+"$PLUGIN_DIR/system_monitor.sh" >/dev/null 2>&1 || true

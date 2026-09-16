@@ -48,7 +48,9 @@ while IFS=$'\t' read -r app bundle_id; do
     sketchybar --set "$item" background.image="$image_ref"
   fi
 
-  sketchybar --move "$item" before wifi >/dev/null 2>&1 || true
+  # Right-side item order is visually reversed, so placing the tray item
+  # after Wi-Fi internally renders it immediately to Wi-Fi's left.
+  sketchybar --move "$item" after wifi >/dev/null 2>&1 || true
 done <<< "$apps"
 
 if [ -f "$STATE_FILE" ]; then

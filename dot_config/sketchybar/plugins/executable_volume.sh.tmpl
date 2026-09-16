@@ -1,7 +1,31 @@
 #!/bin/bash
 
-MUTED=0xff{{ trimPrefix "#" .cyberpunk.text.muted }}
+TEXT=0xff{{ trimPrefix "#" .cyberpunk.text.primary }}
 PINK=0xff{{ trimPrefix "#" .cyberpunk.accent.pink }}
+CYAN=0xff{{ trimPrefix "#" .cyberpunk.accent.cyan }}
+
+if [ "$SENDER" = "mouse.clicked" ] && [ "$BUTTON" = "left" ]; then
+  muted="$(osascript -e 'output muted of (get volume settings)' 2>/dev/null)"
+  if [ "$muted" = "true" ]; then
+    osascript -e 'set volume without output muted' >/dev/null 2>&1
+  else
+    osascript -e 'set volume with output muted' >/dev/null 2>&1
+  fi
+elif [ "$SENDER" = "mouse.scrolled" ] && [ -n "$SCROLL_DELTA" ]; then
+  volume="$(osascript -e 'output volume of (get volume settings)' 2>/dev/null)"
+  [ -z "$volume" ] && volume=0
+
+  if awk "BEGIN { exit !($SCROLL_DELTA > 0) }"; then
+    volume=$((volume + 5))
+  else
+    volume=$((volume - 5))
+  fi
+
+  [ "$volume" -gt 100 ] && volume=100
+  [ "$volume" -lt 0 ] && volume=0
+
+  osascript -e "set volume output volume $volume" -e 'set volume without output muted' >/dev/null 2>&1
+fi
 
 volume="$(osascript -e 'output volume of (get volume settings)' 2>/dev/null)"
 muted="$(osascript -e 'output muted of (get volume settings)' 2>/dev/null)"
@@ -11,11 +35,11 @@ if [ -z "$volume" ]; then
 fi
 
 icon="󰕾"
-color="$MUTED"
+label_color="$TEXT"
 
 if [ "$muted" = "true" ] || [ "$volume" -eq 0 ]; then
   icon="󰖁"
-  color="$PINK"
+  label_color="$PINK"
 elif [ "$volume" -lt 34 ]; then
   icon="󰕿"
 elif [ "$volume" -lt 67 ]; then
@@ -24,6 +48,6 @@ fi
 
 sketchybar --set "$NAME" \
   icon="$icon" \
-  icon.color="$color" \
+  icon.color="$CYAN" \
   label="${volume}%" \
-  label.color="$color"
+  label.color="$label_color"

@@ -1,9 +1,8 @@
 #!/bin/bash
 
-TEXT=0xff{{ trimPrefix "#" .cyberpunk.text.primary }}
-MUTED=0xff{{ trimPrefix "#" .cyberpunk.text.muted }}
-PINK=0xff{{ trimPrefix "#" .cyberpunk.accent.pink }}
-CYAN=0xff{{ trimPrefix "#" .cyberpunk.accent.cyan }}
+SUCCESS=0xff{{ trimPrefix "#" .cyberpunk.semantic.success }}
+WARNING=0xff{{ trimPrefix "#" .cyberpunk.semantic.warning }}
+ERROR=0xff{{ trimPrefix "#" .cyberpunk.semantic.error }}
 
 battery="$(pmset -g batt | tail -1)"
 percentage="$(printf '%s\n' "$battery" | grep -oE '[0-9]+%' | head -1)"
@@ -11,27 +10,33 @@ state="$(printf '%s\n' "$battery" | awk -F';' '{ gsub(/^[ \t]+|[ \t]+$/, "", $2)
 level="${percentage%%%}"
 
 icon="󰁹"
-icon_color="$MUTED"
+color="$SUCCESS"
 
 case "$state" in
   charging)
     icon="󰂄"
-    icon_color="$CYAN"
+    color="$SUCCESS"
     ;;
   charged)
     icon="󰁹"
-    icon_color="$CYAN"
+    color="$SUCCESS"
     ;;
   *)
-    if [ -n "$level" ] && [ "$level" -le 20 ]; then
-      icon="󰁺"
-      icon_color="$PINK"
+    if [ -n "$level" ]; then
+      if [ "$level" -le 20 ]; then
+        icon="󰁺"
+        color="$ERROR"
+      elif [ "$level" -le 50 ]; then
+        color="$WARNING"
+      else
+        color="$SUCCESS"
+      fi
     fi
     ;;
 esac
 
 sketchybar --set "$NAME" \
   icon="$icon" \
-  icon.color="$icon_color" \
+  icon.color="$color" \
   label="$percentage" \
-  label.color="$TEXT"
+  label.color="$color"

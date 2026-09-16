@@ -97,6 +97,16 @@ sketchybar --add item wifi right \
                       click_script='open "x-apple.systempreferences:com.apple.wifi-settings-extension"' \
                       script="$PLUGIN_DIR/wifi.sh"
 
+# System tray drawer: Thaw owns the native menu-bar items; SketchyBar toggles them.
+sketchybar --add item tray right \
+           --set tray icon="󰄝" \
+                      icon.color="$CYAN" \
+                      label.drawing=off \
+                      background.color="$PANEL" \
+                      background.corner_radius=6 \
+                      background.height=24 \
+                      click_script='open "thaw://toggle-hidden"'
+
 # Seed workspace state immediately instead of waiting for the first switch.
 if command -v aerospace >/dev/null 2>&1; then
   FOCUSED_WORKSPACE="$(aerospace list-workspaces --focused)"

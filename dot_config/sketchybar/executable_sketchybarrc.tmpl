@@ -10,6 +10,8 @@ TEXT=0xff{{ trimPrefix "#" .cyberpunk.text.primary }}
 MUTED=0xff{{ trimPrefix "#" .cyberpunk.text.muted }}
 PINK=0xff{{ trimPrefix "#" .cyberpunk.accent.pink }}
 CYAN=0xff{{ trimPrefix "#" .cyberpunk.accent.cyan }}
+WARNING=0xff{{ trimPrefix "#" .cyberpunk.semantic.warning }}
+ERROR=0xff{{ trimPrefix "#" .cyberpunk.semantic.error }}
 
 # Dark, quiet shell with restrained neon accents, matching the CachyOS palette.
 # Keep the shell opaque so the native menu bar and windows underneath cannot bleed through.
@@ -66,6 +68,62 @@ sketchybar --add item front_app left \
            --subscribe front_app front_app_switched
 
 # Right-side items are added in reverse because SketchyBar lays them out from the edge inward.
+# System menu is added first so it owns the absolute far-right edge.
+sketchybar --add item system right \
+           --set system icon="󰀵" \
+                        icon.color="$CYAN" \
+                        label.drawing=off \
+                        background.color="$PANEL" \
+                        background.corner_radius=6 \
+                        background.height=24 \
+                        popup.align=right \
+                        popup.background.color="$PANEL" \
+                        popup.background.corner_radius=8 \
+                        popup.background.border_width=0 \
+                        click_script='sketchybar --set system popup.drawing=toggle'
+
+sketchybar --add item system.settings popup.system \
+           --set system.settings icon="󰒓" \
+                                 icon.color="$CYAN" \
+                                 label="System Settings" \
+                                 label.color="$TEXT" \
+                                 click_script="$PLUGIN_DIR/system_menu.sh settings"
+
+sketchybar --add item system.lock popup.system \
+           --set system.lock icon="󰌾" \
+                             icon.color="$CYAN" \
+                             label="Lock" \
+                             label.color="$TEXT" \
+                             click_script="$PLUGIN_DIR/system_menu.sh lock"
+
+sketchybar --add item system.sleep popup.system \
+           --set system.sleep icon="󰒲" \
+                              icon.color="$CYAN" \
+                              label="Sleep" \
+                              label.color="$TEXT" \
+                              click_script="$PLUGIN_DIR/system_menu.sh sleep"
+
+sketchybar --add item system.logout popup.system \
+           --set system.logout icon="󰍃" \
+                               icon.color="$WARNING" \
+                               label="Log Out" \
+                               label.color="$WARNING" \
+                               click_script="$PLUGIN_DIR/system_menu.sh logout"
+
+sketchybar --add item system.restart popup.system \
+           --set system.restart icon="󰜉" \
+                                icon.color="$WARNING" \
+                                label="Restart" \
+                                label.color="$WARNING" \
+                                click_script="$PLUGIN_DIR/system_menu.sh restart"
+
+sketchybar --add item system.shutdown popup.system \
+           --set system.shutdown icon="󰐥" \
+                                 icon.color="$ERROR" \
+                                 label="Shut Down" \
+                                 label.color="$ERROR" \
+                                 click_script="$PLUGIN_DIR/system_menu.sh shutdown"
+
 # Battery stays compact and changes accent based on charging/low state.
 sketchybar --add item battery right \
            --set battery background.color="$PANEL" \

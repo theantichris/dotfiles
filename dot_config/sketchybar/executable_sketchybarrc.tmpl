@@ -76,24 +76,25 @@ sketchybar --add item battery right \
                          update_freq=60 \
                          script="$PLUGIN_DIR/battery.sh"
 
-# Volume updates immediately when macOS reports an output-volume change.
+# Volume: click toggles mute; scroll changes volume in 5% steps.
 sketchybar --add item volume right \
            --set volume background.color="$PANEL" \
                         background.corner_radius=6 \
                         background.height=24 \
-                        icon.color="$MUTED" \
-                        label.color="$MUTED" \
+                        icon.color="$CYAN" \
+                        label.color="$TEXT" \
                         script="$PLUGIN_DIR/volume.sh" \
-           --subscribe volume volume_change
+           --subscribe volume volume_change mouse.clicked mouse.scrolled
 
-# Wi-Fi is the leftmost status item on the right side.
+# Wi-Fi: cyan status icon; click jumps straight to Wi-Fi settings.
 sketchybar --add item wifi right \
            --set wifi background.color="$PANEL" \
                       background.corner_radius=6 \
                       background.height=24 \
-                      icon.color="$MUTED" \
+                      icon.color="$CYAN" \
                       label.color="$MUTED" \
                       update_freq=30 \
+                      click_script='open "x-apple.systempreferences:com.apple.wifi-settings-extension"' \
                       script="$PLUGIN_DIR/wifi.sh"
 
 # Seed workspace state immediately instead of waiting for the first switch.

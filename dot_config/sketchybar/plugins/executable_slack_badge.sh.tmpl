@@ -1,0 +1,42 @@
+#!/bin/bash
+
+ERROR=0xff{{ trimPrefix "#" .cyberpunk.semantic.error }}
+ITEM="${NAME:-tray.slack}"
+
+badge="$(/usr/bin/osascript <<'APPLESCRIPT' 2>/dev/null
+tell application "System Events"
+    if not (exists process "Slack") then return "__NOT_RUNNING__"
+
+    tell process "Dock"
+        try
+            set badgeValue to value of attribute "AXStatusLabel" of UI element "Slack" of list 1
+            if badgeValue is missing value then return ""
+            return badgeValue as text
+        on error
+            return ""
+        end try
+    end tell
+end tell
+APPLESCRIPT
+)"
+
+if [ "$badge" = "__NOT_RUNNING__" ]; then
+  sketchybar --set "$ITEM" drawing=off
+  exit 0
+fi
+
+if [ -n "$badge" ] && [ "$badge" != "0" ]; then
+  sketchybar --set "$ITEM" \
+    drawing=on \
+    label="●" \
+    label.drawing=on \
+    label.color="$ERROR" \
+    background.border_width=1 \
+    background.border_color="$ERROR"
+else
+  sketchybar --set "$ITEM" \
+    drawing=on \
+    label="" \
+    label.drawing=off \
+    background.border_width=0
+fi

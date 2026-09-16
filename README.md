@@ -5,7 +5,7 @@ A cyberpunk/netrunner themed, keyboard-driven environment managed with
 for four targets:
 
 - **CachyOS Linux** — Hyprland desktop
-- **macOS** — CLI stack + GUI apps via Homebrew
+- **macOS** — CLI stack + Homebrew-managed apps, plus App Store installs
 - **Android** — Termux
 - **Parrot OS (HTB edition)** — lean CLI stack on a Debian VM
 
@@ -249,18 +249,25 @@ Termux ships its own terminal config under `dot_termux`.
 </details>
 
 <details>
-<summary><strong>macOS GUI (Homebrew casks)</strong></summary>
+<summary><strong>macOS apps</strong></summary>
 
-| App                                              | Cask                  |
-|--------------------------------------------------|-----------------------|
-| [Bitwarden](https://bitwarden.com)               | `bitwarden`           |
-| [Notion](https://www.notion.so)                  | `notion`              |
-| [Surfshark](https://surfshark.com)               | `surfshark`           |
-| [UHK Agent](https://ultimatehackingkeyboard.com) | `uhk-agent`           |
-| [qFlipper](https://flipperzero.one)              | `qflipper`            |
-| [Hack Nerd Font](https://www.nerdfonts.com)      | `font-hack-nerd-font` |
+Homebrew manages the CLI stack and the apps declared in [`dot_Brewfile`](dot_Brewfile).
+Bitwarden and Tailscale are intentionally installed through the Mac App Store and are
+not managed by Homebrew or chezmoi.
 
-The full macOS package set lives in [`dot_Brewfile`](dot_Brewfile).
+| App                                              | Source        |
+|--------------------------------------------------|---------------|
+| [AeroSpace](https://github.com/nikitabobko/AeroSpace) | Homebrew cask |
+| [ChatGPT](https://openai.com/chatgpt/desktop/)   | Homebrew cask |
+| [Karabiner-Elements](https://karabiner-elements.pqrs.org/) | Homebrew cask |
+| [Kitty](https://sw.kovidgoyal.net/kitty/)        | Homebrew cask |
+| [Notion](https://www.notion.so)                  | Homebrew cask |
+| [Surfshark](https://surfshark.com)               | Homebrew cask |
+| [UHK Agent](https://ultimatehackingkeyboard.com) | Homebrew cask |
+| [qFlipper](https://flipperzero.one)              | Homebrew cask |
+| [Zen](https://zen-browser.app/)                  | Homebrew cask |
+| [Bitwarden](https://bitwarden.com)               | Mac App Store |
+| [Tailscale](https://tailscale.com)               | Mac App Store |
 
 </details>
 

@@ -2,13 +2,14 @@
 
 MUTED=0xff{{ trimPrefix "#" .cyberpunk.text.muted }}
 PINK=0xff{{ trimPrefix "#" .cyberpunk.accent.pink }}
+CYAN=0xff{{ trimPrefix "#" .cyberpunk.accent.cyan }}
 
 # Resolve the Wi-Fi interface instead of assuming en0.
 device="$(networksetup -listallhardwareports | awk '/Hardware Port: (Wi-Fi|AirPort)/ { getline; print $2; exit }')"
 
 icon="󰖪"
-color="$PINK"
 label="offline"
+label_color="$PINK"
 label_drawing="on"
 
 if [ -n "$device" ]; then
@@ -17,15 +18,15 @@ if [ -n "$device" ]; then
 
   if [ "$status" = "active" ] && [ -n "$address" ]; then
     icon="󰖩"
-    color="$MUTED"
     label=""
+    label_color="$MUTED"
     label_drawing="off"
   fi
 fi
 
 sketchybar --set "$NAME" \
   icon="$icon" \
-  icon.color="$color" \
+  icon.color="$CYAN" \
   label="$label" \
-  label.color="$color" \
+  label.color="$label_color" \
   label.drawing="$label_drawing"

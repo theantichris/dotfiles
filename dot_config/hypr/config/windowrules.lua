@@ -45,6 +45,18 @@ hl.window_rule({
     workspace        = gamingWorkspace,
 })
 
+-- Battle.net launcher runs under steam_app_default with a non-empty title,
+-- so it gets swept into the generic gaming fullscreen rule above. Override it.
+hl.window_rule({
+    match            = { title = "^(Battle\\.net)$" },
+    center           = true,
+    float            = true,
+    fullscreen       = false,
+    fullscreen_state = 0,
+    sync_fullscreen  = false,
+    workspace        = gamingWorkspace,
+})
+
 -- Apps
 hl.window_rule({ match = { class = "^(.*\\.exe)$", float = true }, monitor = PRIMARY_MONITOR, center = true, fullscreen_state = 0 })
 hl.window_rule({ match = { class = "^(.*[Ll]auncher.*)$" }, float = true, monitor = PRIMARY_MONITOR })

@@ -27,7 +27,7 @@ hl.config({
         key_press_enables_dpms = true,
         mouse_move_enables_dpms = true,
         swallow_regex = "(kitty|ghostty|[Kk]onsole|Alacritty|gnome-terminal|xfce[0-9]?-terminal)",
-        vrr = 3,
+        vrr = 0,
     },
     render = {
         direct_scanout = 2,

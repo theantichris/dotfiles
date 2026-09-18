@@ -18,14 +18,14 @@ local gamingWorkspace = "name:gaming"
 
 hl.window_rule({ match = { content = "game" }, workspace = gamingWorkspace })
 hl.window_rule({ match = { xdg_tag = "^(.*game.*)$" }, workspace = gamingWorkspace, fullscreen_state = 2, content = "game", sync_fullscreen = true })
-hl.window_rule({ match = { class = gamingApps }, workspace = gamingWorkspace })
+hl.window_rule({ match = { class = gamingApps, title = "negative:^(Battle\\.net)$" }, workspace = gamingWorkspace })
 hl.window_rule({ match = { class = "^(steam)$", title = "^(Friends List)$" }, float = true })
 hl.window_rule({ match = { class = "^(steam)$", title = "^(Launching\\.{3})$" }, float = true, center = true, workspace = gamingWorkspace })
 hl.window_rule({
     match = {
         class         = gamingApps,
         title         = "^(.+)$",
-        initial_title = "negative:^(.*\\\\home\\\\.*)$",
+        initial_title = "negative:^(.*\\\\home\\\\.*|Battle\\.net)$",
     },
     content          = "game",
     decorate         = false,
@@ -42,21 +42,6 @@ hl.window_rule({
     float            = true,
     fullscreen       = false,
     fullscreen_state = 0,
-    workspace        = gamingWorkspace,
-})
-
--- Battle.net launcher runs under steam_app_default with a non-empty title,
--- so it gets swept into the generic gaming fullscreen rule above. Override it.
--- The app itself also requests a monitor-sized window, so force a smaller
--- floating size or it still visually fills the workspace.
-hl.window_rule({
-    match            = { title = "^(Battle\\.net)$" },
-    center           = true,
-    float            = true,
-    fullscreen       = false,
-    fullscreen_state = 0,
-    sync_fullscreen  = false,
-    size             = { "monitor_w*0.6", "monitor_h*0.6" },
     workspace        = gamingWorkspace,
 })
 

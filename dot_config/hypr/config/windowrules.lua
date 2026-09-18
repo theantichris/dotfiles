@@ -47,6 +47,8 @@ hl.window_rule({
 
 -- Battle.net launcher runs under steam_app_default with a non-empty title,
 -- so it gets swept into the generic gaming fullscreen rule above. Override it.
+-- The app itself also requests a monitor-sized window, so force a smaller
+-- floating size or it still visually fills the workspace.
 hl.window_rule({
     match            = { title = "^(Battle\\.net)$" },
     center           = true,
@@ -54,6 +56,7 @@ hl.window_rule({
     fullscreen       = false,
     fullscreen_state = 0,
     sync_fullscreen  = false,
+    size             = { "monitor_w*0.6", "monitor_h*0.6" },
     workspace        = gamingWorkspace,
 })
 

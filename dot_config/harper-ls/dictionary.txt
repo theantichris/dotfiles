@@ -180,3 +180,5 @@ nis
 diugh
 dràsta
 muigh
+Barra
+Inverness

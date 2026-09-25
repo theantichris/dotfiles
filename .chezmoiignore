@@ -28,6 +28,9 @@ CRUSH.md
 .config/karabiner/karabiner.json
 .config/jagalite.superseedr
 
+# Source-backed mutable files: tracked in Git, excluded from target state.
+harper-dictionary.txt
+
 # Android
 {{ if (ne .chezmoi.os "android") }}
 .hushlogin

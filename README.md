@@ -140,7 +140,7 @@ Termux ships its own terminal config under `dot_termux`.
 | [lua-language-server](https://github.com/LuaLS/lua-language-server)              | -                         |
 | [marksman](https://github.com/artempyanykh/marksman)                             | -                         |
 | [taplo](https://taplo.tamasfe.dev)                                               | -                         |
-| [typos-lsp](https://github.com/tekumara/typos-lsp)                               | -                         |
+| [Harper](https://writewithharper.com)                                           | -                         |
 | [vscode-langservers](https://github.com/hrsh7th/vscode-langservers-extracted)    | -                         |
 | [yaml-language-server](https://github.com/redhat-developer/yaml-language-server) | -                         |
 

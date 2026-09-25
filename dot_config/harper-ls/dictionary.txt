@@ -1,0 +1,3 @@
+Debuggable
+Non-Functional
+autoscaling

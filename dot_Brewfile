@@ -43,7 +43,7 @@ brew "bash-language-server"
 brew "lua-language-server"
 brew "marksman"
 brew "taplo"
-brew "typos-lsp"
+brew "harper"
 brew "vscode-langservers-extracted"
 brew "yaml-language-server"
 

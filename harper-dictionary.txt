@@ -98,7 +98,9 @@ eil
 eile
 eun
 faisg
+falbh
 feasgar
+feumaidh
 fhathast
 fhèin
 fliuch
@@ -128,12 +130,14 @@ isean
 le
 leabhar
 leat
+leibh
 leughadh
 loch
 luch
 lèine
 lèine-t
 madainn
+mar
 math
 mhath
 mhòr

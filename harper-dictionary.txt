@@ -6,8 +6,10 @@ Beathag
 Debuggable
 Eòsaph
 Glaschu
+Gorkom
 Inbhir
 Inverness
+Kureha
 Lilidh
 Lunnainn
 Mhàrtainn
@@ -17,6 +19,8 @@ Pimoroni
 Raonaid
 Sasainn
 Seumas
+Shadowrun
+Townfall
 a
 a'
 a-muigh
@@ -182,6 +186,7 @@ slaodach
 snog
 spàin
 spòrsail
+standup
 t
 taing
 tapadh

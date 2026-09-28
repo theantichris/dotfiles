@@ -166,6 +166,7 @@ piseag
 pàrant
 rithist
 rìs
+s
 sailead
 salann
 saor
@@ -187,6 +188,7 @@ snog
 spàin
 spòrsail
 standup
+Standup
 t
 taing
 tapadh

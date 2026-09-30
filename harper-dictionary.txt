@@ -1,10 +1,13 @@
 's
 Alba
+Ampli
 Barra
 Barraigh
 Beathag
+Crowder
 Debuggable
 Eòsaph
+GTM
 Glaschu
 Gorkom
 Inbhir
@@ -20,7 +23,9 @@ Raonaid
 Sasainn
 Seumas
 Shadowrun
+Standup
 Townfall
+Vigeant
 a
 a'
 a-muigh
@@ -187,8 +192,6 @@ slaodach
 snog
 spàin
 spòrsail
-standup
-Standup
 t
 taing
 tapadh

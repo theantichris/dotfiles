@@ -4,9 +4,11 @@ Ampli
 Barra
 Barraigh
 Beathag
+Brenden
 Crowder
 Debuggable
 Eòsaph
+Fitzsimons
 GTM
 Glaschu
 Gorkom
@@ -17,6 +19,7 @@ Lilidh
 Lunnainn
 Mhàrtainn
 Màrtainn
+NFR
 Non-Functional
 Pimoroni
 Raonaid

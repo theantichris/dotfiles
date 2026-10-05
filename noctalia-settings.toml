@@ -1,0 +1,165 @@
+config_version = 14
+
+[bar.default]
+background_opacity = 0.0
+capsule = true
+center = [ "workspaces" ]
+contact_shadow = true
+end = [ "cpu", "temp", "ram", "tray", "network", "bluetooth", "volume", "notifications", "control-center", "session" ]
+margin_ends = 0
+scale = 1.0500000081956387
+start = [ "clock", "weather", "media", "active_window" ]
+thickness = 25
+
+[calendar]
+enabled = true
+
+    [calendar.account.personal_google]
+    name = "Personal"
+    type = "google"
+
+[control_center.calendar]
+show_week_numbers = true
+
+[desktop_widgets]
+enabled = false
+
+[location]
+address = "Knoxville, USA"
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@DP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    box_height = 196.0
+    box_width = 720.0
+    cx = 1720.0
+    cy = 1321.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 3440.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[notification]
+offset_x = 16
+
+[plugins]
+enabled = [ "kenn/keybind-cheatsheet" ]
+
+[shell]
+corner_radius_scale = 0.60000000894069672
+
+    [shell.launcher]
+    sort_by_usage = false
+
+        [shell.launcher.providers.emoji]
+        global = true
+
+    [shell.panel]
+    transparency_mode = "glass"
+
+    [shell.screenshot]
+    copy_to_clipboard = true
+    directory = "/home/christopher/Screenshots"
+    pipe_command = "tmp=$(mktemp --suffix=.png); trap 'rm -f \"$tmp\"' EXIT; cat > \"$tmp\"; wl-copy --type image/png < \"$tmp\"; satty -f \"$tmp\" --copy-command wl-copy --auto-copy"
+
+[system.monitor]
+cpu_temp_activity_threshold = 80
+cpu_temp_critical_threshold = 90
+
+[theme]
+custom_palette = "Cyberpunk"
+source = "custom"
+
+    [theme.templates]
+    builtin_ids = [
+        "alacritty",
+        "emacs",
+        "foot",
+        "gtk3",
+        "gtk4",
+        "ghostty",
+        "hyprland",
+        "kcolorscheme",
+        "labwc",
+        "mango",
+        "niri",
+        "qt",
+        "scroll",
+        "starship",
+        "sway",
+        "wezterm"
+    ]
+    community_ids = [
+        "pi-agent",
+        "spicetify",
+        "tauon",
+        "pywalfox",
+        "zen-browser",
+        "neovim",
+        "obsidian",
+        "vscode",
+        "zed",
+        "fuzzel",
+        "rofi",
+        "vicinae",
+        "walker",
+        "discord",
+        "papirus-icons",
+        "steam",
+        "telegram",
+        "yazi",
+        "zathura",
+        "snappy-switcher",
+        "hyprtoolkit"
+    ]
+
+[wallpaper]
+directory = "/home/christopher/Backgrounds/Desktop"
+fill_mode = "stretch"
+transition_on_startup = true
+
+    [wallpaper.default]
+    path = "/home/christopher/Backgrounds/Desktop/cyberpunk.png"
+
+    [wallpaper.last]
+    path = "/home/christopher/Backgrounds/Desktop/cyberpunk.png"
+
+    [wallpaper.monitors.DP-1]
+    path = "/home/christopher/Backgrounds/Desktop/cyberpunk.png"
+
+[weather]
+unit = "imperial"
+
+[widget.network]
+show_label = false
+
+[widget.temp]
+show_value = true
+
+[widget.workspaces]
+focused_color = "tertiary"

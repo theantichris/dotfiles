@@ -1,0 +1,16 @@
+{
+  "accounts": [
+    {
+      "id": "363e2378-5d90-4c3e-a8cf-e2829bc66ce2",
+      "name": "Christopher Lamm",
+      "email": "christopherlamm81@gmail.com",
+      "service_provider": "gmail",
+      "fetch_email": "christopherlamm81@gmail.com",
+      "auth_method": "password",
+      "protocol": "imap",
+      "pop3_port": 995
+    }
+  ],
+  "has_seen_setup_guide": true,
+  "mouse_enabled": true
+}

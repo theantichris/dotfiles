@@ -1,0 +1,20 @@
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
+#!/bin/sh
+set -eu
+
+source_dir="{{ .chezmoi.sourceDir }}"
+config_source="$source_dir/dot_config/noctalia/config.toml"
+settings_source="$source_dir/noctalia-settings.toml"
+
+config_live="$HOME/.config/noctalia/config.toml"
+settings_live="$HOME/.local/state/noctalia/settings.toml"
+
+if [ ! -e "$config_source" ] && [ -f "$config_live" ]; then
+    mkdir -p "$(dirname "$config_source")"
+    cp -- "$config_live" "$config_source"
+fi
+
+if [ ! -e "$settings_source" ] && [ -f "$settings_live" ]; then
+    cp -- "$settings_live" "$settings_source"
+fi
+{{- end -}}

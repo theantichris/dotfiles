@@ -24,12 +24,12 @@ CRUSH.md
 
 # App-managed: these apps rewrite their own config at runtime. Keep mutable
 # config unmanaged, while allowing explicitly tracked declarative fragments.
-.config/noctalia/config.toml
 .config/karabiner/karabiner.json
 .config/jagalite.superseedr
 
 # Source-backed mutable files: tracked in Git, excluded from target state.
 harper-dictionary.txt
+noctalia-settings.toml
 
 # Android
 {{ if (ne .chezmoi.os "android") }}
@@ -58,6 +58,7 @@ bin/termux-url-opener
 .config/hypr
 .config/uwsm
 .config/systemd/user/noctalia.service
+.local/state/noctalia
 
 .chezmoiscripts/configure-sddm-astronaut-cachyos.sh
 .chezmoiscripts/install-packages-cachyos.sh

@@ -2,6 +2,9 @@ hl.config({
     general = {
         layout = "master",
     },
+    layout = {
+        single_window_aspect_ratio = { 16, 9 },
+    },
     dwindle = {
         preserve_split = true,
     },

@@ -11,6 +11,10 @@
       "pop3_port": 995
     }
   ],
+  "hide_tips": true,
+  "enable_split_pane": true,
+  "enable_threaded": true,
+  "theme": "Native",
   "has_seen_setup_guide": true,
   "mouse_enabled": true
 }

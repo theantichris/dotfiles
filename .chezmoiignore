@@ -24,6 +24,7 @@ CRUSH.md
 
 # App-managed: these apps rewrite their own config at runtime. Keep mutable
 # config unmanaged, while allowing explicitly tracked declarative fragments.
+.config/clin
 .config/karabiner/karabiner.json
 .config/jagalite.superseedr
 
@@ -98,5 +99,4 @@ Library/Application Support/superfile
 
 {{ if and (or (ne .chezmoi.os "linux") (ne .chezmoi.osRelease.id "cachyos")) (ne .chezmoi.os "darwin") }}
 .config/kitty
-.config/clin
 {{ end }}

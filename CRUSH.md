@@ -78,18 +78,15 @@ mirrored by the `sys-update` fish function.
 ## Shared template partials
 
 `.chezmoitemplates/` holds partials pulled in via
-`{{ includeTemplate "name" . }}`. Both current partials — `clin-config.toml` and
-`clin-cyberpunk-theme.toml` — are the single source of truth for clin, included
-by the Linux copies (`dot_config/clin/`) and the macOS copies
-(`Library/Application Support/com.clin.clin/`). Edit the partial, not the
-includers.
+`{{ includeTemplate "name" . }}`. The Superfile cyberpunk theme is shared
+between Linux and macOS through `superfile-cyberpunk-theme.toml`.
 
 ## The cyberpunk color system
 
 The canonical machine-readable palette lives in `.chezmoidata.yaml` under the
 `cyberpunk` key. Managed cyberpunk themes and palette-aware configs render their
 shared colors from that data, including Fish, Git/delta, Kitty, Helix, bat,
-btop, Glow, Superfile, Fastfetch, Newsboat, Termux, Toney, and clin.
+btop, Glow, Superfile, Fastfetch, Newsboat, Termux, and Toney.
 
 `color_palettes/cyberpunk/palette.html` is the human-friendly visual reference.
 It is repo documentation and is ignored by chezmoi, so it is not the runtime
@@ -103,10 +100,8 @@ When changing a shared color, edit `.chezmoidata.yaml`, not each consumer.
 - `config.fish.tmpl` sources `conf.d/eza.fish`, `environment.fish`, and
   `path.fish` explicitly; the rest of `conf.d/*.fish` autoload.
 - `conf.d/*.fish` are plain (no template) alias/tool bundles: `chezmoi`, `git`,
-  `go`, `eza`, `crush`, `modern-cli` (aliases `grep`→rg, `find`→fd when
+  `go`, `eza`, `modern-cli` (aliases `grep`→rg, `find`→fd when
   present), etc.
-- `crush.fish` defines `ai`, which runs Crush with its cwd pinned to the notes
-  workspace so general chat does not scatter CRUSH.md files into code repos.
 - The `.tmpl` fish files (`config`, `environment`, `path`,
   `functions/sys-update`) branch on OS; `toney.fish` and `gpg-unlock.fish` are
   Android-only via `.chezmoiignore`.

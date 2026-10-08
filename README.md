@@ -213,7 +213,6 @@ Termux ships its own terminal config under `dot_termux`.
 
 | Tool                                                    | Key Files (chezmoi paths)    |
 |---------------------------------------------------------|------------------------------|
-| [clin](https://github.com/reekta92/clin-rs)             | `dot_config/clin`            |
 | [Toney](https://github.com/SourcewareLab/Toney)         | `dot_config/toney` (Android) |
 | [linear-tui](https://github.com/roeyazroel/linear-tui)  | `dot_linear-tui`             |
 | [golazo](https://github.com/0xjuanma/golazo)            | `dot_config/golazo`          |
@@ -276,7 +275,7 @@ not managed by Homebrew or chezmoi.
 The canonical machine-readable cyberpunk palette lives in
 [`.chezmoidata.yaml`](.chezmoidata.yaml). Chezmoi templates consume it across
 Fish, Git/delta, Kitty, Helix, bat, btop, Glow, Superfile, Fastfetch, Newsboat,
-Termux, Toney, and clin.
+Termux, and Toney.
 
 [`color_palettes/cyberpunk/palette.html`](color_palettes/cyberpunk/palette.html)
 is the human-friendly visual reference. It is repo documentation, not the

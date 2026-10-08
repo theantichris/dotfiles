@@ -65,6 +65,7 @@ widget_order = [ "lockscreen-login-box@DP-1" ]
         show_weather = true
 
 [notification]
+background_opacity = 0.74999998323619366
 offset_x = 16
 
 [plugins]

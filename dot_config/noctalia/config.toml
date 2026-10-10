@@ -29,6 +29,11 @@ action = "screen_off"
 enabled = true
 timeout = 1800.0
 
+[notification.filter.calendar]
+enabled = true
+match = "Calendar"
+allow_permanent = false
+
 [shell]
 clipboard_image_action_command = "satty -f -"
 launch_apps_as_systemd_services = true

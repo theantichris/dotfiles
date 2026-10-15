@@ -20,5 +20,6 @@ packages:
   aur:
     - fish-lsp
     - slack-desktop
+    - uhk-agent-appimage
   cargo:
     - clin-rs

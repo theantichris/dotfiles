@@ -3,6 +3,7 @@ packages:
     - bash-language-server
     - bitwarden
     - brave-origin-bin
+    - chatgpt-desktop-bin
     - git-delta
     - go
     - gopls

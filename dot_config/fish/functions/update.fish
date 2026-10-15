@@ -1,4 +1,5 @@
 function update --description 'Update system and development tools'
+    cachy-update; or return
     shelly; or return
 
     if command -q go-global-update

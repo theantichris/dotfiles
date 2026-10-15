@@ -4,6 +4,7 @@ packages:
     - bitwarden
     - brave-origin-bin
     - chatgpt-desktop-bin
+    - entr
     - eza
     - fd
     - git-delta

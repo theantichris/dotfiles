@@ -30,9 +30,15 @@ fi
 {{ end -}}
 
 # Cargo packages
+{{ if .packages.cargo -}}
+# Initialize the Rust toolchain before the first Cargo install.
+if ! rustup show active-toolchain >/dev/null 2>&1; then
+    rustup default stable
+fi
 {{ range .packages.cargo }}
 if ! cargo install --list | grep -q '^{{ . }} v'; then
     cargo install --locked {{ . | quote }}
 fi
 {{ end }}
+{{ end -}}
 {{- end }}

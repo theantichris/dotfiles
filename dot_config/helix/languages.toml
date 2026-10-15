@@ -1,0 +1,62 @@
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]
+
+[language-server.harper-ls.config.harper-ls]
+diagnosticSeverity = "hint"
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[[language]]
+name = "bash"
+language-id = "shellscript"
+scope = "source.sh"
+file-types = [
+  { glob = "**/*.sh.tmpl" },
+  { glob = "**/*.bash.tmpl" },
+]
+shebangs = ["sh", "bash"]
+language-servers = ["bash-language-server", "harper-ls"]
+
+[[language]]
+name = "go"
+auto-format = true
+formatter = { command = "goimports" }
+language-servers = ["gopls", "harper-ls"]
+
+[[language]]
+name = "json"
+auto-format = true
+language-servers = ["vscode-json-languageserver"]
+
+[[language]]
+name = "jsonc"
+auto-format = true
+language-servers = ["vscode-json-languageserver", "harper-ls"]
+
+[[language]]
+name = "lua"
+auto-format = true
+language-servers = ["lua-language-server", "harper-ls"]
+file-types = [
+  { glob = "**/*.lua.tmpl" }
+]
+
+[[language]]
+name = "markdown"
+language-servers = ["marksman", "harper-ls"]
+
+[[language]]
+name = "rust"
+auto-format = true
+language-servers = ["rust-analyzer", "harper-ls"]
+
+[[language]]
+name = "toml"
+roots = ["."]
+language-servers = ["taplo", "harper-ls"]
+
+[[language]]
+name = "yaml"
+indent = { tab-width = 2, unit = "  " }

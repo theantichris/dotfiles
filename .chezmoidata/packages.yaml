@@ -1,4 +1,5 @@
 packages:
   pacman:
+    - bitwarden
     - brave-origin-bin
   aur: []

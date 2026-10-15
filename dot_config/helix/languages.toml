@@ -13,6 +13,8 @@ name = "bash"
 language-id = "shellscript"
 scope = "source.sh"
 file-types = [
+  "sh",
+  "bash",
   { glob = "**/*.sh.tmpl" },
   { glob = "**/*.bash.tmpl" },
 ]

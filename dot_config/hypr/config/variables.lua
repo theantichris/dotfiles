@@ -1,7 +1,7 @@
 -- Hyprland default apps
 
 TERMINAL     = "kitty"
-FILE_MANAGER = "dolphin"
+FILE_MANAGER = "kitty --class superfile --title Superfile spf"
 BROWSER      = "brave-origin"
 EDITOR       = "kitty -e helix"
 CALCULATOR   = "gnome-calculator"

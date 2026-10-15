@@ -3,6 +3,7 @@ hl.config({
         accel_profile = "flat",
         follow_mouse = 0,
         numlock_by_default = true,
+        kb_options = "caps:super",
     },
 })
 

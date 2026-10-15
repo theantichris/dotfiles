@@ -5,7 +5,6 @@ packages:
     - brave-origin-bin
     - chatgpt-desktop-bin
     - cmake
-    - cmatrix
     - entr
     - eza
     - fd

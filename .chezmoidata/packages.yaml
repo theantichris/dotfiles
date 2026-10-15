@@ -1,3 +1,4 @@
 packages:
-  pacman: []
+  pacman:
+    - brave-origin-bin
   aur: []

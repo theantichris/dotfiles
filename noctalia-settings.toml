@@ -94,6 +94,9 @@ widget_order = [ "lockscreen-login-box@eDP-2", "lockscreen-login-box@eDP-1" ]
 [plugins]
 enabled = [ "kenn/keybind-cheatsheet" ]
 
+[shell.greeter_sync]
+auto_sync = true
+
 [theme]
 builtin = "Noctalia"
 custom_palette = "Cyberpunk"

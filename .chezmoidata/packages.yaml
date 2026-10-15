@@ -19,3 +19,5 @@ packages:
   aur:
     - fish-lsp
     - slack-desktop
+  cargo:
+    - clin-rs

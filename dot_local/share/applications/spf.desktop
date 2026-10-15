@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Superfile
+GenericName=File Manager
+Comment=Browse files using Superfile in Kitty
+Exec=kitty --class superfile --title Superfile spf %f
+TryExec=spf
+Icon=system-file-manager
+Terminal=false
+MimeType=inode/directory;
+Categories=System;FileManager;Utility;
+Keywords=File;Folder;Directory;Manager;

@@ -3,7 +3,7 @@
 TERMINAL     = "kitty"
 FILE_MANAGER = "dolphin"
 BROWSER      = "brave-origin"
-EDITOR       = "gnome-text-editor --new-window"
+EDITOR       = "kitty -e helix"
 CALCULATOR   = "gnome-calculator"
 
 -- Monitors

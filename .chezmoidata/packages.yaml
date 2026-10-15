@@ -2,4 +2,7 @@ packages:
   pacman:
     - bitwarden
     - brave-origin-bin
+    - go
+    - helix
+    - rustup
   aur: []

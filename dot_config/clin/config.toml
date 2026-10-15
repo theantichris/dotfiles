@@ -1,0 +1,138 @@
+[core]
+vaults = []
+mouse_enabled = true
+confirm_on_delete = true
+confirm_on_quit = true
+preview_wrap = true
+keybind_preset = "helix"
+enable_key_sequences = true
+preview_expand_mode = "inline"
+syntax_highlighting = true
+code_theme = "base16-ocean.dark"
+code_line_numbers = true
+auto_refresh = true
+preview_wrap_indicator = false
+link_url_max_length = 80
+
+[core.vault_names]
+
+[ui]
+theme = "cyberpunk"
+background = "transparent"
+show_status_bar = true
+tab_icons_only = false
+icon_mode = "nerd"
+scrollbars = true
+scrollbar_pan_mode = false
+hint_bar_style = "classic"
+
+[backup]
+enabled = true
+backup_on_save = true
+backup_on_quit = true
+auto_push = true
+remote_name = "origin"
+
+[notes]
+rename_on_title_change = true
+
+[list]
+preview_enabled = true
+preview_position = "right"
+preview_encryption = false
+show_file_size = false
+date_format = "%Y-%m-%d"
+density = "compact"
+default_view = "grid"
+inline_info = true
+pinned_on_top = true
+show_hidden_files = false
+show_all_files = false
+skip_dirs = []
+folders_first = true
+calendar_enabled = false
+smart_folders_enabled = false
+folder_graph_preview = false
+pinned_folders = []
+preview_width_ratio = 0.4300000071525574
+calendar_height = 9
+calendar_position = "bottom"
+week_start = "monday"
+sections = []
+
+[editor]
+external_enabled = true
+preview_enabled = false
+show_line_numbers = true
+zen_hide_line_numbers = true
+zen_hide_scrollbar = true
+zen_focus_dimming = false
+zen_focus_unit = "paragraph"
+zen_focus_context = 3
+date_format = "%Y-%m-%d %H:%M"
+edit_mode_highlight = true
+ghost_syntax = true
+extended_markdown_features = true
+soft_wrap = false
+copy_on_select = true
+text_align = "left"
+zen_padding_percent = 15
+
+[graf]
+preview_enabled = false
+max_node = 500
+
+[graf.visual]
+graph_background = "solid"
+node_color_mode = "folder"
+edge_color_mode = "uniform"
+label_mode = "selected"
+label_max_length = 20
+node_size = 2.0
+node_size_mode = "fixed"
+node_scale = 5
+node_fill = "dynamic"
+selection_focus = "grow"
+edge_thickness = 1
+show_legend = true
+show_minimap = false
+minimap_position = "top_right"
+minimap_width = 24
+minimap_height = 12
+canvas_marker = "braille"
+node_shape = "circle"
+label_offset = 4.0
+show_looking_glass = true
+looking_glass_width = 24
+looking_glass_height = 12
+
+[graf.visual.colors]
+
+[graf.physics]
+ideal_distance = 80.0
+tick_rate = "auto"
+
+[graf.interaction]
+zoom_factor = 1.15
+drag_sensitivity = 1.0
+
+[graf.filter]
+exclude_tags = []
+show_orphan = false
+
+[graf.search]
+max_results = 20
+max_visible = 10
+
+[goals]
+enabled = false
+word_goal = 500
+note_goal = 3
+
+[image]
+enabled = true
+cache_size = 32
+preview_rows = 8
+attachments_subdir = "attachments"
+
+[statusline]

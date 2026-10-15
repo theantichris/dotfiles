@@ -1,4 +1,4 @@
-{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") (or .packages.pacman .packages.aur .packages.cargo) -}}
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") (or .packages.pacman .packages.aur .packages.go .packages.cargo) -}}
 #!/bin/sh
 set -eu
 
@@ -15,6 +15,19 @@ if ! pacman -Qq {{ . | quote }} >/dev/null 2>&1; then
     shelly install aur {{ . | quote }}
 fi
 {{ end }}
+
+# Go packages
+{{ if .packages.go -}}
+go_bin_dir="$(go env GOBIN)"
+if [ -z "$go_bin_dir" ]; then
+    go_bin_dir="$(go env GOPATH)/bin"
+fi
+{{ range .packages.go }}
+if [ ! -x "$go_bin_dir/{{ .name }}" ]; then
+    go install {{ .module | quote }}
+fi
+{{ end }}
+{{ end -}}
 
 # Cargo packages
 {{ range .packages.cargo }}

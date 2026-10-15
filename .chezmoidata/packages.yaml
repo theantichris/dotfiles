@@ -3,6 +3,9 @@ packages:
     - bitwarden
     - brave-origin-bin
     - go
+    - gopls
+    - go-tools
+    - harper
     - helix
     - rustup
   aur:

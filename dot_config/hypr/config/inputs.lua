@@ -2,6 +2,7 @@ hl.config({
     input = {
         accel_profile = "flat",
         follow_mouse = 0,
+        numlock_by_default = true,
     },
 })
 

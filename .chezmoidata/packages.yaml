@@ -12,5 +12,8 @@ packages:
     - marksman
     - rustup
     - rust-analyzer
+    - taplo-cli
+    - vscode-json-languageserver
+    - yaml-language-server
   aur:
     - slack-desktop

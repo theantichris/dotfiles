@@ -5,17 +5,19 @@ packages:
     - brave-origin-bin
     - chatgpt-desktop-bin
     - eza
+    - fd
     - git-delta
     - go
-    - gopls
     - go-tools
+    - gopls
     - harper
     - helix
     - lua-language-server
     - marksman
     - newsboat
-    - rustup
+    - ripgrep
     - rust-analyzer
+    - rustup
     - taplo-cli
     - ttf-hack-nerd
     - vscode-json-languageserver

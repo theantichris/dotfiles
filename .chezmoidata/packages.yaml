@@ -15,6 +15,7 @@ packages:
     - rustup
     - rust-analyzer
     - taplo-cli
+    - ttf-hack-nerd
     - vscode-json-languageserver
     - yaml-language-server
   aur:

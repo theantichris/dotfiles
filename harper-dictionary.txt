@@ -20,6 +20,7 @@ Fitzsimons
 GTM
 Glaschu
 Gorkom
+IDP
 Inbhir
 Inverness
 Kureha
@@ -33,6 +34,7 @@ Non-Functional
 Pimoroni
 RDR2
 Raonaid
+RubyLLM
 Sasainn
 Seumas
 Shadowrun

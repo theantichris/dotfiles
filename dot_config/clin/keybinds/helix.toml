@@ -1,0 +1,423 @@
+[list]
+move_up = [
+    "k",
+    "Up",
+]
+move_down = [
+    "j",
+    "Down",
+]
+move_left = [
+    "h",
+    "Left",
+]
+move_right = [
+    "l",
+    "Right",
+]
+open = [
+    "Enter",
+    "o",
+]
+delete = ["Space d"]
+quit = ["q"]
+help = ["?"]
+open_location = ["Ctrl+l"]
+cycle_focus = ["Tab"]
+reverse_cycle_focus = ["BackTab"]
+confirm = [
+    "y",
+    "Enter",
+]
+cancel = [
+    "n",
+    "Esc",
+]
+toggle_external_editor = ["Alt+e"]
+new_from_template = ["Space t"]
+create_folder = ["Space N"]
+create_note = ["Space n"]
+rename_folder = ["r"]
+move_note = ["m"]
+move_to_parent = ["g u"]
+manage_tags = ["Space ."]
+remove_tags_from_selected = ["Ctrl+."]
+open_command_palette = ["Space Space"]
+rename = ["r"]
+duplicate = ["y"]
+toggle_pin = ["Space p"]
+cycle_sort = ["Space s"]
+search = ["/"]
+jump_to_top = [
+    "g g",
+    "Shift+G",
+]
+jump_to_bottom = [
+    "g e",
+    "Shift+G",
+]
+page_up = ["Ctrl+b"]
+page_down = ["Ctrl+f"]
+open_trash = ["Space T"]
+toggle_preview = ["Space P"]
+toggle_preview_fullscreen = ["Ctrl+e"]
+toggle_wrap = ["Ctrl+w"]
+preview_page_up = ["Shift+Up"]
+preview_page_down = ["Shift+Down"]
+toggle_calendar = ["Shift+C"]
+open_graph = ["Space g"]
+toggle_select_mode = ["v"]
+toggle_select_item = ["Space"]
+collapse_all = ["c"]
+expand_all = ["e"]
+expand_to_level = ["Shift+E"]
+toggle_folders_first = ["Ctrl+h"]
+refresh_notes = ["Ctrl+r"]
+manage_subnotes = ["Alt+s"]
+show_info = ["i"]
+
+[edit]
+back = ["Esc"]
+cycle_focus = ["Ctrl+t"]
+insert_tab = ["Tab"]
+select_all = [
+    "Ctrl+a",
+    "Ctrl+Shift+a",
+]
+copy = ["Ctrl+c"]
+cut = ["Ctrl+x"]
+paste = ["Ctrl+v"]
+undo = ["Ctrl+z"]
+redo = [
+    "Ctrl+y",
+    "Ctrl+Shift+z",
+]
+delete_word = ["Ctrl+Backspace"]
+delete_next_word = ["Ctrl+Delete"]
+move_to_top = ["Ctrl+Home"]
+move_to_bottom = ["Ctrl+End"]
+toggle_markdown_preview = ["Ctrl+p"]
+toggle_preview_fullscreen = ["F11"]
+toggle_zen_mode = ["F8"]
+toggle_wrap = ["F10"]
+preview_page_up = ["PageUp"]
+preview_page_down = ["PageDown"]
+manage_subnotes = ["Alt+s"]
+paste_image = ["Ctrl+g Ctrl+i"]
+insert_image_from_file = ["Ctrl+g Ctrl+f"]
+find = ["Ctrl+f"]
+insert_date = ["Ctrl+;"]
+toggle_outline = ["Ctrl+o"]
+toggle_links = ["Ctrl+b"]
+preview_link = ["Alt+l"]
+go_to_line = ["Ctrl+g"]
+save = ["Ctrl+s"]
+cycle_alignment = ["F9"]
+
+[help]
+close = [
+    "Esc",
+    "q",
+    "?",
+    "F1",
+]
+scroll_up = [
+    "Up",
+    "k",
+]
+scroll_down = [
+    "Down",
+    "j",
+]
+next_tab = [
+    "Right",
+    "l",
+    "Tab",
+]
+prev_tab = [
+    "Left",
+    "h",
+    "BackTab",
+]
+search = [
+    "/",
+    "Ctrl+f",
+]
+reroll = ["r"]
+
+[graph]
+quit = ["q"]
+pan_up = [
+    "k",
+    "Up",
+]
+pan_down = [
+    "j",
+    "Down",
+]
+pan_left = [
+    "h",
+    "Left",
+]
+pan_right = [
+    "l",
+    "Right",
+]
+zoom_in = ["="]
+zoom_out = ["-"]
+open_note = [
+    "Enter",
+    "o",
+]
+auto_fit = ["Space a"]
+help = ["?"]
+toggle_search = ["/"]
+toggle_minimap = ["Space m"]
+toggle_legend = ["Shift+L"]
+toggle_grid = ["Space g"]
+toggle_status = ["Shift+S"]
+refresh = ["Space r"]
+toggle_preview = ["Shift+P"]
+create_connection = ["c"]
+delete_connection = ["d"]
+local_graph = ["l"]
+show_group = ["g"]
+delete_node = ["x"]
+menu_close = ["Esc"]
+menu_up = [
+    "Up",
+    "k",
+]
+menu_down = [
+    "Down",
+    "j",
+]
+menu_select = ["Enter"]
+looking_glass = ["Shift+O"]
+
+[draw]
+quit = [
+    "q",
+    "Esc",
+]
+help = ["?"]
+select_cursor_tool = ["a"]
+select_draw_tool = ["d"]
+toggle_shape_selector = ["s"]
+select_text_tool = ["t"]
+select_erase_tool = ["e"]
+shape_selector_up = [
+    "k",
+    "Up",
+]
+shape_selector_down = [
+    "j",
+    "Down",
+]
+shape_selector_confirm = ["Enter"]
+shape_selector_cancel = ["Esc"]
+toggle_color_selector = ["c"]
+color_selector_up = [
+    "Up",
+    "k",
+]
+color_selector_down = [
+    "Down",
+    "j",
+]
+color_selector_confirm = ["Enter"]
+color_selector_cancel = [
+    "Esc",
+    "q",
+]
+text_editor_confirm = ["Enter"]
+text_editor_cancel = ["Esc"]
+menu_close = ["Esc"]
+menu_up = [
+    "Up",
+    "k",
+]
+menu_down = [
+    "Down",
+    "j",
+]
+menu_select = ["Enter"]
+copy = ["c"]
+paste = ["v"]
+undo = ["Ctrl+z"]
+redo = [
+    "Ctrl+y",
+    "Ctrl+Shift+z",
+]
+toggle_grid = ["Space g"]
+
+[canvas]
+quit = [
+    "q",
+    "Esc",
+]
+undo = ["Ctrl+z"]
+redo = [
+    "Ctrl+y",
+    "Ctrl+Shift+z",
+]
+save = ["Ctrl+s"]
+zoom_fine_in = [">"]
+zoom_fine_out = ["<"]
+zoom_in = [
+    "=",
+    "+",
+]
+zoom_out = ["-"]
+move_left = [
+    "h",
+    "Left",
+]
+move_right = [
+    "l",
+    "Right",
+]
+move_up = [
+    "k",
+    "Up",
+]
+move_down = [
+    "j",
+    "Down",
+]
+edit_or_connect = [
+    "i",
+    "Enter",
+    "o",
+]
+open_context_menu = ["Space m"]
+toggle_grid = ["Space g"]
+toggle_orthogonal = ["Ctrl+o"]
+toggle_editor_pane = ["Ctrl+e"]
+cycle_focus = [
+    "Tab",
+    "BackTab",
+]
+help = ["?"]
+rename_confirm = ["Enter"]
+rename_cancel = ["Esc"]
+menu_close = ["Esc"]
+menu_up = ["Up"]
+menu_down = ["Down"]
+menu_select = ["Enter"]
+close_editor = ["Esc"]
+close_editor_alt = ["Ctrl+Enter"]
+confirm_resize = ["Enter"]
+cancel_resize = ["Esc"]
+editor_unfocus = ["Esc"]
+create_connection = ["c"]
+delete_connection = ["d"]
+rename_node = ["r"]
+resize_mode = ["s"]
+set_color = ["o"]
+delete_node = ["x"]
+delete_all_connections = ["b"]
+add_text_node = ["t"]
+add_group = ["g"]
+add_image_node = ["m"]
+
+[backup]
+back = [
+    "q",
+    "Esc",
+]
+move_down = [
+    "j",
+    "Down",
+]
+move_up = [
+    "k",
+    "Up",
+]
+scroll_diff_down = [
+    "Ctrl+d",
+    "PageDown",
+]
+scroll_diff_up = [
+    "Ctrl+u",
+    "PageUp",
+]
+refresh = ["r"]
+enter_commit = ["c"]
+push = ["p"]
+open_settings = ["Space s"]
+cycle_section = [
+    "Tab",
+    "BackTab",
+]
+cancel_commit = ["Esc"]
+confirm_commit = ["Enter"]
+close_settings = [
+    "Esc",
+    "q",
+]
+next_field = [
+    "j",
+    "Down",
+]
+prev_field = [
+    "k",
+    "Up",
+]
+activate_field = ["Enter"]
+cancel_edit_field = ["Esc"]
+confirm_edit_field = ["Enter"]
+help = ["?"]
+pull = ["Shift+P"]
+stage_file = ["Space"]
+unstage_file = ["u"]
+stage_all = ["Shift+S"]
+
+[outline]
+move_up = [
+    "k",
+    "Up",
+]
+move_down = [
+    "j",
+    "Down",
+]
+toggle_collapse = [
+    "Tab",
+    "Left",
+    "Right",
+    "h",
+    "l",
+]
+expand_all = ["e"]
+collapse_all = ["c"]
+open = [
+    "Enter",
+    "o",
+]
+back = [
+    "Esc",
+    "q",
+]
+help = ["?"]
+
+[setup]
+up = [
+    "Up",
+    "k",
+]
+down = [
+    "Down",
+    "j",
+]
+cycle_next = [
+    "Right",
+    "l",
+    "Space",
+]
+cycle_prev = [
+    "Left",
+    "h",
+]
+activate = ["Enter"]
+finish = ["Esc"]

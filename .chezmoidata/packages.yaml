@@ -27,5 +27,8 @@ packages:
     - fish-lsp
     - slack-desktop
     - uhk-agent-appimage
+  go:
+    - name: go-global-update
+      module: github.com/Gelio/go-global-update@latest
   cargo:
     - clin-rs

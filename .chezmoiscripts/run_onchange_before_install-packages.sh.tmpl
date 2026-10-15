@@ -1,16 +1,25 @@
-{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") (or .packages.pacman .packages.aur) -}}
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") (or .packages.pacman .packages.aur .packages.cargo) -}}
 #!/bin/sh
-
 set -eu
 
+# Pacman packages
 {{ range .packages.pacman }}
-sudo pacman -S --needed {{ . | quote }}
+if ! pacman -Qq {{ . | quote }} >/dev/null 2>&1; then
+    sudo pacman -S --needed {{ . | quote }}
+fi
 {{ end }}
 
+# AUR packages
 {{ range .packages.aur }}
 if ! pacman -Qq {{ . | quote }} >/dev/null 2>&1; then
     shelly install aur {{ . | quote }}
 fi
 {{ end }}
 
+# Cargo packages
+{{ range .packages.cargo }}
+if ! cargo install --list | grep -q '^{{ . }} v'; then
+    cargo install --locked {{ . | quote }}
+fi
+{{ end }}
 {{- end }}

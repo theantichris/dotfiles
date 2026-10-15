@@ -1,5 +1,6 @@
 export BROWSER=brave-origin
 export EDITOR=helix
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export VISUAL=helix
 export TERM=xterm-kitty
 export QT_QPA_PLATFORM="wayland;xcb"

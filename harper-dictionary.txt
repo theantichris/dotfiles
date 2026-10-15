@@ -11,6 +11,7 @@ Brenden
 CDMC
 CPAP
 Calibre
+Clin
 Crowder
 Dasani
 Debuggable
@@ -205,6 +206,7 @@ lèine-t
 madainn
 mar
 math
+md
 mhath
 mheud
 mhòr

@@ -17,7 +17,11 @@ alias gops='cd (go env GOPATH)/src'
 alias gor='go run'
 alias got='go test'
 alias gota='go test ./...'
-alias gotc='go test ./... -cover --coverprofile=coverage.out; and go tool cover -html=coverage.out'
+function gotc --description 'Run Go tests with coverage and open the report'
+    go test ./... -cover --coverprofile=coverage.out $argv
+    or return $status
+    go tool cover -html=coverage.out
+end
 alias gote='go test -tags=e2e'
 function gotw --description 'Watch Go files and rerun coverage tests'
     if not command -q entr

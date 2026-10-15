@@ -1,5 +1,6 @@
 packages:
   pacman:
+    - bat
     - bash-language-server
     - bitwarden
     - brave-origin-bin

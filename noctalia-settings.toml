@@ -94,8 +94,11 @@ widget_order = [ "lockscreen-login-box@eDP-2", "lockscreen-login-box@eDP-1" ]
 [plugins]
 enabled = [ "kenn/keybind-cheatsheet" ]
 
-[shell.greeter_sync]
-auto_sync = true
+[shell]
+avatar_path = "/home/christopher/Pictures/Avatars/Avatars/brute.png"
+
+    [shell.greeter_sync]
+    auto_sync = true
 
 [theme]
 builtin = "Noctalia"

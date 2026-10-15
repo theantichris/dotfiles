@@ -1,0 +1,11 @@
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
+#!/bin/sh
+set -eu
+
+xdg-mime default brave-origin.desktop \
+    x-scheme-handler/http \
+    x-scheme-handler/https \
+    text/html \
+    x-scheme-handler/about \
+    x-scheme-handler/unknown
+{{- end }}

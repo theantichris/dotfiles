@@ -1,0 +1,13 @@
+
+[Unit]
+Description=Load SSH key into SSH agent
+Requires=ssh-agent.socket
+After=ssh-agent.socket
+
+[Service]
+Type=oneshot
+Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
+ExecStart=/usr/bin/ssh-add %h/.ssh/id_ed25519
+
+[Install]
+WantedBy=default.target

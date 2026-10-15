@@ -1,9 +1,3 @@
-# overwrite greeting
-# potentially disabling fastfetch
-#function fish_greeting
-#    # smth smth
-#end
-
 # Show Fastfetch instead of Fish's built-in welcome message.
 function fish_greeting
     if command -q fastfetch

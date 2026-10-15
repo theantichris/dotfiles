@@ -5,3 +5,6 @@ end
 
 # Rust / Cargo
 fish_add_path --path $HOME/.cargo/bin
+
+# User-installed executables
+fish_add_path --path $HOME/.local/bin

@@ -1,0 +1,18 @@
+# OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary and editor files
+*.swp
+*.swo
+*~
+*.tmp
+*.bak
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Node dependencies
+node_modules/

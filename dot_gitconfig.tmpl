@@ -1,0 +1,102 @@
+{{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
+[color]
+ui = auto
+
+[color "status"]
+header    = "{{ .cyberpunk.text.muted }}"
+added     = "{{ .cyberpunk.accent.green }}"
+changed   = "{{ .cyberpunk.semantic.warning }}"
+untracked = "{{ .cyberpunk.accent.magenta }}"
+branch    = "{{ .cyberpunk.accent.cyan }} bold"
+nobranch  = "{{ .cyberpunk.semantic.error }} bold"
+unmerged  = "{{ .cyberpunk.semantic.error }}"
+
+[color "branch"]
+current  = "{{ .cyberpunk.accent.cyan }} bold"
+local    = "{{ .cyberpunk.text.primary }}"
+remote   = "{{ .cyberpunk.accent.magenta }}"
+upstream = "{{ .cyberpunk.accent.pink }}"
+plain    = "{{ .cyberpunk.text.primary }}"
+
+[color "decorate"]
+branch       = "{{ .cyberpunk.accent.cyan }} bold"
+remoteBranch = "{{ .cyberpunk.accent.magenta }}"
+tag          = "{{ .cyberpunk.semantic.warning }}"
+HEAD         = "{{ .cyberpunk.accent.pink }} bold"
+stash        = "{{ .cyberpunk.text.muted }}"
+
+[color "interactive"]
+prompt = "{{ .cyberpunk.accent.cyan }}"
+header = "{{ .cyberpunk.accent.pink }} bold"
+help   = "{{ .cyberpunk.text.muted }}"
+error  = "{{ .cyberpunk.semantic.error }} bold"
+
+[color "remote"]
+hint    = "{{ .cyberpunk.text.muted }}"
+warning = "{{ .cyberpunk.semantic.warning }}"
+success = "{{ .cyberpunk.accent.green }}"
+error   = "{{ .cyberpunk.semantic.error }} bold"
+
+[commit]
+gpgsign = true
+
+[core]
+editor = helix
+excludesFile = ~/.gitignore
+autocrlf = input
+eol = lf
+safecrlf = false
+pager = delta
+
+[delta]
+navigate = true
+dark = true
+syntax-theme = cyberpunk
+line-numbers = true
+hyperlinks = true
+# diff body: keep syntax highlighting, tint line backgrounds with palette-derived colors
+plus-style = syntax "{{ .cyberpunk.diff.added_line }}"
+plus-emph-style = syntax "{{ .cyberpunk.diff.added_word }}"
+minus-style = syntax "{{ .cyberpunk.diff.removed_line }}"
+minus-emph-style = syntax "{{ .cyberpunk.diff.removed_word }}"
+zero-style = syntax
+whitespace-error-style = "{{ .cyberpunk.semantic.error }} reverse"
+# gutter line numbers
+line-numbers-left-style = "{{ .cyberpunk.text.muted }}"
+line-numbers-right-style = "{{ .cyberpunk.text.muted }}"
+line-numbers-minus-style = "{{ .cyberpunk.accent.magenta }}"
+line-numbers-plus-style = "{{ .cyberpunk.accent.green }}"
+line-numbers-zero-style = "{{ .cyberpunk.text.muted }}"
+# file + hunk headers
+file-style = "{{ .cyberpunk.accent.cyan }} bold"
+file-decoration-style = "{{ .cyberpunk.accent.pink }} ul"
+hunk-header-style = "{{ .cyberpunk.accent.magenta }} bold"
+hunk-header-decoration-style = "{{ .cyberpunk.accent.cyan }} box"
+hunk-header-line-number-style = "{{ .cyberpunk.semantic.warning }}"
+# commit + blame accents
+commit-style = "{{ .cyberpunk.semantic.warning }} bold"
+commit-decoration-style = "{{ .cyberpunk.accent.pink }} ul"
+blame-palette = "#133039" "#321339" "#13302E" "#132639"
+
+[gpg]
+format = ssh
+
+[init]
+defaultBranch = main
+
+[interactive]
+diffFilter = delta --color-only
+
+[merge]
+conflictstyle = zdiff3
+
+[pull]
+rebase = true
+
+[push]
+default = simple
+
+[user]
+email = christopherlamm81@gmail.com
+name = Christopher Lamm
+signingkey = {{ .chezmoi.homeDir }}/.ssh/id_ed25519.pub

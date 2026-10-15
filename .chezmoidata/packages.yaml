@@ -21,6 +21,7 @@ packages:
     - ripgrep
     - rust-analyzer
     - rustup
+    - superfile
     - taplo-cli
     - ttf-hack-nerd
     - vscode-json-languageserver

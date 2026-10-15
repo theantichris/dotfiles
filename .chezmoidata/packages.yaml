@@ -16,4 +16,5 @@ packages:
     - vscode-json-languageserver
     - yaml-language-server
   aur:
+    - fish-lsp
     - slack-desktop

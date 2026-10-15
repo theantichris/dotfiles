@@ -12,6 +12,7 @@ packages:
     - helix
     - lua-language-server
     - marksman
+    - newsboat
     - rustup
     - rust-analyzer
     - taplo-cli

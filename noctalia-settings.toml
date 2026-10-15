@@ -1,0 +1,123 @@
+config_version = 15
+
+[bar.default]
+capsule = true
+end = [ "media", "spacer_1", "tray", "group:g2", "battery", "control-center", "notifications", "session" ]
+
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    border = ""
+    border_width = 1.0
+    enabled = true
+    fill = "surface_variant"
+    id = "g1"
+    members = [ "temp", "sysmon_2", "sysmon_3" ]
+    opacity = 1.0
+    padding = 6.0
+
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    border_width = 1.0
+    enabled = true
+    fill = "surface_variant"
+    id = "g2"
+    members = [ "network", "bluetooth", "volume" ]
+    opacity = 1.0
+    padding = 6.0
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-2", "lockscreen-login-box@eDP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 1018.0
+    output = "eDP-1"
+    placement_height = 1200.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-2"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 1018.0
+    output = "eDP-2"
+    placement_height = 1200.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[plugins]
+enabled = [ "kenn/keybind-cheatsheet" ]
+
+[theme]
+builtin = "Noctalia"
+custom_palette = "Cyberpunk"
+mode = "dark"
+source = "custom"
+
+    [theme.templates]
+    builtin_ids = [ "alacritty", "btop", "gtk3", "gtk4", "hyprland", "kcolorscheme", "qt" ]
+
+[wallpaper.default]
+path = "/home/christopher/Pictures/Backgrounds/Desktop/cyberpunk.png"
+
+[wallpaper.last]
+path = "/home/christopher/Pictures/Backgrounds/Desktop/cyberpunk.png"
+
+[wallpaper.monitors.eDP-1]
+path = "/home/christopher/Pictures/Backgrounds/Desktop/cyberpunk.png"
+
+[widget.network]
+show_label = false
+
+[widget.tray]
+capsule_fill = "surface_variant"
+
+[widget.workspaces]
+capsule_fill = "surface_variant"
+show_labels = true

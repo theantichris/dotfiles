@@ -5,7 +5,7 @@ function update --description 'Update system and development tools'
         go-global-update; or return
     end
 
-    if command -q cargo
+    if command -q cargo-install-update
         cargo install-update -a; or return
     end
 

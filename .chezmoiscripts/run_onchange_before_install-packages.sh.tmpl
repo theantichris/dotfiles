@@ -1,0 +1,12 @@
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") (or .packages.pacman .packages.aur) -}}
+#!/bin/sh
+set -eu
+
+{{ range .packages.pacman }}
+sudo pacman -S --needed {{ . | quote }}
+{{ end }}
+
+{{ range .packages.aur }}
+shelly install aur --needed {{ . | quote }}
+{{ end }}
+{{- end }}

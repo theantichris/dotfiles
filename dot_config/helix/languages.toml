@@ -30,12 +30,12 @@ language-servers = ["gopls", "harper-ls"]
 [[language]]
 name = "json"
 auto-format = true
-language-servers = ["vscode-json-languageserver"]
+language-servers = ["vscode-json-language-server", "harper-ls"]
 
 [[language]]
 name = "jsonc"
 auto-format = true
-language-servers = ["vscode-json-languageserver", "harper-ls"]
+language-servers = ["vscode-json-language-server", "harper-ls"]
 
 [language-server.lua-language-server.config.Lua.diagnostics]
 globals = ["hl", "CACHYLGREEN"]
@@ -66,3 +66,4 @@ language-servers = ["taplo", "harper-ls"]
 [[language]]
 name = "yaml"
 indent = { tab-width = 2, unit = "  " }
+language-servers = ["yaml-language-server", "harper-ls"]

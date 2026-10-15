@@ -40,6 +40,7 @@ name = "lua"
 auto-format = true
 language-servers = ["lua-language-server", "harper-ls"]
 file-types = [
+  "lua",
   { glob = "**/*.lua.tmpl" }
 ]
 

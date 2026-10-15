@@ -4,6 +4,7 @@ packages:
     - bitwarden
     - brave-origin-bin
     - chatgpt-desktop-bin
+    - cmake
     - entr
     - eza
     - fd
@@ -16,6 +17,7 @@ packages:
     - lua-language-server
     - marksman
     - newsboat
+    - pkgconf
     - ripgrep
     - rust-analyzer
     - rustup

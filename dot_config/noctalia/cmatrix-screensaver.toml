@@ -3,5 +3,5 @@
 enabled = true
 timeout = 300
 action = "command"
-command = "kitty --detach --start-as fullscreen --class cmatrix-screensaver -o background_opacity=1.0 -e cmatrix -a -b -s"
+command = "kitty --detach --start-as fullscreen --class cmatrix-screensaver -o background_opacity=1.0 cmatrix -a -b -s"
 resume_command = "hyprctl dispatch closewindow 'class:^(cmatrix-screensaver)$'"

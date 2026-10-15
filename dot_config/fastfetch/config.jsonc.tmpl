@@ -1,0 +1,178 @@
+{{- $cachyos := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "source": "~/.config/fastfetch/pentagram.txt",
+    "type": "file",
+    "padding": {
+      "top": 1,
+      "left": 2,
+      "right": 4
+    },
+    "color": {
+      "1": "{{ .cyberpunk.accent.pink }}",
+      "2": "{{ .cyberpunk.accent.cyan }}"
+    }
+  },
+  "display": {
+    "separator": "  ",
+    "key": {
+      "width": 13
+    }
+  },
+  "modules": [
+    {
+      "type": "title",
+      "format": "{user-name-colored}@{host-name-colored}",
+      "color": {
+        "user": "cyan",
+        "host": "magenta"
+      }
+    },
+    {
+      "type": "separator",
+      "string": "─"
+    },
+    {
+      "type": "os",
+      "key": "󰌽 OS",
+      "keyColor": "{{ .cyberpunk.accent.pink }}"
+    },
+{{- if or (eq .chezmoi.os "android") (eq .chezmoi.os "darwin") }}
+    {
+      "type": "host",
+      "key": "󰌢 Host",
+      "keyColor": "{{ .cyberpunk.accent.pink }}"
+    },
+{{- end }}
+
+    {
+      "type": "kernel",
+      "key": "󰒔 Kernel",
+      "keyColor": "{{ .cyberpunk.accent.pink }}"
+    },
+    {
+      "type": "uptime",
+      "key": "󰔚 Uptime",
+      "keyColor": "{{ .cyberpunk.accent.pink }}"
+    },
+
+    {
+      "type": "shell",
+      "key": "󰞷 Shell",
+      "keyColor": "{{ .cyberpunk.accent.pink }}"
+    },
+    "break",
+    {
+      "type": "wm",
+      "key": "󰨇 WM",
+      "keyColor": "{{ .cyberpunk.accent.cyan }}"
+    },
+    {
+      "type": "wmtheme",
+      "key": "󰸌 WM Theme",
+      "keyColor": "{{ .cyberpunk.accent.cyan }}"
+    },
+    {
+      "type": "theme",
+      "key": "󰉼 Theme",
+      "keyColor": "{{ .cyberpunk.accent.cyan }}"
+    },
+    {
+      "type": "icons",
+      "key": "󰀻 Icons",
+      "keyColor": "{{ .cyberpunk.accent.cyan }}"
+    },
+    {
+      "type": "cursor",
+      "key": "󰇀 Cursor",
+      "keyColor": "{{ .cyberpunk.accent.cyan }}"
+    },
+    {
+      "type": "terminal",
+      "key": "󰆍 Terminal",
+      "keyColor": "{{ .cyberpunk.accent.cyan }}"
+    },
+    {
+      "type": "terminalfont",
+      "key": "󰛖 Font",
+      "keyColor": "{{ .cyberpunk.accent.cyan }}"
+    },
+    "break",
+    {
+      "type": "display",
+      "key": "󰍹 Display",
+      "keyColor": "{{ .cyberpunk.semantic.success }}"
+    },
+{{- if or (eq .chezmoi.os "darwin") $cachyos }}
+    {
+      "type": "command",
+      "key": "󰻠 CPU",
+      "keyColor": "{{ .cyberpunk.semantic.success }}",
+      "shell": "fish",
+{{- if eq .chezmoi.os "darwin" }}
+      "param": "-Nc",
+      "parallel": true,
+{{- else }}
+      "param": "-c",
+      "parallel": false,
+{{- end }}
+      "text": "set values (printf '%s\\n' '{\"logo\":{\"type\":\"none\"},\"modules\":[{\"type\":\"cpu\",\"key\":\" \"},{\"type\":\"cpuusage\",\"key\":\" \",\"format\":\"{avg}\"}]}' | fastfetch --config - --pipe); printf '%s (%s)' \"$values[1]\" \"$values[2]\""
+    },
+{{- else }}
+    {
+      "type": "cpu",
+      "key": "󰻠 CPU",
+      "keyColor": "{{ .cyberpunk.semantic.success }}"
+    },
+{{- end }}
+{{- if ne .chezmoi.os "android" }}
+    {
+      "type": "gpu",
+      "key": "󰢮 GPU",
+      "keyColor": "{{ .cyberpunk.semantic.success }}"
+    },
+{{- end }}
+    {
+      "type": "memory",
+      "key": "󰍛 Memory",
+      "keyColor": "{{ .cyberpunk.semantic.success }}"
+    },
+    {
+      "type": "disk",
+      "key": "󰋊 Disk",
+      "keyColor": "{{ .cyberpunk.semantic.success }}"
+    },
+{{- if or (eq .chezmoi.os "android") (eq .chezmoi.os "darwin") $cachyos }}
+    {
+      "type": "battery",
+      "key": "󰁹 Battery",
+      "keyColor": "{{ .cyberpunk.semantic.success }}",
+      "temp": true
+    },
+{{- end }}
+    "break",
+    {
+      "type": "localip",
+      "key": "󰩟 Local IP",
+      "keyColor": "{{ .cyberpunk.semantic.warning }}",
+      "format": "{ipv4} ({ifname})"
+    },
+    {
+      "type": "wifi",
+      "key": "󰖩 WiFi",
+      "keyColor": "{{ .cyberpunk.semantic.warning }}"
+    },
+    "break",
+    {
+      "type": "datetime",
+      "key": "󰥔 Date/Time",
+      "keyColor": "{{ .cyberpunk.semantic.info }}"
+    },
+    "break",
+    {
+      "type": "colors",
+      "symbol": "circle"
+    }
+  ]
+}

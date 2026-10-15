@@ -1,0 +1,7 @@
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
+#!/bin/sh
+set -eu
+
+# Set the default folder opener without changing other file associations.
+xdg-mime default spf.desktop inode/directory
+{{- end }}

@@ -31,4 +31,5 @@ packages:
     - name: go-global-update
       module: github.com/Gelio/go-global-update@latest
   cargo:
+    - cargo-update
     - clin-rs

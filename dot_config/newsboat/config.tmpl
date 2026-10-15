@@ -1,0 +1,46 @@
+# NewsBlur backend
+urls-source "newsblur"
+newsblur-login "theantichris"
+newsblur-passwordfile "~/.config/newsboat/newsblur-password.txt"
+cookie-cache "~/.config/newsboat/cookies.txt"
+refresh-on-startup yes
+auto-reload yes
+reload-time 15
+
+browser "xdg-open %u"
+
+show-read-articles no
+show-read-feeds no
+
+# Vim keybindings
+unbind-key j
+unbind-key k
+unbind-key J
+unbind-key K
+unbind-key g
+unbind-key G
+
+bind-key h quit
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key J next-feed
+bind-key K prev-feed
+bind-key g home
+bind-key G end
+bind-key ^D pagedown
+bind-key ^U pageup
+
+# Cyberpunk theme (xterm-256 indexes are defined with the shared palette data)
+color background          color{{ .cyberpunk.terminal.xterm256.text }}  color{{ .cyberpunk.terminal.xterm256.background }}
+color listnormal          color{{ .cyberpunk.terminal.xterm256.text }}  color{{ .cyberpunk.terminal.xterm256.background }}
+color listnormal_unread   color{{ .cyberpunk.terminal.xterm256.cyan }}   color{{ .cyberpunk.terminal.xterm256.background }}  bold
+color listfocus           color{{ .cyberpunk.terminal.xterm256.background }}  color{{ .cyberpunk.terminal.xterm256.pink }}  bold
+color listfocus_unread    color{{ .cyberpunk.terminal.xterm256.background }}  color{{ .cyberpunk.terminal.xterm256.cyan }}   bold
+color info                color{{ .cyberpunk.terminal.xterm256.background }}  color{{ .cyberpunk.terminal.xterm256.pink }}  bold
+color article             color{{ .cyberpunk.terminal.xterm256.text }}  color{{ .cyberpunk.terminal.xterm256.background }}
+
+# Highlights
+highlight article "^(Feed|Title|Author|Link|Date):.*" color{{ .cyberpunk.terminal.xterm256.cyan }} color{{ .cyberpunk.terminal.xterm256.background }}
+highlight article "https?://[^ ]+" color{{ .cyberpunk.terminal.xterm256.green }} color{{ .cyberpunk.terminal.xterm256.background }} underline
+highlight article "\\[[0-9]+\\]" color{{ .cyberpunk.terminal.xterm256.magenta }} color{{ .cyberpunk.terminal.xterm256.background }} bold

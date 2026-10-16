@@ -1,0 +1,971 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# SERVER
+# ══════════════════════════════════════════════════════════════════════════════
+
+[server]
+port = 41869                           # Port number (auto-generated for this installation)
+# bind = "127.0.0.1"                # Address to bind to ("0.0.0.0" for all interfaces)
+# http_request_logs = false              # Enable verbose Axum HTTP request/response logs (debugging)
+# ws_request_logs = false                # Enable WebSocket RPC request/response logs (debugging)
+# rpc_timeout_ms = 5000                  # Web UI WebSocket RPC reply timeout (milliseconds)
+# terminal_enabled = true                # Enable interactive host terminal in Settings > Terminal
+                                         # Set to false to disable the unsandboxed shell in the web UI.
+                                         # NOTE: this can be re-enabled via the web UI config editor.
+                                         # For hard lockdown, set MOLTIS_TERMINAL_DISABLED=1 (env var
+                                         # takes precedence and cannot be changed from the web UI).
+# update_releases_url = "https://www.moltis.org/releases.json"  # Override releases manifest URL
+# external_url = "https://moltis.example.com"  # Public URL when behind a reverse proxy.
+                                                 # Used for WebAuthn passkey origins.
+                                                 # Env var MOLTIS_EXTERNAL_URL takes precedence.
+
+# ══════════════════════════════════════════════════════════════════════════════
+# UPSTREAM PROXY
+# ══════════════════════════════════════════════════════════════════════════════
+# Route all outbound traffic (providers, channels, tools, OAuth) through a
+# proxy. Supports http://, https://, socks5://, socks5h:// schemes.
+# Authentication via URL: "http://user:pass@host:port"
+# When unset, reqwest honours HTTP_PROXY / HTTPS_PROXY / ALL_PROXY env vars.
+
+# upstream_proxy = "http://127.0.0.1:1080"
+
+# ══════════════════════════════════════════════════════════════════════════════
+# AUTHENTICATION
+# ══════════════════════════════════════════════════════════════════════════════
+
+# [auth]
+# disabled = false                  # true = disable auth entirely (DANGEROUS if exposed)
+                                    # When disabled, anyone with network access can use moltis
+# vault_enabled = true              # true = encrypt stored secrets at rest using the password vault
+#                                   # Set false to keep password auth without requiring vault unlocks after restart.
+
+# ══════════════════════════════════════════════════════════════════════════════
+# GRAPHQL
+# ══════════════════════════════════════════════════════════════════════════════
+
+# [graphql]
+# enabled = false                   # Enable GraphQL endpoint (/graphql for HTTP + WebSocket)
+                                    # Can be toggled at runtime in Settings > GraphQL
+
+# ══════════════════════════════════════════════════════════════════════════════
+# TLS / HTTPS
+# ══════════════════════════════════════════════════════════════════════════════
+
+# [tls]
+# enabled = true                    # Enable HTTPS (recommended)
+# auto_generate = true              # Auto-generate local CA and server certificate
+# public_ip = "203.0.113.10"        # Optional IP SAN for direct https://IP access
+# http_redirect_port = 18790        # Optional override (default: server.port + 1)
+# cert_path = "/path/to/cert.pem"   # Custom certificate file (overrides auto-gen)
+# key_path = "/path/to/key.pem"     # Custom private key file
+# ca_cert_path = "/path/to/ca.pem"  # CA certificate for trust instructions
+
+# ══════════════════════════════════════════════════════════════════════════════
+# AGENT IDENTITY
+# ══════════════════════════════════════════════════════════════════════════════
+# Customize your agent's personality. These are typically set during onboarding.
+
+# [identity]
+# name = "moltis"                   # Agent's display name
+# emoji = "🦊"                      # Agent's emoji/avatar
+# theme = "wise owl"                # Theme for agent personality (e.g. wise owl, chill fox)
+# soul = ""                         # Freeform personality text injected into system prompt
+                                    # Use this for custom instructions, tone, or behavior
+
+# ══════════════════════════════════════════════════════════════════════════════
+# USER PROFILE
+# ══════════════════════════════════════════════════════════════════════════════
+# Information about you. Set during onboarding.
+
+# [user]
+# name = "Your Name"                # Your name (used in conversations)
+# timezone = "America/New_York"     # Your timezone (IANA format)
+
+# ══════════════════════════════════════════════════════════════════════════════
+# LLM PROVIDERS
+# ══════════════════════════════════════════════════════════════════════════════
+# Configure API keys and settings for each LLM provider.
+# API keys can also be set via environment variables (preferred for security).
+#
+# Each provider supports:
+#   enabled   - Whether to use this provider (default: true)
+#   api_key   - API key (or use env var like ANTHROPIC_API_KEY)
+#   base_url  - Override API endpoint
+#   models    - Preferred models shown first (optional)
+#   fetch_models - Discover models from provider API when available (default: true)
+#   stream_transport - Streaming transport: "sse", "websocket", or "auto" (default: "sse")
+#   alias     - Custom name for metrics labels (useful for multiple instances)
+#   strict_tools - Force strict/non-strict tool schemas (default: auto-detect per provider)
+#   policy    - Per-provider tool policy override (allow/deny lists)
+#   model_overrides.<model_id>.context_window - Override context window for a specific model
+#   probe_timeout_secs - Timeout for completion-based model probes (default: 30s).
+#                        Increase for local LLM servers that load large models on first request.
+
+# [providers]
+# offered = ["local-llm", "lmstudio", "github-copilot", "openai-codex", "openai", "anthropic", "openrouter", "ollama", "moonshot", "minimax", "zai"]
+                                    # Enabled providers and those shown in onboarding/picker UI ([] = enable/show all)
+# show_legacy_models = true         # Show models older than 1 year in the chat model selector (they always appear in Settings)
+# All available providers (canonical list in schema/providers.rs):
+#   "anthropic", "openai", "gemini", "groq", "xai", "deepinfra",
+#   "deepseek", "fireworks", "mistral", "openrouter", "cerebras", "minimax",
+#   "moonshot", "zai", "zai-code", "venice", "nearai", "alibaba-coding",
+#   "ollama", "lmstudio", "local-llm", "openai-codex",
+#   "github-copilot", "kimi-code"
+
+# ── Anthropic (Claude) ────────────────────────────────────────
+# [providers.anthropic]
+# enabled = true
+# api_key = "sk-ant-..."                      # Or set ANTHROPIC_API_KEY env var
+# models = ["claude-sonnet-4-5-20250929"]     # Optional preferred models
+# fetch_models = true                          # Set false to skip remote discovery
+# base_url = "https://api.anthropic.com"     # API endpoint
+# alias = "anthropic"                         # Custom name for metrics
+# cache_retention = "short"                    # Prompt caching: "none" | "short" | "long"
+# policy.deny = ["exec"]                       # Deny specific tools when using this provider
+# policy.allow = []                            # Restrict to only these tools (empty = all allowed)
+# [providers.anthropic.model_overrides.claude-opus-4-6]
+# context_window = 1_000_000                   # Provider-scoped model override
+# For a MiniMax Anthropic-compatible endpoint, keep the `/anthropic` suffix:
+# base_url = "https://api.minimax.io/anthropic" # Use https://api.minimaxi.com/anthropic for China
+# models = ["MiniMax-M3", "MiniMax-M2.7"]
+# alias = "minimax-anthropic"
+
+# ── OpenAI ────────────────────────────────────────────────────
+# [providers.openai]
+# enabled = true
+# api_key = "sk-..."                          # Or set OPENAI_API_KEY env var
+# models = ["gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-luna"]  # Preferred models shown first
+# fetch_models = true
+# stream_transport = "sse"                     # "sse" | "websocket" | "auto"
+# base_url = "https://api.openai.com/v1"     # API endpoint (change for Azure, etc.)
+# alias = "openai"
+
+# ── MiniMax ────────────────────────────────────────────────────
+# [providers.minimax]
+# enabled = true
+# api_key = "..."                             # Or set MINIMAX_API_KEY
+# models = ["MiniMax-M3", "MiniMax-M2.7"]
+# fetch_models = false                         # MiniMax uses the static model catalog by default
+# base_url = "https://api.minimax.io/v1"     # OpenAI-compatible global endpoint
+# For China, use "https://api.minimaxi.com/v1".
+
+# ── Google Gemini ─────────────────────────────────────────────
+# [providers.gemini]
+# enabled = true
+# api_key = "..."                             # Or set GEMINI_API_KEY / GOOGLE_API_KEY env var
+# models = ["gemini-2.5-flash", "gemini-2.5-pro"]
+# fetch_models = true
+# base_url = "https://generativelanguage.googleapis.com/v1beta/openai"
+# alias = "gemini"
+
+# ── Groq ──────────────────────────────────────────────────────
+# [providers.groq]
+# enabled = true
+# api_key = "..."                             # Or set GROQ_API_KEY env var
+# models = ["llama-3.3-70b-versatile"]
+# alias = "groq"
+
+# ── DeepInfra ─────────────────────────────────────────────────
+# [providers.deepinfra]
+# enabled = true
+# api_key = "..."                             # Or set DEEPINFRA_API_KEY env var
+# models = ["meta-llama/Llama-4-Maverick-17B-128E-Instruct"]
+# base_url = "https://api.deepinfra.com/v1/openai"
+# alias = "deepinfra"
+
+# ── DeepSeek ──────────────────────────────────────────────────
+# [providers.deepseek]
+# enabled = true
+# api_key = "..."                             # Or set DEEPSEEK_API_KEY env var
+# models = ["deepseek-chat"]
+# base_url = "https://api.deepseek.com"
+# alias = "deepseek"
+
+# ── Fireworks ────────────────────────────────────────────────
+# [providers.fireworks]
+# enabled = true
+# api_key = "..."                             # Or set FIREWORKS_API_KEY env var
+# models = ["accounts/fireworks/models/kimi-k2p6"]
+# fetch_models = true                          # Set false to skip remote discovery
+# base_url = "https://api.fireworks.ai/inference/v1"
+# alias = "fireworks"
+
+# ── xAI (Grok) ────────────────────────────────────────────────
+# [providers.xai]
+# enabled = true
+# api_key = "..."                             # Or set XAI_API_KEY env var
+# models = ["grok-3-mini"]
+# alias = "xai"
+
+# ── OpenRouter (multi-provider gateway) ───────────────────────
+# [providers.openrouter]
+# enabled = true
+# api_key = "..."                             # Or set OPENROUTER_API_KEY env var
+# models = ["anthropic/claude-3.5-sonnet"]    # Any model IDs on OpenRouter
+# base_url = "https://openrouter.ai/api/v1"
+
+# ── Moonshot (Kimi) ─────────────────────────────────────────
+# [providers.moonshot]
+# enabled = true
+# api_key = "..."                             # Or set MOONSHOT_API_KEY env var
+# models = ["kimi-k3", "kimi-k2.7-code-highspeed", "kimi-k2.6"]  # Preferred models shown first
+# base_url = "https://api.moonshot.ai/v1"
+# alias = "moonshot"
+
+# ── NEAR AI Cloud ─────────────────────────────────────────────
+# [providers.nearai]
+# enabled = true
+# api_key = "..."                             # Or set NEARAI_API_KEY env var
+# models = ["zai-org/GLM-5.1-FP8"]           # Optional preferred models
+# fetch_models = true                          # Discover models from NEAR AI Cloud
+# base_url = "https://cloud-api.near.ai/v1"
+# alias = "nearai"
+
+# ── Ollama ────────────────────────────────────────────────────
+# [providers.ollama]
+# base_url = "http://localhost:11434"
+# models = ["llama3.2", "qwen2.5:7b"]         # Optional preferred models; installed models are discovered dynamically
+
+# ── Local LLM ─────────────────────────────────────────────────
+# [providers.local-llm]
+# models = ["qwen2.5-coder-7b-q4_k_m"]        # Optional; configure local models in onboarding
+# idle_timeout_secs = 300                      # Auto-unload local models after 5 minutes of inactivity (per-model overrides in local-llm.json)
+
+# ══════════════════════════════════════════════════════════════════════════════
+# MODEL OVERRIDES (GLOBAL)
+# ══════════════════════════════════════════════════════════════════════════════
+# Override context window sizes for specific models across all providers.
+# Provider-scoped overrides ([providers.<name>.model_overrides.<id>]) take precedence.
+#
+# [models.claude-opus-4-6]
+# context_window = 1_000_000                  # Override the built-in heuristic
+#
+# [models.glm-5-turbo]
+# context_window = 200_000
+
+# ══════════════════════════════════════════════════════════════════════════════
+# CHAT SETTINGS
+# ══════════════════════════════════════════════════════════════════════════════
+
+# [chat]
+# reasoning_default = "high"         # Optional: minimal, low, medium, high, xhigh (alias: extra-high), max.
+                                    #   Omit for Off (current behavior); max is distinct from xhigh.
+                                    #   Applies to model-less and new main sessions.
+                                    #   An explicit session Off or level always wins.
+# auto_title = true                   # Auto-generate session title after first exchange
+# message_queue_mode = "followup"   # How to handle messages during an active agent run:
+                                    #   "followup" - Queue messages, replay one-by-one after run
+                                    #   "collect"  - Buffer messages, concatenate as single message
+# prompt_memory_mode = "live-reload"  # How MEMORY.md reaches the prompt:
+                                      #   "live-reload"            - Re-read MEMORY.md before each turn
+                                      #   "frozen-at-session-start" - Freeze the first MEMORY.md snapshot per session
+# workspace_file_max_chars = 32000  # Optional: per-file prompt cap for AGENTS.md / TOOLS.md before truncation.
+# context_command = ""              # Optional command run before each turn; stdout is appended to prompt context.
+                                    #   Runs in the active project/worktree dir when set, else the server cwd.
+                                    #   Times out after 30s; stdout capped at 32,000 bytes.
+# priority_models = ["claude-opus-4-5", "gpt-5.6-sol", "gemini-3-flash"]  # Optional: models to pin first in selectors
+
+# ── Compaction ─────────────────────────────────────────────────────────────
+# Strategy used to shrink a session when its context window fills up, or when
+# a user invokes `/compact`. Four modes are available — pick the one that
+# matches your cost/fidelity trade-off. See docs/src/compaction.md for a full
+# comparison table and picking guide.
+#
+# Modes:
+#   "deterministic"        (default) Zero LLM calls. Fast, free, offline.
+#   "recency_preserving"   Zero LLM calls. Keeps head + tail, collapses middle.
+#   "structured"           Head + LLM summary + tail. Highest fidelity.
+#   "llm_replace"          Full LLM summary replacement.
+#
+# [chat.compaction]
+# mode = "deterministic"              # "deterministic" | "recency_preserving" | "structured" | "llm_replace"
+# threshold_percent = 0.95            # Auto-compaction threshold (fraction of context window)
+# protect_head = 3                    # Leading messages kept verbatim
+# protect_tail_min = 20               # Floor for tail messages kept verbatim
+# tail_budget_ratio = 0.20            # Tail size as fraction of threshold × context window
+# tool_prune_char_threshold = 200     # Prune tool results longer than this in middle region
+# show_settings_hint = true           # Append compaction mode hint to notices
+
+# ══════════════════════════════════════════════════════════════════════════════
+# AUXILIARY MODELS
+# ══════════════════════════════════════════════════════════════════════════════
+# Route side tasks to cheaper/faster models while keeping the main session on a
+# more capable model. Falls back to the session's primary provider when unset.
+#
+# [auxiliary]
+# compaction = "openrouter/google/gemini-2.5-flash"        # Model for context compaction
+# title_generation = "openrouter/google/gemini-2.5-flash"  # Model for session titles
+# vision = "openrouter/google/gemini-2.5-flash"            # Model for vision/image tasks
+
+# ══════════════════════════════════════════════════════════════════════════════
+# SUB-AGENT SPAWN PRESETS
+# ══════════════════════════════════════════════════════════════════════════════
+# Configure reusable presets for agents and sub-agents spawned via the
+# `spawn_agent` tool.
+#
+# Runtime fields like `timeout_secs` and `max_iterations` apply to matching
+# direct agent sessions and spawned sub-agents. Direct sessions use global
+# `[tools]` values as fallbacks when a preset omits them. Spawned sub-agents
+# preserve no-timeout behavior unless the preset sets `timeout_secs`.
+#
+# ⚠️  SCOPE: `tools.allow` / `tools.deny` under a preset do NOT filter tools
+# for the main agent session. To allow/deny tools for the main session, use
+# the `[tools.policy]` section further down this file.
+#
+# [agents]
+# default_preset = "research"      # Sub-agent preset used when spawn_agent.preset is omitted
+#
+# Built-in agent presets (research, coder, reviewer, qa, ux, docs, coordinator)
+# live in defaults.toml. Uncomment and modify below to override a preset,
+# or add your own custom presets.
+#
+# [agents.presets.research]
+# identity.name = "Researcher"
+# identity.theme = "thorough, skeptical, and evidence-oriented"
+# system_prompt_suffix = "..."
+# max_iterations = 16
+# reasoning_effort = "high"        # minimal | low | medium | high | xhigh | max
+# # Optional drift-resistant per-turn controls for spawned/preset agents:
+# # [agents.presets.research.tool_controls]
+# # active_tools = ["classify_destination"]
+# # [agents.presets.research.tool_controls.tool_choice]
+# # type = "tool"  # auto | any | none | tool
+# # name = "classify_destination"
+#
+# ── Per-agent capability boundaries ──────────────────────────────────────────
+# Each agent can be scoped to specific MCP servers, sandbox policies, and skills.
+# Assign agents to channels via `agent_id` in the channel account config.
+#
+# Example: restricted agent for kids (no MCP, no network, limited skills):
+# [agents.presets.kids]
+# model = "anthropic/claude-haiku-4-5-20251001"
+# [agents.presets.kids.mcp]
+# allow_servers = []                # No MCP tools at all
+# [agents.presets.kids.sandbox]
+# mode = "all"                      # Always sandbox this agent
+# [agents.presets.kids.skills]
+# deny = ["gaming", "social-media"] # Block specific skill categories
+#
+# Example: full-access agent for parents:
+# [agents.presets.admin]
+# [agents.presets.admin.mcp]
+# allow_servers = ["github", "home-assistant", "memory"]
+# [agents.presets.admin.sandbox]
+# mode = "all"                      # Always sandbox this agent
+
+# ══════════════════════════════════════════════════════════════════════════════
+# SESSION MODES
+# ══════════════════════════════════════════════════════════════════════════════
+# Modes are temporary per-session prompt overlays selected with `/mode`.
+# They do not create chat agents, do not affect sub-agent presets, and do not
+# change an agent's identity or memory. Built-ins include concise, technical,
+# creative, teacher, plan, build, review, research, and elevated.
+#
+# [modes.presets.concise]
+# name = "Concise"
+# description = "short direct answers"
+# prompt = "Keep answers short, concrete, and caveat-light unless the user asks for detail."
+#
+# [modes.presets.incident]
+# name = "Incident"
+# description = "production incident response"
+# prompt = "Prioritize impact, timeline, mitigation, rollback, logs, and clear status updates."
+
+# ══════════════════════════════════════════════════════════════════════════════
+# TOOLS
+# ══════════════════════════════════════════════════════════════════════════════
+
+# [tools]
+# agent_timeout_secs = 600          # Max seconds for an agent run (0 = no timeout)
+# agent_max_iterations = 25         # Max LLM/tool loop iterations before stopping
+# agent_max_auto_continues = 2      # Auto-continue nudges when model stops mid-task (0 = off)
+# agent_auto_continue_min_tool_calls = 3  # Min tool calls before auto-continue can trigger
+# max_tool_result_bytes = 50000     # Max bytes per tool result before truncation (50KB)
+# registry_mode = "full"            # "full" = all schemas every turn, "lazy" = tool_search discovery
+# agent_loop_detector_window = 2    # Fire intervention after N identical failing tool calls in a row
+# tool_result_compaction_ratio = 75 # % of context_window before oldest tool results are compacted
+# preemptive_overflow_ratio = 90    # % of context_window before hard ContextWindowExceeded error
+
+# ── Maps ─────────────────────────────────────────────────────────────────────
+
+# [tools.maps]
+# provider = "google_maps"          # "google_maps" | "apple_maps" | "openstreetmap"
+
+# ── Native filesystem tools (Read/Write/Edit/MultiEdit/Glob/Grep) ─────────────
+# All fields are optional. Defaults are conservative — the fs tools work
+# out of the box with no configuration.
+
+# [tools.fs]
+# workspace_root = "/home/user/projects/my-app"  # Default search root for Glob/Grep
+# allow_paths = []                  # Absolute path globs the fs tools are allowed to access
+# deny_paths = []                   # Absolute path globs the fs tools must refuse
+# track_reads = false               # Record per-session Read history
+# must_read_before_write = false    # Refuse Write/Edit targeting unread files (needs track_reads)
+# require_approval = true           # Pause Write/Edit for operator approval
+# max_read_bytes = 10485760         # Max bytes per Read (10 MB)
+# binary_policy = "reject"          # "reject" or "base64"
+# respect_gitignore = true          # Skip .gitignored files in Glob/Grep
+# checkpoint_before_mutation = false # Snapshot files before Write/Edit
+
+# ── Command Execution ─────────────────────────────────────────────────────────
+
+# [tools.exec]
+# default_timeout_secs = 30         # Default timeout for commands
+# max_output_bytes = 204800         # Max command output bytes (200KB)
+# approval_mode = "on-miss"         # "always" | "on-miss" | "never"
+# security_level = "allowlist"      # "permissive" | "allowlist" | "strict"
+# allowlist = []                    # Command patterns to allow. Example: ["git *", "npm *"]
+# host = "local"                    # "local" | "node" | "ssh"
+# node = "mac-mini"                 # Default node when host = "node"
+# ssh_target = "deploy@box"         # SSH target when host = "ssh"
+
+# ── Sandbox Configuration ─────────────────────────────────────────────────────
+# Commands run inside isolated containers for security.
+
+# [tools.exec.sandbox]
+# mode = "all"                      # "off" | "non-main" | "all" (recommended)
+# scope = "session"                 # "command" | "session" (recommended) | "global"
+# workspace_mount = "ro"            # "ro" | "rw" | "none"
+# managed_files_mount = "ro"        # Managed Files: "ro" | "rw" | "none"
+# home_persistence = "shared"       # "off" | "session" | "shared"
+# backend = "auto"                  # "auto" | "docker" | "podman" | "apple-container" | "restricted-host" | "wasm"
+# no_network = true                 # Disable network access in sandbox
+# image = "custom-image:tag"        # Custom Docker image (default: auto-built)
+# packages = [...]                  # Packages installed in sandbox containers
+# host_data_dir = "/host/moltis-data" # Host path for Moltis data when running Moltis inside Docker
+# gpus = "all"                      # GPU passthrough: "all", "device=0", "device=0,1"
+                                    # (Docker/Podman only, ignored for other backends)
+# allow_host_podman = false         # DANGEROUS, Linux only: host API removes sandbox boundary
+# allow_nested_podman = false       # DANGEROUS: privileged nested Podman sandbox
+                                    # Both require backend = "podman" and are mutually exclusive
+
+[tools.exec.sandbox.resource_limits]
+# memory_limit = "512M"             # Memory limit (e.g., "512M", "1G")
+# cpu_quota = 0.5                   # CPU quota as fraction
+pids_max = 4096                    # Maximum number of processes
+
+# ── Tool Policy ───────────────────────────────────────────────────────────────
+# Control which tools the agent can use. Policies are layered (later wins for
+# allow, deny always accumulates across layers):
+#
+#   1. Global        — [tools.policy]
+#   2. Per-provider  — [providers.<name>.policy]
+#   3. Per-agent     — [agents.presets.<id>.tools]
+#   4. Per-channel   — [channels.<type>.<account>.tools.groups.<chat_type>]
+#   5. Per-sender    — [...groups.<chat_type>.by_sender.<sender_id>]
+#   6. Sandbox       — [tools.exec.sandbox.tools_policy]
+
+# [tools.policy]
+# allow = []                        # Tools to always allow (e.g., ["exec", "web_fetch"])
+# deny = []                         # Tools to always deny (e.g., ["browser"])
+
+# ── Web Search ────────────────────────────────────────────────────────────────
+
+[tools.web.search]
+enabled = true                    # Enable web search tool
+provider = "brave"                # "brave" or "perplexity"
+max_results = 5                   # Number of results to return (1-10)
+timeout_seconds = 30              # HTTP request timeout
+cache_ttl_minutes = 15            # Cache results (0 = no cache)
+duckduckgo_fallback = true       # Enable DDG fallback without API keys
+# api_key = "..."                   # Brave API key (or set BRAVE_API_KEY env var)
+
+# [tools.web.search.perplexity]
+# api_key = "..."                   # Or set PERPLEXITY_API_KEY env var
+# model = "sonar"                   # Perplexity model to use
+
+# ── Web Fetch ─────────────────────────────────────────────────────────────────
+
+# [tools.web.fetch]
+# enabled = true                    # Enable web fetch tool
+# max_chars = 50000                 # Max characters to return
+# timeout_seconds = 30              # HTTP request timeout
+# cache_ttl_minutes = 15            # Cache fetched pages (0 = no cache)
+# max_redirects = 3                 # Maximum HTTP redirects
+# readability = true                # Use readability extraction for HTML
+# ssrf_allowlist = ["172.22.0.0/16"] # CIDR ranges exempt from SSRF blocking
+
+# ── Firecrawl (API-based web scraping) ────────────────────────────────────────
+
+# [tools.web.firecrawl]
+# enabled = false
+# api_key = "fc-..."                # Or set FIRECRAWL_API_KEY env var
+# base_url = "https://api.firecrawl.dev"
+
+# ── Browser Automation ────────────────────────────────────────────────────────
+
+# [tools.browser]
+# enabled = true                    # Enable browser tool
+# headless = true                   # Run without visible window
+# viewport_width = 2560             # Default viewport width in pixels
+# viewport_height = 1440            # Default viewport height
+# device_scale_factor = 2.0         # HiDPI/Retina scaling
+# max_instances = 3                 # Maximum concurrent browser instances
+# idle_timeout_secs = 300           # Close idle browsers after this many seconds
+# allowed_domains = []              # Domain restrictions (empty = all allowed)
+# chrome_path = "/path/to/chrome"   # Custom Chrome binary path
+# obscura_path = "/path/to/obscura" # Custom Obscura binary path for browser = "obscura"
+# obscura_stealth = true             # Pass --stealth (full TLS mode needs a stealth build)
+# lightpanda_path = "/path/to/lightpanda" # Custom Lightpanda binary path for browser = "lightpanda"
+# sandbox_image = "docker.io/browserless/chrome" # Default Browserless v1 image
+# browserless_api_version = "v1"    # Must match the Browserless image API
+# Browserless v2 example: set sandbox_image = "ghcr.io/browserless/chromium:v2.56.0"
+# and browserless_api_version = "v2" together.
+
+# ══════════════════════════════════════════════════════════════════════════════
+# SKILLS
+# ══════════════════════════════════════════════════════════════════════════════
+
+# [skills]
+# enabled = true                    # Enable skills system
+# search_paths = []                 # Additional directories to search for skills
+# auto_load = []                    # Skills to always load
+# disabled_bundled_categories = []   # Bundled skill categories to disable
+# disabled_bundled_skills = []       # Individual bundled skills to disable by name
+
+# ══════════════════════════════════════════════════════════════════════════════
+# MCP SERVERS
+# ══════════════════════════════════════════════════════════════════════════════
+# Model Context Protocol servers provide additional tools and capabilities.
+# See https://modelcontextprotocol.io for available servers.
+
+# [mcp]
+# request_timeout_secs = 30         # Default timeout for MCP requests
+
+# [mcp.servers.server-name]
+# command = "npx"                   # Command to run (for stdio transport)
+# args = ["-y", "@package/name"]    # Command arguments
+# env = { KEY = "value" }           # Environment variables
+# transport = "stdio"               # "stdio" | "sse" | "streamable-http"
+
+# [mcp.servers.server-name.oauth]
+# client_id = "your-client-id"       # Manual OAuth client ID
+# client_secret = "your-secret"      # Optional secret for token exchange
+# auth_url = "https://auth.example.com/authorize"
+# token_url = "https://auth.example.com/token"
+# scopes = ["mcp:read"]
+
+# ══════════════════════════════════════════════════════════════════════════════
+# METRICS
+# ══════════════════════════════════════════════════════════════════════════════
+
+# [metrics]
+# enabled = true                    # Enable metrics collection
+# prometheus_endpoint = true        # Expose /metrics endpoint
+
+# ══════════════════════════════════════════════════════════════════════════════
+# INSTRUMENTATION (Langfuse / OpenTelemetry / Datadog)
+# ══════════════════════════════════════════════════════════════════════════════
+#
+# Exports completed agent runs — LLM calls, tool calls and retrievals — to an
+# external backend. Observations are immutable and sent once, after completion.
+# Disabled by default: enabling it sends conversation data to a third party.
+# See docs/src/instrumentation.md.
+#
+# Backends deliberately receive different data. Langfuse gets the full
+# conversation, token usage and session context for LLM observability and cost
+# inference. Prompt Management, datasets, evaluators and media uploads are not
+# integrated. OTLP and Datadog receive operational shape only.
+
+# [instrumentation]
+# enabled = false                   # Master switch, gates every backend
+# environment = "production"        # Reported to every backend
+# sample_rate = 1.0                 # Fraction of turns traced (0.0-1.0)
+# redact = ["customer_ref"]         # Extra keys to redact; extends the defaults
+# queue_capacity = 10000            # Must be nonzero; full queues drop events
+# flush_interval_ms = 5000          # Must be nonzero
+# max_batch_bytes = 3000000         # Must be nonzero
+
+# [instrumentation.langfuse]
+# enabled = false
+# host = "https://cloud.langfuse.com"   # Or a self-hosted URL
+# public_key = "pk-lf-..."
+# Prefer MOLTIS_INSTRUMENTATION__LANGFUSE__SECRET_KEY in the process environment.
+# A secret_key config value is also accepted.
+# capture_input = true              # Turn and LLM inputs
+# capture_output = true             # Turn and LLM outputs
+# capture_tool_io = true            # Tool arguments and results
+# timeout_secs = 10                 # Must be nonzero
+
+# [instrumentation.otlp]            # Grafana Tempo/Alloy, Honeycomb, a collector
+# enabled = false
+# endpoint = "http://localhost:4318/v1/traces"
+# content = "metadata_only"         # "full" | "metadata_only" | "none"
+# emit_user_id = false              # High-cardinality in an APM index
+# timeout_secs = 10                 # Must be nonzero
+
+# [instrumentation.datadog]         # Via the Datadog Agent's OTLP intake
+# enabled = false
+# endpoint = "http://localhost:4318/v1/traces"
+# service = "moltis"
+# content = "metadata_only"
+# timeout_secs = 10                 # Must be nonzero
+
+# Reaction feedback. A thumbs up/down on a reply in Telegram, Discord or Slack
+# becomes a BOOLEAN "user-feedback" score through Langfuse's dedicated Scores
+# API. Score creates/replacements and deletions retain queue order. Lists accept
+# raw emoji or shortcodes; empty means the built-in vocabulary.
+# [instrumentation.feedback]
+# enabled = true
+# positive = ["\U0001F44D", "+1", "thumbsup"]
+# negative = ["\U0001F44E", "-1", "thumbsdown"]
+# link_retention_days = 30          # How long a reply stays attributable
+
+# ══════════════════════════════════════════════════════════════════════════════
+# CRON
+# ══════════════════════════════════════════════════════════════════════════════
+
+# [cron]
+# rate_limit_max = 10
+# rate_limit_window_secs = 60
+# session_retention_days = 7
+
+# ══════════════════════════════════════════════════════════════════════════════
+# HEARTBEAT
+# ══════════════════════════════════════════════════════════════════════════════
+
+# [heartbeat]
+# enabled = true                    # Enable periodic heartbeats
+# every = "30m"                     # Interval (e.g., "30m", "1h", "6h")
+# ack_max_chars = 300               # Max characters for acknowledgment reply
+# deliver = false                   # Deliver heartbeat replies to a channel
+# sandbox_enabled = true            # Run heartbeat commands in sandbox
+# wake_cooldown = "5m"              # Min duration between exec-triggered heartbeat wakes (0 to disable)
+
+# [heartbeat.active_hours]
+# start = "08:00"
+# end = "24:00"
+# timezone = "local"                # "local" or IANA name like "Europe/Paris"
+
+# ══════════════════════════════════════════════════════════════════════════════
+# FAILOVER
+# ══════════════════════════════════════════════════════════════════════════════
+
+# [failover]
+# enabled = true                    # Enable automatic failover
+# exact_model = false               # When true, user-selected models are exact — no fallback
+# fallback_models = []              # Ordered list of fallback models
+
+# ══════════════════════════════════════════════════════════════════════════════
+# VOICE
+# ══════════════════════════════════════════════════════════════════════════════
+
+# [voice.tts]
+# enabled = true
+# providers = []                        # UI allowlist (empty = show all)
+
+# Voice personas — named voice identities injected into TTS calls.
+# Personas are managed via the web UI (Settings > Voice > Voice Personas)
+# and stored in the database. Example via TOML for reference:
+#
+# Configure personas in the web UI, or use the RPC API:
+#   voice.personas.create  — create a new persona
+#   voice.personas.list    — list all personas
+#   voice.personas.set_active — activate a persona
+#
+# Providers that support instructions (OpenAI gpt-4o-mini-tts) will receive
+# the persona's profile/style/accent as voice direction. Other providers
+# use the persona's provider-specific bindings (voice_id, model overrides).
+
+# [voice.stt]
+# enabled = true
+# providers = []                        # UI allowlist (empty = show all)
+
+# [voice.stt.whisper_local]
+# endpoint = "http://localhost:8080"    # OpenAI-compatible transcription server
+# model = "whisper-large-v3"            # Model name (server-specific)
+# language = "en"                       # Optional ISO 639-1 hint
+
+# ══════════════════════════════════════════════════════════════════════════════
+# NGROK
+# ══════════════════════════════════════════════════════════════════════════════
+
+# [ngrok]
+# enabled = false
+# authtoken = "${NGROK_AUTHTOKEN}"
+# domain = "team-gateway.ngrok.app"
+
+# [cloudflare_tunnel]
+# enabled = false
+# token = "${CLOUDFLARE_TUNNEL_TOKEN}"
+# hostname = "moltis.example.com"       # Optional public hostname for display/passkeys
+
+# ══════════════════════════════════════════════════════════════════════════════
+# TAILSCALE
+# ══════════════════════════════════════════════════════════════════════════════
+
+# [tailscale]
+# mode = "off"                      # "off" | "serve" | "funnel"
+# reset_on_exit = true
+
+# [netbird]
+# mode = "off"                      # "off" | "serve" (private mesh only)
+
+# ══════════════════════════════════════════════════════════════════════════════
+# MEMORY / EMBEDDINGS
+# ══════════════════════════════════════════════════════════════════════════════
+
+# [memory]
+# style = "hybrid"                  # "hybrid" | "prompt-only" | "search-only" | "off"
+# agent_write_mode = "hybrid"       # "hybrid" | "prompt-only" | "search-only" | "off"
+# backend = "builtin"               # "builtin" | "qmd" | "zvec"
+# provider = "auto"                 # "local" | "ollama" | "openai" | "custom"
+# db_path = "memory.zvec"           # Zvec collection directory (only when backend = "zvec")
+# vector_weight = 0.7               # Weight for vector similarity in hybrid search
+# keyword_weight = 0.3              # Weight for keyword/FTS similarity in hybrid search
+
+# ══════════════════════════════════════════════════════════════════════════════
+# PHONE (Telephony Providers)
+# ══════════════════════════════════════════════════════════════════════════════
+# Configure telephony providers for making and receiving phone calls.
+# Provider credentials are stored securely via the web UI (Settings > Phone).
+
+# [phone]
+# enabled = false                           # Enable phone calls globally
+# provider = "twilio"                       # Active provider
+# inbound_policy = "disabled"               # disabled | allowlist | open
+# allowlist = []                            # Allowed inbound callers (E.164)
+# max_duration_secs = 3600                  # Max call duration (1 hour)
+
+# [phone.twilio]
+# from_number = "+15551234567"              # Your Twilio phone number (E.164)
+# webhook_url = "https://your-domain.com"   # Public URL for Twilio callbacks
+
+# [phone.telnyx]
+# from_number = "+15551234567"              # Your Telnyx phone number (E.164)
+# webhook_url = "https://your-domain.com"   # Public URL for Telnyx callbacks
+
+# [phone.plivo]
+# from_number = "+15551234567"              # Your Plivo phone number (E.164)
+# webhook_url = "https://your-domain.com"   # Public URL for Plivo callbacks
+
+# ══════════════════════════════════════════════════════════════════════════════
+# EXTERNAL AGENTS
+# ══════════════════════════════════════════════════════════════════════════════
+# Connect Moltis chat sessions to external CLI coding agents.
+# Codex and ACP use persistent JSON-RPC sessions; Claude Code uses print-mode
+# resume when the CLI returns a session_id.
+# Moltis acts as orchestrator; the CLI agent owns its own context window.
+
+[external_agents]
+
+[providers.ollama]
+enabled = true
+
+[skills]
+disabled_bundled_categories = [
+    "apple",
+    "autonomous-ai-agents",
+    "audio",
+    "email",
+    "smart-home",
+    "media",
+    "data-science",
+    "messaging",
+    "creative",
+    "devops",
+    "social-media",
+    "dogfood",
+    "mlops",
+]
+
+[user]
+name = "Christopher"
+timezone = "America/New_York"
+# enabled = true                    # Auto-detect installed external agents for chat session selection
+# Set enabled = false to opt out of all external-agent discovery.
+# Default detection trusts Moltis' PATH. Use absolute binary paths below when
+# you want to pin which executable Moltis may launch after a user selects it.
+
+# Per-agent configuration (key = agent kind)
+# [external_agents.agents.claude-code]
+# binary = "claude"                 # Override binary path (default: look up on $PATH)
+# args = ["-p", "--output-format", "json"]
+# models = ["claude-opus-4-8", "claude-sonnet-4-6"] # Optional model choices shown in /model
+# efforts = ["high", "xhigh"]       # Optional effort choices shown in /model
+# working_dir = "."                 # Override working directory
+# timeout_secs = 300                # Session timeout
+# use_tmux = false                  # Force tmux backend (vs direct PTY)
+# [external_agents.agents.claude-code.env]
+# ANTHROPIC_API_KEY = "sk-..."      # Extra env vars for this agent
+
+# [external_agents.agents.codex]
+# binary = "codex"
+# args = ["app-server"]
+# models = ["gpt-5.5", "gpt-5.4"]
+# efforts = ["medium", "high", "xhigh", "max"]
+
+# Generic manual ACP server for advanced/custom CLIs not listed below.
+# If Moltis is missing a named default for an ACP agent, check the official
+# catalog for the agent's current launch command and configure it here:
+# https://agentclientprotocol.com/get-started/agents
+# [external_agents.agents.acp]
+# binary = "/path/to/acp-agent"
+# args = ["--stdio"]
+
+# Named ACP agents are auto-detected by default when their binaries are on PATH.
+# Add entries only to override binary paths, args, env, working_dir, or timeout.
+# [external_agents.agents.acp-copilot]
+# binary = "copilot"
+# args = ["--acp"]
+
+# [external_agents.agents.acp-codex]
+# binary = "codex-acp"              # Zed Codex ACP adapter
+# args = []
+
+# Claude ACP uses the adapter at https://github.com/agentclientprotocol/claude-agent-acp
+# Plain `claude` is not an ACP server; install @agentclientprotocol/claude-agent-acp
+# and ensure `claude-agent-acp` is on PATH or use an absolute binary path here.
+# [external_agents.agents.acp-claude]
+# binary = "claude-agent-acp"
+# args = []
+
+# [external_agents.agents.acp-pi]
+# binary = "pi-acp"
+# args = []
+
+# [external_agents.agents.acp-opencode]
+# binary = "opencode"
+# args = ["acp"]
+
+# [external_agents.agents.acp-gemini]
+# binary = "gemini"
+# args = ["--experimental-acp"]
+
+# [external_agents.agents.acp-augment]
+# binary = "auggie"
+# args = ["--acp"]
+
+# [external_agents.agents.acp-kiro]
+# binary = "kiro-cli"
+# args = ["acp"]
+
+# [external_agents.agents.acp-openclaw]
+# binary = "openclaw"
+# args = ["acp"]
+
+# [external_agents.agents.acp-openhands]
+# binary = "openhands"
+# args = ["acp"]
+
+# [external_agents.agents.acp-kimi]
+# binary = "kimi"
+# args = ["acp"]
+
+# [external_agents.agents.acp-minimax-code]
+# binary = "mcode"
+# args = ["acp"]
+
+# [external_agents.agents.acp-stakpak]
+# binary = "stakpak"
+# args = ["acp"]
+
+# [external_agents.agents.acp-fast-agent]
+# binary = "fast-agent-acp"
+# args = []
+
+# Cursor also supports ACP with `agent acp`, but `agent` is too generic to
+# auto-detect safely. Configure it manually via the generic ACP entry if needed.
+# [external_agents.agents.acp]
+# binary = "/absolute/path/to/cursor/agent"
+# args = ["acp"]
+
+# [external_agents.agents.opencode]
+# binary = "opencode"
+# use_tmux = true                   # opencode requires tmux (TUI app)
+
+# ══════════════════════════════════════════════════════════════════════════════
+# CHANNELS
+# ══════════════════════════════════════════════════════════════════════════════
+# External messaging integrations.
+# Note: channels added in the web UI are stored in data_dir()/moltis.db,
+# not in this file. Keep channel config here only for manual TOML management.
+
+# [channels]
+# offered = ["telegram", "whatsapp", "msteams", "discord", "slack", "matrix", "nostr", "signal"]
+
+# Example Telegram account.
+# [channels.telegram.my-bot]
+# token = "123456:..."
+# dm_policy = "allowlist"
+# allowlist = []
+# group_policy = "allowlist"
+# group_allowlist = []
+# untrusted_audience = "public" # "trusted" makes MCP and other trusted-audience tools eligible.
+# untrusted_tools = "deny_all"  # "policy" lets configured policy layers decide.
+# MCP needs both opt-ins; they apply account-wide, including guest DMs.
+# Restrict group/DM access and tool policies before enabling them.
+
+# Example WhatsApp account. Pair the account by scanning the QR code after startup.
+# [channels.whatsapp.my-bot]
+# push_name = "Moltis"        # Falls back to [identity] name, then "Moltis".
+# dm_policy = "allowlist"
+# allowlist = []
+
+# Example Slack account. api_base_url defaults to Slack; set it only for
+# Slack-compatible proxies, mock servers, or gateways.
+# [channels.slack.my-bot]
+# bot_token = "xoxb-..."
+# app_token = "xapp-..."
+# api_base_url = "https://slack.com/api"
+# dm_policy = "allowlist"
+# allowlist = []
+# operators = []             # Exact sender IDs allowed to run privileged commands; empty means nobody.
+# untrusted_audience = "public" # "trusted" makes MCP and other trusted-audience tools eligible.
+# untrusted_tools = "deny_all"  # "policy" lets configured policy layers decide.
+# thread_replies = true
+# stream_mode = "edit_in_place" # use "native" for Slack live text and tool task cards
+# ack_reactions = true       # 👀 on receipt, phase emoji while working, ✅/❌ on completion
+# reaction_triggers = false  # route user reactions into the agent (react ✅ to approve)
+# rich_blocks = false        # render replies as Block Kit blocks (fallback to plain text)
+# otp_self_approval = true
+# otp_cooldown_secs = 300
+
+# Example Microsoft Teams account.
+# [channels.msteams.my-bot]
+# app_id = "00000000-0000-0000-0000-000000000000"
+# app_password = "..."
+# dm_policy = "allowlist"
+# allowlist = []
+# operators = []             # Exact sender IDs; no allowlist fallback.
+# otp_self_approval = true
+# otp_cooldown_secs = 300
+
+# Example Nostr account. Handles NIP-04/NIP-59 encrypted DMs and, when `groups`
+# is set, NIP-29 group chat on Buzz-style relays (https://github.com/block/buzz).
+# [channels.nostr.my-bot]
+# secret_key = "nsec1..."
+# relays = ["wss://relay.damus.io", "wss://relay.nostr.band", "wss://nos.lol"]
+# dm_policy = "allowlist"
+# allowed_pubkeys = ["npub1..."]
+# # Buzz / NIP-29 group chat: the `h`-tag group ids the bot joins. Requires a
+# # relay that supports NIP-29 + NIP-42 (Buzz relays do). Empty = DM-only.
+# # This list is also the allowlist — messages for any other group are dropped.
+# groups = ["buzz-general"]
+# group_mention_mode = "mention"  # mention (p-tagged only) | always | none (receive-only)
+# # Dialect for bot-initiated group messages. Both kinds are always read and
+# # replies mirror the message they answer; set buzz_v2 on a Buzz relay.
+# group_message_kind = "nip29"    # nip29 (kind:9) | buzz_v2 (kind:40002)
+# group_ack_reactions = true      # 👀 on receipt, phase glyphs, ✅/❌ at the end (NIP-25)
+
+# See docs or defaults.toml for full channel configuration examples
+# (WhatsApp, Telegram, Teams, Discord, Slack, Matrix, Nostr, Signal).
+
+# ══════════════════════════════════════════════════════════════════════════════
+# HOOKS
+# ══════════════════════════════════════════════════════════════════════════════
+
+# [hooks]
+# [[hooks.hooks]]
+# name = "my-hook"
+# command = "/path/to/handler.sh"
+# events = ["BeforeToolCall", "AfterToolCall"]
+# timeout = 10
+
+# ══════════════════════════════════════════════════════════════════════════════
+# ENVIRONMENT VARIABLES
+# ══════════════════════════════════════════════════════════════════════════════
+# Variables injected into the Moltis process at startup.
+
+# [env]
+# BRAVE_API_KEY = "..."
+# OPENROUTER_API_KEY = "sk-or-..."

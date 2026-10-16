@@ -1,0 +1,27 @@
+{
+  "accounts": [
+    {
+      "id": "722a73b0-a418-49b8-b8cf-853db3446e63",
+      "name": "Personal",
+      "email": "christopherlamm81@gmail.com",
+      "service_provider": "gmail",
+      "fetch_email": "christopherlamm81@gmail.com",
+      "auth_method": "password",
+      "protocol": "imap",
+      "pop3_port": 995
+    },
+    {
+      "id": "d8583a87-3f01-4bad-a2a4-875e01f4a980",
+      "name": "CompanyCam",
+      "email": "christopher.lamm@companycam.com",
+      "service_provider": "gmail",
+      "fetch_email": "christopher.lamm@companycam.com",
+      "auth_method": "password",
+      "protocol": "imap",
+      "pop3_port": 995
+    }
+  ],
+  "theme": "Native",
+  "has_seen_setup_guide": true,
+  "mouse_enabled": true
+}

@@ -3,7 +3,7 @@ config_version = 15
 [bar.default]
 background_opacity = 0.59999998658895493
 capsule = true
-end = [ "media", "spacer_1", "tray", "group:g2", "battery", "control-center", "notifications", "session" ]
+end = [ "media", "spacer_1", "tray", "group:g2", "battery", "control-center", "notifications", "privacy", "session" ]
 
     [[bar.default.capsule_group]]
     accordion = false

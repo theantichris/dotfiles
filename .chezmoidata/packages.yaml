@@ -27,6 +27,7 @@ packages:
     - rustup
     - signal-desktop
     - superfile
+    - tailscale
     - taplo-cli
     - ttf-hack-nerd
     - vscode-json-languageserver

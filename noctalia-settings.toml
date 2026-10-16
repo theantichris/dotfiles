@@ -3,7 +3,7 @@ config_version = 15
 [bar.default]
 background_opacity = 0.59999998658895493
 capsule = true
-end = [ "widget", "media", "spacer_1", "tray", "group:g2", "privacy", "group:g3" ]
+end = [ "media", "spacer_1", "tray", "group:g2", "privacy", "group:g3" ]
 
     [[bar.default.capsule_group]]
     accordion = false
@@ -165,7 +165,7 @@ gen_passphrase_include_number = true
 gen_special = true
 
 [plugins]
-enabled = [ "kenn/keybind-cheatsheet", "noctalia/bitwarden", "noctalia/translator", "aabidk20/yt-music" ]
+enabled = [ "kenn/keybind-cheatsheet", "noctalia/bitwarden", "noctalia/translator" ]
 
 [shell]
 app_icon_color = "primary"
@@ -208,9 +208,6 @@ show_label = false
 
 [widget.tray]
 capsule_fill = "surface_variant"
-
-[widget.widget]
-type = "aabidk20/yt-music:widget"
 
 [widget.workspaces]
 capsule_fill = "surface_variant"

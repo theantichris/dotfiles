@@ -24,6 +24,7 @@ packages:
     - ripgrep
     - rust-analyzer
     - rustup
+    - signal-desktop
     - superfile
     - taplo-cli
     - ttf-hack-nerd

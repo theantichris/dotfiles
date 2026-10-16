@@ -30,6 +30,9 @@ hl.config({
   },
   render = {
     direct_scanout = 2,
+    -- Enable HDR automatically for fullscreen HDR apps/games.
+    -- Keep the normal desktop in SDR rather than forcing HDR always on.
+    cm_auto_hdr = 1,
   },
   xwayland = {
     force_zero_scaling = true

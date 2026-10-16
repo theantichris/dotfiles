@@ -4,6 +4,7 @@ config_version = 15
 background_opacity = 0.59999998658895493
 capsule = true
 end = [ "media", "spacer_1", "tray", "group:g2", "privacy", "group:g3" ]
+start = [ "clock", "weather", "spacer_1", "group:g1" ]
 
     [[bar.default.capsule_group]]
     accordion = false
@@ -202,6 +203,9 @@ directory = "/home/christopher/Pictures/Backgrounds"
 
     [wallpaper.monitors.eDP-1]
     path = "/home/christopher/Pictures/Backgrounds/Desktop/cyberpunk.png"
+
+[weather]
+unit = "imperial"
 
 [widget.network]
 show_label = false

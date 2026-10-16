@@ -3,7 +3,7 @@ config_version = 15
 [bar.default]
 background_opacity = 0.59999998658895493
 capsule = true
-end = [ "media", "spacer_1", "tray", "group:g2", "battery", "control-center", "notifications", "privacy", "session" ]
+end = [ "media", "spacer_1", "tray", "group:g2", "privacy", "group:g3" ]
 
     [[bar.default.capsule_group]]
     accordion = false
@@ -24,7 +24,18 @@ end = [ "media", "spacer_1", "tray", "group:g2", "battery", "control-center", "n
     enabled = true
     fill = "surface_variant"
     id = "g2"
-    members = [ "network", "bluetooth", "volume" ]
+    members = [ "network", "bluetooth", "volume", "battery" ]
+    opacity = 1.0
+    padding = 6.0
+
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    border_width = 1.0
+    enabled = true
+    fill = "surface_variant"
+    id = "g3"
+    members = [ "control-center", "notifications", "session" ]
     opacity = 1.0
     padding = 6.0
 

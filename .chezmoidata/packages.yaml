@@ -19,6 +19,7 @@ packages:
     - lua-language-server
     - marksman
     - newsboat
+    - openai-codex
     - pkgconf
     - ripgrep
     - rust-analyzer

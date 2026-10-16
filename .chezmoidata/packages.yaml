@@ -32,6 +32,7 @@ packages:
     - yaml-language-server
   aur:
     - fish-lsp
+    - linecast
     - linux-legion
     - slack-desktop
     - uhk-agent-appimage

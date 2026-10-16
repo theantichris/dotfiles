@@ -421,8 +421,8 @@ security_level = "allowlist"      # "permissive" | "allowlist" | "strict"
 # ── Sandbox Configuration ─────────────────────────────────────────────────────
 # Commands run inside isolated containers for security.
 
-# [tools.exec.sandbox]
-# mode = "all"                      # "off" | "non-main" | "all" (recommended)
+[tools.exec.sandbox]
+mode = "off"                      # "off" | "non-main" | "all" (recommended)
 # scope = "session"                 # "command" | "session" (recommended) | "global"
 # workspace_mount = "ro"            # "ro" | "rw" | "none"
 # managed_files_mount = "ro"        # Managed Files: "ro" | "rw" | "none"

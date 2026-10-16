@@ -11,6 +11,7 @@ Brenden
 CDMC
 CPAP
 Calibre
+Chroncal
 Clin
 Crowder
 Dasani
@@ -19,11 +20,13 @@ Eòsaph
 Fitzsimons
 GTM
 Glaschu
+Golazo
 Gorkom
 IDP
 Inbhir
 Inverness
 Kureha
+Lamm
 Lilidh
 Lunnainn
 McManus

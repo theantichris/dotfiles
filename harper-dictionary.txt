@@ -25,6 +25,7 @@ Gorkom
 IDP
 Inbhir
 Inverness
+Keegan
 Kureha
 Lamm
 Lilidh
@@ -43,6 +44,7 @@ Sasainn
 Seumas
 Shadowrun
 Standup
+Termium
 Townfall
 Vigeant
 a

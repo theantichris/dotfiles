@@ -3,6 +3,7 @@ packages:
     - bat
     - bash-language-server
     - bitwarden
+    - bitwarden-cli
     - brave-origin-bin
     - chatgpt-desktop-bin
     - cmake

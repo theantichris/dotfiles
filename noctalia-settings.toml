@@ -160,8 +160,12 @@ widget_order = [ "lockscreen-login-box@DP-5", "lockscreen-login-box@eDP-2", "loc
         show_unlock_hint = true
         show_weather = true
 
+[plugin_settings."noctalia/bitwarden"]
+gen_passphrase_include_number = true
+gen_special = true
+
 [plugins]
-enabled = [ "kenn/keybind-cheatsheet" ]
+enabled = [ "kenn/keybind-cheatsheet", "noctalia/bitwarden" ]
 
 [shell]
 app_icon_color = "primary"

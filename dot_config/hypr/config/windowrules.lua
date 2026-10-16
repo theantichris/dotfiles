@@ -20,7 +20,7 @@ hl.window_rule({
     match = {
         class         = gamingApps,
         title         = "^(.+)$",
-        initial_title = "negative:^(.*\\\\home\\\\.*)$",
+        initial_title = "negative:^(.*\\\\home\\\\.*|Battle\\.net)$",
     },
     content          = "game",
     decorate         = false,

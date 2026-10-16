@@ -9,3 +9,6 @@ end
 if command -q rg
     alias grep='rg'
 end
+
+# Keep autosuggestions subdued but readable against the dark terminal background.
+set -g fish_color_autosuggestion {{ trimPrefix "#" .cyberpunk.text.muted }}

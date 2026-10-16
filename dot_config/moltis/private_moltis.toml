@@ -704,10 +704,10 @@ duckduckgo_fallback = true       # Enable DDG fallback without API keys
 # MEMORY / EMBEDDINGS
 # ══════════════════════════════════════════════════════════════════════════════
 
-# [memory]
-# style = "hybrid"                  # "hybrid" | "prompt-only" | "search-only" | "off"
-# agent_write_mode = "hybrid"       # "hybrid" | "prompt-only" | "search-only" | "off"
-# backend = "builtin"               # "builtin" | "qmd" | "zvec"
+[memory]
+style = "hybrid"                   # Prompt-visible memory and recall tools
+agent_write_mode = "hybrid"        # Allow automatic long-term memory writes
+backend = "builtin"                # Built-in local SQLite memory backend
 # provider = "auto"                 # "local" | "ollama" | "openai" | "custom"
 # db_path = "memory.zvec"           # Zvec collection directory (only when backend = "zvec")
 # vector_weight = 0.7               # Weight for vector similarity in hybrid search

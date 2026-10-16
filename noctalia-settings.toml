@@ -4,6 +4,7 @@ config_version = 15
 background_opacity = 0.59999998658895493
 capsule = true
 end = [ "media", "spacer_1", "tray", "group:g2", "privacy", "group:g3" ]
+start = [ "launcher", "clock", "spacer_1", "group:g1", "usage" ]
 
     [[bar.default.capsule_group]]
     accordion = false
@@ -165,7 +166,7 @@ gen_passphrase_include_number = true
 gen_special = true
 
 [plugins]
-enabled = [ "kenn/keybind-cheatsheet", "noctalia/bitwarden", "noctalia/translator" ]
+enabled = [ "kenn/keybind-cheatsheet", "noctalia/bitwarden", "noctalia/translator", "wy3z/opencodex-bar" ]
 
 [shell]
 app_icon_color = "primary"
@@ -208,6 +209,9 @@ show_label = false
 
 [widget.tray]
 capsule_fill = "surface_variant"
+
+[widget.usage]
+type = "wy3z/opencodex-bar:usage"
 
 [widget.workspaces]
 capsule_fill = "surface_variant"

@@ -18,10 +18,8 @@ packages:
     - helix
     - lua-language-server
     - marksman
-    - mpv
     - newsboat
     - openai-codex
-    - openbsd-netcat
     - pkgconf
     - ripgrep
     - rust-analyzer
@@ -31,7 +29,6 @@ packages:
     - ttf-hack-nerd
     - vscode-json-languageserver
     - yaml-language-server
-    - yt-dlp
   aur:
     - fish-lsp
     - slack-desktop

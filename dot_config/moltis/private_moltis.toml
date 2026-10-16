@@ -394,25 +394,25 @@ port = 41869                           # Port number (auto-generated for this in
 # All fields are optional. Defaults are conservative — the fs tools work
 # out of the box with no configuration.
 
-# [tools.fs]
+[tools.fs]
 # workspace_root = "/home/user/projects/my-app"  # Default search root for Glob/Grep
 # allow_paths = []                  # Absolute path globs the fs tools are allowed to access
 # deny_paths = []                   # Absolute path globs the fs tools must refuse
-# track_reads = false               # Record per-session Read history
-# must_read_before_write = false    # Refuse Write/Edit targeting unread files (needs track_reads)
-# require_approval = true           # Pause Write/Edit for operator approval
+track_reads = true                # Record per-session Read history
+must_read_before_write = true     # Refuse Write/Edit targeting unread files (needs track_reads)
+require_approval = true           # Pause Write/Edit for operator approval
 # max_read_bytes = 10485760         # Max bytes per Read (10 MB)
 # binary_policy = "reject"          # "reject" or "base64"
 # respect_gitignore = true          # Skip .gitignored files in Glob/Grep
-# checkpoint_before_mutation = false # Snapshot files before Write/Edit
+checkpoint_before_mutation = true # Snapshot files before Write/Edit
 
 # ── Command Execution ─────────────────────────────────────────────────────────
 
-# [tools.exec]
+[tools.exec]
 # default_timeout_secs = 30         # Default timeout for commands
 # max_output_bytes = 204800         # Max command output bytes (200KB)
-# approval_mode = "on-miss"         # "always" | "on-miss" | "never"
-# security_level = "allowlist"      # "permissive" | "allowlist" | "strict"
+approval_mode = "always"          # "always" | "on-miss" | "never"
+security_level = "allowlist"      # "permissive" | "allowlist" | "strict"
 # allowlist = []                    # Command patterns to allow. Example: ["git *", "npm *"]
 # host = "local"                    # "local" | "node" | "ssh"
 # node = "mac-mini"                 # Default node when host = "node"

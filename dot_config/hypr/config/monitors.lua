@@ -9,10 +9,10 @@
 
 hl.monitor({
     output   = "HDMI-A-1",
-    mode     = "3440x1440@240",
+    mode     = "3440x1440@59.97",
     position = "0x0",
     scale    = 1,
-    bitdepth = 10,
+    bitdepth = 8,
     vrr      = 0,
 })
 

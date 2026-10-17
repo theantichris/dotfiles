@@ -52,6 +52,7 @@ Tailscale
 Termium
 Townfall
 Vigeant
+Wrexham
 a
 a'
 a-muigh

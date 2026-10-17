@@ -48,10 +48,7 @@ duplicate = ["y"]
 toggle_pin = ["Space p"]
 cycle_sort = ["Space s"]
 search = ["/"]
-jump_to_top = [
-    "g g",
-    "Shift+G",
-]
+jump_to_top = ["g g"]
 jump_to_bottom = [
     "g e",
     "Shift+G",
@@ -216,7 +213,7 @@ shape_selector_down = [
 ]
 shape_selector_confirm = ["Enter"]
 shape_selector_cancel = ["Esc"]
-toggle_color_selector = ["c"]
+toggle_color_selector = ["Alt+c"]
 color_selector_up = [
     "Up",
     "k",
@@ -314,7 +311,7 @@ create_connection = ["c"]
 delete_connection = ["d"]
 rename_node = ["r"]
 resize_mode = ["s"]
-set_color = ["o"]
+set_color = ["Alt+c"]
 delete_node = ["x"]
 delete_all_connections = ["b"]
 add_text_node = ["t"]

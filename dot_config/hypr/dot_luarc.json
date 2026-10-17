@@ -1,3 +1,26 @@
 {
-  "diagnostics.globals": ["hl", "CACHYLGREEN"]
+  "workspace.library": [
+    "/usr/share/hypr/stubs"
+  ],
+  "diagnostics.globals": [
+    "CACHYLGREEN",
+    "CACHYMGREEN",
+    "CACHYDGREEN",
+    "CACHYLBLUE",
+    "CACHYMBLUE",
+    "CACHYDBLUE",
+    "CACHYWHITE",
+    "CACHYGREY",
+    "CACHYGRAY",
+    "TERMINAL",
+    "FILE_MANAGER",
+    "BROWSER",
+    "EDITOR",
+    "CALCULATOR",
+    "MONITOR1",
+    "MONITOR2",
+    "MONITOR3",
+    "PRIMARY_MONITOR",
+    "NUM_WPM"
+  ]
 }

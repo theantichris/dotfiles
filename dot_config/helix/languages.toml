@@ -37,9 +37,6 @@ name = "jsonc"
 auto-format = true
 language-servers = ["vscode-json-language-server", "harper-ls"]
 
-[language-server.lua-language-server.config.Lua.diagnostics]
-globals = ["hl", "CACHYLGREEN"]
-
 [[language]]
 name = "lua"
 auto-format = true

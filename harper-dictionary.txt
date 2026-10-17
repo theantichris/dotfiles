@@ -10,6 +10,7 @@ Beathag
 Brenden
 CDMC
 CPAP
+CachyOS
 Calibre
 Chroncal
 Clin
@@ -22,6 +23,7 @@ GTM
 Glaschu
 Golazo
 Gorkom
+Hyprland
 IDP
 Inbhir
 Inverness
@@ -36,6 +38,7 @@ Mhàrtainn
 Moltis
 Màrtainn
 NFR
+NVIDIA
 Non-Functional
 Pimoroni
 RDR2
@@ -45,6 +48,7 @@ Sasainn
 Seumas
 Shadowrun
 Standup
+Superfile
 Tailscale
 Termium
 Townfall
@@ -113,6 +117,7 @@ ceàrr
 ceò
 cha
 chan
+chezmoi
 chloc
 cho
 chàirdean
@@ -246,6 +251,7 @@ pàrant
 reothadh
 reòiteag
 reòiteagan
+ripgrep
 ris
 rithist
 rìs

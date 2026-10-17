@@ -34,6 +34,7 @@ packages:
     - vscode-json-languageserver
     - yaml-language-server
   aur:
+    - crush-bin
     - fish-lsp
     - linecast
     - linux-legion

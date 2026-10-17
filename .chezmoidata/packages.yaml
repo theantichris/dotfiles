@@ -38,6 +38,7 @@ packages:
     - fish-lsp
     - linecast
     - linux-legion
+    - signal-cli
     - slack-desktop
     - uhk-agent-appimage
   go:

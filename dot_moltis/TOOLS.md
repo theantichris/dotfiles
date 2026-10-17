@@ -27,7 +27,8 @@ These are environment-specific working notes, not tool registration or permissio
 
 ## Local workflow preferences
 
-- Obsidian vault: `~/Documents/Clin Vault`. Quote paths containing spaces; read notes freely, but get approval before editing notes.
+- Obsidian vault: `~/Documents/clin Vault` (lowercase `clin`). Quote paths containing spaces; read notes freely, but get approval before editing notes.
+- For routine read-only file discovery, searching, and inspection (including Obsidian), use Moltis's native `Glob`, `Grep`, and `Read` tools with the correct absolute path. These tools do not require shell-command approval for reads. Do not invoke `exec` to run `rg`, `grep`, `find`, `ls`, or `cat` when a native filesystem tool can do the job. If a shell command is genuinely necessary, use it only with the existing approval mechanism; never bypass approval controls.
 - Prefer official CachyOS/Arch packages when practical. Shelly is the existing AUR frontend; `paru` is not installed. Don't add another AUR helper just to solve an install problem.
 - The owner generally prefers Go or Rust tools when an appropriate package is unavailable.
 - When working with code repositories, inspect their existing instructions and Git history before proposing changes; get approval before mutations.

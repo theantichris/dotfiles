@@ -397,7 +397,17 @@ port = 41869                           # Port number (auto-generated for this in
 [tools.fs]
 # workspace_root = "/home/user/projects/my-app"  # Default search root for Glob/Grep
 # allow_paths = []                  # Absolute path globs the fs tools are allowed to access
-# deny_paths = []                   # Absolute path globs the fs tools must refuse
+deny_paths = [
+    "/home/christopher/.ssh/**",
+    "/home/christopher/.gnupg/**",
+    "/home/christopher/.password-store/**",
+    "/home/christopher/.local/share/keyrings/**",
+    "/home/christopher/.config/gh/hosts.yml",
+    "/home/christopher/.config/Element/**",
+    "/home/christopher/.config/BraveSoftware/**",
+    "/home/christopher/**/.env",
+    "/home/christopher/**/.env.local",
+]                   # Absolute path globs the fs tools must refuse
 track_reads = true                # Record per-session Read history
 must_read_before_write = true     # Refuse Write/Edit targeting unread files (needs track_reads)
 require_approval = true           # Pause Write/Edit for operator approval

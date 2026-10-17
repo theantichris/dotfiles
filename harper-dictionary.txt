@@ -31,7 +31,6 @@ Keegan
 Kureha
 Lamm
 Lilidh
-Linecast
 Lunnainn
 McManus
 Mhàrtainn
@@ -214,6 +213,7 @@ leann
 leat
 leibh
 leughadh
+linecast
 loch
 luch
 lèine

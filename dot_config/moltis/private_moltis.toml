@@ -771,6 +771,12 @@ disabled_bundled_categories = [
 [user]
 name = "Christopher"
 timezone = "America/New_York"
+
+[heartbeat]
+model = "ollama::huihui_ai/gpt-oss-abliterated:20b"
+
+[heartbeat.active_hours]
+end = "23:59"
 # enabled = true                    # Auto-detect installed external agents for chat session selection
 # Set enabled = false to opt out of all external-agent discovery.
 # Default detection trusts Moltis' PATH. Use absolute binary paths below when

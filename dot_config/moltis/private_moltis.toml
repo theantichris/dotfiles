@@ -774,6 +774,9 @@ timezone = "America/New_York"
 
 [heartbeat]
 model = "ollama::huihui_ai/gpt-oss-abliterated:20b"
+deliver = true
+to = "!VhKRSHmb2BR-SgaJFLe8Rt6VXkRlZYDUpspaFE-2BxY"
+channel = "matrix-org-t79n5w"
 
 [heartbeat.active_hours]
 end = "23:59"

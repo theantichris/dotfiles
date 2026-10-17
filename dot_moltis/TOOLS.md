@@ -16,7 +16,7 @@ These are environment-specific working notes, not tool registration or permissio
 - Chezmoi has `[git] autoCommit = true` and `autoPush = true`. Do **not** ask for extra manual commits or pushes after `chezmoi add`.
 - For tracked settings, inspect and modify the **chezmoi source** with approval; avoid making untracked edits only to the rendered destination.
 - Moltis config: `~/.config/moltis/moltis.toml`, from `dot_config/moltis/private_moltis.toml` in that repo.
-- These global workspace instructions deploy to `~/.moltis/AGENTS.md` and `~/.moltis/TOOLS.md`. Moltis-owned `MEMORY.md` and `memory/` files are runtime data, except the intentionally chezmoi-managed `memory/clin-vault` symlink.
+- These global workspace instructions deploy to `~/.moltis/AGENTS.md` and `~/.moltis/TOOLS.md`. Moltis's generated `MEMORY.md` and `memory/` contents are runtime data, not dotfiles.
 
 ## AI services and tools
 
@@ -27,7 +27,7 @@ These are environment-specific working notes, not tool registration or permissio
 
 ## Local workflow preferences
 
-- Obsidian vault: `~/Documents/Clin Vault`. Quote paths containing spaces. The chezmoi-managed `~/.moltis/memory/clin-vault` directory symlink allows Moltis to index Markdown notes through the existing hybrid `memory_search` backend without copying or moving them. Search it for relevant notes, and read the original note when more context is needed. Treat vault notes as read-only unless the owner explicitly approves changes, including when accessed through the symlink. Moltis's autonomous memory writes are for its own `MEMORY.md` and `memory/*.md` files, never for the linked vault.
+- Obsidian vault: `~/Documents/Clin Vault`. Quote paths containing spaces; read notes freely, but get approval before editing notes.
 - Prefer official CachyOS/Arch packages when practical. Shelly is the existing AUR frontend; `paru` is not installed. Don't add another AUR helper just to solve an install problem.
 - The owner generally prefers Go or Rust tools when an appropriate package is unavailable.
 - When working with code repositories, inspect their existing instructions and Git history before proposing changes; get approval before mutations.

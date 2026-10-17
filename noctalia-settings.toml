@@ -40,6 +40,9 @@ start = [ "clock", "weather", "spacer_1", "group:g1" ]
     opacity = 1.0
     padding = 6.0
 
+[battery.device."/org/freedesktop/UPower/devices/headset_dev_84_9D_4B_EC_E7_D8"]
+warning_threshold = 10
+
 [battery.device."/org/freedesktop/UPower/devices/keyboard_dev_D4_CC_6E_3A_4A_87"]
 warning_threshold = 10
 

@@ -1,0 +1,5 @@
+provider add ollama \
+	--name Ollama \
+	--type ollama \
+	--base-url "http://localhost:11434/v1/"
+option request-timeout 600

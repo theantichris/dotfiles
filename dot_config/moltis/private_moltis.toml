@@ -503,7 +503,9 @@ duckduckgo_fallback = true       # Enable DDG fallback without API keys
 
 # ── Browser Automation ────────────────────────────────────────────────────────
 
-# [tools.browser]
+[tools.browser]
+chrome_path = "/opt/brave-origin-bin/brave"
+persist_profile = false
 # enabled = true                    # Enable browser tool
 # headless = true                   # Run without visible window
 # viewport_width = 2560             # Default viewport width in pixels

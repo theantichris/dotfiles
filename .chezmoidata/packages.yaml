@@ -38,6 +38,7 @@ packages:
   aur:
     - crush-bin
     - fish-lsp
+    - google-chrome
     - linecast
     - linux-legion
     - signal-cli

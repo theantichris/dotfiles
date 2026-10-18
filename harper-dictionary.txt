@@ -15,6 +15,9 @@ Calibre
 Chroncal
 Clin
 Crowder
+DRI
+DRI's
+DRIs
 Dasani
 Debuggable
 Eòsaph
@@ -47,6 +50,8 @@ Sasainn
 Seumas
 Shadowrun
 Standup
+Stanier
+Stanier's
 Superfile
 Tailscale
 Termium
@@ -203,6 +208,7 @@ hama
 i
 iad
 iasg
+ins
 is
 isbean
 isean

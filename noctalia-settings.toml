@@ -189,6 +189,10 @@ settings_window_translucent = true
     [shell.window_switcher]
     style = "compact"
 
+[system.monitor]
+cpu_temp_activity_threshold = 75
+cpu_temp_critical_threshold = 95
+
 [theme]
 builtin = "Noctalia"
 custom_palette = "Cyberpunk"

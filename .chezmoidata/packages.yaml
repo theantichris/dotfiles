@@ -49,6 +49,7 @@ packages:
     - linux-legion
     - signal-cli
     - slack-desktop
+    - superseedr-bin
     - uhk-agent-appimage
   go:
     - name: go-global-update

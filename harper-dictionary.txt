@@ -26,6 +26,7 @@ GTM
 Glaschu
 Golazo
 Gorkom
+HTB
 Hyprland
 IDP
 Inbhir

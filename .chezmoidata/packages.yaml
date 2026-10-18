@@ -16,6 +16,7 @@ packages:
     - gopls
     - harper
     - helix
+    - hugo
     - jre-openjdk-headless
     - lua-language-server
     - marksman

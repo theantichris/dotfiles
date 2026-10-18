@@ -7,6 +7,8 @@ packages:
     - brave-origin-bin
     - chatgpt-desktop-bin
     - cmake
+    - dnsmasq
+    - edk2-ovmf
     - entr
     - eza
     - fd
@@ -18,13 +20,16 @@ packages:
     - helix
     - hugo
     - jre-openjdk-headless
+    - libvirt
     - lua-language-server
     - marksman
     - newsboat
+    - nftables
     - ollama
     - ollama-cuda
     - openai-codex
     - pkgconf
+    - qemu-desktop
     - ripgrep
     - rust-analyzer
     - rustup
@@ -33,6 +38,7 @@ packages:
     - tailscale
     - taplo-cli
     - ttf-hack-nerd
+    - virt-manager
     - vscode-json-languageserver
     - yaml-language-server
   aur:

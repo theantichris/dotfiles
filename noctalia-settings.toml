@@ -183,6 +183,9 @@ settings_window_translucent = true
     [shell.greeter_sync]
     auto_sync = true
 
+    [shell.launcher]
+    sort_by_usage = false
+
     [shell.panel]
     transparency_mode = "glass"
 

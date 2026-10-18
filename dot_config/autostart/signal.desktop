@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Signal
+Comment=Start Signal minimized in the system tray
+Exec=signal-desktop --start-in-tray
+TryExec=signal-desktop
+Icon=signal-desktop
+Terminal=false

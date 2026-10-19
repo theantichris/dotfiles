@@ -1,6 +1,11 @@
+{{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
 function update --description 'Update system and development tools'
+{{- if $parrot }}
+    sudo parrot-upgrade; or return
+{{- else }}
     cachy-update; or return
     shelly; or return
+{{- end }}
 
     if command -q go-global-update
         go-global-update; or return

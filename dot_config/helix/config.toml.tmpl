@@ -1,3 +1,4 @@
+{{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
 theme = "cyberpunk"
 
 [editor]
@@ -8,7 +9,9 @@ cursorline = true
 end-of-line-diagnostics = "hint"
 line-number = "relative"
 rulers = [80]
+{{- if not $parrot }}
 trim-trailing-whitespace = true
+{{- end }}
 true-color = true
 
 [editor.cursor-shape]

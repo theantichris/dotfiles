@@ -1,3 +1,4 @@
+{{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
 #!/bin/sh
 
 # {{ include "dot_config/bat/themes/cyberpunk.tmTheme.tmpl" | sha256sum }}
@@ -5,4 +6,8 @@
 
 if command -v bat >/dev/null 2>&1; then
     bat cache --build
+{{- if $parrot }}
+elif command -v batcat >/dev/null 2>&1; then
+    batcat cache --build
+{{- end }}
 fi

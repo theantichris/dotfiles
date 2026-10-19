@@ -1,5 +1,6 @@
+{{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
 [edit]
-command = "helix"
+command = "{{ if $parrot }}hx{{ else }}helix{{ end }}"
 apply = true
 
 [git]

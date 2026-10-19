@@ -1,3 +1,25 @@
 harper-dictionary.txt
 README.md
 noctalia-settings.toml
+
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
+# HTB VM: keep the existing MATE session, application defaults, and Git signing.
+.gitconfig
+.config/autostart
+.config/clin
+.config/crush
+.config/golazo
+.config/harper-ls
+.config/helix/languages.toml
+.config/hypr
+.config/kitty
+.config/linecast
+.config/matcha
+.config/newsboat
+.config/noctalia
+.config/superfile
+.config/systemd
+.config/uwsm
+.config/fish/conf.d/linecast.fish
+.local
+{{ end -}}

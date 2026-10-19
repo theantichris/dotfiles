@@ -1,0 +1,20 @@
+{{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
+# Modern command-line aliases for CachyOS.
+if command -q fd
+    alias find='fd'
+end
+{{ if $parrot }}
+# Debian/Parrot executable names for the existing CLI tools.
+if not command -q fd; and command -q fdfind
+    alias fd='fdfind'
+    alias find='fdfind'
+end
+
+if not command -q bat; and command -q batcat
+    alias bat='batcat'
+end
+
+if not command -q helix; and command -q hx
+    alias helix='hx'
+end
+{{ end -}}

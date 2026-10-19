@@ -1,0 +1,4 @@
+{{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
+# Use bat for syntax-highlighted man pages.
+set -gx MANROFFOPT -c
+set -gx MANPAGER "sh -c 'col -bx | {{ if $parrot }}batcat{{ else }}bat{{ end }} -l man -p'"

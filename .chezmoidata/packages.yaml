@@ -34,6 +34,7 @@ packages:
     - rust-analyzer
     - rustup
     - signal-desktop
+    - speedtest-cli
     - superfile
     - tailscale
     - taplo-cli

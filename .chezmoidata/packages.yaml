@@ -13,6 +13,7 @@ packages:
     - eza
     - fd
     - git-delta
+    - glow
     - go
     - go-tools
     - gopls

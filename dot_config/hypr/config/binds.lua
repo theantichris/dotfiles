@@ -158,8 +158,9 @@ end
 -- hl.bind(mainMod .. " + CONTROL + SHIFT + 3", hl.dsp.focus({ monitor = MONITOR3 }))
 
 -- Move the entire current workspace (all its windows) using the physical layout:
--- external HDMI display on the left, laptop panel on the right.
-hl.bind(mainMod .. " + ALT + H", hl.dsp.workspace.move({ monitor = "HDMI-A-1" }), { description = "Move workspace to external monitor (left)" })
+-- external display on the left, laptop panel on the right.
+-- Match the external display by description so HDMI and USB-C/DP both work.
+hl.bind(mainMod .. " + ALT + H", hl.dsp.workspace.move({ monitor = "desc:CORSAIR MEMORY Inc. 34WQHD240-C A958A4231050" }), { description = "Move workspace to external monitor (left)" })
 hl.bind(mainMod .. " + ALT + L", hl.dsp.workspace.move({ monitor = "eDP-1" }), { description = "Move workspace to laptop monitor (right)" })
 
 -- Move to adjacent workspaces and next empty

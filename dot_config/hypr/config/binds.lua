@@ -157,6 +157,10 @@ end
 -- hl.bind(mainMod .. " + CONTROL + SHIFT + 2", hl.dsp.focus({ monitor = MONITOR2 }))
 -- hl.bind(mainMod .. " + CONTROL + SHIFT + 3", hl.dsp.focus({ monitor = MONITOR3 }))
 
+-- Move the entire current workspace (all its windows) to the display in that direction.
+hl.bind(mainMod .. " + ALT + H", hl.dsp.workspace.move({ monitor = "l" }), { description = "Move workspace to left monitor" })
+hl.bind(mainMod .. " + ALT + L", hl.dsp.workspace.move({ monitor = "r" }), { description = "Move workspace to right monitor" })
+
 -- Move to adjacent workspaces and next empty
 hl.bind(mainMod .. " + CONTROL + Right", hl.dsp.focus({ workspace = "r+1" }), { description = "Next workspace" })
 hl.bind(mainMod .. " + CONTROL + Left",  hl.dsp.focus({ workspace = "r-1" }), { description = "Previous workspace" })

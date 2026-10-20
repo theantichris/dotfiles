@@ -28,6 +28,7 @@ Glo
 Golazo
 Gorkom
 HTB
+Hedgecock
 Hyprland
 IDP
 Inbhir
@@ -344,6 +345,7 @@ uinneag
 uinneagan
 uinnean
 uisge
+up John
 Èirinn
 à
 àlainn

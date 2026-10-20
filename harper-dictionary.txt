@@ -40,6 +40,7 @@ Lunnainn
 McManus
 Mhàrtainn
 Moltis
+Marsaili
 Màrtainn
 NFR
 NVIDIA
@@ -66,6 +67,7 @@ a-muigh
 a-màireach
 a-nis
 a-rithist
+aca
 ach
 ag
 agad
@@ -88,15 +90,18 @@ annasach
 aodach
 aon
 aran
+athair
 autoscaling
 baile
 bainne
 balach
 beag
+bean
 bheag
 bheatha
 bheil
 bhlàth
+bhràthair
 bhotal
 biadh
 blasta
@@ -105,6 +110,7 @@ bog
 bonaid
 botail
 botal
+bràthair
 briogais
 brot
 bruich
@@ -132,6 +138,7 @@ chòir
 chù
 cia
 ciamar
+clann
 cloc
 clocaichean
 clocan
@@ -215,6 +222,7 @@ is
 isbean
 isean
 ithe
+laghach
 le
 leabhar
 leam
@@ -230,6 +238,7 @@ lèine-t
 madainn
 mar
 math
+màthair
 md
 mhath
 mheud
@@ -244,10 +253,12 @@ mòr
 mòran
 na
 nach
+nighean
 nis
 no
 obh
 oidhche
+onarach
 orainsear
 orm
 ort
@@ -255,6 +266,7 @@ peata
 piobar
 piotsa
 piseag
+piuthar
 pàidh
 pàrant
 reothadh
@@ -270,6 +282,8 @@ salann
 saor
 seacaid
 seall
+seanair
+seanmhair
 seinn
 seòmar
 seòmraichean
@@ -309,6 +323,7 @@ thusa
 tidsear
 tioram
 toil
+toilichte
 tomàto
 tomàtothan
 tranchion

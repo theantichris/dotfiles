@@ -29,7 +29,8 @@ hl.config({
     vrr = 3,
   },
   render = {
-    direct_scanout = 2,
+    -- Keep fullscreen rendering composited to avoid external-display artifacts.
+    direct_scanout = 0,
     -- Enable HDR automatically for fullscreen HDR apps/games.
     -- Keep the normal desktop in SDR rather than forcing HDR always on.
     cm_auto_hdr = 1,

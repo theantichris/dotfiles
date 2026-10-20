@@ -51,6 +51,7 @@ show_file_size = false
 date_format = "%Y-%m-%d"
 density = "compact"
 default_view = "tree"
+default_expand_depth = 0
 inline_info = true
 pinned_on_top = true
 show_hidden_files = false

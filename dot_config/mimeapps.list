@@ -1,4 +1,5 @@
 [Added Associations]
+x-scheme-handler/cfauth=curseforge.desktop;
 
 [Default Applications]
 inode/directory=spf.desktop
@@ -13,8 +14,6 @@ x-scheme-handler/slack=slack.desktop
 x-scheme-handler/codex=chatgpt.desktop
 x-scheme-handler/matcha=matcha-protocol.desktop
 x-scheme-handler/wowup=WowUpCf.desktop
-
-# Text and code types previously handled by GNOME Text Editor.
 application/buildstream+yaml=mitos.desktop;
 application/ecmascript=mitos.desktop;
 application/json5=mitos.desktop;
@@ -171,8 +170,6 @@ text/x-vb=mitos.desktop;
 text/x-verilog=mitos.desktop;
 text/x-vhdl=mitos.desktop;
 text/x-vpy=mitos.desktop;
-
-# Keep existing viewers and specialized file handlers.
 application/mac-binhex40=org.gnome.TextEditor.desktop;
 application/mbox=org.gnome.TextEditor.desktop;
 application/postscript=org.gnome.TextEditor.desktop;
@@ -240,3 +237,5 @@ text/x-uuencode=org.gnome.TextEditor.desktop;
 text/x.gcode=org.gnome.TextEditor.desktop;
 text/xmcd=org.gnome.TextEditor.desktop;
 video/vnd.mpegurl=org.gnome.TextEditor.desktop;
+x-scheme-handler/curseforge=curseforge.desktop
+x-scheme-handler/cfauth=curseforge.desktop

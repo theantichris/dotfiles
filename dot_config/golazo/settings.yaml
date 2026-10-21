@@ -10,3 +10,8 @@ selected_leagues:
   - 42     # UEFA Champions League
   - 73     # UEFA Europa League
   - 10216  # UEFA Conference League
+
+  # USL competitions
+  - 9296   # USL League One
+  - 8972   # USL Championship
+  - 10699  # USL Gainsbridge Super League

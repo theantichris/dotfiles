@@ -1,6 +1,6 @@
 {{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
 [edit]
-command = "{{ if $parrot }}hx{{ else }}helix{{ end }}"
+command = "{{ if eq .chezmoi.hostname "tranchion" }}{{ .chezmoi.homeDir }}/.local/bin/ms{{ else if $parrot }}hx{{ else }}helix{{ end }}"
 apply = true
 
 [git]

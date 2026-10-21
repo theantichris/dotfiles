@@ -41,7 +41,7 @@ error   = "{{ .cyberpunk.semantic.error }} bold"
 gpgsign = true
 
 [core]
-editor = helix
+editor = {{ if eq .chezmoi.hostname "tranchion" }}{{ .chezmoi.homeDir }}/.local/bin/ms{{ else }}helix{{ end }}
 excludesFile = ~/.gitignore
 autocrlf = input
 eol = lf

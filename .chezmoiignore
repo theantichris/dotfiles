@@ -23,3 +23,8 @@ noctalia-settings.toml
 .config/fish/conf.d/linecast.fish
 .local
 {{ end -}}
+
+{{ if ne .chezmoi.hostname "tranchion" -}}
+.config/mimeapps.list
+.local/share/applications/mitos.desktop
+{{ end -}}

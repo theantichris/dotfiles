@@ -3,7 +3,7 @@
 TERMINAL     = "kitty"
 FILE_MANAGER = "kitty --class superfile --title Superfile spf"
 BROWSER      = "brave-origin"
-EDITOR       = "kitty -e helix"
+EDITOR       = "kitty -e {{ if eq .chezmoi.hostname "tranchion" }}{{ .chezmoi.homeDir }}/.local/bin/ms{{ else }}helix{{ end }}"
 CALCULATOR   = "gnome-calculator"
 
 -- Monitors

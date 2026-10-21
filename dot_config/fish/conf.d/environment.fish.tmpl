@@ -1,4 +1,7 @@
 {{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
 # Preferred applications for command-line tools
-set -gx EDITOR {{ if $parrot }}hx{{ else }}helix{{ end }}
+set -gx EDITOR {{ if eq .chezmoi.hostname "tranchion" }}{{ .chezmoi.homeDir }}/.local/bin/ms{{ else if $parrot }}hx{{ else }}helix{{ end }}
+{{ if eq .chezmoi.hostname "tranchion" -}}
+set -gx VISUAL $EDITOR
+{{ end -}}
 set -gx BROWSER {{ if $parrot }}firefox-esr{{ else }}brave-origin{{ end }}

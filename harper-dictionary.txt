@@ -91,10 +91,12 @@ an-diugh
 an-dràsta
 ann
 annasach
+antaidh
 aodach
 aon
 aran
 athair
+athraichean
 autoscaling
 baile
 bainne
@@ -114,10 +116,12 @@ bog
 bonaid
 botail
 botal
+breagha
 briogais
 brot
 bruich
 bràthair
+bràithrean
 brògan
 brònach
 bò
@@ -179,6 +183,7 @@ dorsan
 dragh
 dreasa
 dràsta
+duine
 duilich
 dà
 dè
@@ -229,6 +234,7 @@ ithe
 laghach
 le
 leabhar
+leanabh
 leam
 leann
 leat
@@ -253,6 +259,7 @@ muc
 muigh
 màireach
 màthair
+màthraichean
 mòr
 mòran
 na
@@ -267,6 +274,7 @@ orainsear
 orm
 ort
 peata
+peathraichean
 piobar
 piotsa
 piseag
@@ -348,6 +356,7 @@ uinneag
 uinneagan
 uinnean
 uisge
+uncail
 up John
 Èirinn
 à

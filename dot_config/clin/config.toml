@@ -69,6 +69,7 @@ week_start = "monday"
 sections = []
 
 [editor]
+external_command = "ms"
 external_enabled = true
 preview_enabled = false
 show_line_numbers = true

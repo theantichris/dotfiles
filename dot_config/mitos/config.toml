@@ -1,0 +1,75 @@
+# Helix preferences ported to Mitos 0.1.1 using canonical setting names.
+theme = "cyberpunk"
+
+[editor]
+line-number = "relative"
+rulers = [80]
+
+[editor.cursor.shape]
+insert = "bar"
+
+[editor.completion]
+replace = true
+
+[editor.files.auto-save]
+focus-lost = true
+
+[editor.files.save]
+trim-trailing-whitespace = true
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+character = "╎"
+render = true
+skip-levels = 0
+
+[editor.diagnostics.inline]
+cursor-line = "warning"
+other-lines ="disable"
+
+[editor.diagnostics.end-of-line]
+severity = "hint"
+
+[terminal]
+true-color = true
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 80
+max-indent-retain = 40
+
+[editor.statusline]
+left = [
+	"mode",
+	"spinner",
+	"branch",
+	"spacer",
+	"separator",
+	"file-name",
+	"read-only-indicator",
+	"file-modification-indicator",
+]
+
+
+right = [
+	"diagnostics",
+	"workspace-diagnostics",
+	"position",
+	"total-line-numbers",
+	"position-percentage",
+	"file-encoding",
+	"file-line-ending",
+	"file-type",
+	"register",
+	"selections",
+]
+
+separator = "|"
+
+[editor.statusline.mode]
+color = true
+
+[editor.cursor]
+highlight-line = true

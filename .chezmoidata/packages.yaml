@@ -52,6 +52,7 @@ packages:
     - signal-cli
     - slack-desktop
     - superseedr-bin
+    - tsm-app
     - uhk-agent-appimage
   go:
     - name: go-global-update

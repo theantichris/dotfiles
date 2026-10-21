@@ -1,0 +1,69 @@
+# Use built-in spelling for the same languages configured in Helix.
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[[language]]
+name = "bash"
+language-id = "shellscript"
+scope = "source.sh"
+file-types = [
+  "sh",
+  "bash",
+  { glob = "**/*.sh.tmpl" },
+  { glob = "**/*.bash.tmpl" },
+]
+shebangs = ["sh", "bash"]
+language-servers = ["bash-language-server"]
+spelling.languages = ["en_US"]
+
+[[language]]
+name = "go"
+auto-format = true
+formatter = { command = "goimports" }
+language-servers = ["gopls"]
+spelling.languages = ["en_US"]
+
+[[language]]
+name = "json"
+auto-format = true
+language-servers = ["vscode-json-language-server"]
+spelling.languages = ["en_US"]
+
+[[language]]
+name = "jsonc"
+auto-format = true
+language-servers = ["vscode-json-language-server"]
+spelling.languages = ["en_US"]
+
+[[language]]
+name = "lua"
+auto-format = true
+language-servers = ["lua-language-server"]
+spelling.languages = ["en_US"]
+file-types = [
+  "lua",
+  { glob = "**/*.lua.tmpl" }
+]
+
+[[language]]
+name = "markdown"
+language-servers = ["marksman"]
+spelling.languages = ["en_US"]
+
+[[language]]
+name = "rust"
+auto-format = true
+language-servers = ["rust-analyzer"]
+spelling.languages = ["en_US"]
+
+[[language]]
+name = "toml"
+roots = ["."]
+language-servers = ["taplo"]
+spelling.languages = ["en_US"]
+
+[[language]]
+name = "yaml"
+indent = { tab-width = 2, unit = "  " }
+language-servers = ["yaml-language-server"]
+spelling.languages = ["en_US"]

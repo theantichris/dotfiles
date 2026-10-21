@@ -1,0 +1,4 @@
+# Select with: codex --profile inspect
+# Local commands cannot write to the workspace or request escalation.
+sandbox_mode = "read-only"
+approval_policy = "never"

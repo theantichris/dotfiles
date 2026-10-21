@@ -1,0 +1,27 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- /* Merge portable preferences into the existing config. Keep machine-local
+       desktop, plugin, MCP, and trust values out of the dotfiles repository.
+       TOML serialization preserves values, but not comments or formatting. */ -}}
+{{- $config := dict -}}
+{{- if .chezmoi.stdin -}}
+{{- $config = fromToml .chezmoi.stdin -}}
+{{- end -}}
+{{- $config
+    | setValueAtPath "model" "gpt-6.1-sol"
+    | setValueAtPath "model_reasoning_effort" "medium"
+    | setValueAtPath "approval_policy" "on-request"
+    | setValueAtPath "sandbox_mode" "workspace-write"
+    | setValueAtPath "file_opener" "none"
+    | setValueAtPath "oss_provider" "ollama"
+    | setValueAtPath "web_search" "cached"
+    | setValueAtPath "project_doc_fallback_filenames" (list "CLAUDE.md" "CRUSH.md")
+    | setValueAtPath "analytics.enabled" false
+    | setValueAtPath "sandbox_workspace_write.network_access" false
+    | setValueAtPath "shell_environment_policy.ignore_default_excludes" false
+    | setValueAtPath "tui.vim_mode_default" true
+    | setValueAtPath "tui.theme" "cyberpunk"
+    | setValueAtPath "tui.notifications" (list "agent-turn-complete" "approval-requested")
+    | setValueAtPath "tui.notification_condition" "unfocused"
+    | setValueAtPath "tui.notification_method" "auto"
+    | setValueAtPath "tui.status_line" (list "current-dir" "git-branch" "model-with-reasoning" "context-remaining")
+    | toToml -}}

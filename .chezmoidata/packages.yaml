@@ -54,6 +54,7 @@ packages:
     - superseedr-bin
     - tsm-app
     - uhk-agent-appimage
+    - wowup-cf-bin
   go:
     - name: go-global-update
       module: github.com/Gelio/go-global-update@latest

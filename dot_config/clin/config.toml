@@ -39,6 +39,7 @@ backup_on_save = true
 backup_on_quit = true
 auto_push = true
 remote_name = "origin"
+auto_backup_interval = 15
 
 [notes]
 rename_on_title_change = true

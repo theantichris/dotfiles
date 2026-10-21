@@ -45,6 +45,7 @@ packages:
     - yaml-language-server
   aur:
     - crush-bin
+    - curseforge
     - fish-lsp
     - google-chrome
     - linecast

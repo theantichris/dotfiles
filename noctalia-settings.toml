@@ -253,6 +253,11 @@ directory = "/home/christopher/Pictures/Backgrounds"
 [weather]
 unit = "imperial"
 
+[widget.media]
+hide_when_idle = true
+show_progress = true
+title_scroll = "always"
+
 [widget.network]
 show_label = false
 

@@ -7,7 +7,8 @@ refresh-on-startup yes
 auto-reload yes
 reload-time 15
 
-browser "xdg-open %u"
+# Keep graphical browser output from overwriting the terminal interface.
+browser "xdg-open %u </dev/null >/dev/null 2>&1 &"
 
 show-read-articles no
 show-read-feeds no

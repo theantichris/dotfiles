@@ -1,0 +1,22 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- $themes := list -}}
+{{- if .chezmoi.stdin -}}
+{{- range (fromJson .chezmoi.stdin) -}}
+{{- if ne .name "cyberpunk" -}}
+{{- $themes = append $themes . -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- $palette := dict
+    "primary" .cyberpunk.accent.pink
+    "secondary" .cyberpunk.accent.cyan
+    "accent" .cyberpunk.accent.green
+    "foreground" .cyberpunk.text.primary
+    "background" .cyberpunk.background.base
+    "surface" .cyberpunk.background.surface
+    "panel" .cyberpunk.background.panel
+    "success" .cyberpunk.semantic.success
+    "warning" .cyberpunk.semantic.warning
+    "error" .cyberpunk.semantic.error
+    "dark" true -}}
+{{- append $themes (dict "name" "cyberpunk" "palettes" $palette "styles" (dict)) | toPrettyJson -}}

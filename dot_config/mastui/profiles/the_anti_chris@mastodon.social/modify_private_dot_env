@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+import re
+import sys
+
+
+preferences = {
+    "THEME": "cyberpunk",
+    "PREFERRED_DARK_THEME": "cyberpunk",
+    "HOME_TIMELINE_ENABLED": "on",
+    "LOCAL_TIMELINE_ENABLED": "off",
+    "NOTIFICATIONS_TIMELINE_ENABLED": "on",
+    "FEDERATED_TIMELINE_ENABLED": "off",
+    "DIRECT_TIMELINE_ENABLED": "on",
+    "HOME_AUTO_REFRESH": "on",
+    "HOME_AUTO_REFRESH_INTERVAL": "2",
+    "NOTIFICATIONS_AUTO_REFRESH": "on",
+    "NOTIFICATIONS_AUTO_REFRESH_INTERVAL": "2",
+    "IMAGE_SUPPORT": "on",
+    "IMAGE_RENDERER": "auto",
+    "AUTO_PRUNE_CACHE": "on",
+    "NOTIFICATIONS_POPUPS_MENTIONS": "off",
+    "NOTIFICATIONS_POPUPS_FOLLOWS": "off",
+    "NOTIFICATIONS_POPUPS_REBLOGS": "off",
+    "NOTIFICATIONS_POPUPS_FAVOURITES": "off",
+}
+
+seen = set()
+for line in sys.stdin.read().splitlines(keepends=True):
+    match = re.match(r"\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)\s*=", line)
+    key = match.group(1) if match else None
+    if key in preferences:
+        ending = "\r\n" if line.endswith("\r\n") else "\n"
+        sys.stdout.write(f"{key}={preferences[key]}{ending}")
+        seen.add(key)
+    else:
+        sys.stdout.write(line)
+        if not line.endswith("\n"):
+            sys.stdout.write("\n")
+
+for key, value in preferences.items():
+    if key not in seen:
+        sys.stdout.write(f"{key}={value}\n")

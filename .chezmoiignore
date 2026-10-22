@@ -16,6 +16,7 @@ noctalia-settings.toml
 .config/kitty
 .config/linecast
 .config/matcha
+.config/mastui
 .config/newsboat
 .config/noctalia
 .config/superfile

@@ -1,0 +1,12 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- $keymap := dict -}}
+{{- if .chezmoi.stdin -}}
+{{- $keymap = fromJson .chezmoi.stdin -}}
+{{- end -}}
+{{- $keymap
+    | setValueAtPath "scroll_up" "k"
+    | setValueAtPath "scroll_down" "j"
+    | setValueAtPath "focus_previous_column" "h"
+    | setValueAtPath "focus_next_column" "l"
+    | setValueAtPath "like_post" "f"
+    | toPrettyJson -}}

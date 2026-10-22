@@ -43,6 +43,7 @@ packages:
     - virt-manager
     - vscode-json-languageserver
     - yaml-language-server
+    - yamlfmt
   aur:
     - crush-bin
     - curseforge

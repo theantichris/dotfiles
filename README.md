@@ -1,6 +1,6 @@
 # dotfiles // decker loadout
 
-My Shadowrun-inspired, keyboard-driven environment, managed with
+My Shadowrun inspired, keyboard-driven environment, managed with
 [chezmoi](https://www.chezmoi.io). Dark backgrounds, neon accents, and a shared
 Cyberpunk palette across the desktop, terminal, editors, and TUIs.
 

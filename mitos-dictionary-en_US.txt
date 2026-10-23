@@ -1,0 +1,7 @@
+dotfiles
+decker
+loadout
+Shadowrun
+chezmoi
+CachyOS
+Fastfetch

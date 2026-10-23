@@ -48,7 +48,7 @@ file-types = [
 [[language]]
 name = "markdown"
 language-servers = ["marksman"]
-spelling.languages = ["en_US"]
+spelling.languages = ["en_US", "gd_GB"]
 
 [[language]]
 name = "rust"

@@ -110,7 +110,7 @@ window rules, and other settings.
 
 | Tool | Role | Configuration |
 |------|------|---------------|
-| Mitos | Main editor on `tranchion` | [`dot_config/mitos`](dot_config/mitos), [`personal dictionary`](mitos-dictionary-en_US.txt) |
+| Mitos | Main editor on `tranchion` | [`dot_config/mitos`](dot_config/mitos), [`English words`](mitos-dictionary-en_US.txt), [`Gaelic words`](mitos-dictionary-gd_GB.txt) |
 | Helix | Editor on other hosts | [`dot_config/helix`](dot_config/helix) |
 | Harper | Writing assistance and shared dictionary | [`dot_config/harper-ls`](dot_config/harper-ls), [`dictionary`](harper-dictionary.txt) |
 | Git + delta | Version control and themed diffs | [`dot_gitconfig.tmpl`](dot_gitconfig.tmpl), [`dot_gitignore`](dot_gitignore) |
@@ -119,6 +119,10 @@ window rules, and other settings.
 
 Language server settings live alongside the editor configurations. Packages
 include Go, Rust, Bash, Lua, Markdown, TOML, JSON, and YAML tooling.
+Mitos checks Markdown against English (`en_US`) and Scottish Gaelic (`gd_GB`).
+The GPLv3+ Gaelic Hunspell 3.3 dictionary is downloaded directly from a pinned
+[LibreOffice source](https://github.com/LibreOffice/dictionaries/tree/93db4f58c3b2e43003c49d33ce203bdcc8db0b93/gd_GB)
+via [chezmoi externals](.chezmoiexternal.toml.tmpl); personal words are managed separately.
 
 </details>
 
@@ -190,10 +194,10 @@ manual control, edit files directly in the source checkout and review the diff
 before applying. Adjust those options if you prefer a different workflow.
 
 **Live files:** Noctalia's `~/.local/state/noctalia/settings.toml`, Harper's
-`~/.config/harper-ls/dictionary.txt`, and Mitos's
-`~/.local/state/mitos/dictionaries/en_US.txt` are symlinked to separate files
-in this checkout. Editing those source files can affect running applications
-immediately.
+`~/.config/harper-ls/dictionary.txt`, and Mitos's `en_US.txt` and `gd_GB.txt`
+personal dictionaries under `~/.local/state/mitos/dictionaries/` are symlinked
+to separate files in this checkout. Editing those source files can affect
+running applications immediately.
 
 **Packages:** edit [`.chezmoidata/packages.yaml`](.chezmoidata/packages.yaml).
 The CachyOS installation hook runs when its rendered contents change. Fish's

@@ -1,0 +1,14 @@
+{{- if eq .chezmoi.hostname "tranchion" }}
+# Scottish Gaelic (gd_GB) Hunspell 3.3 by Am Faclair Beag / Kevin Scannell.
+# GPLv3+. Sources pinned to LibreOffice/dictionaries commit 93db4f58.
+# https://github.com/LibreOffice/dictionaries/tree/93db4f58c3b2e43003c49d33ce203bdcc8db0b93/gd_GB
+[".config/mitos/runtime/dictionaries/gd_GB/gd_GB.aff"]
+type = "file"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/93db4f58c3b2e43003c49d33ce203bdcc8db0b93/gd_GB/gd_GB.aff"
+checksum.size = 8228
+
+[".config/mitos/runtime/dictionaries/gd_GB/gd_GB.dic"]
+type = "file"
+url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/93db4f58c3b2e43003c49d33ce203bdcc8db0b93/gd_GB/gd_GB.dic"
+checksum.size = 4806682
+{{- end }}

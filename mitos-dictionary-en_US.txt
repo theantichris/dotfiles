@@ -5,3 +5,6 @@ Shadowrun
 chezmoi
 CachyOS
 Fastfetch
+Lenited
+lenited
+lenite

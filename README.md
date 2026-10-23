@@ -110,7 +110,7 @@ window rules, and other settings.
 
 | Tool | Role | Configuration |
 |------|------|---------------|
-| Mitos | Main editor on `tranchion` | [`dot_config/mitos`](dot_config/mitos) |
+| Mitos | Main editor on `tranchion` | [`dot_config/mitos`](dot_config/mitos), [`personal dictionary`](mitos-dictionary-en_US.txt) |
 | Helix | Editor on other hosts | [`dot_config/helix`](dot_config/helix) |
 | Harper | Writing assistance and shared dictionary | [`dot_config/harper-ls`](dot_config/harper-ls), [`dictionary`](harper-dictionary.txt) |
 | Git + delta | Version control and themed diffs | [`dot_gitconfig.tmpl`](dot_gitconfig.tmpl), [`dot_gitignore`](dot_gitignore) |
@@ -189,9 +189,11 @@ on exit, and automatic Git behavior can commit and push source changes. For
 manual control, edit files directly in the source checkout and review the diff
 before applying. Adjust those options if you prefer a different workflow.
 
-**Live files:** Noctalia's `~/.local/state/noctalia/settings.toml` and Harper's
-`~/.config/harper-ls/dictionary.txt` are symlinked to files in this checkout.
-Editing those source files can affect running applications immediately.
+**Live files:** Noctalia's `~/.local/state/noctalia/settings.toml`, Harper's
+`~/.config/harper-ls/dictionary.txt`, and Mitos's
+`~/.local/state/mitos/dictionaries/en_US.txt` are symlinked to separate files
+in this checkout. Editing those source files can affect running applications
+immediately.
 
 **Packages:** edit [`.chezmoidata/packages.yaml`](.chezmoidata/packages.yaml).
 The CachyOS installation hook runs when its rendered contents change. Fish's

@@ -1,9 +1,11 @@
-# Helix preferences ported to Mitos 0.1.1 using canonical setting names.
+# Helix preferences ported to Mitos 0.1.2 using canonical setting names.
 theme = "cyberpunk"
 
 [editor]
 line-number = "relative"
-rulers = [80]
+
+[editor.rulers]
+columns = [80]
 
 [editor.cursor.shape]
 insert = "bar"

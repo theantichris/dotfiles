@@ -25,7 +25,7 @@ Mitos editing Go alongside test output and a Git diff rendered by delta.
 
 ![Mitos showing Ghost source and tests beside a terminal with test results and a themed Git diff](docs/screenshots/coding.png)
 
-Noctalia's launcher over Clin, Newsboat, Matcha, and Mastui.
+Noctalia's launcher over the notes, feeds, mail, and Mastodon workspace.
 
 ![Noctalia application launcher centered over the notes, feeds, mail, and Mastodon workspace](docs/screenshots/launcher.png)
 
@@ -127,11 +127,10 @@ via [chezmoi externals](.chezmoiexternal.toml.tmpl); personal words are managed 
 </details>
 
 <details>
-<summary><strong>Notes, feeds, and communication</strong></summary>
+<summary><strong>Feeds and communication</strong></summary>
 
 | Tool | Role | Configuration |
 |------|------|---------------|
-| Clin | Notes with Helix-style bindings | [`dot_config/clin`](dot_config/clin) |
 | Newsboat | Feed reader | [`dot_config/newsboat`](dot_config/newsboat) |
 | Golazo | Football scores | [`dot_config/golazo`](dot_config/golazo) |
 | Linecast | Terminal weather | [`dot_config/linecast`](dot_config/linecast) |
@@ -170,7 +169,7 @@ These applications are excluded from the Parrot deployment.
 The shared palette lives in
 [`.chezmoidata/cyberpunk.yaml`](.chezmoidata/cyberpunk.yaml). Templates read it
 through `.cyberpunk` to theme Fish, Git/delta, Kitty, Mitos, Helix, bat,
-Superfile, Clin, Codex, Mastui, Fastfetch, Newsboat, and Noctalia.
+Superfile, Codex, Mastui, Fastfetch, Newsboat, and Noctalia.
 
 Change shared colors there, then inspect the rendered differences with
 `chezmoi diff`. Noctalia's selected custom palette is `Cyberpunk`; Hyprland

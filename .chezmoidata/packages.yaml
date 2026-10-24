@@ -62,4 +62,3 @@ packages:
       module: github.com/Gelio/go-global-update@latest
   cargo:
     - cargo-update
-    - clin-rs

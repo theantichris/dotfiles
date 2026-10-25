@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Newsboat
+GenericName=RSS Feed Reader
+Comment=Read RSS feeds using Newsboat in Kitty
+Exec=kitty --class newsboat --title Newsboat newsboat
+TryExec=newsboat
+Terminal=false
+Icon=newsboat
+Categories=Network;Feed;
+Keywords=RSS;Atom;Feeds;News;

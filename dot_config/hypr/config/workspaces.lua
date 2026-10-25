@@ -12,6 +12,12 @@
 -- For other layouts such as scrolling, see example below
 -- hl.workspace_rule({ workspace = "1", monitor = MONITOR1, default = true, persistent = true, layout = scrolling })
 
+-- Give a lone visible tiled window breathing room above and below.
+hl.workspace_rule({
+    workspace = "w[tv1]",
+    gaps_out = { top = 80, right = 8, bottom = 80, left = 8 },
+})
+
 -- Toggle only the current workspace between the two tiling layouts. Master
 -- remains the global default for new workspaces.
 hl.bind("SUPER + SHIFT + M", function()

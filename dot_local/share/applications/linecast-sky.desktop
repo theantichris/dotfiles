@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Linecast Sky
+GenericName=Sky
+Comment=Stars, planets, and constellations using Linecast in Kitty
+Exec=kitty --class linecast-sky --title "Linecast Sky" linecast sky
+TryExec=linecast
+Terminal=false
+Icon=linecast-sky
+Categories=Science;
+Keywords=Linecast;Stars;Planets;Constellations;Astronomy;

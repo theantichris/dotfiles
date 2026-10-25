@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Linecast Radar
+GenericName=Radar
+Comment=Weather radar and satellite maps using Linecast in Kitty
+Exec=kitty --class linecast-radar --title "Linecast Radar" linecast radar
+TryExec=linecast
+Terminal=false
+Icon=linecast-radar
+Categories=Science;
+Keywords=Linecast;Radar;Satellite;Rain;Storm;

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Linecast Weather
+GenericName=Weather
+Comment=Weather conditions and forecast using Linecast in Kitty
+Exec=kitty --class linecast-weather --title "Linecast Weather" linecast weather
+TryExec=linecast
+Terminal=false
+Icon=linecast-weather
+Categories=Science;
+Keywords=Linecast;Weather;Forecast;Temperature;

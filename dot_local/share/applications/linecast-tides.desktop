@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Linecast Tides
+GenericName=Tides
+Comment=Tide charts and predictions using Linecast in Kitty
+Exec=kitty --class linecast-tides --title "Linecast Tides" linecast tides
+TryExec=linecast
+Terminal=false
+Icon=linecast-tides
+Categories=Science;
+Keywords=Linecast;Tides;Ocean;Water;

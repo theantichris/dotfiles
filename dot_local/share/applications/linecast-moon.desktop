@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Linecast Moon
+GenericName=Moon
+Comment=Moon phase, rise and set, and calendar using Linecast in Kitty
+Exec=kitty --class linecast-moon --title "Linecast Moon" linecast moon
+TryExec=linecast
+Terminal=false
+Icon=linecast-moon
+Categories=Science;
+Keywords=Linecast;Moon;Lunar;Phases;Calendar;

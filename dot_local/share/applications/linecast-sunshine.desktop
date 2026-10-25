@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Linecast Sunshine
+GenericName=Sunshine
+Comment=Sunrise, sunset, and daylight using Linecast in Kitty
+Exec=kitty --class linecast-sunshine --title "Linecast Sunshine" linecast sunshine
+TryExec=linecast
+Terminal=false
+Icon=linecast-sunshine
+Categories=Science;
+Keywords=Linecast;Sun;Sunrise;Sunset;Daylight;

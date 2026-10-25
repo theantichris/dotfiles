@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Linecast Maps
+GenericName=Maps
+Comment=Street maps, terrain, and routes using Linecast in Kitty
+Exec=kitty --class linecast-maps --title "Linecast Maps" linecast maps
+TryExec=linecast
+Terminal=false
+Icon=linecast-maps
+Categories=Science;
+Keywords=Linecast;Maps;Terrain;Routes;Navigation;

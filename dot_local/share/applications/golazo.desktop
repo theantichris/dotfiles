@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Golazo
+GenericName=Football Scores
+Comment=Follow football scores using Golazo in Kitty
+Exec=kitty --class golazo --title Golazo golazo
+TryExec=golazo
+Terminal=false
+Icon=golazo
+Categories=Education;Sports;
+Keywords=Football;Soccer;Scores;Matches;

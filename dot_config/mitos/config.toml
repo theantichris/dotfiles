@@ -76,3 +76,7 @@ color = true
 
 [editor.cursor]
 highlight-line = true
+
+[commands.":journal-sync"]
+commands = [":run-shell-command ~/.local/bin/journal-sync"]
+desc = "Commit saved notes, pull with merge, and push. Save buffers first."

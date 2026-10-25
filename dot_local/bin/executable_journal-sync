@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+# Sync saved files only: Mitos command sequences do not wait for pending saves.
+repo="$HOME/Documents/Notes"
+step="checking the notes repository"
+trap 'printf "journal-sync: failed while %s. Resolve the error before retrying.\n" "$step" >&2' ERR
+
+cd -- "$repo"
+if [[ "$(git rev-parse --show-toplevel)" != "$(pwd -P)" ]]; then
+	printf 'journal-sync: Notes must be the repository root.\n' >&2
+	exit 1
+fi
+if [[ "$(git symbolic-ref --quiet --short HEAD)" != main ]] ||
+	[[ "$(git rev-parse --abbrev-ref --symbolic-full-name '@{upstream}')" != origin/main ]]; then
+	printf 'journal-sync: expected main tracking origin/main.\n' >&2
+	exit 1
+fi
+
+# Prevent overlapping invocations, without interfering with Git's own locks.
+exec 9>"$(git rev-parse --git-path journal-sync.lock)"
+if ! flock -n 9; then
+	printf 'journal-sync: another sync is already running.\n' >&2
+	exit 1
+fi
+
+for state in MERGE_HEAD CHERRY_PICK_HEAD REVERT_HEAD rebase-merge rebase-apply sequencer; do
+	if [[ -e "$(git rev-parse --git-path "$state")" ]]; then
+		printf 'journal-sync: finish or abort the existing Git operation first (%s).\n' "$state" >&2
+		exit 1
+	fi
+done
+if [[ -n "$(git ls-files --unmerged)" ]]; then
+	printf 'journal-sync: resolve existing conflicts first.\n' >&2
+	exit 1
+fi
+
+export GIT_TERMINAL_PROMPT=0
+step="staging saved notes"
+git add -A
+step="checking staged changes"
+if git diff --cached --quiet --exit-code; then
+	printf 'journal-sync: no new changes to commit.\n'
+else
+	status=$?
+	if [[ "$status" != 1 ]]; then
+		exit "$status"
+	fi
+	step="committing saved notes"
+	git commit -m "Journal sync $(date '+%Y-%m-%d %H:%M:%S %z')"
+fi
+
+step="pulling notes (merge)"
+git pull --no-rebase --ff --no-edit --no-autostash
+step="pushing notes"
+git push
+printf 'journal-sync: notes synced successfully.\n'

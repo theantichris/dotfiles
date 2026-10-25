@@ -25,11 +25,15 @@ hl.bind("SUPER + SHIFT + M", function()
     hl.workspace_rule({ workspace = workspace_id, layout = next_layout })
 end, { description = "Toggle Master/Dwindle layout" })
 
--- Gather normal workspaces once per docking or compositor start. The stable
+-- Gather normal workspaces once per docking or compositor start, leaving 10
+-- on the laptop panel when available. The stable
 -- description matches the Corsair over HDMI and USB-C/DP. Manual moves remain
 -- available afterward; ordinary config reloads do not gather workspaces.
 local corsairDescription = "CORSAIR MEMORY Inc. 34WQHD240-C A958A4231050"
 local corsairSelector = "desc:" .. corsairDescription
+
+-- Create workspace 10 on the laptop panel when first used; keep it dynamic.
+hl.workspace_rule({ workspace = "10", monitor = "eDP-1" })
 
 local function gather_on_corsair()
     local monitor = hl.get_monitor(corsairSelector)
@@ -37,11 +41,16 @@ local function gather_on_corsair()
         return
     end
 
+    local laptop = hl.get_monitor("eDP-1")
+    local function target_monitor(workspace)
+        return workspace.id == 10 and laptop or monitor
+    end
+
     -- Snapshot IDs before moving: an enabled laptop panel needs a replacement
     -- empty workspace, which must not be swept repeatedly. Scratchpads stay separate.
     local workspaceIds = {}
     for _, workspace in ipairs(hl.get_workspaces()) do
-        if not workspace.special and (not workspace.monitor or workspace.monitor.id ~= monitor.id) then
+        if not workspace.special and (not workspace.monitor or workspace.monitor.id ~= target_monitor(workspace).id) then
             workspaceIds[#workspaceIds + 1] = workspace.id
         end
     end
@@ -49,8 +58,8 @@ local function gather_on_corsair()
     for _, id in ipairs(workspaceIds) do
         -- An empty dynamic workspace may have disappeared during an earlier move.
         local workspace = hl.get_workspace(id)
-        if workspace and not workspace.special and (not workspace.monitor or workspace.monitor.id ~= monitor.id) then
-            hl.dispatch(hl.dsp.workspace.move({ workspace = workspace, monitor = monitor }))
+        if workspace and not workspace.special and (not workspace.monitor or workspace.monitor.id ~= target_monitor(workspace).id) then
+            hl.dispatch(hl.dsp.workspace.move({ workspace = workspace, monitor = target_monitor(workspace) }))
         end
     end
 end

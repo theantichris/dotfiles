@@ -121,3 +121,4 @@ Komga
 thrifting
 McManus
 cbz
+Lemmy

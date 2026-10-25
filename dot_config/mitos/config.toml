@@ -3,6 +3,7 @@ theme = "cyberpunk"
 
 [editor]
 line-number = "relative"
+shell = ["fish", "-c"]
 
 [editor.rulers]
 columns = [80]

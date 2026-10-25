@@ -4,6 +4,6 @@ Comment=Terminal-based email client
 Exec=/usr/bin/matcha %u
 Terminal=true
 Type=Application
-Icon=mail-client
+Icon=matcha
 Categories=Network;Email;
 MimeType=x-scheme-handler/matcha;

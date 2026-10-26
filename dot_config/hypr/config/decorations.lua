@@ -33,13 +33,15 @@ hl.config({
     },
     decoration = {
         dim_special = 0.3,
-        rounding = 10,
+        rounding = 12,
+        rounding_power = 1.0,
         active_opacity = 0.95,
         inactive_opacity = 0.85,
         fullscreen_opacity = 1,
         blur = {
-            size = 5,
-            passes = 4,
+            enabled = true,
+            size = 2,
+            passes = 1,
             special = true,
         },
     },

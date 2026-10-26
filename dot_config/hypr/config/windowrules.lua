@@ -13,7 +13,6 @@ hl.window_rule({
 -- Gaming
 local gamingApps = "^(steam_app.*|gamescope)$"
 
-hl.window_rule({ match = { xdg_tag = "^(.*game.*)$" }, fullscreen_state = 2, content = "game", sync_fullscreen = true })
 hl.window_rule({ match = { class = "^(steam)$", title = "^(Friends List)$" }, float = true })
 hl.window_rule({ match = { class = "^(steam)$", title = "^(Launching\\.{3})$" }, float = true })
 hl.window_rule({
@@ -94,6 +93,24 @@ local modalMatches = {
     { class = "^(hyprland-share-picker)$"},
 }
 for _, m in ipairs(modalMatches) do hl.window_rule({ match = m, float = true }) end
+
+-- Launch non-game windows at a standard 1600x900 size.
+-- Apply after app-specific sizes so ordinary launches share one starting size.
+for _, contentType in ipairs({ "none", "photo", "video" }) do
+    hl.window_rule({
+        name = "floating-default-" .. contentType,
+        match = {
+            class = "negative:" .. gamingApps,
+            content = contentType,
+        },
+        float = true,
+        size = { 1600, 900 },
+        persistent_size = false,
+    })
+end
+
+-- Game-tagged windows override the ordinary floating launch defaults.
+hl.window_rule({ match = { xdg_tag = "^(.*game.*)$" }, float = false, fullscreen_state = 2, content = "game", sync_fullscreen = true })
 
 -- Ignore maximize requests from all apps. You'll probably like this.
 hl.window_rule({

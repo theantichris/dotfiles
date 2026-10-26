@@ -14,6 +14,10 @@ require("config.lid")
 require("config.windowrules")
 require("config.workspaces")
 require("config.scratchpad")
+require("config.cascade")
 
 -- For Noctalia Color templates
 require("noctalia").apply_theme()
+
+-- Apply focus cues after the generated theme.
+require("config.focus")

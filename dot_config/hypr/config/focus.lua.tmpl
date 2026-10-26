@@ -1,0 +1,27 @@
+-- Apply focus cues after Noctalia so the generated theme does not override them.
+hl.config({
+    general = {
+        col = {
+            inactive_border = "rgba({{ .cyberpunk.text.muted | trimPrefix "#" }}80)",
+        },
+    },
+    decoration = {
+        dim_inactive = false,
+        dim_strength = 0,
+        shadow = {
+            enabled = true,
+            range = 18,
+            render_power = 3,
+            color = "rgba({{ .cyberpunk.accent.pink | trimPrefix "#" }}40)",
+            color_inactive = "rgba(00000000)",
+            offset = { 0, 0 },
+        },
+    },
+})
+
+-- Bring focused floating windows in front of other floating windows.
+return hl.on("window.active", function(window)
+    if window and window.floating and window.active then
+        hl.dispatch(hl.dsp.window.bring_to_top())
+    end
+end)

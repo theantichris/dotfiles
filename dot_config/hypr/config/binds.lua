@@ -23,11 +23,59 @@ hl.bind(mainMod .. " + J",   hl.dsp.focus({ direction = "down" }),  { descriptio
 hl.bind("ALT + Tab",         hl.dsp.window.cycle_next(),             { description = "Cycle windows" })
 hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd(noctCall .. "window-switcher"), { description = "Window switcher" })
 
+-- Rearrange tiled windows or nudge floating windows (hold to repeat).
+local function moveWindow(direction, x, y)
+    return function()
+        local window = hl.get_active_window()
+        if not window then
+            return
+        end
+
+        if window.floating then
+            hl.dispatch(hl.dsp.window.move({
+                window = window, x = x, y = y, relative = true,
+            }))
+        else
+            hl.dispatch(hl.dsp.window.move({ window = window, direction = direction }))
+        end
+    end
+end
+
+hl.bind(mainMod .. " + SHIFT + H", moveWindow("l", -40, 0), { repeating = true, description = "Move window left" })
+hl.bind(mainMod .. " + SHIFT + J", moveWindow("d", 0, 40),  { repeating = true, description = "Move window down" })
+hl.bind(mainMod .. " + SHIFT + K", moveWindow("u", 0, -40), { repeating = true, description = "Move window up" })
+hl.bind(mainMod .. " + SHIFT + L", moveWindow("r", 40, 0),  { repeating = true, description = "Move window right" })
+
+-- Place floating windows at left, center, or right without resizing.
+local function anchorWindow(anchor)
+    local window = hl.get_active_window()
+    if not window or not window.floating or window.fullscreen ~= 0 or not window.monitor then
+        return
+    end
+    local monitor = window.monitor
+    local reserved = monitor.reserved
+    local margin = 40
+    local left = monitor.position.x + reserved.left + margin
+    local top = monitor.position.y + reserved.top + margin
+    local right = monitor.position.x + monitor.width / monitor.scale - reserved.right - margin
+    local bottom = monitor.position.y + monitor.height / monitor.scale - reserved.bottom - margin
+    local max_x = math.max(left, right - window.size.x)
+    local max_y = math.max(top, bottom - window.size.y)
+    local x = math.floor((left + max_x) / 2)
+    if anchor == "left" then
+        x = left
+    elseif anchor == "right" then
+        x = max_x
+    end
+    local y = math.floor((top + max_y) / 2)
+    hl.dispatch(hl.dsp.window.move({ window = window, x = x, y = y, relative = false }))
+end
+
+hl.bind(mainMod .. " + CONTROL + ALT + H", function() anchorWindow("left") end,   { description = "Place floating window at left anchor" })
+hl.bind(mainMod .. " + CONTROL + ALT + J", function() anchorWindow("center") end, { description = "Place floating window at center anchor" })
+hl.bind(mainMod .. " + CONTROL + ALT + L", function() anchorWindow("right") end,  { description = "Place floating window at right anchor" })
+
 -- Move active window around workspaces & monitors
-hl.bind(mainMod .. " + SHIFT + K",                    hl.dsp.window.move({ direction = "u" }),           { description = "Move window up" })
-hl.bind(mainMod .. " + SHIFT + L",                    hl.dsp.window.move({ direction = "r" }),           { description = "Move window right" })
-hl.bind(mainMod .. " + SHIFT + H",                    hl.dsp.window.move({ direction = "l" }),           { description = "Move window left" })
-hl.bind(mainMod .. " + SHIFT + J",                    hl.dsp.window.move({ direction = "d" }),           { description = "Move window down" })
 hl.bind(mainMod .. " + CONTROL + SHIFT + L",          hl.dsp.window.move({ workspace = "r+1" }),        { description = "Move window to next workspace" })
 hl.bind(mainMod .. " + CONTROL + SHIFT + H",          hl.dsp.window.move({ workspace = "r-1" }),        { description = "Move window to previous workspace" })
 hl.bind(mainMod .. " + CONTROL + ALT + Right",        hl.dsp.window.move({ workspace = "r+1" }),        { description = "Move window to next workspace" })

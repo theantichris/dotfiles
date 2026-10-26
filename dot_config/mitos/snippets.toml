@@ -1,0 +1,30 @@
+[[snippet]]
+name = "Meeting notes"
+prefix = "mtg"
+scope = "markdown"
+description = "Insert the meeting notes template"
+body = '''# Meeting Notes
+
+**Date:** ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}
+**Time:** ${CURRENT_HOUR}:${CURRENT_MINUTE}
+
+## Attendees
+
+- ${1:Name}
+
+## Agenda
+
+1. ${2:Topic}
+
+## Discussion
+
+${3:Notes}
+
+## Action Items
+
+- [ ] ${4:Action}
+
+## Next Meeting
+
+$0
+'''

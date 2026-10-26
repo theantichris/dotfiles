@@ -41,10 +41,10 @@ local function moveWindow(direction, x, y)
     end
 end
 
-hl.bind(mainMod .. " + SHIFT + H", moveWindow("l", -40, 0), { repeating = true, description = "Move window left" })
-hl.bind(mainMod .. " + SHIFT + J", moveWindow("d", 0, 40),  { repeating = true, description = "Move window down" })
-hl.bind(mainMod .. " + SHIFT + K", moveWindow("u", 0, -40), { repeating = true, description = "Move window up" })
-hl.bind(mainMod .. " + SHIFT + L", moveWindow("r", 40, 0),  { repeating = true, description = "Move window right" })
+hl.bind(mainMod .. " + SHIFT + H", moveWindow("l", -40, 0), { repeating = true, description = "Move window left (tiled: rearrange; floating: 40 px)" })
+hl.bind(mainMod .. " + SHIFT + J", moveWindow("d", 0, 40),  { repeating = true, description = "Move window down (tiled: rearrange; floating: 40 px)" })
+hl.bind(mainMod .. " + SHIFT + K", moveWindow("u", 0, -40), { repeating = true, description = "Move window up (tiled: rearrange; floating: 40 px)" })
+hl.bind(mainMod .. " + SHIFT + L", moveWindow("r", 40, 0),  { repeating = true, description = "Move window right (tiled: rearrange; floating: 40 px)" })
 
 -- Place floating windows at left, center, or right without resizing.
 local function anchorWindow(anchor)

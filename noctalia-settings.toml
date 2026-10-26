@@ -1,6 +1,7 @@
 config_version = 15
 
 [bar.default]
+font_family = "Hack Nerd Font Mono"
 background_opacity = 0.59999998658895493
 capsule = false
 end = [ "media", "spacer_1", "tray", "spacer_1", "group:g2", "spacer_1", "privacy", "spacer_1", "group:g3" ]
@@ -14,7 +15,7 @@ start = [ "clock", "spacer_1", "weather", "spacer_1", "group:g1" ]
     enabled = true
     fill = "surface_variant"
     id = "g1"
-    members = [ "temp", "sysmon_2", "sysmon_3" ]
+    members = [ "cyberdeck_cpu", "temp", "sysmon_2", "sysmon_3" ]
     opacity = 0.0
     padding = 6.0
 
@@ -270,3 +271,13 @@ capsule = false
 capsule_opacity = 0.0
 show_labels = true
 style = "minimal"
+
+[widget.cyberdeck_cpu]
+type = "sysmon"
+stat = "cpu_usage"
+visualization = "graph"
+show_glyph = false
+show_value = false
+custom_label = "CPU"
+color = "secondary"
+capsule = false

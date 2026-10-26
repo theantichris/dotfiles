@@ -122,3 +122,5 @@ thrifting
 McManus
 cbz
 Lemmy
+CTO
+Swatkowski

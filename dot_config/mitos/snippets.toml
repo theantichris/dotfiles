@@ -14,11 +14,7 @@ body = '''# Meeting Notes
 
 ## Agenda
 
-1. ${2:Topic}
-
-## Discussion
-
-${3:Notes}
+- ${2:Topic}
 
 ## Action Items
 

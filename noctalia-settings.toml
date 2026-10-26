@@ -2,9 +2,9 @@ config_version = 15
 
 [bar.default]
 background_opacity = 0.59999998658895493
-capsule = true
-end = [ "media", "spacer_1", "tray", "group:g2", "privacy", "group:g3" ]
-start = [ "clock", "weather", "spacer_1", "group:g1" ]
+capsule = false
+end = [ "media", "spacer_1", "tray", "spacer_1", "group:g2", "spacer_1", "privacy", "spacer_1", "group:g3" ]
+start = [ "clock", "spacer_1", "weather", "spacer_1", "group:g1" ]
 
     [[bar.default.capsule_group]]
     accordion = false
@@ -15,7 +15,7 @@ start = [ "clock", "weather", "spacer_1", "group:g1" ]
     fill = "surface_variant"
     id = "g1"
     members = [ "temp", "sysmon_2", "sysmon_3" ]
-    opacity = 1.0
+    opacity = 0.0
     padding = 6.0
 
     [[bar.default.capsule_group]]
@@ -26,7 +26,7 @@ start = [ "clock", "weather", "spacer_1", "group:g1" ]
     fill = "surface_variant"
     id = "g2"
     members = [ "network", "bluetooth", "volume", "battery" ]
-    opacity = 1.0
+    opacity = 0.0
     padding = 6.0
 
     [[bar.default.capsule_group]]
@@ -37,7 +37,7 @@ start = [ "clock", "weather", "spacer_1", "group:g1" ]
     fill = "surface_variant"
     id = "g3"
     members = [ "control-center", "notifications", "session" ]
-    opacity = 1.0
+    opacity = 0.0
     padding = 6.0
 
 [battery.device."/org/freedesktop/UPower/devices/headset_dev_84_9D_4B_EC_E7_D8"]
@@ -262,8 +262,11 @@ title_scroll = "always"
 show_label = false
 
 [widget.tray]
-capsule_fill = "surface_variant"
+capsule = false
+capsule_opacity = 0.0
 
 [widget.workspaces]
-capsule_fill = "surface_variant"
+capsule = false
+capsule_opacity = 0.0
 show_labels = true
+style = "minimal"

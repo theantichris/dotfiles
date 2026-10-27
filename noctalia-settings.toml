@@ -5,6 +5,7 @@ background_opacity = 0.59999998658895493
 capsule = false
 end = [ "media", "spacer_1", "tray", "spacer_1", "group:g2", "spacer_1", "privacy", "spacer_1", "group:g3" ]
 font_family = "Hack Nerd Font Mono"
+font_weight = 700
 start = [ "clock", "spacer_1", "weather", "spacer_1", "group:g1" ]
 
     [[bar.default.capsule_group]]

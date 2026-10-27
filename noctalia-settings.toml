@@ -1,10 +1,10 @@
-config_version = 15
+config_version = 16
 
 [bar.default]
-font_family = "Hack Nerd Font Mono"
 background_opacity = 0.59999998658895493
 capsule = false
 end = [ "media", "spacer_1", "tray", "spacer_1", "group:g2", "spacer_1", "privacy", "spacer_1", "group:g3" ]
+font_family = "Hack Nerd Font Mono"
 start = [ "clock", "spacer_1", "weather", "spacer_1", "group:g1" ]
 
     [[bar.default.capsule_group]]
@@ -13,7 +13,7 @@ start = [ "clock", "spacer_1", "weather", "spacer_1", "group:g1" ]
     border = ""
     border_width = 1.0
     enabled = true
-    fill = "surface_variant"
+    fill = "surface_container"
     id = "g1"
     members = [ "cyberdeck_cpu", "temp", "sysmon_2", "sysmon_3" ]
     opacity = 0.0
@@ -24,7 +24,7 @@ start = [ "clock", "spacer_1", "weather", "spacer_1", "group:g1" ]
     accordion_direction = "end"
     border_width = 1.0
     enabled = true
-    fill = "surface_variant"
+    fill = "surface_container"
     id = "g2"
     members = [ "network", "bluetooth", "volume", "battery" ]
     opacity = 0.0
@@ -35,7 +35,7 @@ start = [ "clock", "spacer_1", "weather", "spacer_1", "group:g1" ]
     accordion_direction = "end"
     border_width = 1.0
     enabled = true
-    fill = "surface_variant"
+    fill = "surface_container"
     id = "g3"
     members = [ "control-center", "notifications", "session" ]
     opacity = 0.0
@@ -101,7 +101,7 @@ widget_order = [
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@DP-5".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -129,7 +129,7 @@ widget_order = [
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -157,7 +157,7 @@ widget_order = [
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -185,7 +185,7 @@ widget_order = [
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@eDP-2".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -254,6 +254,16 @@ directory = "/home/christopher/Pictures/Backgrounds"
 [weather]
 unit = "imperial"
 
+[widget.cyberdeck_cpu]
+capsule = false
+color = "secondary"
+custom_label = "CPU"
+show_glyph = false
+show_value = false
+stat = "cpu_usage"
+type = "sysmon"
+visualization = "graph"
+
 [widget.media]
 hide_when_idle = true
 show_progress = true
@@ -271,13 +281,3 @@ capsule = false
 capsule_opacity = 0.0
 show_labels = true
 style = "minimal"
-
-[widget.cyberdeck_cpu]
-type = "sysmon"
-stat = "cpu_usage"
-visualization = "graph"
-show_glyph = false
-show_value = false
-custom_label = "CPU"
-color = "secondary"
-capsule = false

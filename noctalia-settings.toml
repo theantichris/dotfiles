@@ -15,7 +15,7 @@ start = [ "clock", "spacer_1", "weather", "spacer_1", "group:g1" ]
     enabled = true
     fill = "surface_container"
     id = "g1"
-    members = [ "cyberdeck_cpu", "temp", "sysmon_2", "sysmon_3" ]
+    members = [ "temp", "sysmon_2", "sysmon_3" ]
     opacity = 0.0
     padding = 6.0
 
@@ -258,16 +258,6 @@ directory = "/home/christopher/Pictures/Backgrounds"
 
 [weather]
 unit = "imperial"
-
-[widget.cyberdeck_cpu]
-capsule = false
-color = "secondary"
-custom_label = "CPU"
-show_glyph = false
-show_value = false
-stat = "cpu_usage"
-type = "sysmon"
-visualization = "graph"
 
 [widget.media]
 hide_when_idle = true

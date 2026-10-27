@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Notes (Mitos)
+GenericName=Notes Editor
+Comment=Open Documents/Notes with Mitos in Kitty
+Exec=/usr/bin/kitty --class mitos --directory "{{ .chezmoi.homeDir }}/Documents/Notes" "{{ .chezmoi.homeDir }}/.local/bin/ms" -- "{{ .chezmoi.homeDir }}/Documents/Notes"
+TryExec={{ .chezmoi.homeDir }}/.local/bin/ms
+Terminal=false
+Icon=utilities-terminal
+Categories=Utility;TextEditor;
+Keywords=Notes;Markdown;Editor;Mitos;
+StartupWMClass=mitos

@@ -71,6 +71,11 @@ enabled = true
 [desktop_widgets]
 enabled = false
 
+[idle.behavior.screen-off]
+action = "screen_off"
+enabled = true
+timeout = 1800.0
+
 [location]
 auto_locate = true
 

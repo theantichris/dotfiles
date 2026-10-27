@@ -33,5 +33,6 @@ noctalia-settings.toml
 {{ if ne .chezmoi.hostname "tranchion" -}}
 .config/mimeapps.list
 .local/share/applications/mitos.desktop
+.local/share/applications/mitos-notes.desktop
 .local/state/mitos
 {{ end -}}

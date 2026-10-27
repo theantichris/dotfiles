@@ -126,3 +126,17 @@ CTO
 Swatkowski
 Hamptons
 Langfuse
+DRI
+Superfile
+Noctalia
+Lua
+Mitos
+Noctalia's
+VM
+eza
+toolchain
+proot
+Termux's
+chezmoi's
+configs
+hostname

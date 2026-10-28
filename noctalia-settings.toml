@@ -54,6 +54,10 @@ warning_threshold = 10
 [brightness]
 sync_all_monitors = true
 
+[brightness.monitor.eDP-1]
+backend = "backlight"
+backlight_device = "intel_backlight"
+
 [calendar]
 dedupe_events = true
 enabled = true

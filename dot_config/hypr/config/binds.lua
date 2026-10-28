@@ -9,7 +9,25 @@ local launchPrefix = "uwsm app -- " -- if you are not using UWSM, make this empt
 -- Window manipulation
 hl.bind(mainMod .. " + Escape",        hl.dsp.exec_cmd("hyprctl kill"),                 { description = "Kill window" })
 hl.bind(mainMod .. " + Q",             hl.dsp.window.close(),                          { description = "Close window" })
-hl.bind(mainMod .. " + SHIFT + Space", hl.dsp.window.float({ action = "toggle" }),    { description = "Toggle floating" })
+hl.bind(mainMod .. " + SHIFT + Space", function()
+    local workspace = hl.get_active_special_workspace() or hl.get_active_workspace()
+    if not workspace then
+        return
+    end
+
+    local windows = hl.get_windows({ workspace = workspace, mapped = true })
+    local action = "unset"
+    for _, window in ipairs(windows) do
+        if not window.floating then
+            action = "set"
+            break
+        end
+    end
+
+    for _, window in ipairs(windows) do
+        hl.dispatch(hl.dsp.window.float({ window = window, action = action }))
+    end
+end, { description = "Toggle floating for all windows on current workspace" })
 hl.bind(mainMod .. " + D",             hl.dsp.window.fullscreen({ mode = 1 }),         { description = "Maximize window" })
 hl.bind(mainMod .. " + F",             hl.dsp.window.fullscreen(),                     { description = "Toggle fullscreen" })
 -- J and L are reserved for vim-style focus below

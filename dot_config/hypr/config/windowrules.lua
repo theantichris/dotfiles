@@ -95,8 +95,8 @@ local modalMatches = {
 }
 for _, m in ipairs(modalMatches) do hl.window_rule({ match = m, float = true }) end
 
--- Launch non-game windows at 16:9 using 75% of the monitor's logical height.
--- Apply after app-specific sizes so ordinary launches share monitor-relative sizing.
+-- Launch non-game windows at a standard 1600x900 size.
+-- Apply after app-specific sizes so ordinary launches share one starting size.
 for _, contentType in ipairs({ "none", "photo", "video" }) do
     hl.window_rule({
         name = "floating-default-" .. contentType,
@@ -105,7 +105,7 @@ for _, contentType in ipairs({ "none", "photo", "video" }) do
             content = contentType,
         },
         float = true,
-        size = { "monitor_h*4/3", "monitor_h*0.75" },
+        size = { 1600, 900 },
         persistent_size = false,
     })
 end

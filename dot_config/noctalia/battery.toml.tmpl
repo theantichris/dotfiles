@@ -1,0 +1,6 @@
+{{ if and (eq .chezmoi.hostname "tranchion") (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "cachyos") -}}
+[hooks]
+battery_discharging = "noctalia msg brightness-set eDP-1 45%"
+battery_charging = "noctalia msg brightness-set eDP-1 75%"
+battery_plugged = "noctalia msg brightness-set eDP-1 75%"
+{{ end -}}

@@ -41,6 +41,7 @@ packages:
     - tailscale
     - taplo-cli
     - ttf-hack-nerd
+    - uv
     - virt-manager
     - vscode-json-languageserver
     - yaml-language-server

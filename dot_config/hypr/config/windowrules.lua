@@ -65,6 +65,7 @@ hl.window_rule({
     match = { class = "^(kitty-scratchpad)$" },
     workspace = "special:terminal",
     stay_focused = true,
+    fullscreen = true,
 })
 
 -- Opacity Overrides

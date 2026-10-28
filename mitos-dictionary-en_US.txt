@@ -140,3 +140,6 @@ Termux's
 chezmoi's
 configs
 hostname
+Monzo
+Spotify
+EM's

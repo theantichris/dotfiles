@@ -2,6 +2,7 @@ hl.config({
   input = {
     accel_profile = "flat",
     follow_mouse = 0,
+    swallow_focus_click = true,
     numlock_by_default = true,
     kb_options = "caps:super",
   },

@@ -162,11 +162,6 @@ end
 hl.bind(mainMod .. " + ALT + H", hl.dsp.workspace.move({ monitor = "desc:CORSAIR MEMORY Inc. 34WQHD240-C A958A4231050" }), { description = "Move workspace to external monitor (left)" })
 hl.bind(mainMod .. " + ALT + L", hl.dsp.workspace.move({ monitor = "eDP-1" }), { description = "Move workspace to laptop monitor (right)" })
 
--- Move to adjacent workspaces and next empty
-hl.bind(mainMod .. " + CONTROL + Right", hl.dsp.focus({ workspace = "r+1" }), { description = "Next workspace" })
-hl.bind(mainMod .. " + CONTROL + Left",  hl.dsp.focus({ workspace = "r-1" }), { description = "Previous workspace" })
-hl.bind(mainMod .. " + CONTROL + Down",  hl.dsp.focus({ workspace = "empty" }), { description = "Next empty workspace" })
-
 -- 7. Scratchpads
 
 -- Dedicated scratchpad terminal

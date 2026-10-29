@@ -52,6 +52,7 @@ warning_threshold = 10
 warning_threshold = 10
 
 [brightness]
+enable_ddcutil = true
 sync_all_monitors = true
 
 [brightness.monitor.eDP-1]

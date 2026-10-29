@@ -99,7 +99,7 @@ These are the configured tools. The full installation inventory lives in
 | bat / eza | File previews and directory listings | [`bat`](dot_config/bat), [`eza`](dot_config/eza) |
 | Fastfetch | System information | [`dot_config/fastfetch`](dot_config/fastfetch) |
 
-Desktop defaults are Kitty, Superfile, Brave Origin, and GNOME Calculator.
+Desktop defaults are Kitty, Superfile, Brave Origin, and GNOME Calculator's terminal interface (`gcalccmd`).
 Hyprland loads individual Lua modules for bindings, monitors, animations,
 window rules, and other settings.
 

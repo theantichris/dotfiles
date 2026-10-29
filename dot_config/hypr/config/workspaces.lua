@@ -18,19 +18,6 @@
 --     gaps_out = 80,
 -- })
 
--- Toggle only the current workspace between the two tiling layouts. Master
--- remains the global default for new workspaces.
-hl.bind("SUPER + SHIFT + M", function()
-    local workspace = hl.get_active_special_workspace() or hl.get_active_workspace()
-    if not workspace then
-        return
-    end
-
-    local next_layout = workspace.tiled_layout == "master" and "dwindle" or "master"
-    local workspace_id = workspace.special and tostring(workspace.name) or tostring(workspace.id)
-    hl.workspace_rule({ workspace = workspace_id, layout = next_layout })
-end, { description = "Toggle Master/Dwindle layout" })
-
 -- Gather normal workspaces once per docking or compositor start, leaving 10
 -- on the laptop panel when available. The stable
 -- description matches the Corsair over HDMI and USB-C/DP. Manual moves remain

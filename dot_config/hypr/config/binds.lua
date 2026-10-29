@@ -2,9 +2,7 @@ local mainMod = "SUPER"
 local noctCall = "noctalia msg "
 local launchPrefix = "uwsm app -- " -- if you are not using UWSM, make this empty (e.g. "")
 
----------------------------
----- WINDOW MANAGEMENT ----
----------------------------
+-- 1. Windows
 
 -- Window manipulation
 hl.bind(mainMod .. " + Escape",        hl.dsp.exec_cmd("hyprctl kill"),                 { description = "Kill window" })
@@ -30,8 +28,6 @@ hl.bind(mainMod .. " + SHIFT + Space", function()
 end, { description = "Toggle floating for all windows on current workspace" })
 hl.bind(mainMod .. " + D",             hl.dsp.window.fullscreen({ mode = 1 }),         { description = "Maximize window" })
 hl.bind(mainMod .. " + F",             hl.dsp.window.fullscreen(),                     { description = "Toggle fullscreen" })
--- J and L are reserved for vim-style focus below
---hl.bind(mainMod .. " + J",           hl.dsp.layout("togglesplit"))
 
 -- Change focus
 hl.bind(mainMod .. " + H",   hl.dsp.focus({ direction = "left" }),  { description = "Focus left" })
@@ -64,50 +60,6 @@ hl.bind(mainMod .. " + SHIFT + J", moveWindow("d", 0, 40),  { repeating = true, 
 hl.bind(mainMod .. " + SHIFT + K", moveWindow("u", 0, -40), { repeating = true, description = "Move window up (tiled: rearrange; floating: 40 px)" })
 hl.bind(mainMod .. " + SHIFT + L", moveWindow("r", 40, 0),  { repeating = true, description = "Move window right (tiled: rearrange; floating: 40 px)" })
 
--- Place floating windows at left, center, or right without resizing.
-local function anchorWindow(anchor)
-    local window = hl.get_active_window()
-    if not window or not window.floating or window.fullscreen ~= 0 or not window.monitor then
-        return
-    end
-    local monitor = window.monitor
-    local reserved = monitor.reserved
-    local margin = 40
-    local left = monitor.position.x + reserved.left + margin
-    local top = monitor.position.y + reserved.top + margin
-    local right = monitor.position.x + monitor.width / monitor.scale - reserved.right - margin
-    local bottom = monitor.position.y + monitor.height / monitor.scale - reserved.bottom - margin
-    local max_x = math.max(left, right - window.size.x)
-    local max_y = math.max(top, bottom - window.size.y)
-    local x = math.floor((left + max_x) / 2)
-    if anchor == "left" then
-        x = left
-    elseif anchor == "right" then
-        x = max_x
-    end
-    local y = math.floor((top + max_y) / 2)
-    hl.dispatch(hl.dsp.window.move({ window = window, x = x, y = y, relative = false }))
-end
-
-hl.bind(mainMod .. " + CONTROL + ALT + H", function() anchorWindow("left") end,   { description = "Place floating window at left anchor" })
-hl.bind(mainMod .. " + CONTROL + ALT + J", function() anchorWindow("center") end, { description = "Place floating window at center anchor" })
-hl.bind(mainMod .. " + CONTROL + ALT + L", function() anchorWindow("right") end,  { description = "Place floating window at right anchor" })
-
--- Move active window around workspaces & monitors
-hl.bind(mainMod .. " + CONTROL + SHIFT + L",          hl.dsp.window.move({ workspace = "r+1" }),        { description = "Move window to next workspace" })
-hl.bind(mainMod .. " + CONTROL + SHIFT + H",          hl.dsp.window.move({ workspace = "r-1" }),        { description = "Move window to previous workspace" })
-hl.bind(mainMod .. " + CONTROL + ALT + Right",        hl.dsp.window.move({ workspace = "r+1" }),        { description = "Move window to next workspace" })
-hl.bind(mainMod .. " + CONTROL + ALT + Left",         hl.dsp.window.move({ workspace = "r-1" }),        { description = "Move window to previous workspace" })
-hl.bind(mainMod .. " + CONTROL + SHIFT + mouse_up",   hl.dsp.window.move({ workspace = "r-1" }),        { description = "Move window to previous workspace" })
-hl.bind(mainMod .. " + CONTROL + SHIFT + mouse_down", hl.dsp.window.move({ workspace = "r+1" }),        { description = "Move window to next workspace" })
--- Monitor targets: unused on this single-monitor setup, and they would shadow
--- SUPER + SHIFT + number, which moves a window to workspace N (see WORKSPACES).
--- hl.bind(mainMod .. " + SHIFT + 1",          hl.dsp.window.move({ monitor = MONITOR1 }))
--- hl.bind(mainMod .. " + SHIFT + 2",          hl.dsp.window.move({ monitor = MONITOR2 }))
--- hl.bind(mainMod .. " + SHIFT + 3",          hl.dsp.window.move({ monitor = MONITOR3 }))
--- hl.bind(mainMod .. " + SHIFT + mouse_up",   hl.dsp.window.move({ monitor = "-1" }))
--- hl.bind(mainMod .. " + SHIFT + mouse_down", hl.dsp.window.move({ monitor = "+1" }))
-
 -- Resize active window (hold to repeat)
 -- Vertical only redistributes height inside a column, so it is a no-op on the
 -- lone master window, and K cannot grow the bottom stack window (nothing below
@@ -138,14 +90,7 @@ end
 hl.bind(mainMod .. " + Minus", function() zoomfunction(-0.3) end, { repeating = true, description = "Zoom out" })
 hl.bind(mainMod .. " + Plus",  function() zoomfunction(0.3) end,  { repeating = true, description = "Zoom in" })
 
---# Zoom with keypad
-hl.bind(mainMod .. " + code:82", function() zoomfunction(-0.3) end, { repeating = true, description = "Zoom out" })
-hl.bind(mainMod .. " + code:86", function() zoomfunction(0.3) end,  { repeating = true, description = "Zoom in" })
-
-
-------------------
----- LAUNCHER ----
-------------------
+-- 2. Applications
 
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(launchPrefix .. TERMINAL),     { description = "Open terminal" })
 hl.bind(mainMod .. " + E",      hl.dsp.exec_cmd(launchPrefix .. FILE_MANAGER), { description = "Open file manager" })
@@ -157,18 +102,18 @@ hl.bind(mainMod .. " + SHIFT + Escape", hl.dsp.exec_cmd(
     launchPrefix .. TERMINAL .. " -e btop",
     { float = true, size = { "monitor_w*0.65", "monitor_h*0.72" }, center = true }
 ), { description = "System monitor" })
+
+-- 3. Shell
+
 hl.bind(mainMod .. " + Z",      hl.dsp.exec_cmd(noctCall .. "settings-toggle"),                         { description = "Noctalia settings" })
 hl.bind(mainMod .. " + X",      hl.dsp.exec_cmd(noctCall .. "panel-toggle control-center"),             { description = "Control center" })
 hl.bind(mainMod .. " + Space",  hl.dsp.exec_cmd(noctCall .. "panel-toggle launcher"),                   { description = "App launcher" })
 hl.bind(mainMod .. " + period", hl.dsp.exec_cmd(noctCall .. "panel-toggle launcher /emo"),              { description = "Emoji launcher" })
 hl.bind(mainMod .. " + slash",  hl.dsp.exec_cmd("noctalia msg panel-toggle kenn/keybind-cheatsheet:cheatsheet"), { description = "Keybind cheatsheet" })
--- Lock lives in the session panel (SUPER + ALT + C, then 1); SUPER + L is focus-right
---hl.bind(mainMod .. " + L",          hl.dsp.exec_cmd(noctCall .. "session lock"))
+hl.bind(mainMod .. " + CONTROL + Escape", hl.dsp.exec_cmd(noctCall .. "session lock"), { description = "Lock screen" })
 hl.bind(mainMod .. " + ALT + C", hl.dsp.exec_cmd(noctCall .. "panel-toggle session"), { description = "Session menu" })
 
----------------------------
----- HARDWARE CONTROLS ----
----------------------------
+-- 4. Hardware
 
 -- Audio
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(noctCall .. "volume-up"),   { locked = true, repeating = true, description = "Volume up" })
@@ -186,9 +131,7 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd(noctCall .. "media previous"), { locke
 hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd(noctCall .. "brightness-up"),   { locked = true, repeating = true, description = "Brightness up" })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(noctCall .. "brightness-down"), { locked = true, repeating = true, description = "Brightness down" })
 
--------------------
----- UTILITIES ----
--------------------
+-- 5. Utilities
 
 -- Screen Capture
 hl.bind(mainMod .. " + P",     hl.dsp.exec_cmd("hyprpicker -a -n"),                  { description = "Color picker" })
@@ -204,24 +147,14 @@ hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(noctCall .. "panel-toggle clipboard")
 -- Notifications
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(noctCall .. "panel-toggle control-center notifications"), { description = "Notifications" })
 
--------------------------------
----- WORKSPACES & MONITORS ----
--------------------------------
+-- 6. Workspaces and monitors
 
--- Workspaces on plain SUPER + number, as before v5. Upstream v5 reassigned these
--- chords to monitor focus and pushed workspaces onto SUPER + ALT + number, capped
--- at NUM_WPM -- both no-ops with one monitor.
+-- Number keys select workspaces; Shift moves the active window and follows.
 for i = 1, NUM_WPM do
     local key = i % 10
     hl.bind(mainMod .. " + " .. key,         hl.dsp.focus({ workspace = i }),                        { description = "Switch to workspace " .. i })
     hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i, follow = true }),  { description = "Move window to workspace " .. i .. " and follow" })
-    hl.bind(mainMod .. " + ALT + " .. key,   hl.dsp.window.move({ workspace = i, follow = false }), { description = "Move window to workspace " .. i })
 end
-
--- Focus on monitors (re-enable alongside a second display)
--- hl.bind(mainMod .. " + CONTROL + SHIFT + 1", hl.dsp.focus({ monitor = MONITOR1 }))
--- hl.bind(mainMod .. " + CONTROL + SHIFT + 2", hl.dsp.focus({ monitor = MONITOR2 }))
--- hl.bind(mainMod .. " + CONTROL + SHIFT + 3", hl.dsp.focus({ monitor = MONITOR3 }))
 
 -- Move the entire current workspace (all its windows) using the physical layout:
 -- external display on the left, laptop panel on the right.
@@ -234,11 +167,7 @@ hl.bind(mainMod .. " + CONTROL + Right", hl.dsp.focus({ workspace = "r+1" }), { 
 hl.bind(mainMod .. " + CONTROL + Left",  hl.dsp.focus({ workspace = "r-1" }), { description = "Previous workspace" })
 hl.bind(mainMod .. " + CONTROL + Down",  hl.dsp.focus({ workspace = "empty" }), { description = "Next empty workspace" })
 
--- Scroll through existing workspaces
-hl.bind(mainMod .. " + mouse_down",           hl.dsp.focus({ workspace = "e+1" }), { description = "Next existing workspace" })
-hl.bind(mainMod .. " + mouse_up",             hl.dsp.focus({ workspace = "e-1" }), { description = "Previous existing workspace" })
-hl.bind(mainMod .. " + CONTROL + mouse_up",   hl.dsp.focus({ workspace = "e-1" }), { description = "Previous existing workspace" })
-hl.bind(mainMod .. " + CONTROL + mouse_down", hl.dsp.focus({ workspace = "e+1" }), { description = "Next existing workspace" })
+-- 7. Scratchpads
 
 -- Dedicated scratchpad terminal
 local scratchpadWorkspace = "terminal"

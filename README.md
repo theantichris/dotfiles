@@ -161,6 +161,7 @@ These applications are excluded from the Parrot deployment.
 | `Print` / `Super + Print` | Region / fullscreen screenshot |
 | Super + grave (backtick) | Toggle dedicated scratchpad terminal |
 | `Super + S` / `Super + Shift + S` | Toggle scratchpad / send window to scratchpad |
+| `Super + Ctrl + Escape` | Lock screen |
 | `Super + Alt + C` | Session menu |
 | `Super + /` | Noctalia keybinding cheatsheet plugin |
 

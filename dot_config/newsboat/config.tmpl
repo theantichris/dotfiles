@@ -32,6 +32,10 @@ bind-key G end
 bind-key ^D pagedown
 bind-key ^U pageup
 
+# Mark all feeds read without a modifier key.
+unbind-key C
+bind ma everywhere mark-all-feeds-read
+
 # Cyberpunk theme (xterm-256 indexes are defined with the shared palette data)
 color background          color{{ .cyberpunk.terminal.xterm256.text }}  color{{ .cyberpunk.terminal.xterm256.background }}
 color listnormal          color{{ .cyberpunk.terminal.xterm256.text }}  color{{ .cyberpunk.terminal.xterm256.background }}

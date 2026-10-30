@@ -96,6 +96,13 @@ natively on Termux, and installs the shared config, snippets, Cyberpunk theme,
 spelling dictionaries, and YAML formatter. `ms` is the selected editor.
 After syncing these changes, run `chezmoi init` to refresh chezmoi's editor
 setting, apply, then run `exec fish` to refresh the current shell.
+Git and chezmoi use Mitos's absolute path. Fish exports it through `EDITOR`,
+`VISUAL`, `GIT_EDITOR`, `GIT_SEQUENCE_EDITOR`, and `GH_EDITOR`.
+
+Mitos's personal dictionaries and English ignored-word list link to the word
+lists in the chezmoi source checkout. To share accepted or ignored words,
+commit and push those lists, update the checkout on the other machine, and
+restart Mitos to reload them.
 
 ### Build your own deck
 

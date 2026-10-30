@@ -1,6 +1,6 @@
 {{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
 [edit]
-command = "{{ if eq .chezmoi.os "android" }}{{ (include ".chezmoidata/termux.yaml" | fromYaml).termux.editor }}{{ else if eq .chezmoi.hostname "tranchion" }}{{ .chezmoi.homeDir }}/.local/bin/ms{{ else if $parrot }}hx{{ else }}helix{{ end }}"
+command = "{{ if eq .chezmoi.os "android" }}{{ includeTemplate "termux-editor" (dict "editor" (include ".chezmoidata/termux.yaml" | fromYaml).termux.editor "homeDir" .chezmoi.homeDir) }}{{ else if eq .chezmoi.hostname "tranchion" }}{{ .chezmoi.homeDir }}/.local/bin/ms{{ else if $parrot }}hx{{ else }}helix{{ end }}"
 apply = true
 
 [git]

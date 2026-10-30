@@ -53,6 +53,8 @@ packages:
         - fzf
         - gh
         - util-linux
+    hack-font:
+      pkg: []
   pacman:
     - bat
     - bash-language-server

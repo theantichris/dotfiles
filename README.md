@@ -82,6 +82,9 @@ completion, and Go/Cargo executable paths. It selects Fish for new Termux
 sessions; run `exec fish` to switch the current session after applying.
 The `update` function upgrades Termux packages and installed Go/Cargo tools.
 
+The `hack-font` selection installs Hack Nerd Font Mono and reloads Termux's
+terminal settings after applying.
+
 Enable more apps in [`.chezmoidata/termux.yaml`](.chezmoidata/termux.yaml).
 Each app defines its target paths and scripts, with its supporting packages in
 [`packages.termux`](.chezmoidata/packages.yaml) under `pkg` and `npm`. Add the app

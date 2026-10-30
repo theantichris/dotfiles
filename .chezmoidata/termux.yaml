@@ -5,6 +5,7 @@ termux:
     - go
     - rust
     - fish
+    - hack-font
   editor: hx
   apps:
     git:
@@ -55,3 +56,9 @@ termux:
         - .config/eza/theme.fish
         - .termux
         - .termux/shell
+    hack-font:
+      targets:
+        - .termux
+        - .termux/font.ttf
+      scripts:
+        - reload-termux-settings.sh

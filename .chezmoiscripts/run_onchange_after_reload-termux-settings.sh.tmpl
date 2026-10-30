@@ -1,0 +1,7 @@
+{{- if and (eq .chezmoi.os "android") (has "hack-font" .termux.enabled) -}}
+#!{{ lookPath "sh" }}
+set -eu
+
+# {{ include ".chezmoiexternal.toml.tmpl" | sha256sum }}
+termux-reload-settings
+{{- end }}

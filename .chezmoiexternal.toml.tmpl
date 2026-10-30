@@ -10,3 +10,12 @@ url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/93db4f58c3b2e4
 type = "file"
 url = "https://raw.githubusercontent.com/LibreOffice/dictionaries/93db4f58c3b2e43003c49d33ce203bdcc8db0b93/gd_GB/gd_GB.dic"
 {{- end }}
+
+{{ if and (eq .chezmoi.os "android") (has "hack-font" .termux.enabled) -}}
+# Hack Nerd Font Mono Regular, pinned to Nerd Fonts v3.5.1.
+[".termux/font.ttf"]
+type = "archive-file"
+url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/Hack.zip"
+path = "HackNerdFontMono-Regular.ttf"
+checksum.sha256 = "fa24da7de7cefe7766614d27762570b20453c852fc1d5b657111666df9a5e449"
+{{ end -}}

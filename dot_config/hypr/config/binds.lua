@@ -28,6 +28,7 @@ hl.bind(mainMod .. " + SHIFT + Space", function()
 end, { description = "Toggle floating for all windows on current workspace" })
 hl.bind(mainMod .. " + D",             hl.dsp.window.fullscreen({ mode = 1 }),         { description = "Maximize window" })
 hl.bind(mainMod .. " + F",             hl.dsp.window.fullscreen(),                     { description = "Toggle fullscreen" })
+hl.bind(mainMod .. " + CONTROL + C",   hl.dsp.window.center(),                         { description = "Center floating window" })
 
 -- Change focus
 hl.bind(mainMod .. " + H",   hl.dsp.focus({ direction = "left" }),  { description = "Focus left" })
@@ -69,26 +70,37 @@ hl.bind(mainMod .. " + CONTROL + L", hl.dsp.window.resize({ x = 40,  y = 0,  rel
 hl.bind(mainMod .. " + CONTROL + K", hl.dsp.window.resize({ x = 0,   y = 40,  relative = true }), { repeating = true, description = "Grow window height" })
 hl.bind(mainMod .. " + CONTROL + J", hl.dsp.window.resize({ x = 0,   y = -40, relative = true }), { repeating = true, description = "Shrink window height" })
 
+-- Scale floating windows proportionally (hold to repeat).
+local function scaleWindow(factor)
+    return function()
+        local window = hl.get_active_window()
+        if not window or not window.floating or window.fullscreen ~= 0 then
+            return
+        end
+
+        local size = window.size
+        if size.x <= 0 or size.y <= 0 then
+            return
+        end
+
+        hl.dispatch(hl.dsp.window.resize({
+            window = window,
+            x = math.max(1, math.floor(size.x * factor + 0.5)),
+            y = math.max(1, math.floor(size.y * factor + 0.5)),
+            relative = false,
+        }))
+    end
+end
+
+hl.bind(mainMod .. " + Minus", scaleWindow(1 / 1.1), { repeating = true, description = "Shrink floating window proportionally" })
+hl.bind(mainMod .. " + Equal", scaleWindow(1.1),     { repeating = true, description = "Grow floating window proportionally" })
+
 -- Reset master split to 50/50
 hl.bind(mainMod .. " + CONTROL + R", hl.dsp.layout("mfact exact 0.5"), { description = "Reset master split" })
 
 -- Move & Resize with mouse
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { description = "Drag window" })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { description = "Resize window" })
-
--- Zoom
-local function zoomfunction(value)
-    local zoomvalue = hl.get_config("cursor:zoom_factor")
-    if (zoomvalue + value) > 3.0 then
-        hl.config({ cursor = { zoom_factor = 3.0 } })
-    elseif (zoomvalue + value) < 1.0 then
-        hl.config({ cursor = { zoom_factor = 1.0 } })
-    else
-        hl.config({ cursor = { zoom_factor = zoomvalue + value } })
-    end
-end
-hl.bind(mainMod .. " + Minus", function() zoomfunction(-0.3) end, { repeating = true, description = "Zoom out" })
-hl.bind(mainMod .. " + Plus",  function() zoomfunction(0.3) end,  { repeating = true, description = "Zoom in" })
 
 -- 2. Applications
 

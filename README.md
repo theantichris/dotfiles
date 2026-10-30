@@ -89,7 +89,13 @@ Enable more apps in [`.chezmoidata/termux.yaml`](.chezmoidata/termux.yaml).
 Each app defines its target paths and scripts, with its supporting packages in
 [`packages.termux`](.chezmoidata/packages.yaml) under `pkg` and `npm`. Add the app
 to `termux.enabled`, review `chezmoi diff`, then apply. `termux.editor` selects
-the Git and chezmoi editor; Mitos is the next planned addition.
+the Git, Fish, and chezmoi editor.
+
+The `mitos` selection builds Mitos 0.1.2 and its selected syntax grammars
+natively on Termux, and installs the shared config, snippets, Cyberpunk theme,
+spelling dictionaries, and YAML formatter. `ms` is the selected editor.
+After syncing these changes, run `chezmoi init` to refresh chezmoi's editor
+setting, apply, then run `exec fish` to refresh the current shell.
 
 ### Build your own deck
 

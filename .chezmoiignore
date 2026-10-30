@@ -9,6 +9,8 @@ noctalia-settings.toml
 
 {{ if ne .chezmoi.os "android" -}}
 .termux
+.local/bin/ms
+.config/fish/completions/ms.fish
 {{ end -}}
 
 {{ if eq .chezmoi.os "android" -}}

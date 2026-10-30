@@ -1,4 +1,4 @@
-{{- if eq .chezmoi.hostname "tranchion" }}
+{{- if or (eq .chezmoi.hostname "tranchion") (and (eq .chezmoi.os "android") (has "mitos" .termux.enabled)) }}
 # Scottish Gaelic (gd_GB) Hunspell 3.3 by Am Faclair Beag / Kevin Scannell.
 # GPLv3+. Sources pinned to LibreOffice/dictionaries commit 93db4f58.
 # https://github.com/LibreOffice/dictionaries/tree/93db4f58c3b2e43003c49d33ce203bdcc8db0b93/gd_GB
@@ -18,4 +18,12 @@ type = "archive-file"
 url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/Hack.zip"
 path = "HackNerdFontMono-Regular.ttf"
 checksum.sha256 = "fa24da7de7cefe7766614d27762570b20453c852fc1d5b657111666df9a5e449"
+{{ end -}}
+
+{{ if and (eq .chezmoi.os "android") (has "mitos" .termux.enabled) -}}
+[".local/share/mitos/source-v0.1.2"]
+type = "archive"
+url = "https://codeload.github.com/mitos-editor/mitos/tar.gz/refs/tags/v0.1.2"
+stripComponents = 1
+checksum.sha256 = "9ee73831c2a55e2100cbed31721f9275ca689cf8a7304d58c4c32ebe9473eab6"
 {{ end -}}

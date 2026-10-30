@@ -55,6 +55,34 @@ packages:
         - util-linux
     hack-font:
       pkg: []
+    mitos:
+      pkg:
+        - rust
+        - rust-analyzer
+        - rust-src
+        - clang
+        - make
+        - cmake
+        - pkg-config
+        - git
+        - bash
+        - util-linux
+        - fish
+        - golang
+        - goimports
+        - gopls
+        - lua-language-server
+        - marksman
+        - npm
+        - taplo
+      npm:
+        - bash-language-server
+        - fish-lsp
+        - vscode-langservers-extracted
+        - yaml-language-server
+      go:
+        - name: yamlfmt
+          module: github.com/google/yamlfmt/cmd/yamlfmt@latest
   pacman:
     - bat
     - bash-language-server

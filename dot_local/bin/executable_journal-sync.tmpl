@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!{{ if eq .chezmoi.os "android" }}{{ lookPath "bash" }}{{ else }}/usr/bin/env bash{{ end }}
 set -Eeuo pipefail
 
 # Sync saved files only: Mitos command sequences do not wait for pending saves.

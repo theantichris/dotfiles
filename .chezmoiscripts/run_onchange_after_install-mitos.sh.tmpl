@@ -1,0 +1,18 @@
+{{- if and (eq .chezmoi.os "android") (has "mitos" .termux.enabled) -}}
+#!{{ lookPath "sh" }}
+set -eu
+
+# {{ include "dot_config/mitos/languages.toml.tmpl" | sha256sum }}
+source_dir={{ printf "%s/.local/share/mitos/source-v0.1.2" .chezmoi.homeDir | quote }}
+cd "$source_dir"
+
+# Build the editor first, then compile the selected grammars for Android.
+export CC="${CC:-clang}"
+export CXX="${CXX:-clang++}"
+MITOS_DEFAULT_RUNTIME="$source_dir/runtime" MITOS_DISABLE_AUTO_GRAMMAR_BUILD=1 \
+    cargo build --release --locked --bin ms --jobs 2
+
+CARGO_MANIFEST_DIR="$source_dir/crates/term" target/release/ms --grammar fetch
+CARGO_MANIFEST_DIR="$source_dir/crates/term" target/release/ms --grammar build
+target/release/ms --version
+{{- end }}

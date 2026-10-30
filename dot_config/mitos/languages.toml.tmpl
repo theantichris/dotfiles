@@ -1,4 +1,8 @@
 # Use built-in spelling for the same languages configured in Helix.
+{{ if eq .chezmoi.os "android" -}}
+use-grammars = { only = {{ .termux.apps.mitos.grammars | toJson }} }
+
+{{ end -}}
 [language-server.rust-analyzer.config.check]
 command = "clippy"
 

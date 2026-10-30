@@ -47,11 +47,16 @@ set -eu
 
 {{ $packages := list -}}
 {{ $npmPackages := list -}}
+{{ $goPackages := list -}}
 {{ range .termux.enabled -}}
 {{ if not (hasKey $.packages.termux .) }}{{ fail (printf "Missing Termux packages for app: %s" .) }}{{ end -}}
 {{ $app := index $.packages.termux . -}}
 {{ $packages = concat $packages $app.pkg -}}
 {{ $npmPackages = concat $npmPackages (get $app "npm" | default list) -}}
+{{ $goPackages = concat $goPackages (get $app "go" | default list) -}}
+{{ end -}}
+{{ if has "go" .termux.enabled -}}
+{{ $goPackages = concat $goPackages .packages.go -}}
 {{ end -}}
 {{ range $packages | uniq }}
 if [ "$(dpkg-query -W -f='${Status}' {{ . | quote }} 2>/dev/null || true)" != "install ok installed" ]; then
@@ -65,12 +70,12 @@ if ! npm list --global --depth=0 {{ . | quote }} >/dev/null 2>&1; then
 fi
 {{ end }}
 
-{{ if has "go" .termux.enabled -}}
+{{ if $goPackages -}}
 go_bin_dir="$(go env GOBIN)"
 if [ -z "$go_bin_dir" ]; then
     go_bin_dir="$(go env GOPATH)/bin"
 fi
-{{ range .packages.go }}
+{{ range $goPackages | uniq }}
 if [ ! -x "$go_bin_dir/{{ .name }}" ]; then
     go install {{ .module | quote }}
 fi

@@ -6,7 +6,8 @@ termux:
     - rust
     - fish
     - hack-font
-  editor: hx
+    - mitos
+  editor: ms
   apps:
     git:
       targets:
@@ -62,3 +63,48 @@ termux:
         - .termux/font.ttf
       scripts:
         - reload-termux-settings.sh
+    mitos:
+      scripts:
+        - install-mitos.sh
+      grammars:
+        - bash
+        - c
+        - comment
+        - cpp
+        - diff
+        - fish
+        - git-config
+        - git-rebase
+        - gitattributes
+        - gitcommit
+        - gitignore
+        - go
+        - gomod
+        - gotmpl
+        - gowork
+        - json
+        - lua
+        - markdown
+        - markdown_inline
+        - rust
+        - toml
+        - yaml
+      targets:
+        - .config/mitos
+        - .config/mitos/**
+        - .config/fish
+        - .config/fish/completions
+        - .config/fish/completions/ms.fish
+        - .local
+        - .local/bin
+        - .local/bin/ms
+        - .local/bin/journal-sync
+        - .local/share
+        - .local/share/mitos
+        - .local/share/mitos/source-v0.1.2
+        - .local/share/mitos/source-v0.1.2/**
+        - .local/state
+        - .local/state/mitos
+        - .local/state/mitos/dictionaries
+        - .local/state/mitos/dictionaries/en_US.txt
+        - .local/state/mitos/dictionaries/gd_GB.txt

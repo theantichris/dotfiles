@@ -37,15 +37,15 @@ unbind-key C
 bind ma everywhere mark-all-feeds-read
 
 # Cyberpunk theme (xterm-256 indexes are defined with the shared palette data)
-color background          color{{ .cyberpunk.terminal.xterm256.text }}  color{{ .cyberpunk.terminal.xterm256.background }}
-color listnormal          color{{ .cyberpunk.terminal.xterm256.text }}  color{{ .cyberpunk.terminal.xterm256.background }}
-color listnormal_unread   color{{ .cyberpunk.terminal.xterm256.cyan }}   color{{ .cyberpunk.terminal.xterm256.background }}  bold
+color background          color{{ .cyberpunk.terminal.xterm256.text }}  default
+color listnormal          color{{ .cyberpunk.terminal.xterm256.text }}  default
+color listnormal_unread   color{{ .cyberpunk.terminal.xterm256.cyan }}   default  bold
 color listfocus           color{{ .cyberpunk.terminal.xterm256.background }}  color{{ .cyberpunk.terminal.xterm256.pink }}  bold
 color listfocus_unread    color{{ .cyberpunk.terminal.xterm256.background }}  color{{ .cyberpunk.terminal.xterm256.cyan }}   bold
 color info                color{{ .cyberpunk.terminal.xterm256.background }}  color{{ .cyberpunk.terminal.xterm256.pink }}  bold
-color article             color{{ .cyberpunk.terminal.xterm256.text }}  color{{ .cyberpunk.terminal.xterm256.background }}
+color article             color{{ .cyberpunk.terminal.xterm256.text }}  default
 
 # Highlights
-highlight article "^(Feed|Title|Author|Link|Date):.*" color{{ .cyberpunk.terminal.xterm256.cyan }} color{{ .cyberpunk.terminal.xterm256.background }}
-highlight article "https?://[^ ]+" color{{ .cyberpunk.terminal.xterm256.green }} color{{ .cyberpunk.terminal.xterm256.background }} underline
-highlight article "\\[[0-9]+\\]" color{{ .cyberpunk.terminal.xterm256.magenta }} color{{ .cyberpunk.terminal.xterm256.background }} bold
+highlight article "^(Feed|Title|Author|Link|Date):.*" color{{ .cyberpunk.terminal.xterm256.cyan }} default
+highlight article "https?://[^ ]+" color{{ .cyberpunk.terminal.xterm256.green }} default underline
+highlight article "\\[[0-9]+\\]" color{{ .cyberpunk.terminal.xterm256.magenta }} default bold

@@ -35,6 +35,7 @@ Noctalia's launcher over the notes, feeds, mail, and Mastodon workspace.
 |--------|-------|
 | CachyOS | Desktop and CLI configuration, plus package installation hooks |
 | Parrot OS (HTB VM) | Selected CLI configuration; keeps the existing MATE session, application defaults, and Git signing |
+| Termux (tranch-fold) | Incremental app setup, starting with Git and Helix |
 
 CachyOS is the main desktop. Parrot uses the existing VM toolchain; this repo
 does not install its packages. Its exclusions live in
@@ -64,6 +65,18 @@ rebuild bat's theme cache.
 
 On Parrot, install the CLI tools separately before applying. Templates account
 for Debian executable names such as `batcat`, `fdfind`, and `hx`.
+
+### Termux on tranch-fold
+
+With Git, chezmoi, and the SSH signing key available, use the restore commands
+above. Applying installs Git, OpenSSH, delta, bat, and Helix through `pkg`, then
+sets up Git signing, Cyberpunk diffs, and Helix as the Git editor (`hx`).
+
+Enable more apps in [`.chezmoidata/termux.yaml`](.chezmoidata/termux.yaml).
+Each app defines its target paths and scripts, with its supporting packages in
+[`packages.termux`](.chezmoidata/packages.yaml). Add the app to `termux.enabled`,
+review `chezmoi diff`, then apply. `termux.editor` selects the Git and chezmoi
+editor; Mitos is the next planned addition.
 
 ### Build your own deck
 

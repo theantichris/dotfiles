@@ -7,6 +7,24 @@ mitos-dictionary-gd_GB.txt
 README.md
 noctalia-settings.toml
 
+{{ if eq .chezmoi.os "android" -}}
+# Enable Termux apps and their supporting files together.
+**
+!.config
+!.chezmoiscripts
+!.chezmoiscripts/install-packages.sh
+{{ range .termux.enabled -}}
+{{ $app := index $.termux.apps . -}}
+{{ if not $app }}{{ fail (printf "Unknown Termux app: %s" .) }}{{ end -}}
+{{ range $app.targets -}}
+!{{ . }}
+{{ end -}}
+{{ range $app.scripts -}}
+!.chezmoiscripts/{{ . }}
+{{ end -}}
+{{ end -}}
+{{ end -}}
+
 {{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
 # HTB VM: keep the existing MATE session, application defaults, and Git signing.
 .gitconfig

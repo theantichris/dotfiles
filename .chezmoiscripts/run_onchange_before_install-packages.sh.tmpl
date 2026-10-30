@@ -41,4 +41,18 @@ if ! cargo install --list | grep -q '^{{ . }} v'; then
 fi
 {{ end }}
 {{ end -}}
+{{- else if eq .chezmoi.os "android" -}}
+#!{{ lookPath "sh" }}
+set -eu
+
+{{ $packages := list -}}
+{{ range .termux.enabled -}}
+{{ if not (hasKey $.packages.termux .) }}{{ fail (printf "Missing Termux packages for app: %s" .) }}{{ end -}}
+{{ $packages = concat $packages (index $.packages.termux .) -}}
+{{ end -}}
+{{ range $packages | uniq }}
+if [ "$(dpkg-query -W -f='${Status}' {{ . | quote }} 2>/dev/null || true)" != "install ok installed" ]; then
+    pkg install -y {{ . | quote }}
+fi
+{{ end }}
 {{- end }}

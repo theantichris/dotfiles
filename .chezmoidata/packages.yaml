@@ -1,4 +1,12 @@
 packages:
+  termux:
+    git:
+      - git
+      - openssh
+      - git-delta
+      - bat
+    helix:
+      - helix
   pacman:
     - bat
     - bash-language-server

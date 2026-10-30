@@ -1,0 +1,23 @@
+termux:
+  enabled:
+    - git
+    - helix
+  editor: hx
+  apps:
+    git:
+      targets:
+        - .gitconfig
+        - .gitignore
+        - .config/bat
+        - .config/bat/config
+        - .config/bat/themes
+        - .config/bat/themes/cyberpunk.tmTheme
+      scripts:
+        - rebuild-bat-cache.sh
+    helix:
+      scripts: []
+      targets:
+        - .config/helix
+        - .config/helix/config.toml
+        - .config/helix/themes
+        - .config/helix/themes/cyberpunk.toml

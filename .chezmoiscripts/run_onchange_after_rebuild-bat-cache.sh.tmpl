@@ -1,5 +1,5 @@
 {{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
-#!/bin/sh
+#!{{ if eq .chezmoi.os "android" }}{{ lookPath "sh" }}{{ else }}/bin/sh{{ end }}
 
 # {{ include "dot_config/bat/themes/cyberpunk.tmTheme.tmpl" | sha256sum }}
 # {{ include ".chezmoidata/cyberpunk.yaml" | sha256sum }}

@@ -1,13 +1,58 @@
 packages:
   termux:
     git:
-      - git
-      - openssh
-      - git-delta
-      - bat
+      pkg:
+        - git
+        - openssh
+        - git-delta
+        - bat
     helix:
-      - helix
-      - helix-grammars
+      pkg:
+        - helix
+        - helix-grammars
+        - fish
+        - golang
+        - goimports
+        - gopls
+        - lua-language-server
+        - marksman
+        - npm
+        - rust
+        - rust-analyzer
+        - rust-src
+        - taplo
+      npm:
+        - bash-language-server
+        - fish-lsp
+        - vscode-langservers-extracted
+        - yaml-language-server
+    go:
+      pkg:
+        - golang
+        - goimports
+        - gopls
+        - fd
+        - entr
+    rust:
+      pkg:
+        - rust
+        - rust-analyzer
+        - rust-src
+        - cmake
+        - make
+        - pkg-config
+        - libgit2
+        - libcurl
+    fish:
+      pkg:
+        - fish
+        - bat
+        - eza
+        - fd
+        - ripgrep
+        - fzf
+        - gh
+        - util-linux
   pacman:
     - bat
     - bash-language-server

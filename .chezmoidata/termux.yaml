@@ -2,6 +2,9 @@ termux:
   enabled:
     - git
     - helix
+    - go
+    - rust
+    - fish
   editor: hx
   apps:
     git:
@@ -19,5 +22,36 @@ termux:
       targets:
         - .config/helix
         - .config/helix/config.toml
+        - .config/helix/languages.toml
         - .config/helix/themes
         - .config/helix/themes/cyberpunk.toml
+    go:
+      targets:
+        - .config/fish
+        - .config/fish/conf.d
+        - .config/fish/conf.d/go.fish
+      scripts: []
+    rust:
+      targets: []
+      scripts: []
+    fish:
+      scripts: []
+      targets:
+        - .config/fish
+        - .config/fish/config.fish
+        - .config/fish/conf.d
+        - .config/fish/conf.d/bat.fish
+        - .config/fish/conf.d/chezmoi.fish
+        - .config/fish/conf.d/environment.fish
+        - .config/fish/conf.d/eza.fish
+        - .config/fish/conf.d/fzf.fish
+        - .config/fish/conf.d/git.fish
+        - .config/fish/conf.d/modern-cli.fish
+        - .config/fish/conf.d/paths.fish
+        - .config/fish/functions
+        - .config/fish/functions/fish_prompt.fish
+        - .config/fish/functions/update.fish
+        - .config/eza
+        - .config/eza/theme.fish
+        - .termux
+        - .termux/shell

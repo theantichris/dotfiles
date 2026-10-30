@@ -1,7 +1,7 @@
 {{- $parrot := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") -}}
 # Preferred applications for command-line tools
-set -gx EDITOR {{ if eq .chezmoi.hostname "tranchion" }}{{ .chezmoi.homeDir }}/.local/bin/ms{{ else if $parrot }}hx{{ else }}helix{{ end }}
-{{ if eq .chezmoi.hostname "tranchion" -}}
+set -gx EDITOR {{ if eq .chezmoi.os "android" }}{{ .termux.editor }}{{ else if eq .chezmoi.hostname "tranchion" }}{{ .chezmoi.homeDir }}/.local/bin/ms{{ else if $parrot }}hx{{ else }}helix{{ end }}
+{{ if or (eq .chezmoi.os "android") (eq .chezmoi.hostname "tranchion") -}}
 set -gx VISUAL $EDITOR
 {{ end -}}
-set -gx BROWSER {{ if $parrot }}firefox-esr{{ else }}brave-origin{{ end }}
+set -gx BROWSER {{ if eq .chezmoi.os "android" }}termux-open-url{{ else if $parrot }}firefox-esr{{ else }}brave-origin{{ end }}

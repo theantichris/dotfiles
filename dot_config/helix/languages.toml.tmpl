@@ -1,3 +1,5 @@
+{{- $harper := ne .chezmoi.os "android" -}}
+{{ if $harper -}}
 [language-server.harper-ls]
 command = "harper-ls"
 args = ["--stdio"]
@@ -5,6 +7,7 @@ args = ["--stdio"]
 [language-server.harper-ls.config.harper-ls]
 diagnosticSeverity = "hint"
 
+{{ end -}}
 [language-server.rust-analyzer.config.check]
 command = "clippy"
 
@@ -19,28 +22,28 @@ file-types = [
   { glob = "**/*.bash.tmpl" },
 ]
 shebangs = ["sh", "bash"]
-language-servers = ["bash-language-server", "harper-ls"]
+language-servers = ["bash-language-server"{{ if $harper }}, "harper-ls"{{ end }}]
 
 [[language]]
 name = "go"
 auto-format = true
 formatter = { command = "goimports" }
-language-servers = ["gopls", "harper-ls"]
+language-servers = ["gopls"{{ if $harper }}, "harper-ls"{{ end }}]
 
 [[language]]
 name = "json"
 auto-format = true
-language-servers = ["vscode-json-language-server", "harper-ls"]
+language-servers = ["vscode-json-language-server"{{ if $harper }}, "harper-ls"{{ end }}]
 
 [[language]]
 name = "jsonc"
 auto-format = true
-language-servers = ["vscode-json-language-server", "harper-ls"]
+language-servers = ["vscode-json-language-server"{{ if $harper }}, "harper-ls"{{ end }}]
 
 [[language]]
 name = "lua"
 auto-format = true
-language-servers = ["lua-language-server", "harper-ls"]
+language-servers = ["lua-language-server"{{ if $harper }}, "harper-ls"{{ end }}]
 file-types = [
   "lua",
   { glob = "**/*.lua.tmpl" }
@@ -48,19 +51,19 @@ file-types = [
 
 [[language]]
 name = "markdown"
-language-servers = ["marksman", "harper-ls"]
+language-servers = ["marksman"{{ if $harper }}, "harper-ls"{{ end }}]
 
 [[language]]
 name = "rust"
 auto-format = true
-language-servers = ["rust-analyzer", "harper-ls"]
+language-servers = ["rust-analyzer"{{ if $harper }}, "harper-ls"{{ end }}]
 
 [[language]]
 name = "toml"
 roots = ["."]
-language-servers = ["taplo", "harper-ls"]
+language-servers = ["taplo"{{ if $harper }}, "harper-ls"{{ end }}]
 
 [[language]]
 name = "yaml"
 indent = { tab-width = 2, unit = "  " }
-language-servers = ["yaml-language-server", "harper-ls"]
+language-servers = ["yaml-language-server"{{ if $harper }}, "harper-ls"{{ end }}]

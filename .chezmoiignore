@@ -7,6 +7,10 @@ mitos-dictionary-gd_GB.txt
 README.md
 noctalia-settings.toml
 
+{{ if ne .chezmoi.os "android" -}}
+.termux
+{{ end -}}
+
 {{ if eq .chezmoi.os "android" -}}
 # Enable Termux apps and their supporting files together.
 **

@@ -18,3 +18,8 @@ if not command -q helix; and command -q hx
     alias helix='hx'
 end
 {{ end -}}
+{{ if eq .chezmoi.os "android" -}}
+if not command -q helix; and command -q hx
+    alias helix='hx'
+end
+{{ end -}}

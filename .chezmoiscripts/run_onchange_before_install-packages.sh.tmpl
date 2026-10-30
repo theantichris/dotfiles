@@ -46,13 +46,42 @@ fi
 set -eu
 
 {{ $packages := list -}}
+{{ $npmPackages := list -}}
 {{ range .termux.enabled -}}
 {{ if not (hasKey $.packages.termux .) }}{{ fail (printf "Missing Termux packages for app: %s" .) }}{{ end -}}
-{{ $packages = concat $packages (index $.packages.termux .) -}}
+{{ $app := index $.packages.termux . -}}
+{{ $packages = concat $packages $app.pkg -}}
+{{ $npmPackages = concat $npmPackages (get $app "npm" | default list) -}}
 {{ end -}}
 {{ range $packages | uniq }}
 if [ "$(dpkg-query -W -f='${Status}' {{ . | quote }} 2>/dev/null || true)" != "install ok installed" ]; then
     pkg install -y {{ . | quote }}
 fi
 {{ end }}
+
+{{ range $npmPackages | uniq }}
+if ! npm list --global --depth=0 {{ . | quote }} >/dev/null 2>&1; then
+    npm install --global {{ . | quote }}
+fi
+{{ end }}
+
+{{ if has "go" .termux.enabled -}}
+go_bin_dir="$(go env GOBIN)"
+if [ -z "$go_bin_dir" ]; then
+    go_bin_dir="$(go env GOPATH)/bin"
+fi
+{{ range .packages.go }}
+if [ ! -x "$go_bin_dir/{{ .name }}" ]; then
+    go install {{ .module | quote }}
+fi
+{{ end }}
+{{ end -}}
+
+{{ if has "rust" .termux.enabled -}}
+{{ range .packages.cargo }}
+if ! cargo install --list | grep -q '^{{ . }} v'; then
+    cargo install --locked {{ . | quote }}
+fi
+{{ end }}
+{{ end -}}
 {{- end }}

@@ -158,3 +158,5 @@ Wha
 Dutton
 Mobland
 Galvez
+Cheatsheet
+jumplist

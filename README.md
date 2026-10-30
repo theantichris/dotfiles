@@ -69,14 +69,24 @@ for Debian executable names such as `batcat`, `fdfind`, and `hx`.
 ### Termux on tranch-fold
 
 With Git, chezmoi, and the SSH signing key available, use the restore commands
-above. Applying installs Git, OpenSSH, delta, bat, and Helix through `pkg`, then
-sets up Git signing, Cyberpunk diffs, and Helix as the Git editor (`hx`).
+above. Applying sets up Git signing, Cyberpunk diffs, and Helix as the Git
+editor (`hx`), with syntax grammars, language servers, and formatters.
+Supporting tools install through `pkg` and npm.
+
+The `go` and `rust` selections install the Termux toolchains, including Cargo,
+Clippy, rustfmt, and Rust source support. They also install `go-global-update`
+and `cargo-update` for managing tools installed through Go and Cargo.
+
+The `fish` selection brings over the Cyberpunk prompt, CLI aliases, fuzzy
+completion, and Go/Cargo executable paths. It selects Fish for new Termux
+sessions; run `exec fish` to switch the current session after applying.
+The `update` function upgrades Termux packages and installed Go/Cargo tools.
 
 Enable more apps in [`.chezmoidata/termux.yaml`](.chezmoidata/termux.yaml).
 Each app defines its target paths and scripts, with its supporting packages in
-[`packages.termux`](.chezmoidata/packages.yaml). Add the app to `termux.enabled`,
-review `chezmoi diff`, then apply. `termux.editor` selects the Git and chezmoi
-editor; Mitos is the next planned addition.
+[`packages.termux`](.chezmoidata/packages.yaml) under `pkg` and `npm`. Add the app
+to `termux.enabled`, review `chezmoi diff`, then apply. `termux.editor` selects
+the Git and chezmoi editor; Mitos is the next planned addition.
 
 ### Build your own deck
 

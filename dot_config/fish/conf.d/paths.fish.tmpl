@@ -1,0 +1,26 @@
+# Go
+if command -q go
+{{- if eq .chezmoi.os "android" }}
+    set -l go_bin_dir (go env GOBIN)
+    if test -z "$go_bin_dir"
+        set go_bin_dir (go env GOPATH)/bin
+    end
+    fish_add_path --path "$go_bin_dir"
+{{- else }}
+    fish_add_path --path (go env GOPATH)/bin
+{{- end }}
+end
+
+# Rust / Cargo
+{{- if eq .chezmoi.os "android" }}
+if test -n "$CARGO_HOME"
+    fish_add_path --path "$CARGO_HOME/bin"
+else
+    fish_add_path --path $HOME/.cargo/bin
+end
+{{- else }}
+fish_add_path --path $HOME/.cargo/bin
+{{- end }}
+
+# User-installed executables
+fish_add_path --path $HOME/.local/bin

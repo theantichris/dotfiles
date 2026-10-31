@@ -22,6 +22,7 @@ hl.window_rule({
         initial_title = "negative:^(.*\\\\home\\\\.*|Battle\\.net)$",
     },
     content          = "game",
+    opacity          = "1.0 override",
     decorate         = false,
     fullscreen_state = 2,
     size             = { "monitor_w", "monitor_h" },

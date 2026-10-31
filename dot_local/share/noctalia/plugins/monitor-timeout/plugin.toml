@@ -1,0 +1,10 @@
+id = "christopher/monitor-timeout"
+name = "Monitor timeout"
+version = "1.0.0"
+plugin_api = 35
+author = "Christopher"
+description = "Turn monitors off after 30 minutes without input, ignoring idle inhibitors."
+
+[[service]]
+id = "timer"
+entry = "service.luau"

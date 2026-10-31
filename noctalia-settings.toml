@@ -217,7 +217,7 @@ gen_passphrase_include_number = true
 gen_special = true
 
 [plugins]
-enabled = [ "kenn/keybind-cheatsheet", "noctalia/bitwarden", "noctalia/translator" ]
+enabled = [ "kenn/keybind-cheatsheet", "noctalia/bitwarden", "noctalia/translator", "christopher/monitor-timeout" ]
 
 [shell]
 app_icon_color = "primary"

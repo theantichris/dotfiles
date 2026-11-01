@@ -60,7 +60,7 @@ function cascade.resetWorkspace()
     end
     for _, window in ipairs(windows) do
         hl.dispatch(hl.dsp.window.fullscreen_state({ window = window, action = "set", internal = 0, client = 0 }))
-        hl.dispatch(hl.dsp.window.float({ window = window, action = "set" }))
+        hl.dispatch(hl.dsp.window.float({ window = window, action = "enable" }))
         hl.dispatch(hl.dsp.window.resize({ window = window, x = 1600, y = 900, relative = false }))
         place(window, 1600, 900)
     end

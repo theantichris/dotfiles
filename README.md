@@ -63,8 +63,18 @@ desktop tools and Shelly to be available already. Other hooks set Brave as the
 default browser, Superfile as the folder opener, add Rust source support, and
 rebuild bat's theme cache.
 
-On other Parrot hosts, install the CLI tools separately before applying.
-Templates account for Debian executable names such as `batcat` and `fdfind`.
+On `tranchion`, Mitos is a separate prerequisite; the package hook does not
+install it. Download the Linux archive for the machine's architecture from
+[Mitos releases](https://github.com/mitos-editor/mitos/releases), extract it
+under `~/.local/share/mitos/<release>/`, and keep `runtime/` beside `ms`.
+Recreate `~/.local/bin/ms` as a symlink to that executable and put
+`~/.local/bin` on `PATH`. Verify `ms --version` and `ms --health` before using
+the editor shortcuts. The current layout uses `v0.1.3-x86_64-linux` as the
+release directory.
+
+On other Parrot hosts, install the CLI tools, including Mitos (`ms`), separately
+before applying. Templates account for Debian executable names such as `batcat`
+and `fdfind`.
 
 ### First apply on pwntranch
 
@@ -73,10 +83,13 @@ configuration. The package hook installs Brave Origin from its official APT
 repository and the APT dependencies listed in `.chezmoidata/packages.yaml`.
 Fastfetch 2.70.0 and Mitos come from their official Debian packages.
 Fastfetch uses the same color configuration as CachyOS. Mitos includes its runtime,
-shell completions, and desktop entry. Node and npm come from APT; the shared
-npm list pins the JSON and YAML servers to versions compatible with Parrot's
-Node version. Externals provide the remaining language servers, spelling
-files, and Hack Nerd Font Mono.
+shell completions, and desktop entry. Node and npm are listed as APT dependencies;
+global npm packages are intentionally unpinned. Before applying, ensure Node
+meets the current tools' requirements: the
+[YAML server currently requires Node 22.13.0 or newer](https://github.com/redhat-developer/yaml-language-server/blob/main/package.json).
+If Parrot still provides Node 20, upgrade Node first; the npm installation hook
+checks engine compatibility. Externals provide the remaining language servers,
+spelling files, and Hack Nerd Font Mono.
 
 Use the restore commands above to initialize, review, and apply. If already
 initialized, run `chezmoi init` after updating the source to regenerate its
@@ -99,7 +112,7 @@ and `cargo-update` for managing tools installed through Go and Cargo.
 The `fish` selection brings over the Cyberpunk prompt, CLI aliases, fuzzy
 completion, and Go/Cargo executable paths. It selects Fish for new Termux
 sessions; run `exec fish` to switch the current session after applying.
-The `update` function upgrades Termux packages and installed Go/Cargo tools.
+The `update` function upgrades Termux packages and installed npm, Go, and Cargo tools.
 
 The `hack-font` selection installs Hack Nerd Font Mono and reloads Termux's
 terminal settings after applying.
@@ -109,8 +122,8 @@ Each app defines its target paths and scripts. Packages are listed by package
 manager in [`.chezmoidata/packages.yaml`](.chezmoidata/packages.yaml): `termux`
 for `pkg`, plus `npm`, `go`, and `cargo`. Termux installs those full lists
 independently of the app selections. Add an app to `termux.enabled`, review
-`chezmoi diff`, then apply. Mitos (`ms`) is the shared editor default for Git,
-Fish, and chezmoi on every host.
+`chezmoi diff`, then apply. Mitos (`ms`) is the shared editor default for Fish,
+chezmoi, and managed Git configuration.
 
 The `mitos` selection builds Mitos 0.1.2 and its selected syntax grammars
 natively on Termux, and installs the shared config, snippets, Cyberpunk theme,
@@ -137,9 +150,12 @@ source before applying. Start with:
 - [Editor and browser preferences](dot_config/fish/conf.d/environment.fish.tmpl).
 - [Noctalia settings](noctalia-settings.toml) and account-specific app configs.
 
-The hostname `tranchion` selects my local Mitos launcher at `~/.local/bin/ms`
-and desktop associations. That launcher is installed separately. Other hosts
-use Helix, with `hx` selected for Parrot's shell editor.
+Fish, chezmoi, and managed Git configuration select Mitos (`ms`) on `PATH`.
+The hostname `tranchion` also selects `~/.local/bin/ms` for the desktop editor
+and file associations; restore that separate installation as described above.
+Hyprland and UWSM retain Helix as their desktop default on other hosts.
+The Fish `helix` alias supports the `hx` executable on Parrot and Termux; it
+does not change the selected command-line editor.
 
 ## Loadout
 
@@ -170,8 +186,8 @@ window rules, and other settings.
 
 | Tool | Role | Configuration |
 |------|------|---------------|
-| Mitos | Main editor on `tranchion` | [`dot_config/mitos`](dot_config/mitos), [`English words`](mitos-dictionary-en_US.txt), [`Gaelic words`](mitos-dictionary-gd_GB.txt) |
-| Helix | Editor on other hosts | [`dot_config/helix`](dot_config/helix) |
+| Mitos | Shared command-line editor; desktop editor on `tranchion` | [`dot_config/mitos`](dot_config/mitos), [`English words`](mitos-dictionary-en_US.txt), [`Gaelic words`](mitos-dictionary-gd_GB.txt) |
+| Helix | Alternate editor; Hyprland/UWSM default outside `tranchion` | [`dot_config/helix`](dot_config/helix) |
 | Harper | Writing assistance and shared dictionary | [`dot_config/harper-ls`](dot_config/harper-ls), [`dictionary`](harper-dictionary.txt) |
 | Git + delta | Version control and themed diffs | [`dot_gitconfig.tmpl`](dot_gitconfig.tmpl), [`dot_gitignore`](dot_gitignore) |
 | Codex | Coding agent configuration and theme | [`dot_codex`](dot_codex) |
@@ -261,8 +277,9 @@ running applications immediately.
 
 **Packages:** edit [`.chezmoidata/packages.yaml`](.chezmoidata/packages.yaml).
 The CachyOS installation hook runs when its rendered contents change. Fish's
-`update` function runs the platform updater, then available Go, Cargo, and
-GitHub CLI extension updates.
+`update` function runs the platform updater, global npm updates on Parrot and
+Termux, then available Go, Cargo, and GitHub CLI extension updates. Global npm
+packages remain unpinned; keep Node compatible with their upstream requirements.
 
 ## License
 

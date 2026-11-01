@@ -24,11 +24,14 @@ function gotc --description 'Run Go tests with coverage and open the report'
 end
 alias gote='go test -tags=e2e'
 function gotw --description 'Watch Go files and rerun coverage tests'
-    for dependency in fd entr
-        if not command -q $dependency
-            echo "gotw: $dependency is not installed" >&2
-            return 127
-        end
+    set -l fd_command (command -s fd; or command -s fdfind)
+    if test -z "$fd_command"
+        echo "gotw: fd or fdfind is not installed" >&2
+        return 127
+    end
+    if not command -q entr
+        echo "gotw: entr is not installed" >&2
+        return 127
     end
 
     set -l test_command go test -cover ./...
@@ -37,9 +40,9 @@ function gotw --description 'Watch Go files and rerun coverage tests'
     end
 
     while true
-        set -l watch_files (command fd --type f -E vendor -E gen -E dist '(\.go$|^go\.(mod|sum|work|work\.sum)$)')
+        set -l watch_files (command $fd_command --type f -E vendor -E gen -E dist '(\.go$|^go\.(mod|sum|work|work\.sum)$)')
         or return $status
-        set -l watch_dirs (command fd --type d -E vendor -E gen -E dist)
+        set -l watch_dirs (command $fd_command --type d -E vendor -E gen -E dist)
         or return $status
 
         # Watch directories too, including an empty project, so new files and

@@ -134,12 +134,11 @@ packages:
     - slack-desktop
     - superseedr-bin
     - uhk-agent-appimage
-  # Keep the JSON and YAML servers compatible with Parrot's packaged Node 20.
   npm:
     - bash-language-server
     - fish-lsp
-    - vscode-langservers-extracted@4.8.0
-    - yaml-language-server@1.19.2
+    - vscode-langservers-extracted
+    - yaml-language-server
   go:
     - name: go-global-update
       module: github.com/Gelio/go-global-update@latest

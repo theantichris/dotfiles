@@ -11,14 +11,18 @@ preserve each file's existing formatting; avoid unrelated normalization.
   as `.cyberpunk` in templates. Update shared values there rather than duplicating
   colors across application themes.
 - Package inventory lives in `.chezmoidata/packages.yaml`, grouped under
-  `packages.pacman`, `packages.aur`, `packages.go`, and `packages.cargo`.
+  `packages.apt`, `packages.deb`, `packages.termux`, `packages.pacman`,
+  `packages.aur`, `packages.npm`, `packages.go`, and `packages.cargo`.
   `.chezmoiscripts/` contains package installation and other lifecycle scripts.
+- Christopher keeps global npm installs unpinned; Agent should preserve this
+  policy and document Node compatibility prerequisites instead of adding pins.
 - Preserve Linux distribution branches: CachyOS enables installation and desktop
   setup; Parrot keeps the HTB VM's MATE session, application defaults, and Git
   signing, with alternate executable names where needed.
-- Preserve `tranchion` hostname branches for the `~/.local/bin/ms` editor and
-  desktop associations, plus the Helix/`hx` fallbacks on other hosts. Fastfetch
-  also contains Darwin and Android branches.
+- Preserve Mitos (`ms`) as the Fish, chezmoi, and managed Git editor default.
+  The `tranchion` desktop uses the separately installed `~/.local/bin/ms`;
+  Hyprland and UWSM retain Helix on other hosts. Fish supplies `helix` aliases
+  for `hx` on Parrot and Termux. Fastfetch also has Darwin and Android branches.
 - Keep deployment exclusions in `.chezmoiignore`; `AGENTS.md` is repository-only.
 
 ## Safety

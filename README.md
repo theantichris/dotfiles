@@ -73,7 +73,7 @@ above. Applying sets up Git signing, Cyberpunk diffs, and Helix as the Git
 editor (`hx`), with syntax grammars, language servers, and formatters.
 Supporting tools install through `pkg` and npm.
 
-The `go` and `rust` selections install the Termux toolchains, including Cargo,
+The package lists install the Go and Rust toolchains, including Cargo,
 Clippy, rustfmt, and Rust source support. They also install `go-global-update`
 and `cargo-update` for managing tools installed through Go and Cargo.
 
@@ -86,10 +86,12 @@ The `hack-font` selection installs Hack Nerd Font Mono and reloads Termux's
 terminal settings after applying.
 
 Enable more apps in [`.chezmoidata/termux.yaml`](.chezmoidata/termux.yaml).
-Each app defines its target paths and scripts, with its supporting packages in
-[`packages.termux`](.chezmoidata/packages.yaml) under `pkg` and `npm`. Add the app
-to `termux.enabled`, review `chezmoi diff`, then apply. `termux.editor` selects
-the Git, Fish, and chezmoi editor.
+Each app defines its target paths and scripts. Packages are listed by package
+manager in [`.chezmoidata/packages.yaml`](.chezmoidata/packages.yaml): `termux`
+for `pkg`, plus `npm`, `go`, and `cargo`. Termux installs those full lists
+independently of the app selections. Add an app to `termux.enabled`, review
+`chezmoi diff`, then apply. `termux.editor` selects the Git, Fish, and chezmoi
+editor.
 
 The `mitos` selection builds Mitos 0.1.2 and its selected syntax grammars
 natively on Termux, and installs the shared config, snippets, Cyberpunk theme,

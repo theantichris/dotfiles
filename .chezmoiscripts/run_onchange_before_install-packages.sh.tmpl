@@ -23,7 +23,7 @@ if [ -z "$go_bin_dir" ]; then
     go_bin_dir="$(go env GOPATH)/bin"
 fi
 {{ range .packages.go }}
-if [ ! -x "$go_bin_dir/{{ .name }}" ]; then
+if ! command -v {{ .name | quote }} >/dev/null 2>&1 && [ ! -x "$go_bin_dir/{{ .name }}" ]; then
     go install {{ .module | quote }}
 fi
 {{ end }}
@@ -45,48 +45,37 @@ fi
 #!{{ lookPath "sh" }}
 set -eu
 
-{{ $packages := list -}}
-{{ $npmPackages := list -}}
-{{ $goPackages := list -}}
-{{ range .termux.enabled -}}
-{{ if not (hasKey $.packages.termux .) }}{{ fail (printf "Missing Termux packages for app: %s" .) }}{{ end -}}
-{{ $app := index $.packages.termux . -}}
-{{ $packages = concat $packages $app.pkg -}}
-{{ $npmPackages = concat $npmPackages (get $app "npm" | default list) -}}
-{{ $goPackages = concat $goPackages (get $app "go" | default list) -}}
-{{ end -}}
-{{ if has "go" .termux.enabled -}}
-{{ $goPackages = concat $goPackages .packages.go -}}
-{{ end -}}
-{{ range $packages | uniq }}
+# Termux packages
+{{ range .packages.termux }}
 if [ "$(dpkg-query -W -f='${Status}' {{ . | quote }} 2>/dev/null || true)" != "install ok installed" ]; then
     pkg install -y {{ . | quote }}
 fi
 {{ end }}
 
-{{ range $npmPackages | uniq }}
+# npm packages
+{{ range .packages.npm }}
 if ! npm list --global --depth=0 {{ . | quote }} >/dev/null 2>&1; then
     npm install --global {{ . | quote }}
 fi
 {{ end }}
 
-{{ if $goPackages -}}
+# Go packages
+{{ if .packages.go -}}
 go_bin_dir="$(go env GOBIN)"
 if [ -z "$go_bin_dir" ]; then
     go_bin_dir="$(go env GOPATH)/bin"
 fi
-{{ range $goPackages | uniq }}
-if [ ! -x "$go_bin_dir/{{ .name }}" ]; then
+{{ range .packages.go }}
+if ! command -v {{ .name | quote }} >/dev/null 2>&1 && [ ! -x "$go_bin_dir/{{ .name }}" ]; then
     go install {{ .module | quote }}
 fi
 {{ end }}
 {{ end -}}
 
-{{ if has "rust" .termux.enabled -}}
+# Cargo packages
 {{ range .packages.cargo }}
 if ! cargo install --list | grep -q '^{{ . }} v'; then
     cargo install --locked {{ . | quote }}
 fi
 {{ end }}
-{{ end -}}
 {{- end }}

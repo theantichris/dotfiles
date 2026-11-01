@@ -1,88 +1,36 @@
 packages:
   termux:
-    git:
-      pkg:
-        - git
-        - openssh
-        - git-delta
-        - bat
-    helix:
-      pkg:
-        - helix
-        - helix-grammars
-        - fish
-        - golang
-        - goimports
-        - gopls
-        - lua-language-server
-        - marksman
-        - npm
-        - rust
-        - rust-analyzer
-        - rust-src
-        - taplo
-      npm:
-        - bash-language-server
-        - fish-lsp
-        - vscode-langservers-extracted
-        - yaml-language-server
-    go:
-      pkg:
-        - golang
-        - goimports
-        - gopls
-        - fd
-        - entr
-    rust:
-      pkg:
-        - rust
-        - rust-analyzer
-        - rust-src
-        - cmake
-        - make
-        - pkg-config
-        - libgit2
-        - libcurl
-    fish:
-      pkg:
-        - fish
-        - bat
-        - eza
-        - fd
-        - ripgrep
-        - fzf
-        - gh
-        - util-linux
-    hack-font:
-      pkg: []
-    mitos:
-      pkg:
-        - rust
-        - rust-analyzer
-        - rust-src
-        - clang
-        - make
-        - cmake
-        - pkg-config
-        - git
-        - bash
-        - util-linux
-        - fish
-        - golang
-        - goimports
-        - gopls
-        - lua-language-server
-        - marksman
-        - npm
-        - taplo
-      npm:
-        - bash-language-server
-        - fish-lsp
-        - vscode-langservers-extracted
-        - yaml-language-server
-      go:
-        - name: yamlfmt
-          module: github.com/google/yamlfmt/cmd/yamlfmt@latest
+    - bash
+    - bat
+    - clang
+    - cmake
+    - entr
+    - eza
+    - fd
+    - fish
+    - fzf
+    - gh
+    - git
+    - git-delta
+    - goimports
+    - golang
+    - gopls
+    - helix
+    - helix-grammars
+    - libcurl
+    - libgit2
+    - lua-language-server
+    - make
+    - marksman
+    - npm
+    - openssh
+    - pkg-config
+    - ripgrep
+    - rust
+    - rust-analyzer
+    - rust-src
+    - taplo
+    - util-linux
   pacman:
     - bat
     - bash-language-server
@@ -144,8 +92,15 @@ packages:
     - slack-desktop
     - superseedr-bin
     - uhk-agent-appimage
+  npm:
+    - bash-language-server
+    - fish-lsp
+    - vscode-langservers-extracted
+    - yaml-language-server
   go:
     - name: go-global-update
       module: github.com/Gelio/go-global-update@latest
+    - name: yamlfmt
+      module: github.com/google/yamlfmt/cmd/yamlfmt@latest
   cargo:
     - cargo-update

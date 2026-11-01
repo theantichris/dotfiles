@@ -27,7 +27,7 @@ Comment[th]=โปรแกรมสำหรับจัดการและ�
 Comment[tr]=Steam üzerinden oyun oynama ve düzenleme uygulaması
 Comment[uk]=Програма для керування іграми та запуску ігор у Steam
 Comment[vi]=Ứng dụng để quản lý và chơi trò chơi trên Steam
-Exec=/usr/bin/steam -silent %U
+Exec=/usr/bin/steam -forcedesktopscaling 2 -silent %U
 Icon=steam
 Terminal=false
 Type=Application
@@ -65,7 +65,7 @@ Name[th]=ร้านค้า
 Name[tr]=Mağaza
 Name[uk]=Крамниця
 Name[vi]=Cửa hàng
-Exec=/usr/bin/steam steam://store
+Exec=/usr/bin/steam -forcedesktopscaling 2 steam://store
 
 [Desktop Action Community]
 Name=Community
@@ -95,7 +95,7 @@ Name[th]=ชุมชน
 Name[tr]=Topluluk
 Name[uk]=Спільнота
 Name[vi]=Cộng đồng
-Exec=/usr/bin/steam steam://url/CommunityHome/
+Exec=/usr/bin/steam -forcedesktopscaling 2 steam://url/CommunityHome/
 
 [Desktop Action Library]
 Name=Library
@@ -125,7 +125,7 @@ Name[th]=คลัง
 Name[tr]=Kütüphane
 Name[uk]=Бібліотека
 Name[vi]=Thư viện
-Exec=/usr/bin/steam steam://open/games
+Exec=/usr/bin/steam -forcedesktopscaling 2 steam://open/games
 
 [Desktop Action Servers]
 Name=Servers
@@ -155,7 +155,7 @@ Name[th]=เซิร์ฟเวอร์
 Name[tr]=Sunucular
 Name[uk]=Сервери
 Name[vi]=Máy chủ
-Exec=/usr/bin/steam steam://open/servers
+Exec=/usr/bin/steam -forcedesktopscaling 2 steam://open/servers
 
 [Desktop Action Screenshots]
 Name=Screenshots
@@ -185,7 +185,7 @@ Name[th]=ภาพหน้าจอ
 Name[tr]=Ekran Görüntüleri
 Name[uk]=Скріншоти
 Name[vi]=Ảnh chụp
-Exec=/usr/bin/steam steam://open/screenshots
+Exec=/usr/bin/steam -forcedesktopscaling 2 steam://open/screenshots
 
 [Desktop Action News]
 Name=News
@@ -215,7 +215,7 @@ Name[th]=ข่าวสาร
 Name[tr]=Haberler
 Name[uk]=Новини
 Name[vi]=Tin tức
-Exec=/usr/bin/steam steam://openurl/https://store.steampowered.com/news
+Exec=/usr/bin/steam -forcedesktopscaling 2 steam://openurl/https://store.steampowered.com/news
 
 [Desktop Action Settings]
 Name=Settings
@@ -245,11 +245,11 @@ Name[th]=การตั้งค่า
 Name[tr]=Ayarlar
 Name[uk]=Налаштування
 Name[vi]=Thiết lập
-Exec=/usr/bin/steam steam://open/settings
+Exec=/usr/bin/steam -forcedesktopscaling 2 steam://open/settings
 
 [Desktop Action BigPicture]
 Name=Big Picture
-Exec=/usr/bin/steam steam://open/bigpicture
+Exec=/usr/bin/steam -forcedesktopscaling 2 steam://open/bigpicture
 
 [Desktop Action Friends]
 Name=Friends
@@ -279,4 +279,4 @@ Name[th]=เพื่อน
 Name[tr]=Arkadaşlar
 Name[uk]=Друзі
 Name[vi]=Bạn bè
-Exec=/usr/bin/steam steam://open/friends
+Exec=/usr/bin/steam -forcedesktopscaling 2 steam://open/friends

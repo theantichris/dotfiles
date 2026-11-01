@@ -2,8 +2,8 @@
 Type=Application
 Name=Notes (Mitos)
 GenericName=Notes Editor
-Comment=Open Documents/Notes with Mitos in Kitty
-Exec=/usr/bin/kitty --class mitos --directory "{{ .chezmoi.homeDir }}/Documents/Notes" "{{ .chezmoi.homeDir }}/.local/bin/ms" -- "{{ .chezmoi.homeDir }}/Documents/Notes"
+Comment=Pull Documents/Notes, then open Mitos in Kitty
+Exec=/usr/bin/kitty --class mitos --directory "{{ .chezmoi.homeDir }}/Documents/Notes" "{{ .chezmoi.homeDir }}/.local/bin/mitos-notes"
 TryExec={{ .chezmoi.homeDir }}/.local/bin/ms
 Terminal=false
 Icon=mitos-notes

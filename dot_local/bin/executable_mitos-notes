@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+
+repo="$HOME/Documents/Notes"
+cd -- "$repo"
+
+if ! git pull --ff-only --no-rebase --no-autostash; then
+	printf '\nNotes pull failed. Resolve the Git error before opening Mitos.\n' >&2
+	printf 'Press Enter to close. '
+	read -r reply
+	exit 1
+fi
+
+exec "$HOME/.local/bin/ms" -- "$repo"

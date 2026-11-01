@@ -61,3 +61,8 @@ noctalia-settings.toml
 .local/share/applications/mitos-notes.desktop
 .local/state/mitos
 {{ end -}}
+
+{{ if eq .chezmoi.hostname "pwntranch" -}}
+# pwntranch: start with no managed files or scripts.
+**
+{{ end -}}

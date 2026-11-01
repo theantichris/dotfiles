@@ -98,6 +98,10 @@ hl.bind(mainMod .. " + Equal", scaleWindow(1.1),     { repeating = true, descrip
 -- Reset master split to 50/50
 hl.bind(mainMod .. " + CONTROL + R", hl.dsp.layout("mfact exact 0.5"), { description = "Reset master split" })
 
+hl.bind(mainMod .. " + SHIFT + R", function()
+    require("config.cascade").resetWorkspace()
+end, { description = "Reset workspace windows to default size and cascade" })
+
 -- Move & Resize with mouse
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { description = "Drag window" })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { description = "Resize window" })

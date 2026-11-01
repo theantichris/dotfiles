@@ -7,6 +7,9 @@ function update --description 'Update system and development tools'
     end
 {{- else if $parrot }}
     sudo parrot-upgrade; or return
+    if command -q npm
+        sudo npm update --global; or return
+    end
 {{- else }}
     cachy-update; or return
     shelly; or return

@@ -91,6 +91,7 @@ packages:
     - brave-origin-bin
     - chatgpt-desktop-bin
     - cmake
+    - codespell
     - dnsmasq
     - edk2-ovmf
     - entr
@@ -107,6 +108,7 @@ packages:
     - jre-openjdk-headless
     - libvirt
     - lua-language-server
+    - markdownlint-cli
     - marksman
     - newsboat
     - nftables

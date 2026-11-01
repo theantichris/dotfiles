@@ -71,7 +71,8 @@ Templates account for Debian executable names such as `batcat` and `fdfind`.
 The `pwntranch` allowlist enables Kitty, Fish, Git, Mitos, and their supporting
 configuration. The package hook installs Brave Origin from its official APT
 repository and the APT dependencies listed in `.chezmoidata/packages.yaml`.
-Mitos comes from its official Debian package, which includes its runtime,
+Fastfetch 2.70.0 and Mitos come from their official Debian packages.
+Fastfetch uses the same color configuration as CachyOS. Mitos includes its runtime,
 shell completions, and desktop entry. Node and npm come from APT; the shared
 npm list pins the JSON and YAML servers to versions compatible with Parrot's
 Node version. Externals provide the remaining language servers, spelling

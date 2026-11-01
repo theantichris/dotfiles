@@ -8,7 +8,6 @@ packages:
     - curl
     - entr
     - eza
-    - fastfetch
     - fd-find
     - fish
     - fontconfig
@@ -34,7 +33,12 @@ packages:
     - xclip
     - xz-utils
   deb:
+    - name: fastfetch
+      version: "2.70.0"
+      url: https://github.com/fastfetch-cli/fastfetch/releases/download/2.70.0/fastfetch-linux-amd64.deb
+      sha256: 06e9a1be9a863dc815f8a31a6b1abec7b29967be30084ffcc29c1bca072d801b
     - name: mitos
+      version: "0.1.3-1"
       url: https://github.com/mitos-editor/mitos/releases/download/v0.1.3/mitos_0.1.3-1_amd64.deb
       sha256: feca0fb680c1e53713573dd737a234cd215a5e3a4eeb0223c8a209bc9ae77320
   termux:

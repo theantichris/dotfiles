@@ -12,3 +12,8 @@ end
 
 # Keep autosuggestions subdued but readable against the dark terminal background.
 set -g fish_color_autosuggestion {{ trimPrefix "#" .cyberpunk.text.muted }}
+
+# Load the managed prompt even when the distribution already defines one.
+if test -r "$__fish_config_dir/functions/fish_prompt.fish"
+    source "$__fish_config_dir/functions/fish_prompt.fish"
+end

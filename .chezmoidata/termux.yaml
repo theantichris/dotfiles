@@ -7,7 +7,6 @@ termux:
     - fish
     - hack-font
     - mitos
-  editor: ms
   apps:
     git:
       targets:

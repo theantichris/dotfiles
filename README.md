@@ -35,10 +35,10 @@ Noctalia's launcher over the notes, feeds, mail, and Mastodon workspace.
 |--------|-------|
 | CachyOS | Desktop and CLI configuration, plus package installation hooks |
 | Parrot OS (HTB VM) | Selected CLI configuration; keeps the existing MATE session, application defaults, and Git signing |
-| Termux (tranch-fold) | Incremental app setup, starting with Git and Helix |
+| Termux (tranch-fold) | Selected app configuration and package installation |
 
-CachyOS is the main desktop. Parrot uses the existing VM toolchain; this repo
-does not install its packages. Its exclusions live in
+CachyOS is the main desktop. Parrot's `pwntranch` host opts in to the applications
+listed below; other Parrot hosts use their existing toolchain. Exclusions live in
 [`.chezmoiignore`](.chezmoiignore).
 
 ## Setup
@@ -63,14 +63,32 @@ desktop tools and Shelly to be available already. Other hooks set Brave as the
 default browser, Superfile as the folder opener, add Rust source support, and
 rebuild bat's theme cache.
 
-On Parrot, install the CLI tools separately before applying. Templates account
-for Debian executable names such as `batcat`, `fdfind`, and `hx`.
+On other Parrot hosts, install the CLI tools separately before applying.
+Templates account for Debian executable names such as `batcat` and `fdfind`.
+
+### First apply on pwntranch
+
+The `pwntranch` allowlist enables Kitty, Fish, Git, Mitos, and their supporting
+configuration. The package hook installs Brave Origin from its official APT
+repository and the APT dependencies listed in `.chezmoidata/packages.yaml`.
+Mitos comes from its official Debian package, which includes its runtime,
+shell completions, and desktop entry. Node and npm come from APT; the shared
+npm list pins the JSON and YAML servers to versions compatible with Parrot's
+Node version. Externals provide the remaining language servers, spelling
+files, and Hack Nerd Font Mono.
+
+Use the restore commands above to initialize, review, and apply. If already
+initialized, run `chezmoi init` after updating the source to regenerate its
+configuration. The first apply requires sudo authentication. Git keeps the
+shared identity and SSH signing configuration. Desktop settings and browser
+profiles remain unmanaged. To make Fish your login shell after applying, run
+`chsh -s /usr/bin/fish`.
 
 ### Termux on tranch-fold
 
 With Git, chezmoi, and the SSH signing key available, use the restore commands
-above. Applying sets up Git signing, Cyberpunk diffs, and Helix as the Git
-editor (`hx`), with syntax grammars, language servers, and formatters.
+above. Applying sets up Git signing, Cyberpunk diffs, and Mitos as the editor,
+with syntax grammars, language servers, and formatters.
 Supporting tools install through `pkg` and npm.
 
 The package lists install the Go and Rust toolchains, including Cargo,
@@ -90,15 +108,15 @@ Each app defines its target paths and scripts. Packages are listed by package
 manager in [`.chezmoidata/packages.yaml`](.chezmoidata/packages.yaml): `termux`
 for `pkg`, plus `npm`, `go`, and `cargo`. Termux installs those full lists
 independently of the app selections. Add an app to `termux.enabled`, review
-`chezmoi diff`, then apply. `termux.editor` selects the Git, Fish, and chezmoi
-editor.
+`chezmoi diff`, then apply. Mitos (`ms`) is the shared editor default for Git,
+Fish, and chezmoi on every host.
 
 The `mitos` selection builds Mitos 0.1.2 and its selected syntax grammars
 natively on Termux, and installs the shared config, snippets, Cyberpunk theme,
 spelling dictionaries, and YAML formatter. `ms` is the selected editor.
 After syncing these changes, run `chezmoi init` to refresh chezmoi's editor
 setting, apply, then run `exec fish` to refresh the current shell.
-Git and chezmoi use Mitos's absolute path. Fish exports it through `EDITOR`,
+Git and chezmoi run `ms` from `PATH`. Fish selects it through `EDITOR`,
 `VISUAL`, `GIT_EDITOR`, `GIT_SEQUENCE_EDITOR`, and `GH_EDITOR`.
 
 Mitos's personal dictionaries and English ignored-word list link to the word

@@ -1,5 +1,0 @@
-{{- if eq .editor "ms" -}}
-{{- joinPath .homeDir ".local/bin/ms" -}}
-{{- else -}}
-{{- .editor -}}
-{{- end -}}

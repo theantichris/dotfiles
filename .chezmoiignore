@@ -63,6 +63,56 @@ noctalia-settings.toml
 {{ end -}}
 
 {{ if eq .chezmoi.hostname "pwntranch" -}}
-# pwntranch: start with no managed files or scripts.
+# pwntranch: enable only the requested first-apply applications and dependencies.
 **
+!.chezmoiscripts
+!.chezmoiscripts/install-packages.sh
+!.chezmoiscripts/rebuild-bat-cache.sh
+!.config
+!.config/kitty
+!.config/kitty/**
+!.config/fish
+!.config/fish/conf.d
+!.config/fish/functions
+!.config/fish/conf.d/bat.fish
+!.config/fish/conf.d/chezmoi.fish
+!.config/fish/conf.d/environment.fish
+!.config/fish/conf.d/eza.fish
+!.config/fish/conf.d/fzf.fish
+!.config/fish/conf.d/git.fish
+!.config/fish/conf.d/go.fish
+!.config/fish/conf.d/kitty.fish
+!.config/fish/conf.d/modern-cli.fish
+!.config/fish/conf.d/paths.fish
+!.config/fish/config.fish
+!.config/fish/functions/fish_prompt.fish
+!.config/fish/functions/update.fish
+!.config/eza
+!.config/eza/**
+!.config/bat
+!.config/bat/**
+!.config/fastfetch
+!.config/fastfetch/**
+!.config/mitos
+!.config/mitos/**
+!.gitconfig
+!.gitignore
+!.local
+!.local/bin
+!.local/bin/lua-language-server
+!.local/bin/marksman
+!.local/bin/taplo
+!.local/share
+!.local/share/lua-language-server
+!.local/share/lua-language-server/**
+!.local/share/fonts
+!.local/share/fonts/HackNerdFontMono-Regular.ttf
+!.local/state
+!.local/state/mitos
+!.local/state/mitos/dictionaries
+!.local/state/mitos/dictionaries/**
+{{ end -}}
+
+{{ if ne .chezmoi.hostname "pwntranch" -}}
+.local/bin/lua-language-server
 {{ end -}}

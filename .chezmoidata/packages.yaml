@@ -1,4 +1,42 @@
 packages:
+  apt:
+    - bat
+    - brave-origin
+    - bsdextrautils
+    - ca-certificates
+    - cargo
+    - curl
+    - entr
+    - eza
+    - fastfetch
+    - fd-find
+    - fish
+    - fontconfig
+    - fzf
+    - gh
+    - git
+    - git-delta
+    - golang-go
+    - golang-golang-x-tools
+    - gopls
+    - kitty
+    - less
+    - man-db
+    - nodejs
+    - npm
+    - ripgrep
+    - rust-analyzer
+    - rust-clippy
+    - rust-src
+    - rustc
+    - rustfmt
+    - wl-clipboard
+    - xclip
+    - xz-utils
+  deb:
+    - name: mitos
+      url: https://github.com/mitos-editor/mitos/releases/download/v0.1.3/mitos_0.1.3-1_amd64.deb
+      sha256: feca0fb680c1e53713573dd737a234cd215a5e3a4eeb0223c8a209bc9ae77320
   termux:
     - bash
     - bat
@@ -92,11 +130,12 @@ packages:
     - slack-desktop
     - superseedr-bin
     - uhk-agent-appimage
+  # Keep the JSON and YAML servers compatible with Parrot's packaged Node 20.
   npm:
     - bash-language-server
     - fish-lsp
-    - vscode-langservers-extracted
-    - yaml-language-server
+    - vscode-langservers-extracted@4.8.0
+    - yaml-language-server@1.19.2
   go:
     - name: go-global-update
       module: github.com/Gelio/go-global-update@latest

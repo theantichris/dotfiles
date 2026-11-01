@@ -41,6 +41,78 @@ if ! cargo install --list | grep -q '^{{ . }} v'; then
 fi
 {{ end }}
 {{ end -}}
+{{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "parrot") (eq .chezmoi.hostname "pwntranch") -}}
+#!/bin/sh
+set -eu
+
+sudo -v
+# Bootstrap HTTPS downloads before adding Brave's official signed APT source.
+if ! command -v curl >/dev/null 2>&1 || [ "$(dpkg-query -W -f='${Status}' ca-certificates 2>/dev/null || true)" != "install ok installed" ]; then
+    sudo apt-get update
+    sudo apt-get install -y --no-install-recommends curl ca-certificates
+fi
+repo_tmp=$(mktemp -d)
+trap 'rm -rf "$repo_tmp"' 0
+trap 'exit 1' HUP INT TERM
+curl -fsSL https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg -o "$repo_tmp/brave.gpg"
+curl -fsSL https://brave-browser-apt-release.s3.brave.com/brave-browser.sources -o "$repo_tmp/brave.sources"
+sudo install -d -m 755 /usr/share/keyrings /etc/apt/sources.list.d
+if ! cmp -s "$repo_tmp/brave.gpg" /usr/share/keyrings/brave-browser-archive-keyring.gpg; then
+    sudo install -m 644 "$repo_tmp/brave.gpg" /usr/share/keyrings/brave-browser-archive-keyring.gpg
+fi
+if ! cmp -s "$repo_tmp/brave.sources" /etc/apt/sources.list.d/brave-browser-release.sources; then
+    sudo install -m 644 "$repo_tmp/brave.sources" /etc/apt/sources.list.d/brave-browser-release.sources
+fi
+sudo apt-get update
+
+# APT packages
+set --
+{{ range .packages.apt -}}
+if [ "$(dpkg-query -W -f='${Status}' {{ . | quote }} 2>/dev/null || true)" != "install ok installed" ]; then
+    set -- "$@" {{ . | quote }}
+fi
+{{ end -}}
+if [ "$#" -gt 0 ]; then
+    sudo apt-get install -y --no-install-recommends "$@"
+fi
+
+# Release DEB packages
+chmod 755 "$repo_tmp"
+{{ range .packages.deb }}
+if [ "$(dpkg-query -W -f='${Status}' {{ .name | quote }} 2>/dev/null || true)" != "install ok installed" ]; then
+    curl -fsSL {{ .url | quote }} -o "$repo_tmp/{{ .name }}.deb"
+    printf '%s  %s\n' {{ .sha256 | quote }} "$repo_tmp/{{ .name }}.deb" | sha256sum -c -
+    sudo apt-get install -y "$repo_tmp/{{ .name }}.deb"
+fi
+{{ end }}
+
+# npm packages
+{{ range .packages.npm }}
+if ! npm list --global --depth=0 {{ . | quote }} >/dev/null 2>&1; then
+    sudo npm install --engine-strict --global {{ . | quote }}
+fi
+{{ end }}
+
+# Go packages
+{{ if .packages.go -}}
+go_bin_dir="$(go env GOBIN)"
+if [ -z "$go_bin_dir" ]; then
+    go_bin_dir="$(go env GOPATH)/bin"
+fi
+{{ range .packages.go }}
+if ! command -v {{ .name | quote }} >/dev/null 2>&1 && [ ! -x "$go_bin_dir/{{ .name }}" ]; then
+    go install {{ .module | quote }}
+fi
+{{ end }}
+{{ end -}}
+
+# Parrot's packaged underscore alias is invalid in Fish 4.
+if grep -Fxq "alias _='sudo'" /etc/fish/config.fish && ! fish --no-config -c 'function _; end' >/dev/null 2>&1; then
+    if [ ! -e /etc/fish/config.fish.before-chezmoi ]; then
+        sudo cp -p /etc/fish/config.fish /etc/fish/config.fish.before-chezmoi
+    fi
+    sudo sed -i "s/^alias _='sudo'$/# The _ alias is reserved by Fish 4./" /etc/fish/config.fish
+fi
 {{- else if eq .chezmoi.os "android" -}}
 #!{{ lookPath "sh" }}
 set -eu

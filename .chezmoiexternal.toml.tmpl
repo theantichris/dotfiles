@@ -1,4 +1,4 @@
-{{- if or (eq .chezmoi.hostname "tranchion") (and (eq .chezmoi.os "android") (has "mitos" .termux.enabled)) }}
+{{- if or (eq .chezmoi.hostname "tranchion") (eq .chezmoi.hostname "pwntranch") (and (eq .chezmoi.os "android") (has "mitos" .termux.enabled)) }}
 # Scottish Gaelic (gd_GB) Hunspell 3.3 by Am Faclair Beag / Kevin Scannell.
 # GPLv3+. Sources pinned to LibreOffice/dictionaries commit 93db4f58.
 # https://github.com/LibreOffice/dictionaries/tree/93db4f58c3b2e43003c49d33ce203bdcc8db0b93/gd_GB
@@ -26,4 +26,31 @@ type = "archive"
 url = "https://codeload.github.com/mitos-editor/mitos/tar.gz/refs/tags/v0.1.2"
 stripComponents = 1
 checksum.sha256 = "9ee73831c2a55e2100cbed31721f9275ca689cf8a7304d58c4c32ebe9473eab6"
+{{ end -}}
+
+{{ if eq .chezmoi.hostname "pwntranch" -}}
+# Language servers not available from Parrot APT.
+[".local/bin/marksman"]
+type = "file"
+url = "https://github.com/artempyanykh/marksman/releases/download/2026-02-08/marksman-linux-x64"
+executable = true
+checksum.sha256 = "be5098e8213219269c47fc0d916a66fa31ce0602ec967475c722260aabf26087"
+
+[".local/bin/taplo"]
+type = "file"
+url = "https://github.com/tamasfe/taplo/releases/download/0.10.0/taplo-linux-x86_64.gz"
+decompress = "gzip"
+executable = true
+checksum.sha256 = "8fe196b894ccf9072f98d4e1013a180306e17d244830b03986ee5e8eabeb6156"
+
+[".local/share/lua-language-server/3.19.2"]
+type = "archive"
+url = "https://github.com/LuaLS/lua-language-server/releases/download/3.19.2/lua-language-server-3.19.2-linux-x64.tar.gz"
+checksum.sha256 = "93ad326b10f6c00911dd8c450fa098332dbd8f9f45d1052f5636a2d54479b947"
+
+[".local/share/fonts/HackNerdFontMono-Regular.ttf"]
+type = "archive-file"
+url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/Hack.zip"
+path = "HackNerdFontMono-Regular.ttf"
+checksum.sha256 = "fa24da7de7cefe7766614d27762570b20453c852fc1d5b657111666df9a5e449"
 {{ end -}}

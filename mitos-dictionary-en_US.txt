@@ -247,3 +247,9 @@ spellcasters
 wizworm
 MCT
 CDMC
+Pentest
+PoC
+plaintext
+RCE
+Nmap
+Pentesting

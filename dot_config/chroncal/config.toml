@@ -9,5 +9,5 @@ confirm_quit = false
 interval = "5m"
 
 [alarms]
-default = ["-PT15M"]
+default = ["-PT5M"]
 skip_all_day = true

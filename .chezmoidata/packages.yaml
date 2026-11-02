@@ -123,6 +123,7 @@ packages:
     - yaml-language-server
     - yamlfmt
   aur:
+    - chroncal
     - comictagger
     - crush-bin
     - curseforge

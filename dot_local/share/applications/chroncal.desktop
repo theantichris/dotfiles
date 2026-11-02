@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Chroncal
+GenericName=Calendar
+Comment=Manage calendars using Chroncal in Kitty
+Exec=kitty --class chroncal --title Chroncal chroncal
+TryExec=chroncal
+Terminal=false
+Icon=chroncal
+Categories=Office;Calendar;
+Keywords=Calendar;Events;Agenda;Scheduling;

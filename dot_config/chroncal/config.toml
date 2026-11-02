@@ -1,0 +1,13 @@
+[ui]
+theme = "system"
+week_start = "monday"
+list_format = "compact"
+event_list_days = 7
+confirm_quit = false
+
+[sync]
+interval = "5m"
+
+[alarms]
+default = ["-PT15M"]
+skip_all_day = true

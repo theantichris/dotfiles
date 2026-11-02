@@ -1,0 +1,10 @@
+[Unit]
+Description=chroncal service run service
+After=default.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/chroncal service run
+
+[Install]
+WantedBy=default.target

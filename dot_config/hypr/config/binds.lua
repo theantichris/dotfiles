@@ -35,7 +35,25 @@ hl.bind(mainMod .. " + H",   hl.dsp.focus({ direction = "left" }),  { descriptio
 hl.bind(mainMod .. " + L",   hl.dsp.focus({ direction = "right" }), { description = "Focus right" })
 hl.bind(mainMod .. " + K",   hl.dsp.focus({ direction = "up" }),    { description = "Focus up" })
 hl.bind(mainMod .. " + J",   hl.dsp.focus({ direction = "down" }),  { description = "Focus down" })
-hl.bind("ALT + Tab",         hl.dsp.focus({ last = true }),           { description = "Focus last window" })
+hl.bind("ALT + Tab", function()
+    local workspace = hl.get_active_special_workspace() or hl.get_active_workspace()
+    if not workspace then
+        return
+    end
+
+    local active = hl.get_active_window()
+    local last
+    for _, window in ipairs(hl.get_windows({ workspace = workspace, mapped = true })) do
+        local history = window.focus_history_id
+        if window ~= active and not window.hidden and history >= 0
+            and (not last or history < last.focus_history_id) then
+            last = window
+        end
+    end
+    if last then
+        hl.dispatch(hl.dsp.focus({ window = last }))
+    end
+end, { description = "Focus last window on current workspace" })
 hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd(noctCall .. "window-switcher"), { description = "Window switcher" })
 
 -- Rearrange tiled windows or nudge floating windows (hold to repeat).

@@ -254,3 +254,8 @@ RCE
 Nmap
 Pentesting
 GTM
+CyberArch
+Superpowered
+1s
+dotfile
+Autopay

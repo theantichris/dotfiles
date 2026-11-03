@@ -35,7 +35,7 @@ hl.bind(mainMod .. " + H",   hl.dsp.focus({ direction = "left" }),  { descriptio
 hl.bind(mainMod .. " + L",   hl.dsp.focus({ direction = "right" }), { description = "Focus right" })
 hl.bind(mainMod .. " + K",   hl.dsp.focus({ direction = "up" }),    { description = "Focus up" })
 hl.bind(mainMod .. " + J",   hl.dsp.focus({ direction = "down" }),  { description = "Focus down" })
-hl.bind("ALT + Tab",         hl.dsp.window.cycle_next(),             { description = "Cycle windows" })
+hl.bind("ALT + Tab",         hl.dsp.focus({ last = true }),           { description = "Focus last window" })
 hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd(noctCall .. "window-switcher"), { description = "Window switcher" })
 
 -- Rearrange tiled windows or nudge floating windows (hold to repeat).

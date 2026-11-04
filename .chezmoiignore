@@ -116,3 +116,11 @@ noctalia-settings.toml
 {{ if ne .chezmoi.hostname "pwntranch" -}}
 .local/bin/lua-language-server
 {{ end -}}
+
+{{ if eq .chezmoi.hostname "tranchion" -}}
+# BEGIN CyberArch trial
+.config/hypr/**
+.config/kitty/kitty.conf
+.config/fish/**
+# END CyberArch trial
+{{ end -}}

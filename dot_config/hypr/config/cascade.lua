@@ -24,7 +24,7 @@ local function place(window, width, height)
     local bottom = monitor.position.y + monitor.height / monitor.scale - reserved.bottom - margin
     local key = slotKey(window)
     local slot = slots[key] or 0
-    local offset = slot * 40
+    local offset = slot * 80
     local x = math.floor((left + right - width) / 2 - 40 + offset)
     local y = math.floor((top + bottom - height) / 2 - 40 + offset)
     x = math.max(left, math.min(x, right - width))

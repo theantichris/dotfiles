@@ -118,13 +118,24 @@ noctalia-settings.toml
 {{ end -}}
 
 {{ if eq .chezmoi.hostname "tranchion" -}}
-# BEGIN CyberArch trial
+# CyberArch owns Kitty's link and theme assets in its application checkout.
+.config/kitty
+# Keep the previous desktop modules and Fish helpers off the CyberArch host.
+.config/hypr/config
+.config/hypr/.luarc.json
+.config/fish/completions
+.config/fish/functions
+.config/fish/conf.d/*
+!.config/fish/conf.d/omf.fish
+{{ else -}}
+# CyberArch configuration is specific to tranchion.
 .bashrc
 .zshrc
 .profile
-.config/hypr
-.config/kitty
-.config/fish
+.config/hypr/user.lua
+.config/hypr/hypridle.conf
+.config/hypr/themes
+.config/fish/conf.d/omf.fish
 .config/omf
 .config/rio
 .config/cool-retro-term
@@ -134,11 +145,14 @@ noctalia-settings.toml
 .config/gtk-3.0/gtk.css
 .config/gtk-4.0/settings.ini
 .config/gtk-4.0/gtk.css
-.config/Kvantum/kvantum.kvconfig
-.config/Kvantum/Daemon
-.config/Kvantum/daemon-2.0
+.config/Kvantum
+{{ end -}}
+
+# Runtime data, application dependencies, and local recovery state stay unmanaged.
+.config/fish/fish_variables
+.config/cyberarch/city.json
+.config/cyberarch/update.json
+.config/cyberarch/*~
 .local/share/omf
 .local/share/cool-retro-term
 .local/state/cyberarch
-# END CyberArch trial
-{{ end -}}

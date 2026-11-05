@@ -1,3 +1,15 @@
+{{ if eq .chezmoi.hostname "tranchion" -}}
+set -U fish_key_bindings fish_vi_key_bindings
+set -U dangerous_nogreeting
+
+if status is-interactive
+    if type -q kitten
+        kitten icat --align left $HOME/.config/hypr/themes/cyberpunk/assets/cool-retro-term/samurai.png
+    end
+end
+
+fish_add_path --path $HOME/.local/bin
+{{ else -}}
 # Show Fastfetch instead of Fish's built-in welcome message.
 function fish_greeting
     if command -q fastfetch
@@ -17,3 +29,4 @@ set -g fish_color_autosuggestion {{ trimPrefix "#" .cyberpunk.text.muted }}
 if test -r "$__fish_config_dir/functions/fish_prompt.fish"
     source "$__fish_config_dir/functions/fish_prompt.fish"
 end
+{{ end -}}

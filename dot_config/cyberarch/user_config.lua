@@ -1,0 +1,25 @@
+local cfg = {}
+cfg["anim"] = true
+cfg["animWorkspace"] = true
+cfg["animGlitch"] = true
+cfg["animModal"] = true
+cfg["animGauge"] = true
+cfg["animNotif"] = true
+cfg["animMusic"] = true
+cfg["animWheel"] = true
+cfg["snd"] = true
+cfg["sndNotif"] = true
+cfg["sndNotifFile"] = ""
+cfg["sndWheel"] = true
+cfg["sndWheelStart"] = ""
+cfg["sndWheelActive"] = ""
+cfg["sndWheelEnd"] = ""
+cfg["sndOverlay"] = true
+cfg["sndOverlayFile"] = ""
+cfg["sndKillFile"] = ""
+cfg["gaugeBadge"] = "workspace"
+cfg["gaugeXp"] = "disk"
+cfg["gaugeHealth"] = "cpu"
+cfg["gaugeRam"] = "ram"
+cfg["gaugeStamina"] = "battery"
+return cfg

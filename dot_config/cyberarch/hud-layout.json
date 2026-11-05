@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "profile": "Custom",
+  "globalScale": 1,
+  "components": {
+    "monitors": {
+      "visible": true,
+      "scale": 1,
+      "anchor": "top-left",
+      "x": 20,
+      "y": 20
+    },
+    "sidepanel": {
+      "visible": true,
+      "scale": 1,
+      "anchor": "top-right",
+      "x": 28,
+      "y": 26
+    },
+    "markets": {
+      "visible": true,
+      "scale": 1,
+      "anchor": "top-right",
+      "x": 0,
+      "y": 560
+    },
+    "hordock": {
+      "visible": true,
+      "scale": 1,
+      "anchor": "bottom-left",
+      "x": 0,
+      "y": 0
+    },
+    "toggles": {
+      "visible": true,
+      "scale": 1,
+      "anchor": "bottom-left",
+      "x": 0,
+      "y": 0
+    },
+    "launcher": {
+      "visible": false,
+      "scale": 1,
+      "anchor": "bottom-right",
+      "x": 3,
+      "y": 0
+    }
+  }
+}

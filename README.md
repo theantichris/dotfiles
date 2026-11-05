@@ -11,8 +11,8 @@ The previous configuration is preserved in
 
 ## Highlights
 
-- **Hyprland + Noctalia** — a Lua-configured desktop with a launcher, clipboard
-  history, notifications, screenshots, and scratchpad terminals.
+- **Hyprland desktop** — CyberArch on `tranchion`, with the previous Noctalia
+  configuration preserved for other hosts.
 - **Shared Cyberpunk palette** — one color data file feeds application themes.
 - **Fish + Kitty** — a custom prompt, Git shortcuts, and modern CLI tools.
 - **Mitos + Helix** — modal editing with language server configuration.
@@ -75,6 +75,27 @@ release directory.
 On other Parrot hosts, install the CLI tools, including Mitos (`ms`), separately
 before applying. Templates account for Debian executable names such as `batcat`
 and `fdfind`.
+
+### CyberArch on tranchion
+
+`tranchion` uses CyberArch for its Hyprland desktop. Chezmoi manages the live
+Hyprland entry point and personal overrides, shell startup files, Oh My Fish
+configuration, HUD settings, colors, wallpaper selection, Rio, Qylock, and
+GTK/Kvantum configuration. Other hosts retain their existing desktop and Fish
+configuration.
+
+The CyberArch application must already be installed at
+`~/Projects/CyberArch-Shell`; `~/.config/hypr/themes/cyberpunk` links to that
+checkout. Kitty keeps the link and configuration maintained by CyberArch.
+Application code and local changes within that checkout are managed separately.
+Oh My Fish and its themes must also be installed separately. Chezmoi does not
+install CyberArch, Oh My Fish, theme assets, or the selected wallpaper.
+
+Weather location, update metadata, Fish universal variables, editor backups,
+and CyberArch uninstall backups remain unmanaged. Theme and HUD changes made
+through CyberArch update live files; review and capture those changes before
+applying an older chezmoi version. The previous desktop modules stay in source
+but are excluded on `tranchion`.
 
 ### First apply on pwntranch
 

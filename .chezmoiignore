@@ -116,35 +116,3 @@ noctalia-settings.toml
 {{ if ne .chezmoi.hostname "pwntranch" -}}
 .local/bin/lua-language-server
 {{ end -}}
-
-{{ if eq .chezmoi.hostname "tranchion" -}}
-# Keep the previous desktop modules off the CyberArch host.
-.config/hypr/config
-.config/hypr/.luarc.json
-{{ else -}}
-# CyberArch configuration is specific to tranchion.
-.bashrc
-.zshrc
-.profile
-.config/hypr/user.lua
-.config/hypr/hypridle.conf
-.config/hypr/themes
-.config/rio
-.config/cool-retro-term
-.config/cyberarch
-.config/qylock
-.config/gtk-3.0/settings.ini
-.config/gtk-3.0/gtk.css
-.config/gtk-4.0/settings.ini
-.config/gtk-4.0/gtk.css
-.config/Kvantum
-{{ end -}}
-
-# Runtime data, application dependencies, and local recovery state stay unmanaged.
-.config/fish/fish_variables
-.config/cyberarch/city.json
-.config/cyberarch/update.json
-.config/cyberarch/*~
-.local/share/omf
-.local/share/cool-retro-term
-.local/state/cyberarch

@@ -1,6 +1,0 @@
-{{ if eq .chezmoi.hostname "tranchion" -}}
-.config/fish/conf.d/omf.fish
-.config/omf/bundle
-.config/omf/channel
-.config/omf/theme
-{{ end -}}

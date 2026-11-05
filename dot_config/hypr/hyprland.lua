@@ -1,8 +1,3 @@
-{{ if eq .chezmoi.hostname "tranchion" -}}
-package.path = os.getenv("HOME") .. "/.config/hypr/themes/cyberpunk/?.lua;" .. os.getenv("HOME") .. "/.config/hypr/?.lua;" .. (package.path or "")
-require("theme")
-require("user")
-{{ else -}}
 -- CachyOS Hyprland Configuration
 
 require("config.animations")
@@ -26,4 +21,3 @@ require("noctalia").apply_theme()
 
 -- Apply focus cues after the generated theme.
 require("config.focus")
-{{ end -}}

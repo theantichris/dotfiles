@@ -1,3 +1,0 @@
-source /usr/share/cachyos-zsh-config/cachyos-config.zsh
-
-if command -v fish >/dev/null 2>&1 && [ "$(ps -p $$ -o comm= 2>/dev/null)" != "fish" ]; then exec fish; fi

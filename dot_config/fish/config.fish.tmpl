@@ -1,7 +1,3 @@
-{{ if eq .chezmoi.hostname "tranchion" -}}
-# Override the universal vi-binding setting left by CyberArch.
-set -g fish_key_bindings fish_default_key_bindings
-{{ end -}}
 # Show Fastfetch instead of Fish's built-in welcome message.
 function fish_greeting
     if command -q fastfetch

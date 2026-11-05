@@ -120,15 +120,9 @@ noctalia-settings.toml
 {{ if eq .chezmoi.hostname "tranchion" -}}
 # CyberArch owns Kitty's link and theme assets in its application checkout.
 .config/kitty
-# Keep the previous desktop modules and Fish helpers off the CyberArch host.
+# Keep the previous desktop modules off the CyberArch host.
 .config/hypr/config
 .config/hypr/.luarc.json
-.config/fish/completions
-.config/fish/functions
-.config/fish/conf.d/*
-!.config/fish/conf.d/chezmoi.fish
-!.config/fish/conf.d/git.fish
-!.config/fish/conf.d/omf.fish
 {{ else -}}
 # CyberArch configuration is specific to tranchion.
 .bashrc
@@ -137,8 +131,6 @@ noctalia-settings.toml
 .config/hypr/user.lua
 .config/hypr/hypridle.conf
 .config/hypr/themes
-.config/fish/conf.d/omf.fish
-.config/omf
 .config/rio
 .config/cool-retro-term
 .config/cyberarch

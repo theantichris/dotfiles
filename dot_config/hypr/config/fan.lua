@@ -159,9 +159,9 @@ local function bind(key, callback, description, options)
     fan.bindings[#fan.bindings + 1] = hl.bind(key, callback, options)
 end
 
-bind("SUPER + ALT + Tab", fan.start, "Fan floating surfaces")
+bind("SUPER + SHIFT + Tab", fan.start, "Fan floating surfaces")
 hl.define_submap(submap, function()
-    for _, key in ipairs({ "Tab", "L", "J", "right", "down", "SUPER + ALT + Tab" }) do
+    for _, key in ipairs({ "Tab", "L", "J", "right", "down", "SUPER + SHIFT + Tab" }) do
         bind(key, function() fan.step(1) end, "Fan: next surface")
     end
     for _, key in ipairs({ "SHIFT + Tab", "H", "K", "left", "up" }) do

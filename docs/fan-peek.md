@@ -7,7 +7,7 @@ current workspace. The normal three-slot, 80px cascade is unchanged.
 
 | Key | Action |
 | --- | --- |
-| Super+Alt+Tab | Open Fan; press again while holding the modifiers to advance |
+| Super+Shift+Tab | Open Fan; press again while holding the modifiers to advance |
 | Tab, L/J, Right/Down | Next surface |
 | Shift+Tab, H/K, Left/Up | Previous surface |
 | Enter | Restore positions and focus/raise the selected surface |

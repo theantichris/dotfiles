@@ -25,8 +25,8 @@
 local corsairDescription = "CORSAIR MEMORY Inc. 34WQHD240-C A958A4231050"
 local corsairSelector = "desc:" .. corsairDescription
 
--- Create workspace 10 on the laptop panel when first used; keep it dynamic.
-hl.workspace_rule({ workspace = "10", monitor = "eDP-1" })
+-- Default the laptop panel to workspace 10; keep it dynamic.
+hl.workspace_rule({ workspace = "10", monitor = "eDP-1", default = true })
 
 local function gather_on_corsair()
     local monitor = hl.get_monitor(corsairSelector)

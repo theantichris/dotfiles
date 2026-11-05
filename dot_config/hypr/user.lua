@@ -123,6 +123,13 @@ hl.on("monitor.removed", function(monitor)
     end
 end)
 
+-- Keep Kitty's remembered maximize state from overriding tiling.
+hl.window_rule({
+    name           = "kitty-suppress-maximize",
+    match          = { class = "^(kitty)$" },
+    suppress_event = "maximize",
+})
+
 -- Christopher's games use fullscreen and full opacity; Battle.net stays a normal app.
 local gamingApps = "^(steam_app.*|gamescope)$"
 local launcherTitle = "negative:(?i)^(Battle\\.net|)$"

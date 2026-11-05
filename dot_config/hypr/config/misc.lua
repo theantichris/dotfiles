@@ -2,6 +2,9 @@ hl.config({
   general = {
     layout = "master",
   },
+  binds = {
+    window_direction_monitor_fallback = false,
+  },
   layout = {
     single_window_aspect_ratio = { 0, 0 },
   },

@@ -118,8 +118,6 @@ noctalia-settings.toml
 {{ end -}}
 
 {{ if eq .chezmoi.hostname "tranchion" -}}
-# CyberArch owns Kitty's link and theme assets in its application checkout.
-.config/kitty
 # Keep the previous desktop modules off the CyberArch host.
 .config/hypr/config
 .config/hypr/.luarc.json

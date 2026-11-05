@@ -119,8 +119,26 @@ noctalia-settings.toml
 
 {{ if eq .chezmoi.hostname "tranchion" -}}
 # BEGIN CyberArch trial
-.config/hypr/**
-.config/kitty/kitty.conf
-.config/fish/**
+.bashrc
+.zshrc
+.profile
+.config/hypr
+.config/kitty
+.config/fish
+.config/omf
+.config/rio
+.config/cool-retro-term
+.config/cyberarch
+.config/qylock
+.config/gtk-3.0/settings.ini
+.config/gtk-3.0/gtk.css
+.config/gtk-4.0/settings.ini
+.config/gtk-4.0/gtk.css
+.config/Kvantum/kvantum.kvconfig
+.config/Kvantum/Daemon
+.config/Kvantum/daemon-2.0
+.local/share/omf
+.local/share/cool-retro-term
+.local/state/cyberarch
 # END CyberArch trial
 {{ end -}}

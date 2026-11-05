@@ -126,6 +126,8 @@ noctalia-settings.toml
 .config/fish/completions
 .config/fish/functions
 .config/fish/conf.d/*
+!.config/fish/conf.d/chezmoi.fish
+!.config/fish/conf.d/git.fish
 !.config/fish/conf.d/omf.fish
 {{ else -}}
 # CyberArch configuration is specific to tranchion.

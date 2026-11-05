@@ -98,7 +98,7 @@ for _, scaled in ipairs({ false, true }) do
             lastX, lastY = w.at.x, w.at.y
         end
         local initialFocus = active
-        bindings.Tab()
+        bindings.L()
         assert(active ~= initialFocus)
         fan.cancel()
         restored(original)

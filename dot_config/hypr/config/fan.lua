@@ -161,10 +161,10 @@ end
 
 bind("SUPER + SHIFT + Tab", fan.start, "Fan floating surfaces")
 hl.define_submap(submap, function()
-    for _, key in ipairs({ "Tab", "L", "J", "right", "down", "SUPER + SHIFT + Tab" }) do
+    for _, key in ipairs({ "L", "J" }) do
         bind(key, function() fan.step(1) end, "Fan: next surface")
     end
-    for _, key in ipairs({ "SHIFT + Tab", "H", "K", "left", "up" }) do
+    for _, key in ipairs({ "H", "K" }) do
         bind(key, function() fan.step(-1) end, "Fan: previous surface")
     end
     bind("Return", fan.confirm, "Fan: confirm")

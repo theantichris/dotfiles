@@ -7,9 +7,9 @@ current workspace. The normal three-slot, 80px cascade is unchanged.
 
 | Key | Action |
 | --- | --- |
-| Super+Shift+Tab | Open Fan; press again while holding the modifiers to advance |
-| Tab, L/J, Right/Down | Next surface |
-| Shift+Tab, H/K, Left/Up | Previous surface |
+| Super+Shift+Tab | Open Fan |
+| L/J | Next surface |
+| H/K | Previous surface |
 | Enter | Restore positions and focus/raise the selected surface |
 | Escape (with or without modifiers) | Restore positions, original focus and stacking |
 | Super+Ctrl+Escape | Restore and lock through the existing Noctalia command |

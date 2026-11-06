@@ -23,20 +23,38 @@ exit. Screenshot bindings are available across submaps without duplicate entries
 
 ## Behavior and boundaries
 
-`config/fan.lua` snapshots positions, focus and local stacking, then moves windows
-into a diagonal spread bounded by the monitor's usable logical area, including
-scale, rotation, panel reservations and a 16px margin. The long axis uses available
-space; the secondary stagger is capped at 160px. Dimensions are never changed.
-The existing native movement animation is used without changing its curve.
+`config/fan.lua` snapshots positions, focus and local stacking, then centers the
+selected surface in the monitor's usable logical area. Other surfaces occupy
+slots on either side, using the original spatial order as a cyclic sequence.
+Every selection recomposes the fan: next arrives from the right and previous from
+the left (with two surfaces, both navigation directions select the sole neighbor).
+Outer surfaces stack behind inner ones, and the selected surface stays in front.
+
+Slot spacing comes from the available width after accommodating the widest
+window and the required number of slots on each side. Background surfaces share
+a top anchor based on the tallest window, with a shallow upward stagger so header
+strips remain exposed even when window sizes differ. The two sides have a small
+vertical offset from each other. The depth step is bounded by 4.5% of usable
+height and the available headroom. Scale, rotation, panel reservations, monitor
+origin and a 16px margin are included. Dimensions never change; movement uses the
+existing native animation without changing its curve.
 
 Fullscreen/maximized workspaces and visible special workspaces are left alone.
 Pinned, hidden, grouped, tiled, non-input, fullscreen and game windows do not
 participate. Fewer than two eligible windows is a no-op. Oversized windows or a
-spread with less than 48px per step produce a short native notification instead
-of resizing or spilling onto another monitor. Widely differing window sizes can
-still obscure smaller surfaces; this is a move-only spread, not an overview of
-scaled thumbnails. Four default 1600x900 windows have about 603px horizontal
-separation on the external display, versus 96px on the laptop panel at scale 2.
+fan with less than 48px between horizontal slots produce a short native notification instead
+of resizing or spilling onto another monitor. This remains a move-only
+presentation: it cannot expose whole full-size applications simultaneously.
+
+For four/five default 1600x900 windows, the external display provides 452px slot
+spacing. The selected window is fully exposed and each inactive surface retains
+about 33% geometrically unobscured area. On the laptop panel at scale 2, slot
+spacing is only 72px and inactive exposure drops to about 7–9%. Header strips are
+visible in the terminal test capture, but distinguishing real browser/editor
+contents at that density is constrained. Highly variable sizes and windows as
+tall as the usable area can further reduce recognizable content. More substantial
+previews would require smaller application windows or presentation scaling; this
+iteration introduces neither resizing nor a compositor plugin.
 
 Both dismissal paths restore surviving eligible windows' original positions.
 Confirm raises the chosen surface after restoration. Closing a participating
@@ -52,7 +70,7 @@ Native focus changes update application focus and Hyprland's recent-focus histor
 Confirming a different surface briefly refocuses the pre-Fan window before the
 selection, so Alt+Tab returns to that pre-Fan window when it is still eligible on
 the same workspace and monitor. This focus-history behavior is covered by the Lua
-tests; it has not yet been retested live.
+tests; this iteration does not change it.
 Cancel restores the original focused window and stacking among participating
 surfaces, but cannot undo focus notifications or restore the complete MRU history.
 The stacking snapshot follows the installed 0.57.1 implementation; it is not an
@@ -64,9 +82,9 @@ can be raised as a unit by Hyprland, so their precise stacking is not guaranteed
 The only integration is `require("config.fan")` immediately after the cascade in
 `hyprland.lua`. Removing that line disables the experiment on the next deployment
 and reload. No cascade, palette, animation or normal focus bindings were changed.
-The source is integrated; it has **not** been deployed with chezmoi or loaded
-permanently into the desktop. Permanent activation requires deploying the new
-module and updated entrypoint through the usual approved workflow.
+The existing prototype is already deployed. The 2026-11-06 spatial refinement was
+loaded only temporarily for live tests; its source changes have not been deployed
+with chezmoi or reloaded permanently.
 
 For a stuck submap, the documented Hyprland recovery command is:
 
@@ -79,7 +97,34 @@ also invokes the unload restoration handler. `fan.dispose()` supports temporary
 live testing: it restores the session and removes the module's own subscriptions
 and bindings without reloading the desktop.
 
-## Verification — 2026-11-05
+## Spatial refinement verification — 2026-11-06
+
+Hyprland remains 0.57.1 with the two display geometries listed below. Tests loaded
+the revised module temporarily and used disposable Kitty windows on workspace 98.
+Both monitors' original visible workspaces and the original application focus were
+restored; test windows and bindings were removed afterward.
+
+| Check | Result |
+| --- | --- |
+| Two, three, four, five windows on each monitor | Passed live, including every selection in a complete navigation cycle |
+| Selected surface centered and topmost | Passed live for every selection; no dimension changes |
+| Display boundaries | Passed live on both monitors, including panel reservations and scale |
+| Inactive exposure | All surfaces retained nonzero unobscured area; external 4/5-window exposure about 33%, laptop 7–9% |
+| Visual inspection | Five-window captures inspected on both monitors; central selection and exposed terminal labels confirmed |
+| Confirm/cancel | Passed live; exact original geometry, dimensions, focus on cancel, and stacking on cancel restored |
+| Open/close, workspace/monitor departure | Passed live on both monitors; survivors restored |
+| Unrelated applications | Geometry, workspace and monitor assignments unchanged in before/after snapshots |
+| Rotation, negative origins, asymmetric reservations, mixed sizes | Passed Lua simulation; every selection checked for centering, boundaries and nonzero exposed area |
+| Navigation repeatability and previous-focus behavior | Passed Lua tests; complete cycles returned to the same composition |
+| Native validation | Lua syntax, Hyprland config verifier and `git diff --check` passed |
+| Remaining hands-on evaluation | Physical keyboard input, perceived motion during ordinary work, and identification of real editor/browser content |
+
+Exposure percentages treat rectangles as opaque and account for their actual
+stacking order; they do not count content seen through terminal transparency.
+The existing curves, controls, dismissal paths, palette, borders and opacity
+were not changed. Tests invoked the same module callbacks used by the bindings.
+
+## Initial prototype verification — 2026-11-05
 
 Installed compositor: Hyprland 0.57.1, commit
 `acc1aa0bfd4bd575dcb0f76c35ccf12b660a1ab9`. Two live displays: external

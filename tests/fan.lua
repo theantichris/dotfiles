@@ -91,11 +91,61 @@ local function restored(original, skip)
     end
     assert(currentSubmap == '', 'submap stuck')
 end
+
+local function spatiallyValid(original)
+    local width, height = monitor.width, monitor.height
+    if monitor.transform % 2 == 1 then width, height = height, width end
+    local left = monitor.position.x + monitor.reserved.left + 16
+    local top = monitor.position.y + monitor.reserved.top + 16
+    local right = monitor.position.x + width / monitor.scale - monitor.reserved.right - 16
+    local bottom = monitor.position.y + height / monitor.scale - monitor.reserved.bottom - 16
+    assert(math.abs(active.at.x + active.size.x / 2 - (left + right) / 2) <= 1, 'selection not centered horizontally')
+    assert(math.abs(active.at.y + active.size.y / 2 - (top + bottom) / 2) <= 1, 'selection not centered vertically')
+    assert(windows[#windows] == active, 'selection not in front')
+    local xs, ys = {}, {}
+    for _, item in ipairs(original) do
+        local w = item.window
+        assert(w.at.x >= left - 1 and w.at.x + w.size.x <= right + 1, 'horizontal boundary crossed')
+        assert(w.at.y >= top - 1 and w.at.y + w.size.y <= bottom + 1, 'vertical boundary crossed')
+        xs[#xs + 1], xs[#xs + 2] = w.at.x, w.at.x + w.size.x
+        ys[#ys + 1], ys[#ys + 2] = w.at.y, w.at.y + w.size.y
+    end
+    table.sort(xs)
+    table.sort(ys)
+    -- Partition the rectangles at every edge and attribute each cell to its
+    -- topmost window. This detects fully obscured surfaces, including mixed sizes.
+    local exposed = {}
+    for x = 1, #xs - 1 do
+        for y = 1, #ys - 1 do
+            local cx, cy = (xs[x] + xs[x + 1]) / 2, (ys[y] + ys[y + 1]) / 2
+            for i = #windows, 1, -1 do
+                local w = windows[i]
+                if cx >= w.at.x and cx < w.at.x + w.size.x and cy >= w.at.y and cy < w.at.y + w.size.y then
+                    exposed[w] = (exposed[w] or 0) + (xs[x + 1] - xs[x]) * (ys[y + 1] - ys[y])
+                    break
+                end
+            end
+        end
+    end
+    for _, item in ipairs(original) do assert((exposed[item.window] or 0) > 0, 'surface completely obscured') end
+end
+
 for _, scaled in ipairs({ false, true }) do
-    for count = 2, 4 do
+    for count = 2, 5 do
         local fan, original = setup(count, scaled)
         fan.start()
         assert(currentSubmap == 'cyberdeck-fan')
+        spatiallyValid(original)
+        local positions = {}
+        for _, item in ipairs(original) do positions[item.window] = { x = item.window.at.x, y = item.window.at.y } end
+        for _ = 1, count do
+            fan.step(1)
+            spatiallyValid(original)
+        end
+        for _, item in ipairs(original) do
+            local at = positions[item.window]
+            assert(item.window.at.x == at.x and item.window.at.y == at.y, 'full navigation cycle changed composition')
+        end
         local lastX, lastY
         for _, item in ipairs(original) do
             local w = item.window
@@ -118,6 +168,22 @@ for _, scaled in ipairs({ false, true }) do
         restored(original)
         assert(active == selected and windows[#windows] == selected)
         assert(focusHistory[2] == initialFocus, 'pre-Fan window is not the previous focus')
+    end
+end
+-- Negative monitor origins, rotation, asymmetric reservations and varied sizes.
+for _, rotated in ipairs({ false, true }) do
+    local fan, original = setup(5)
+    monitor.position = { x = -3440, y = -120 }
+    monitor.reserved = { left = 37, top = 53, right = 71, bottom = 23 }
+    if rotated then monitor.width, monitor.height, monitor.transform = 1440, 3440, 1 end
+    original[1].window.size = { x = 700, y = 420 }
+    original[2].window.size = { x = 1200, y = 700 }
+    original[3].window.size = { x = 1400, y = 850 }
+    fan.start()
+    for _ = 1, 5 do spatiallyValid(original); fan.step(1) end
+    fan.cancel()
+    for _, item in ipairs(original) do
+        assert(item.window.at.x == item.x and item.window.at.y == item.y, 'mixed geometry not restored')
     end
 end
 local fan, original = setup(4)
@@ -173,4 +239,4 @@ fan, original = setup(2)
 original[1].window.floating = false
 fan.start()
 restored(original)
-print('PASS: 2/3/4 windows, both live monitor dimensions, navigation, confirm/cancel, geometry/stack restoration, close/open, context changes, unload, exclusions and insufficient space')
+print('PASS: 2/3/4/5 windows, centered selection, exposed inactive surfaces, cyclic composition, both monitor dimensions, mixed sizes, rotation/origins/reservations, confirm/cancel, geometry/stack/history restoration and lifecycle handling')

@@ -71,6 +71,39 @@ function fan.confirm()
     finish(true, true)
 end
 
+local function arrange()
+    local saved = session
+    if not saved then return end
+    local selectedIndex = 1
+    for i, item in ipairs(saved.items) do
+        if item.window == saved.selected then selectedIndex = i; break end
+    end
+    local count, placements = #saved.items, {}
+    local area = saved.area
+    for i, item in ipairs(saved.items) do
+        -- Treat the stable spatial order as a ring: next comes from the right,
+        -- previous from the left, including across the navigation wrap.
+        local offset = (i - selectedIndex) % count
+        if offset > math.floor(count / 2) then offset = offset - count end
+        local depth = math.abs(offset)
+        local layer = depth + (offset < 0 and 0.5 or 0)
+        local size = item.window.size
+        placements[#placements + 1] = {
+            window = item.window, depth = layer,
+            x = math.floor(area.left + (area.width - size.x) / 2 + offset * area.pitch),
+            y = math.floor(area.top + (area.height - (depth == 0 and size.y or area.maxHeight)) / 2 - layer * area.lift),
+        }
+    end
+    -- Outer surfaces behind inner surfaces, with attention always in front.
+    table.sort(placements, function(a, b)
+        return a.depth > b.depth
+    end)
+    for _, placement in ipairs(placements) do
+        move(placement.window, placement.x, placement.y)
+        hl.dispatch(hl.dsp.window.alter_zorder({ window = placement.window, mode = "top" }))
+    end
+end
+
 function fan.step(delta)
     if not session then
         return
@@ -84,6 +117,7 @@ function fan.step(delta)
     end
     index = (index - 1 + delta) % #session.items + 1
     session.selected = session.items[index].window
+    arrange()
     hl.dispatch(hl.dsp.focus({ window = session.selected }))
 end
 
@@ -126,8 +160,10 @@ function fan.start()
     local usableHeight = height / monitor.scale - reserved.top - reserved.bottom - margin * 2
     local spanX = usableWidth - maxWidth
     local spanY = usableHeight - maxHeight
+    local maxDepth = math.floor(#items / 2)
+    local pitch = spanX / (2 * maxDepth)
     -- Do not resize clients or spill onto another monitor to manufacture space.
-    if spanX < 0 or spanY < 0 or math.max(spanX, spanY) / (#items - 1) < 48 then
+    if spanX < 0 or spanY < 0 or pitch < 48 then
         hl.notification.create({ text = "Fan: insufficient room for a move-only spread", timeout = 2500 })
         return
     end
@@ -139,6 +175,11 @@ function fan.start()
     session = {
         workspace = workspace, monitor = monitor, items = items, stack = stack,
         focus = hl.get_active_window(), selected = hl.get_active_window(),
+        area = {
+            left = left, top = top, width = usableWidth, height = usableHeight,
+            pitch = pitch, maxHeight = maxHeight,
+            lift = math.min(usableHeight * 0.045, spanY / (2 * (maxDepth + 0.5))),
+        },
     }
     local found = false
     for _, item in ipairs(items) do
@@ -146,16 +187,7 @@ function fan.start()
     end
     if not found then session.selected = items[1].window end
     hl.dispatch(hl.dsp.submap(submap))
-    -- Spread mostly horizontally, or vertically on narrow displays. Keep the
-    -- secondary stagger shallow; native window movement supplies the animation.
-    if spanX >= spanY then spanY = math.min(spanY, 160)
-    else spanX = math.min(spanX, 160) end
-    left = left + (usableWidth - maxWidth - spanX) / 2
-    top = top + (usableHeight - maxHeight - spanY) / 2
-    for i, item in ipairs(items) do
-        local t = (i - 1) / (#items - 1)
-        move(item.window, math.floor(left + spanX * t), math.floor(top + spanY * t))
-    end
+    arrange()
     hl.dispatch(hl.dsp.focus({ window = session.selected }))
 end
 
@@ -205,7 +237,10 @@ on("window.active", function(window)
     if not session then return end
     for _, item in ipairs(session.items) do
         if item.window == window then
-            session.selected = window
+            if session.selected ~= window then
+                session.selected = window
+                arrange()
+            end
             return
         end
     end

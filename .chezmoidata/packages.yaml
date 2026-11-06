@@ -23,6 +23,7 @@ packages:
     - man-db
     - nodejs
     - npm
+    - quickshell
     - ripgrep
     - rust-analyzer
     - rust-clippy

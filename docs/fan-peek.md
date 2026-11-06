@@ -13,12 +13,13 @@ current workspace. The normal three-slot, 80px cascade is unchanged.
 | Enter | Restore positions and focus/raise the selected surface |
 | Escape (with or without modifiers) | Restore positions, original focus and stacking |
 | Super+Ctrl+Escape | Restore and lock through the existing Noctalia command |
+| Print / Super+Print | Existing region / fullscreen screenshot shortcuts |
 
 Release the activation modifiers before using the plain navigation keys.
 Navigation wraps in spatial order (original X, then Y, then address). Selection
 uses actual focus, so the existing border, opacity and magenta halo identify it.
 The Fan submap temporarily replaces ordinary window shortcuts; those return on
-exit. No shortcuts outside this submap were replaced.
+exit. Screenshot bindings are available across submaps without duplicate entries.
 
 ## Behavior and boundaries
 

@@ -169,8 +169,8 @@ hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(noctCall .. "brightness-down"),
 
 -- Screen Capture
 hl.bind(mainMod .. " + P",     hl.dsp.exec_cmd("hyprpicker -a -n"),                  { description = "Color picker" })
-hl.bind("Print",               hl.dsp.exec_cmd(noctCall .. "screenshot-region"),     { description = "Screenshot region" })
-hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd(noctCall .. "screenshot-fullscreen"), { description = "Screenshot fullscreen" })
+hl.bind("Print",               hl.dsp.exec_cmd(noctCall .. "screenshot-region"),     { submap_universal = true, description = "Screenshot region" })
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd(noctCall .. "screenshot-fullscreen"), { submap_universal = true, description = "Screenshot fullscreen" })
 
 -- Theming and Wallpaper
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(noctCall .. "panel-toggle wallpaper"), { description = "Wallpaper picker" })

@@ -297,3 +297,5 @@ fullscreen
 Keybinds
 changelog
 CyberSpace
+Tachums
+Doublings

@@ -301,3 +301,5 @@ Tachums
 Doublings
 Lenition
 lenition
+mouseover
+cursor's

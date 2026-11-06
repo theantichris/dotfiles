@@ -48,6 +48,10 @@ is discarded. A client that resizes itself retains that size: Fan never issues a
 resize to override application requests.
 
 Native focus changes update application focus and Hyprland's recent-focus history.
+Confirming a different surface briefly refocuses the pre-Fan window before the
+selection, so Alt+Tab returns to that pre-Fan window when it is still eligible on
+the same workspace and monitor. This focus-history behavior is covered by the Lua
+tests; it has not yet been retested live.
 Cancel restores the original focused window and stacking among participating
 surfaces, but cannot undo focus notifications or restore the complete MRU history.
 The stacking snapshot follows the installed 0.57.1 implementation; it is not an

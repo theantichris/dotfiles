@@ -38,6 +38,12 @@ local function finish(confirm, restoreFocus)
     end
     local target = confirm and saved.selected or saved.focus
     if restoreFocus and belongs(target, saved) and not target.hidden then
+        -- Make the pre-Fan surface the previous focus, rather than the last
+        -- surface previewed while browsing. Both dispatches run in this callback.
+        if confirm and saved.focus ~= target and belongs(saved.focus, saved)
+            and eligible(saved.focus) then
+            hl.dispatch(hl.dsp.focus({ window = saved.focus }))
+        end
         hl.dispatch(hl.dsp.focus({ window = target }))
     end
     -- get_windows is bottom-to-top in 0.57.1 (WindowState::windows).

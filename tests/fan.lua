@@ -1,5 +1,6 @@
 -- Run from the checkout: lua tests/fan.lua
 local windows, active, workspace, monitor, special, currentSubmap, events, bindings
+local focusHistory
 local function emit(name, ...)
     for _, callback in ipairs(events[name] or {}) do callback(...) end
 end
@@ -44,6 +45,10 @@ end end
 hl.dsp.focus = function(options) return function()
     assert(options.window.mapped, 'attempt to focus a closed window')
     active = options.window
+    for i, window in ipairs(focusHistory) do
+        if window == active then table.remove(focusHistory, i); break end
+    end
+    table.insert(focusHistory, 1, active)
     raise(active) -- models the existing focus.lua callback
     emit('window.active', active)
 end end
@@ -73,6 +78,8 @@ local function setup(count, scaled)
         windows[i], original[i] = w, { window = w, x = w.at.x, y = w.at.y }
     end
     active = windows[#windows]
+    focusHistory = {}
+    for i = #windows, 1, -1 do focusHistory[#focusHistory + 1] = windows[i] end
     return dofile('dot_config/hypr/config/fan.lua'), original
 end
 local function restored(original, skip)
@@ -110,6 +117,7 @@ for _, scaled in ipairs({ false, true }) do
         fan.confirm()
         restored(original)
         assert(active == selected and windows[#windows] == selected)
+        assert(focusHistory[2] == initialFocus, 'pre-Fan window is not the previous focus')
     end
 end
 local fan, original = setup(4)

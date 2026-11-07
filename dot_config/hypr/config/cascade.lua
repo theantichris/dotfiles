@@ -5,7 +5,7 @@ local function eligible(window)
     return window and window.workspace and not window.workspace.special
         and window.monitor and not window.pinned
         and window.content_type ~= "game" and window.class ~= "gamescope"
-        and not (window.class or ""):match("^steam_app")
+        and (not (window.class or ""):match("^steam_app") or window.initial_title == "Battle.net")
         and not (window.xdg_tag or ""):find("game")
 end
 

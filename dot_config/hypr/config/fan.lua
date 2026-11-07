@@ -8,7 +8,7 @@ local function eligible(window)
         and window.accepts_input and not window.pinned and not window.group
         and window.fullscreen == 0 and window.fullscreen_client == 0
         and window.content_type ~= "game" and window.class ~= "gamescope"
-        and not (window.class or ""):match("^steam_app")
+        and (not (window.class or ""):match("^steam_app") or window.initial_title == "Battle.net")
         and not (window.xdg_tag or ""):find("game")
 end
 

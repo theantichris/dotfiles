@@ -109,6 +109,18 @@ for _, contentType in ipairs({ "none", "photo", "video" }) do
     })
 end
 
+-- Battle.net shares a Steam game class but is an ordinary application window.
+hl.window_rule({
+    match = {
+        class         = "^(steam_app.*)$",
+        initial_title = "^Battle\\.net$",
+    },
+    float            = true,
+    size             = { 1600, 900 },
+    persistent_size  = false,
+    fullscreen_state = 0,
+})
+
 -- Game-tagged windows override the ordinary floating launch defaults.
 hl.window_rule({ match = { xdg_tag = "^(.*game.*)$" }, float = false, fullscreen_state = 2, content = "game", sync_fullscreen = true })
 

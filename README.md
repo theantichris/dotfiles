@@ -63,6 +63,13 @@ desktop tools and Shelly to be available already. Other hooks set Brave as the
 default browser, Superfile as the folder opener, add Rust source support, and
 rebuild bat's theme cache.
 
+After applying on CachyOS, enable Chroncal's user timer for background reminders
+and calendar sync:
+
+```sh
+systemctl --user enable --now chroncal-alarm.timer
+```
+
 On `tranchion`, Mitos is a separate prerequisite; the package hook does not
 install it. Download the Linux archive for the machine's architecture from
 [Mitos releases](https://github.com/mitos-editor/mitos/releases), extract it

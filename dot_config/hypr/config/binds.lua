@@ -136,6 +136,7 @@ hl.bind(mainMod .. " + period", hl.dsp.exec_cmd(noctCall .. "panel-toggle launch
 hl.bind(mainMod .. " + slash",  hl.dsp.exec_cmd("noctalia msg panel-toggle kenn/keybind-cheatsheet:cheatsheet"), { description = "Keybind cheatsheet" })
 hl.bind(mainMod .. " + CONTROL + Escape", hl.dsp.exec_cmd(noctCall .. "session lock"), { description = "Lock screen" })
 hl.bind(mainMod .. " + ALT + C", hl.dsp.exec_cmd(noctCall .. "panel-toggle session"), { description = "Session menu" })
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(noctCall .. "panel-toggle control-center notifications"), { description = "Notifications" })
 
 -- 4. Hardware
 
@@ -165,8 +166,16 @@ hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd(noctCall .. "screenshot-fullscree
 -- Clipboard
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(noctCall .. "panel-toggle clipboard"), { description = "Clipboard history" })
 
--- Notifications
-hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(noctCall .. "panel-toggle control-center notifications"), { description = "Notifications" })
+-- Dedicated scratchpad terminal
+local scratchpadWorkspace = "terminal"
+local scratchpadClass = "kitty-scratchpad"
+hl.bind(mainMod .. " + grave", function()
+    local scratchpads = hl.get_windows({ class = scratchpadClass })
+    if #scratchpads == 0 then
+        hl.exec_cmd(launchPrefix .. TERMINAL .. " --class " .. scratchpadClass)
+    end
+    hl.dispatch(hl.dsp.workspace.toggle_special(scratchpadWorkspace))
+end, { description = "Scratchpad terminal" })
 
 -- 6. Workspaces and monitors
 
@@ -186,16 +195,3 @@ end
 -- Match the external display by description so HDMI and USB-C/DP both work.
 hl.bind(mainMod .. " + ALT + H", hl.dsp.workspace.move({ monitor = "desc:CORSAIR MEMORY Inc. 34WQHD240-C A958A4231050" }), { description = "Move workspace to external monitor (left)" })
 hl.bind(mainMod .. " + ALT + L", hl.dsp.workspace.move({ monitor = "eDP-1" }), { description = "Move workspace to laptop monitor (right)" })
-
--- 7. Scratchpads
-
--- Dedicated scratchpad terminal
-local scratchpadWorkspace = "terminal"
-local scratchpadClass = "kitty-scratchpad"
-hl.bind(mainMod .. " + grave", function()
-    local scratchpads = hl.get_windows({ class = scratchpadClass })
-    if #scratchpads == 0 then
-        hl.exec_cmd(launchPrefix .. TERMINAL .. " --class " .. scratchpadClass)
-    end
-    hl.dispatch(hl.dsp.workspace.toggle_special(scratchpadWorkspace))
-end, { description = "Scratchpad terminal" })

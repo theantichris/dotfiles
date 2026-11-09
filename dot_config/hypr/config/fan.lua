@@ -196,7 +196,7 @@ local function bind(key, callback, options)
     fan.bindings[#fan.bindings + 1] = hl.bind(key, callback, options)
 end
 
--- 8. Fan
+-- 7. Fan
 
 bind("SUPER + SHIFT + Tab", fan.start, { description = "Fan floating surfaces" })
 hl.define_submap(submap, function()

@@ -191,27 +191,28 @@ function fan.start()
     hl.dispatch(hl.dsp.focus({ window = session.selected }))
 end
 
-local function bind(key, callback, description, options)
+local function bind(key, callback, options)
     options = options or {}
-    options.description = description
     fan.bindings[#fan.bindings + 1] = hl.bind(key, callback, options)
 end
 
-bind("SUPER + SHIFT + Tab", fan.start, "Fan floating surfaces")
+-- 8. Fan
+
+bind("SUPER + SHIFT + Tab", fan.start, { description = "Fan floating surfaces" })
 hl.define_submap(submap, function()
     for _, key in ipairs({ "L", "J" }) do
-        bind(key, function() fan.step(1) end, "Fan: next surface")
+        bind(key, function() fan.step(1) end, { description = "Fan: next surface" })
     end
     for _, key in ipairs({ "H", "K" }) do
-        bind(key, function() fan.step(-1) end, "Fan: previous surface")
+        bind(key, function() fan.step(-1) end, { description = "Fan: previous surface" })
     end
-    bind("Return", fan.confirm, "Fan: confirm")
-    bind("Escape", fan.cancel, "Fan: cancel", { ignore_mods = true })
+    bind("Return", fan.confirm, { description = "Fan: confirm" })
+    bind("Escape", fan.cancel, { ignore_mods = true, description = "Fan: cancel" })
     -- Keep the lock shortcut available without leaving a spread behind.
     bind("SUPER + CONTROL + Escape", function()
         fan.cancel()
         hl.exec_cmd("noctalia msg session lock")
-    end, "Fan: cancel and lock")
+    end, { description = "Fan: cancel and lock" })
 end)
 
 local function on(event, callback)

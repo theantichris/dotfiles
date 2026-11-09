@@ -28,7 +28,6 @@ hl.bind(mainMod .. " + SHIFT + Space", function()
 end, { description = "Toggle floating for all windows on current workspace" })
 hl.bind(mainMod .. " + D",             hl.dsp.window.fullscreen({ mode = 1 }),         { description = "Maximize window" })
 hl.bind(mainMod .. " + F",             hl.dsp.window.fullscreen(),                     { description = "Toggle fullscreen" })
-hl.bind(mainMod .. " + CONTROL + C",   hl.dsp.window.center(),                         { description = "Center floating window" })
 
 -- Change focus
 hl.bind(mainMod .. " + H",   hl.dsp.focus({ direction = "left" }),  { description = "Focus left" })
@@ -54,7 +53,6 @@ hl.bind("ALT + Tab", function()
         hl.dispatch(hl.dsp.focus({ window = last }))
     end
 end, { description = "Focus last window on current workspace" })
-hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd(noctCall .. "window-switcher"), { description = "Window switcher" })
 
 -- Rearrange tiled windows or nudge floating windows (hold to repeat).
 local function moveWindow(direction, x, y)
@@ -113,16 +111,9 @@ end
 hl.bind(mainMod .. " + Minus", scaleWindow(1 / 1.1), { repeating = true, description = "Shrink floating window proportionally" })
 hl.bind(mainMod .. " + Equal", scaleWindow(1.1),     { repeating = true, description = "Grow floating window proportionally" })
 
--- Reset master split to 50/50
-hl.bind(mainMod .. " + CONTROL + R", hl.dsp.layout("mfact exact 0.5"), { description = "Reset master split" })
-
 hl.bind(mainMod .. " + SHIFT + R", function()
     require("config.cascade").resetWorkspace()
 end, { description = "Reset workspace windows to default size and cascade" })
-
--- Move & Resize with mouse
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { description = "Drag window" })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { description = "Resize window" })
 
 -- 2. Applications
 
@@ -130,7 +121,6 @@ hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(launchPrefix .. TERMINAL),     {
 hl.bind(mainMod .. " + E",      hl.dsp.exec_cmd(launchPrefix .. FILE_MANAGER), { description = "Open file manager" })
 hl.bind(mainMod .. " + T",      hl.dsp.exec_cmd(launchPrefix .. EDITOR),       { description = "Open editor" })
 hl.bind(mainMod .. " + C",      hl.dsp.exec_cmd(launchPrefix .. CALCULATOR),   { description = "Open calculator" })
-hl.bind("XF86Calculator",       hl.dsp.exec_cmd(launchPrefix .. CALCULATOR),   { description = "Open calculator" })
 hl.bind(mainMod .. " + W",      hl.dsp.exec_cmd(launchPrefix .. BROWSER),      { description = "Open browser" })
 hl.bind(mainMod .. " + SHIFT + Escape", hl.dsp.exec_cmd(
     launchPrefix .. TERMINAL .. " -e btop",
@@ -172,9 +162,6 @@ hl.bind(mainMod .. " + P",     hl.dsp.exec_cmd("hyprpicker -a -n"),             
 hl.bind("Print",               hl.dsp.exec_cmd(noctCall .. "screenshot-region"),     { submap_universal = true, description = "Screenshot region" })
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd(noctCall .. "screenshot-fullscreen"), { submap_universal = true, description = "Screenshot fullscreen" })
 
--- Theming and Wallpaper
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(noctCall .. "panel-toggle wallpaper"), { description = "Wallpaper picker" })
-
 -- Clipboard
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(noctCall .. "panel-toggle clipboard"), { description = "Clipboard history" })
 
@@ -187,7 +174,7 @@ hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(noctCall .. "panel-toggle control-cen
 for i = 1, NUM_WPM do
     local key = i % 10
     hl.bind(mainMod .. " + " .. key,         hl.dsp.focus({ workspace = i }),                        { description = "Switch to workspace " .. i })
-    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i, follow = true }),  { description = "Move window to workspace " .. i .. " and follow" })
+    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i, follow = true }),  { description = "Move window to workspace and follow" })
 end
 
 -- Move the entire current workspace (all its windows) using the physical layout:
@@ -208,7 +195,3 @@ hl.bind(mainMod .. " + grave", function()
     end
     hl.dispatch(hl.dsp.workspace.toggle_special(scratchpadWorkspace))
 end, { description = "Scratchpad terminal" })
-
--- General special workspace (scratchpad)
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special" }), { description = "Send window to scratchpad" })
-hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special(),               { description = "Toggle scratchpad" })

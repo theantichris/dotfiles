@@ -21,6 +21,7 @@ packages:
     - kitty
     - less
     - man-db
+    - nmap
     - nodejs
     - npm
     - quickshell
@@ -65,6 +66,7 @@ packages:
     - lua-language-server
     - make
     - marksman
+    - nmap
     - npm
     - openssh
     - pkg-config

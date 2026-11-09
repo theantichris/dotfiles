@@ -191,10 +191,10 @@ for i = 1, NUM_WPM do
 end
 
 -- Move the entire current workspace (all its windows) using the physical layout:
--- laptop panel on the left, external display on the right.
+-- external display on the left, laptop panel on the right.
 -- Match the external display by description so HDMI and USB-C/DP both work.
-hl.bind(mainMod .. " + ALT + H", hl.dsp.workspace.move({ monitor = "eDP-1" }), { description = "Move workspace to laptop monitor (left)" })
-hl.bind(mainMod .. " + ALT + L", hl.dsp.workspace.move({ monitor = "desc:CORSAIR MEMORY Inc. 34WQHD240-C A958A4231050" }), { description = "Move workspace to external monitor (right)" })
+hl.bind(mainMod .. " + ALT + H", hl.dsp.workspace.move({ monitor = "desc:CORSAIR MEMORY Inc. 34WQHD240-C A958A4231050" }), { description = "Move workspace to external monitor (left)" })
+hl.bind(mainMod .. " + ALT + L", hl.dsp.workspace.move({ monitor = "eDP-1" }), { description = "Move workspace to laptop monitor (right)" })
 
 -- 7. Scratchpads
 

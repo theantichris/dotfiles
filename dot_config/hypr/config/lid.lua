@@ -6,7 +6,7 @@ local function enable_laptop_display()
         output   = "eDP-1",
         disabled = false,
         mode     = "3840x2400@240",
-        position = "auto-left",
+        position = "auto-right",
         scale    = 2,
         bitdepth = 10,
         vrr      = 0,

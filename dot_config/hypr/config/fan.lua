@@ -208,11 +208,6 @@ hl.define_submap(submap, function()
     end
     bind("Return", fan.confirm, { description = "Fan: confirm" })
     bind("Escape", fan.cancel, { ignore_mods = true, description = "Fan: cancel" })
-    -- Keep the lock shortcut available without leaving a spread behind.
-    bind("SUPER + CONTROL + Escape", function()
-        fan.cancel()
-        hl.exec_cmd("noctalia msg session lock")
-    end, { description = "Fan: cancel and lock" })
 end)
 
 local function on(event, callback)

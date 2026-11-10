@@ -122,7 +122,7 @@ hl.bind(mainMod .. " + E",      hl.dsp.exec_cmd(launchPrefix .. FILE_MANAGER), {
 hl.bind(mainMod .. " + T",      hl.dsp.exec_cmd(launchPrefix .. EDITOR),       { description = "Open editor" })
 hl.bind(mainMod .. " + C",      hl.dsp.exec_cmd(launchPrefix .. CALCULATOR),   { description = "Open calculator" })
 hl.bind(mainMod .. " + W",      hl.dsp.exec_cmd(launchPrefix .. BROWSER),      { description = "Open browser" })
-hl.bind(mainMod .. " + SHIFT + Escape", hl.dsp.exec_cmd(
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(
     launchPrefix .. TERMINAL .. " -e btop",
     { float = true, size = { "monitor_w*0.65", "monitor_h*0.72" }, center = true }
 ), { description = "System monitor" })

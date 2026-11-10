@@ -16,3 +16,15 @@ sys_info
 init_daemon
 info_logs
 witte
+chatfunc
+runturn
+chatstreamfunc
+turnid
+newturn
+newsession
+appenduser
+appendassistant
+turnevent
+turneventkind
+turneventcontent
+turneventcompleted

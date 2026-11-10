@@ -198,7 +198,7 @@ end
 
 -- 7. Fan
 
-bind("SUPER + SHIFT + Tab", fan.start, { description = "Fan floating surfaces" })
+bind("ALT + SHIFT + Tab", fan.start, { description = "Fan floating surfaces" })
 hl.define_submap(submap, function()
     for _, key in ipairs({ "L", "J" }) do
         bind(key, function() fan.step(1) end, { description = "Fan: next surface" })

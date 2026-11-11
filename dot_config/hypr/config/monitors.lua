@@ -10,7 +10,7 @@ hl.monitor({
 hl.monitor({
   output   = "eDP-1",
   mode     = "3840x2400@240",
-  position = "auto-right",
+  position = "auto-left",
   scale    = 2,
   bitdepth = 10,
   vrr      = 0,

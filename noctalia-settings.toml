@@ -3,10 +3,11 @@ config_version = 16
 [bar.default]
 background_opacity = 0.59999998658895493
 capsule = false
+center = []
 end = [ "media", "spacer_1", "tray", "spacer_1", "group:g2", "spacer_1", "privacy", "spacer_1", "group:g3" ]
 font_family = "Hack Nerd Font Mono"
 font_weight = 700
-start = [ "clock", "spacer_1", "weather", "spacer_1", "group:g1" ]
+start = [ "clock", "spacer_1", "weather", "spacer_1", "group:g1", "spacer_1", "workspaces", "spacer_1", "active_window" ]
 
     [[bar.default.capsule_group]]
     accordion = false
@@ -55,9 +56,9 @@ warning_threshold = 10
 enable_ddcutil = true
 sync_all_monitors = true
 
-[brightness.monitor.eDP-1]
-backend = "backlight"
-backlight_device = "intel_backlight"
+    [brightness.monitor.eDP-1]
+    backend = "backlight"
+    backlight_device = "intel_backlight"
 
 [calendar]
 dedupe_events = true

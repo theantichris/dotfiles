@@ -98,6 +98,8 @@ termux:
         - .local/bin
         - .local/bin/ms
         - .local/bin/journal-sync
+        - .shortcuts
+        - .shortcuts/Notes
         - .local/share
         - .local/share/mitos
         - .local/share/mitos/source-v0.1.2

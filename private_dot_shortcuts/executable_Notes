@@ -1,0 +1,17 @@
+#!/data/data/com.termux/files/usr/bin/sh
+set -eu
+
+cd "$HOME/Documents/Notes"
+
+if ! git pull --ff-only --no-rebase --no-autostash; then
+	printf '\nNotes pull failed. Resolve the Git error before opening Mitos.\n' >&2
+	printf 'Press Enter to close. '
+	read -r reply
+	exit 1
+fi
+
+today=$(date +%F)
+year=${today%%-*}
+mkdir -p "Journal/$year"
+
+exec "$HOME/.local/bin/ms" -- "Journal/$year/$today.md"

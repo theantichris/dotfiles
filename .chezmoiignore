@@ -11,6 +11,7 @@ noctalia-settings.toml
 
 {{ if ne .chezmoi.os "android" -}}
 .termux
+.shortcuts
 .local/bin/ms
 .config/fish/completions/ms.fish
 {{ end -}}

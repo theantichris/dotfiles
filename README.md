@@ -140,6 +140,14 @@ setting, apply, then run `exec fish` to refresh the current shell.
 Git and chezmoi run `ms` from `PATH`. Fish selects it through `EDITOR`,
 `VISUAL`, `GIT_EDITOR`, `GIT_SEQUENCE_EDITOR`, and `GH_EDITOR`.
 
+The `mitos` selection also installs `~/.shortcuts/Notes` for Termux:Widget.
+It pulls `~/Documents/Notes` with a fast-forward-only update, then opens
+`Journal/YYYY/YYYY-MM-DD.md` in Mitos using the phone's current date. A failed
+pull leaves the error visible and stops the shortcut. If today's note does not
+exist, Mitos opens a new file without inserting the journal template. After
+applying on tranch-fold, refresh the Termux:Widget widget and select **Notes**,
+or add it as an individual launcher shortcut.
+
 Mitos's personal dictionaries and English ignored-word list link to the word
 lists in the chezmoi source checkout. To share accepted or ignored words,
 commit and push those lists, update the checkout on the other machine, and

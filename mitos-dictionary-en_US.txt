@@ -339,3 +339,7 @@ fintech
 Dreadlock
 addon
 Ignis
+Vampiric
+Shadowform
+UX
+DBA

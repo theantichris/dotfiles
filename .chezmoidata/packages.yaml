@@ -93,6 +93,7 @@ packages:
     - git-delta
     - glow
     - go
+    - goreleaser
     - go-tools
     - gopls
     - harper

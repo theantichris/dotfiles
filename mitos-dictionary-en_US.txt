@@ -183,7 +183,6 @@ SHA-256
 HackTheBox
 ParrotOS
 cheatsheets
-TradeSkillMaster
 Go's
 whitespace
 PascalCase

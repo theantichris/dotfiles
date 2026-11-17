@@ -145,7 +145,7 @@ packages:
     - yaml-language-server
   go:
     - name: ghost
-      module: github.com/theantichris/ghost@latest
+      module: github.com/theantichris/ghost/v4@latest
     - name: go-global-update
       module: github.com/Gelio/go-global-update@latest
     - name: yamlfmt

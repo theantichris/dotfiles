@@ -113,6 +113,7 @@ packages:
     - openai-codex
     - pkgconf
     - qemu-desktop
+    - qflipper
     - ripgrep
     - rust-analyzer
     - rustup

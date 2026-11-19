@@ -362,3 +362,8 @@ Plaguelands
 Winterspring
 Unmount
 Starner
+Ayr
+Portree
+Tiree
+grey-green
+grey
